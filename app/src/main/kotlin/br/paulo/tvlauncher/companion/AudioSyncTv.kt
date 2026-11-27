@@ -36,10 +36,19 @@ object AudioSyncTv {
     @Volatile private var playing = false
 
     /** Toca [AudioSyncMath.BEEPS] bipes numa thread própria; a hora de cada um fica em [written]. false = já tocando. */
-    @Synchronized fun startBeeps(): Boolean {
+    @Synchronized fun startBeeps(ctx: Context): Boolean {
         if (playing) return false
         playing = true; written = emptyList()
-        Thread({ runCatching { beeps() }; playing = false }, "companion-beeps").start()
+        Thread({
+            // Pede o som só para os bipes: o app que está tocando (YouTube, Netflix, player) pausa e volta sozinho depois.
+            // Sem isso a série continuava por baixo e o celular não separava o bipe da fala (revisão, 25/11/2026).
+            val am = ctx.getSystemService(AudioManager::class.java)
+            val foco = android.media.AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT)
+                .setAudioAttributes(AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_MEDIA).setContentType(AudioAttributes.CONTENT_TYPE_MUSIC).build())
+                .setOnAudioFocusChangeListener { }.build()
+            runCatching { am?.requestAudioFocus(foco) }
+            try { runCatching { beeps() } } finally { runCatching { am?.abandonAudioFocusRequest(foco) }; playing = false }
+        }, "companion-beeps").start()
         return true
     }
 

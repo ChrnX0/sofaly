@@ -1,14 +1,14 @@
 // Ouvido dos bipes (companion.js, 24/11/2026): roda na thread de áudio do navegador. Para cada bloco de 128 amostras
-// do microfone manda a energia do som "agudo" (diferença entre amostras vizinhas, que realça o bipe de 2 kHz e apaga o
-// ronco da sala) e o número do primeiro quadro do bloco. Junta 16 blocos por mensagem (~43 ms) para não afogar a página.
+// do microfone, já passadas pelo filtro de 2 kHz da página (BiquadFilter), manda a energia e o número do primeiro quadro
+// do bloco. Junta 16 blocos por mensagem (~43 ms) para não afogar a página. (Até 25/11/2026 usava a diferença entre
+// amostras vizinhas, que dava mais peso ao chiado que ao bipe.)
 class OuvidoBipes extends AudioWorkletProcessor {
-  constructor() { super(); this.lote = []; this.ant = 0; }
+  constructor() { super(); this.lote = []; }
   process(entradas) {
     const c = entradas[0] && entradas[0][0];
     if (c) {
-      let e = 0, a = this.ant;
-      for (let i = 0; i < c.length; i++) { const d = c[i] - a; e += d * d; a = c[i]; }
-      this.ant = a;
+      let e = 0;
+      for (let i = 0; i < c.length; i++) e += c[i] * c[i];
       this.lote.push(currentFrame, e / c.length);
       if (this.lote.length >= 32) { this.port.postMessage(this.lote); this.lote = []; }
     }
