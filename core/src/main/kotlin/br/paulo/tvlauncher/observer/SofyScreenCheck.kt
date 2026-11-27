@@ -23,9 +23,12 @@ object SofyScreenCheck {
         val area get() = largura.coerceAtLeast(0).toLong() * altura.coerceAtLeast(0)
     }
 
-    /** [confirmados] = os achados já conferidos em duas leituras (null = conferir agora). */
+    /**
+     * [confirmados] = os achados já conferidos em duas leituras (null = conferir agora). [janela] = de onde veio a árvore
+     * lida (classe da raiz e número de nós), para o SEM_FOCO dizer o que foi lido (#620, 27/11/2026).
+     */
     data class Tela(val nome: String, val largura: Int, val altura: Int, val caixas: List<Caixa>, val temFoco: Boolean,
-                    val confirmados: List<Achado>? = null)
+                    val confirmados: List<Achado>? = null, val janela: String = "")
 
     enum class Defeito { CORTADO, INVISIVEL, SOBREPOSTO, SEM_FOCO }
     /** [onde] = o começo do texto (compara duas leituras); [caixa] = onde ele estava e o tamanho da tela, para a issue. */
@@ -52,7 +55,8 @@ object SofyScreenCheck {
             if (s > 0 && s > SOBRA_MAX * minOf(a.area, b.area)) achados += Achado(Defeito.SOBREPOSTO, "${rotulo(a)} / ${rotulo(b)}")
         }
         // Tela sem foco só é defeito quando há algo escrito nela (uma tela de vídeo pode não ter foco nenhum).
-        if (!t.temFoco && comTexto.isNotEmpty()) achados += Achado(Defeito.SEM_FOCO, t.nome)
+        if (!t.temFoco && comTexto.isNotEmpty())
+            achados += Achado(Defeito.SEM_FOCO, t.nome, if (t.janela.isEmpty()) "" else "[${t.janela}]")
         return achados.distinct()
     }
 
@@ -71,6 +75,16 @@ object SofyScreenCheck {
 
     /** O começo do texto, para o relatório. Não vai o texto inteiro: pode ter nome de cidade, de perfil, de filme. */
     private fun rotulo(c: Caixa) = c.texto.trim().take(18).replace('\n', ' ')
+
+    /**
+     * O placar da rodada para o diário, com o MOTIVO de cada tela não lida (#621, 27/11/2026): só "li 0 de 3" não dizia
+     * se era outra janela na frente, a tela que não abriu ou um erro. Até [MOTIVOS_MAX] motivos, cada um curto.
+     */
+    fun placar(lidas: Int, total: Int, motivos: List<String>): String =
+        "conferência de telas: li $lidas de $total" +
+            if (motivos.isEmpty()) "" else " (" + motivos.take(MOTIVOS_MAX).joinToString("; ") { it.take(90) } +
+                (if (motivos.size > MOTIVOS_MAX) "; +${motivos.size - MOTIVOS_MAX}" else "") + ")"
+    const val MOTIVOS_MAX = 6
 
     /** Uma linha curta para a issue/o diário: "previsao: CORTADO Sexta-feira". */
     fun resumo(tela: String, achados: List<Achado>) =
