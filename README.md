@@ -116,6 +116,10 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 - Panel: turning the phone microphone or camera off also clears the “Microphone on” or “Live on the TV” notice
 - Air quality: “Hazardous” is shown in alert red
 - Test channel: updates come in parts, so the TV downloads less, and the home screen frees graphics memory while another app is open or the screen is off
+- AdGuard DNS: in the panel (Router), paste your AdGuard key and the TV gets its own server “Sofaly · TV name”, private DNS and parental controls (bedtime, blocked services, safe YouTube and search); the last 24 hours show in the panel and in Diagnostics
+- Automations: each event shows its value under the name, and the settings tabs fade at the edge
+- Phone app: a TV that is offline shows a clear notice in the app instead of a browser error page
+- Assistant: when an action is blocked, it points to System › Advanced › Confirmations
 <!-- /auto:changes -->
 
 ## Every feature

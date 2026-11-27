@@ -23,7 +23,6 @@
     <string name="cel_baixado">Zapisano w Pobranych: %1$s</string>
     <string name="cel_baixar_falhou">Nie udało się zapisać pliku. Spróbuj ponownie.</string>
     <string name="cel_painel_completo">Pełny panel</string>
-    <string name="cel_ctrl_dica">Przesuń, aby się poruszać, dotknij, aby OK</string>
     <string name="cel_ctrl_area">Przesuń lub dotknij tutaj</string>
     <string name="cel_ctrl_digite">Wpisz tutaj i wyślij do telewizora</string>
     <string name="cel_ctrl_voltar">Wstecz</string>

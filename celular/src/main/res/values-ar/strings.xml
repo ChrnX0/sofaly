@@ -23,7 +23,6 @@
     <string name="cel_baixado">حُفظ في التنزيلات: %1$s</string>
     <string name="cel_baixar_falhou">تعذّر حفظ الملف. حاول مرة أخرى.</string>
     <string name="cel_painel_completo">اللوحة الكاملة</string>
-    <string name="cel_ctrl_dica">اسحب للتنقل، والمس للموافقة</string>
     <string name="cel_ctrl_area">اسحب أو المس هنا</string>
     <string name="cel_ctrl_digite">اكتب هنا وأرسل إلى التلفاز</string>
     <string name="cel_ctrl_voltar">رجوع</string>

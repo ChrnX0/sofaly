@@ -21,23 +21,30 @@
         <item>Panel: turning the phone microphone or camera off also clears the “Microphone on” or “Live on the TV” notice</item>
         <item>Air quality: “Hazardous” is shown in alert red</item>
         <item>Test channel: updates come in parts, so the TV downloads less, and the home screen frees graphics memory while another app is open or the screen is off</item>
+        <item>AdGuard DNS: in the panel (Router), paste your AdGuard key and the TV gets its own server “Sofaly · TV name”, private DNS and parental controls (bedtime, blocked services, safe YouTube and search); the last 24 hours show in the panel and in Diagnostics</item>
+        <item>Automations: each event shows its value under the name, and the settings tabs fade at the edge</item>
+        <item>Phone app: a TV that is offline shows a clear notice in the app instead of a browser error page</item>
+        <item>Assistant: when an action is blocked, it points to System › Advanced › Confirmations</item>
     </string-array>
     <string-array name="roteiro_ids" translatable="false">
         <item>celular_camera</item>
         <item>ajudar_enderecos</item>
         <item>painel_aviso_mic</item>
         <item>legenda_ajustes</item>
+        <item>adguard_dns</item>
     </string-array>
     <string-array name="roteiro_titulos">
         <item>Phone camera</item>
         <item>Addresses</item>
         <item>Panel microphone</item>
         <item>Subtitles and settings</item>
+        <item>AdGuard DNS</item>
     </string-array>
     <string-array name="roteiro_perguntas">
         <item>In the phone app, tap Read the TV\'s QR code and answer Don\'t allow to the camera question: does the app offer Try again, in the phone\'s language?</item>
         <item>Open Help other homes › See what goes today: do the addresses read like https://api.sofaly.tv/v1/…, without backslashes?</item>
         <item>In the panel on the phone, turn the microphone on and then off: does the “Microphone on” notice go away?</item>
         <item>With a film open, turn subtitles on, change the subtitle delay and, in Settings, a player setting; reopen the film: did both stick?</item>
+        <item>In the panel, open Router › AdGuard DNS, paste the key and tap Connect the TV to AdGuard: does Settings › Network › Private DNS show “AdGuard (personal)” and does Diagnostics show the AdGuard line?</item>
     </string-array>
 </resources>

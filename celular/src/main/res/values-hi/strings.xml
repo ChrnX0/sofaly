@@ -23,7 +23,6 @@
     <string name="cel_baixado">डाउनलोड में सहेजा गया: %1$s</string>
     <string name="cel_baixar_falhou">फ़ाइल सहेजी नहीं जा सकी। फिर से कोशिश करें।</string>
     <string name="cel_painel_completo">पूरा पैनल</string>
-    <string name="cel_ctrl_dica">चलने के लिए स्वाइप करें, OK के लिए टैप करें</string>
     <string name="cel_ctrl_area">यहाँ स्वाइप या टैप करें</string>
     <string name="cel_ctrl_digite">यहाँ लिखें और टीवी पर भेजें</string>
     <string name="cel_ctrl_voltar">वापस</string>
