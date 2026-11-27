@@ -7,6 +7,28 @@ What changed*; when it is rewritten for a new Release, the previous one moves do
 ## Current version
 
 <!-- auto:current -->
+- Phone app: reading the TV's QR code no longer closes it, the path to the QR on the TV is right, and the remote and “Use away from home?” respond again
+- Help other homes: the screen now says that the name and version of apps that crashed also go, and “See what goes today” shows all of it
+- The settings screens that were still one stretched column now use three columns; the forecast shows its art under the dark veil
+- Movies, Radio, theme, rows and focus lists follow the same standard as the other screens
+- Weather saved by the home no longer shows up as a change in Undo or in the TV's diary
+- Sofaly name everywhere: the phone app downloads as sofaly-phone.apk and the panel certificate as sofaly-panel.crt
+<!-- /auto:current -->
+
+<!-- history -->
+
+## Until 2026-11-27
+
+- Phone app: reading the TV's QR code no longer closes it, the path to the QR on the TV is right, and the remote and “Use away from home?” respond again
+- Help other homes: the screen now says that the name and version of apps that crashed also go, and “See what goes today” shows all of it
+- The settings screens that were still one stretched column now use three columns; the forecast shows its art under the dark veil
+- Movies, Radio, theme, rows and focus lists follow the same standard as the other screens
+- Weather saved by the home no longer shows up as a change in Undo or in Sofy's diary
+- Sofaly name everywhere: the phone app downloads as sofaly-phone.apk and the panel certificate as sofaly-panel.crt
+
+
+## Until 2026-11-27
+
 - New logo: the icon with “Sofa” in white and “ly” in orange, on the graphite screen
 - Home in rows: each category in a row of large cards, the focused row moves to the top and the art of the focused card fills the background, under a dark veil
 - Row fine-tuning: ready themes (Default, Cinema, Showcase, Minimal), export and import your theme, 2 or 3 lines per category, status bar, clock and text size
@@ -34,9 +56,7 @@ What changed*; when it is rewritten for a new Release, the previous one moves do
 - USB drive: formatting is blocked when the backup cannot read every folder
 - Contrast, text size and colours checked by a test on every screen; licences in English; cards that are not cut
 - The app and panel complete in more languages: missing texts translated in 26 languages
-<!-- /auto:current -->
 
-<!-- history -->
 
 ## Until 2026-11-27
 

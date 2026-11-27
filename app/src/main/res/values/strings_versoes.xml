@@ -16,86 +16,23 @@
     <string name="ver_respondido_sim">answered “yes”</string>
     <string name="ver_respondido_nao">answered “no”</string>
     <string-array name="novidades">
-        <item>New logo: the icon with “Sofa” in white and “ly” in orange, on the graphite screen</item>
-        <item>Home in rows: each category in a row of large cards, the focused row moves to the top and the art of the focused card fills the background, under a dark veil</item>
-        <item>Row fine-tuning: ready themes (Default, Cinema, Showcase, Minimal), export and import your theme, 2 or 3 lines per category, status bar, clock and text size</item>
-        <item>Row background: the focused art, changing on its own with a fade, colours taken from the art and an adjustable shadow</item>
-        <item>Card menu: open, app shortcuts, reorder, lock with PIN, media controls, open at power on and details</item>
-        <item>Open at power on: an app opens by itself when the TV turns on or wakes up, after a wait you choose</item>
-        <item>Idle mode: after a while, the home dims and shows a large clock (time and opacity adjustable); going back twice can open the screensaver</item>
-        <item>One standard on every screen: art under a dark veil, boxes instead of pills and lines, a cream focus border with an orange icon, graphite background with no blue</item>
-        <item>Radio, Podcasts and Games in rows of cards; covers without a photo in graphite with the initial</item>
-        <item>Panel on the phone and the computer follows the TV: graphite boxes, cream focus and orange only on what is active</item>
-        <item>Texts no longer teach keys: remote hints left every screen, in every language (the keys are in Help)</item>
-        <item>Control from outside the home: the paired phone controls the TV over the internet through the Sofaly server, encrypted end to end</item>
-        <item>Other homes: link two TVs with a code (or from the phone) and check the numbers on both; Continue on another TV and Watch together reach those homes</item>
-        <item>Help other homes: with your yes (asked once, at the end of the welcome), Sofy sends the Sofy network only what the consent screen lists and gets signed recipes, which for now only check</item>
-        <item>Sofy alerts your phone when the TV needs you, and the phone gets back into the panel without asking for the PIN again</item>
-        <item>Share to TV: send a link, video or photo from the phone straight to the TV</item>
-        <item>House night, freeze watch and server health: the TV notices when something freezes or slows down and says so in the panel</item>
-        <item>The welcome offers to bring data from another TV or a backup; new “What Sofy knows” screen, with Forget</item>
-        <item>Moon phase everywhere: a clear night shows today\'s moon on the sleeping home, the quick panel and the forecast</item>
-        <item>House reminders in one list, and family messages stay in view; simple mode gets a strip at the top</item>
-        <item>TV search finds settings and the podcasts you follow; the panel shows when the TV asks for text</item>
-        <item>Report a problem privately, straight to Sofaly</item>
-        <item>Health: the full-disk forecast is no longer scared by a large app just installed; measuring app launch always returns to Settings</item>
-        <item>Sturdier: the home no longer crashes when apps finish loading after it was recreated, and a channel list that fails says so instead of loading halfway</item>
-        <item>USB drive: formatting is blocked when the backup cannot read every folder</item>
-        <item>Contrast, text size and colours checked by a test on every screen; licences in English; cards that are not cut</item>
-        <item>The app and panel complete in more languages: missing texts translated in 26 languages</item>
+        <item>Phone app: reading the TV\'s QR code no longer closes it, the path to the QR on the TV is right, and the remote and “Use away from home?” respond again</item>
+        <item>Help other homes: the screen now says that the name and version of apps that crashed also go, and “See what goes today” shows all of it</item>
+        <item>The settings screens that were still one stretched column now use three columns; the forecast shows its art under the dark veil</item>
+        <item>Movies, Radio, theme, rows and focus lists follow the same standard as the other screens</item>
+        <item>Weather saved by the home no longer shows up as a change in Undo or in the TV\'s diary</item>
+        <item>Sofaly name everywhere: the phone app downloads as sofaly-phone.apk and the panel certificate as sofaly-panel.crt</item>
     </string-array>
     <string-array name="roteiro_ids" translatable="false">
-        <item>fileiras_home</item>
-        <item>temas_prontos</item>
-        <item>menu_cartao</item>
-        <item>abrir_ao_ligar</item>
-        <item>modo_ocioso</item>
-        <item>padrao_telas</item>
-        <item>sem_dicas</item>
-        <item>painel_padrao</item>
-        <item>relay_fora</item>
-        <item>ajudar_casas</item>
-        <item>rede_sofys</item>
-        <item>o_que_sofy_sabe</item>
-        <item>lua_noite</item>
-        <item>busca_ajustes</item>
-        <item>disco_previsao</item>
-        <item>linguas</item>
+        <item>celular_le_qr</item>
+        <item>ajudar_o_que_vai</item>
     </string-array>
     <string-array name="roteiro_titulos">
-        <item>Rows</item>
-        <item>Ready themes</item>
-        <item>Card menu</item>
-        <item>Open at power on</item>
-        <item>Idle mode</item>
-        <item>Screen standard</item>
-        <item>No key hints</item>
-        <item>Panel standard</item>
-        <item>Control from outside</item>
-        <item>Help other homes</item>
-        <item>Sofy network</item>
-        <item>What Sofy knows</item>
-        <item>Today\'s moon</item>
-        <item>Search finds settings</item>
-        <item>Disk forecast</item>
-        <item>Other languages</item>
+        <item>Phone reads the QR</item>
+        <item>What goes</item>
     </string-array>
     <string-array name="roteiro_perguntas">
-        <item>On the home, the focused row moves to the top, the card art fills the background under a dark veil and no name is cut?</item>
-        <item>In Fine-tuning, switch to the Cinema theme and back to Default: the screen changes and comes back the same?</item>
-        <item>Hold a card of an app: the menu shows Open, Shortcuts, Reorder, Lock with PIN and Details, and a locked app asks for the PIN?</item>
-        <item>Choose an app in Open at power on, turn the TV off and on: it opens by itself after the wait?</item>
-        <item>Leave the home alone: it dims and shows a large clock, and any key brings everything back?</item>
-        <item>Open Settings, Radio and Movies: all have the art under a veil, boxes instead of pills and a cream focus border?</item>
-        <item>Go through Radio, a player and Settings: no text teaches a key (like “OK switches”)?</item>
-        <item>Open the panel on the phone: graphite boxes, cream focus and orange only on what is active, nothing bluish?</item>
-        <item>With the phone off the home Wi-Fi, open the Sofaly app: it finds the TV and changes the volume?</item>
-        <item>Open Help other homes from Sofy\'s Memory: focus starts on “Not now”, the mascot jumps once and Stop asks for the PIN?</item>
-        <item>Turn on Help other homes, wait for the daily packet and check the shadow log for a send answered with 200; then turn it off again?</item>
-        <item>Open What Sofy knows: the counts read right (no “1 profiles”) and Forget asks for confirmation?</item>
-        <item>On a clear night, the sleeping home and the quick panel show the moon in today\'s phase?</item>
-        <item>In the TV search, look for “volume”: the setting appears and opens in the right place?</item>
-        <item>In the panel, Health does not say the disk fills in a few days when the free space is steady?</item>
-        <item>Set the TV to Spanish: Settings and the panel appear fully in Spanish, with no English bits?</item>
+        <item>In the phone app, tap Read the TV\'s QR code and read the QR in Settings › Home and network › Remote access › Sign in from your phone: does the panel open, and does the remote\'s Home key take the TV to the home screen?</item>
+        <item>Open Help other homes and How it works: does “What goes” list the name and version of apps that crashed, and does “See what goes today” show two parts?</item>
     </string-array>
 </resources>

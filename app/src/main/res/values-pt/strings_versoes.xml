@@ -13,68 +13,19 @@
     <string name="ver_respondido_sim">respondido “sim”</string>
     <string name="ver_respondido_nao">respondido “não”</string>
     <string-array name="novidades">
-        <item>Logo nova: o ícone com “Sofa” em branco e “ly” em laranja, sobre a tela grafite</item>
-        <item>Tela inicial em fileiras: cada categoria numa fileira de cartões grandes, a fileira em foco sobe para o alto e a arte do cartão em foco cobre o fundo, com um véu escuro por cima</item>
-        <item>Ajuste fino das fileiras: temas prontos (Padrão, Cinema, Vitrine, Mínimo), exportar e importar o seu tema, 2 ou 3 linhas por categoria, barra de status, tamanho da hora e das letras</item>
-        <item>Fundo das fileiras: a arte do foco, troca sozinha com esmaecer, cores tiradas da arte e sombra ajustável</item>
-        <item>Menu do cartão: abrir, atalhos do app, reordenar, travar com PIN, controles de mídia, abrir ao ligar e detalhes</item>
-        <item>Abrir ao ligar: um app abre sozinho quando a TV liga ou acorda, com uma espera que você escolhe</item>
-        <item>Modo ocioso: parada um tempo, a tela inicial escurece e mostra a hora grande (tempo e opacidade ajustáveis); voltar duas vezes pode abrir o descanso</item>
-        <item>Um padrão só em todas as telas: arte com véu escuro no fundo, caixas no lugar de pílulas e fios, foco com borda creme e ícone laranja, fundo grafite sem azul</item>
-        <item>Rádio, Podcasts e Jogos em fileiras de cartões; capas sem foto em grafite com a inicial</item>
-        <item>Painel no celular e no computador no mesmo padrão da TV: caixas grafite, foco creme e o laranja só no que está ativo</item>
-        <item>Os textos não ensinam mais teclas: as dicas de controle saíram de todas as telas, em todas as línguas (as teclas ficam em Ajuda)</item>
-        <item>Controle de fora de casa: o celular pareado comanda a TV pela internet, pelo servidor da Sofaly, com tudo cifrado de ponta a ponta</item>
-        <item>Outras casas: ligue duas TVs com um código (ou pelo celular) e confira os números nas duas; Continuar em outra TV e Assistir junto chegam a essas casas</item>
-        <item>Ajudar outras casas: com o seu sim (perguntado uma vez, no fim das boas-vindas), a Sofy manda à rede de Sofys só o que a tela de consentimento lista e recebe receitas assinadas, que por enquanto só conferem</item>
-        <item>A Sofy avisa no celular quando a TV precisa de você, e o celular volta ao painel sem pedir o PIN de novo</item>
-        <item>Compartilhar com a TV: mande um link, vídeo ou foto do celular direto para a TV</item>
-        <item>Noite da casa, vigia de travamentos e saúde do servidor: a TV percebe quando algo trava ou fica lento e conta no painel</item>
-        <item>Boas-vindas oferecem trazer os dados de outra TV ou de um backup; nova tela “O que a Sofy sabe”, com Esquecer</item>
-        <item>Fase da lua em todo lugar: noite limpa mostra a lua de hoje na tela inicial dormindo, no painel rápido e na previsão</item>
-        <item>Lembretes da casa numa lista só, e os recados da família ficam à vista; o modo simples ganha uma faixa no alto</item>
-        <item>Busca da TV acha ajustes e podcasts que você segue; o painel mostra quando a TV pede um texto</item>
-        <item>Relatar um problema em particular, direto para a Sofaly</item>
-        <item>Saúde: a previsão de disco cheio não se assusta mais com um app grande recém-instalado; a medida de abertura dos apps sempre volta às Configurações</item>
-        <item>Mais firme: a tela inicial não cai quando os apps carregam depois de ela ser recriada, e uma lista de canais que falha avisa em vez de ficar pela metade</item>
-        <item>Pen drive: a formatação fica bloqueada quando o backup não consegue ler todas as pastas</item>
-        <item>Contraste, letras e cores conferidos por teste em todas as telas; licenças em inglês; cartões que não cortam</item>
-        <item>O app e o painel completos em mais línguas: os textos que faltavam foram traduzidos em 26 línguas</item>
+        <item>App do celular: ler o QR da TV não fecha mais o app, o caminho até o QR na TV está certo, e o controle e o “Usar fora de casa?” voltam a responder</item>
+        <item>Ajudar outras casas: a tela conta que o nome e a versão dos apps que travaram também vão, e “Ver o que vai hoje” mostra tudo</item>
+        <item>As telas de ajuste que ainda eram uma coluna esticada agora têm três colunas; a previsão mostra a arte sob o véu escuro</item>
+        <item>Filmes, Rádio, tema, fileiras e listas de foco seguem o mesmo padrão das outras telas</item>
+        <item>O clima gravado pela tela inicial não aparece mais como mudança no Desfazer nem no diário da TV</item>
+        <item>Nome Sofaly em tudo: o app do celular baixa como sofaly-phone.apk e o certificado do painel como sofaly-panel.crt</item>
     </string-array>
     <string-array name="roteiro_titulos">
-        <item>Fileiras</item>
-        <item>Temas prontos</item>
-        <item>Menu do cartão</item>
-        <item>Abrir ao ligar</item>
-        <item>Modo ocioso</item>
-        <item>Padrão das telas</item>
-        <item>Sem dicas de teclas</item>
-        <item>Painel no padrão</item>
-        <item>Controle de fora</item>
-        <item>Ajudar outras casas</item>
-        <item>Rede de Sofys</item>
-        <item>O que a Sofy sabe</item>
-        <item>Lua de hoje</item>
-        <item>Busca acha ajustes</item>
-        <item>Previsão do disco</item>
-        <item>Outras línguas</item>
+        <item>Celular lê o QR</item>
+        <item>O que vai</item>
     </string-array>
     <string-array name="roteiro_perguntas">
-        <item>Na tela inicial, a fileira em foco sobe para o alto, a arte do cartão cobre o fundo com véu escuro e nenhum nome fica cortado?</item>
-        <item>No Ajuste fino, troque para o tema Cinema e depois volte para Padrão: a tela muda e volta igual?</item>
-        <item>Segure o cartão de um app: o menu mostra Abrir, Atalhos, Reordenar, Travar com PIN e Detalhes, e travar pede o PIN ao abrir?</item>
-        <item>Escolha um app em Abrir ao ligar, desligue e ligue a TV: ele abre sozinho depois da espera?</item>
-        <item>Deixe a tela inicial parada: ela escurece e mostra a hora grande, e qualquer tecla traz tudo de volta?</item>
-        <item>Abra Configurações, Rádio e Filmes: todos têm a arte com véu no fundo, caixas no lugar de pílulas e o foco com borda creme?</item>
-        <item>Passe por Rádio, um player e as Configurações: nenhum texto ensina tecla (como “OK troca”)?</item>
-        <item>Abra o painel no celular: caixas grafite, foco creme e o laranja só no que está ativo, sem cor azulada?</item>
-        <item>Com o celular fora do Wi-Fi de casa, abra o app Sofaly: ele acha a TV e muda o volume?</item>
-        <item>Abra Ajudar outras casas pela Memória do Sofy: o foco começa em “Agora não”, o mascote pula uma vez e Parar pede o PIN?</item>
-        <item>Ligue Ajudar outras casas, espere o pacote do dia e confira no log da sombra um envio com resposta 200; depois desligue de novo?</item>
-        <item>Abra O que a Sofy sabe: as contagens aparecem certas (nada de “1 perfis”) e Esquecer pede confirmação?</item>
-        <item>Numa noite limpa, a tela inicial dormindo e o painel rápido mostram a lua com a fase de hoje?</item>
-        <item>Na busca da TV, procure “volume”: aparece o ajuste e ele abre no lugar certo?</item>
-        <item>No painel, a Saúde não diz que o disco enche em poucos dias quando o espaço livre está parado?</item>
-        <item>Ponha a TV em espanhol: as Configurações e o painel aparecem inteiros em espanhol, sem pedaços em inglês?</item>
+        <item>No app do celular, toque em Ler o QR da TV e leia o QR de Configurações › Casa e rede › Acesso remoto › Entrar pelo celular: o painel abre, e a tecla Início do controle leva a TV à tela inicial?</item>
+        <item>Abra Ajudar outras casas e Como funciona: “O que vai” lista o nome e a versão dos apps que travaram, e “Ver o que vai hoje” mostra duas partes?</item>
     </string-array>
 </resources>
