@@ -38,7 +38,7 @@ import java.util.Locale
  *
  * Os eventos vêm do armazenamento de agenda do próprio Android (CalendarContract), que o sincronizador da agenda
  * do Google preenche. Ao abrir, pedimos uma sincronização da conta: eventos novos podem levar alguns segundos.
- * Precisa de READ_CALENDAR (dada uma vez por adb: pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR).
+ * Precisa de READ_CALENDAR (o Device Owner concede sozinho; sem ele, pm grant tv.sofaly.launcher android.permission.READ_CALENDAR por adb).
  */
 private typealias Evento = Agenda.Evento
 

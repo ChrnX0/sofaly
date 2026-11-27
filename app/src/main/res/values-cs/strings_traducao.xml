@@ -275,7 +275,7 @@
     <string name="bn_sem_senha">žádné heslo zálohy (nastavte ho v Nastavení)</string>
     <string name="bn_montar">nepodařilo se vytvořit zálohu (%1$s)</string>
     <string name="bn_gravar">nepodařilo se uložit na televizor (%1$s)</string>
-    <string name="cal_sem_permissao">Chybí oprávnění ke kalendáři (pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">Bez přístupu ke kalendáři této televize.</string>
     <string name="bv_claude">Používat s Claude (nepovinné)</string>
     <string name="bv_claude_det">Claude, ChatGPT nebo Codex kontrolují televizor a žádají o akce, odkudkoli. Krok za krokem s QR kódem.</string>
     <string name="cb_cinza">Šedé stupně</string>

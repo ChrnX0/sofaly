@@ -268,7 +268,7 @@
     <string name="bn_sem_senha">ei varmuuskopion salasanaa (aseta se Asetuksissa)</string>
     <string name="bn_montar">varmuuskopion luominen epäonnistui (%1$s)</string>
     <string name="bn_gravar">tallentaminen TV:hen epäonnistui (%1$s)</string>
-    <string name="cal_sem_permissao">Ei kalenterin käyttöoikeutta (pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">Ei pääsyä tämän television kalenteriin.</string>
     <string name="bv_claude">Käytä Clauden kanssa (valinnainen)</string>
     <string name="bv_claude_det">Claude, ChatGPT tai Codex tarkistavat TV:n ja pyytävät toimintoja mistä tahansa. Vaihe vaiheelta QR-koodilla.</string>
     <string name="cb_cinza">Harmaat portaat</string>

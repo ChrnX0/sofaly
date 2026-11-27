@@ -1,0 +1,177 @@
+LICENSES AND CREDITS
+
+This launcher uses code, fonts, icons and libraries made by other people. Each one keeps its original license.
+The full text of each license is at the address shown.
+
+— Libraries —
+
+cleanyourtv, by Gathin, and tellyscope-devices, by the Tellyscope contributors (data only: the per-TV-model cleanup
+lists, summarised in assets/debloat/catalog.json; no Tellyscope code)
+  https://github.com/Gathin23/cleanyourtv
+  https://github.com/man15h/tellyscope-devices
+  MIT License. Copyright (c) 2026 Gathin; Copyright (c) 2026 Tellyscope contributors.
+
+python-holidays, by the Vacanza project (data only: the national holiday table in assets/feriados)
+  https://github.com/vacanza/holidays
+  MIT License.
+
+LibADB Android, by Muntashir Al-Islam
+  https://github.com/MuntashirAkon/libadb-android
+  Dual licensed GPL-3.0-or-later or Apache-2.0; this launcher uses it under Apache-2.0.
+
+sun-security-android, by Muntashir Al-Islam (parts of OpenJDK)
+  https://github.com/MuntashirAkon/sun-security-android
+  GPL-2.0 License with the "Classpath Exception".
+
+Bouncy Castle (comes with LibADB)
+  https://www.bouncycastle.org/licence.html
+  Bouncy Castle License (MIT style).
+
+AndroidX (ProfileInstaller, Media3/ExoPlayer, Annotation, Startup, Tracing, ExifInterface), by the Android Open Source Project
+  https://developer.android.com/jetpack/androidx
+  Apache-2.0 License.
+
+Guava, by Google (comes with Media3)
+  https://github.com/google/guava
+  Apache-2.0 License.
+
+SPAKE2 for Android, by Muntashir Al-Islam (ADB pairing, comes with LibADB)
+  https://github.com/MuntashirAkon/spake2-java
+  Apache-2.0 License.
+
+ZXing core (QR codes), by the ZXing project
+  https://github.com/zxing/zxing
+  Apache-2.0 License.
+
+SMBJ (Windows and NAS shared folders), by Jeroen van Erp, and the ASN-One that comes with it
+  https://github.com/hierynomus/smbj
+  Apache-2.0 License.
+
+MBassador (comes with SMBJ), by Benjamin Diedrichsen
+  https://github.com/bennidi/mbassador
+  MIT License.
+
+SLF4J API (comes with SMBJ), by QOS.ch
+  https://www.slf4j.org/license.html
+  MIT License.
+
+Kotlin (standard library), by JetBrains
+  https://github.com/JetBrains/kotlin
+  Apache-2.0 License.
+
+Tailscale (the tunnel for access from outside the home, libtsnet.so), by Tailscale Inc.
+  https://github.com/tailscale/tailscale
+  BSD-3-Clause License. Built with Go (https://go.dev/LICENSE, BSD-3-Clause).
+
+JMuxer (live video in the phone panel), by Samir Das
+  https://github.com/samirkumardas/jmuxer
+  MIT License. Copyright (c) 2018 Samir Das.
+
+— Video player (FFmpeg and ASS subtitles) —
+
+The libraries below ship in the app as separate .so files (dynamic linking). Under the LGPL, you may replace them with
+your own build: the script that builds them, with the exact versions and options, is nativo/compilar.sh in the
+repository https://github.com/ChrnX0/sofaly, and the source code of each one is at the address shown.
+
+FFmpeg 9.0.2 (libavcodec, libavformat, libavutil, libswresample, libswscale)
+  https://ffmpeg.org — source: https://ffmpeg.org/releases/ffmpeg-9.0.2.tar.xz
+  LGPL-2.1-or-later License (built without any GPL or "nonfree" part).
+
+FriBidi 1.0.16
+  https://github.com/fribidi/fribidi
+  LGPL-2.1-or-later License.
+
+dav1d 1.5.4 (AV1 video), by VideoLAN
+  https://code.videolan.org/videolan/dav1d
+  BSD-2-Clause License.
+
+libass 0.17.5 (ASS/SSA subtitles)
+  https://github.com/libass/libass
+  ISC License.
+
+FreeType 2.14.1
+  https://freetype.org
+  FreeType License (FTL). Portions of this software are copyright © 2025 The FreeType Project (www.freetype.org).
+  All rights reserved.
+
+HarfBuzz 14.4.0
+  https://github.com/harfbuzz/harfbuzz
+  "Old MIT" License.
+
+Fontconfig 2.16.0
+  https://www.freedesktop.org/wiki/Software/fontconfig/
+  MIT-style License.
+
+Expat 2.8.4
+  https://github.com/libexpat/libexpat
+  MIT License.
+
+libunibreak 7.0
+  https://github.com/adah1972/libunibreak
+  zlib License.
+
+ML Kit Translation (subtitle translation on the TV), by Google
+  https://developers.google.com/ml-kit/terms
+  ML Kit and Google APIs Terms of Service. The text is translated on the TV itself; ML Kit sends Google
+  performance and usage metrics, not the text.
+
+JSch (SFTP folders), by Atsuhiko Yamanaka/JCraft, maintained by Matthias Wiedemann
+  https://github.com/mwiede/jsch
+  BSD-style License (the project's LICENSE.txt).
+
+Apache Commons Net (FTP and FTPS), by the Apache Software Foundation
+  https://commons.apache.org/proper/commons-net/
+  Apache-2.0 License.
+
+— Theme fonts —
+
+Manrope, by Mikhail Sharanda (web panel, fallback font; world line on the home screen)
+  https://github.com/sharanda/manrope
+  SIL Open Font License 1.1 (OFL).
+
+Nunito, by Vernon Adams and contributors (TV screens, the Sofaly brand and the web panel)
+  https://github.com/googlefonts/nunito
+  SIL Open Font License 1.1 (OFL).
+
+Fraunces, by Undercase Type (screensaver)
+  https://github.com/undercasetype/Fraunces
+  SIL Open Font License 1.1 (OFL).
+
+— Icons —
+
+Meteocons (weather icons), by Bas Milius
+  https://github.com/basmilius/weather-icons
+  MIT License. Copyright (c) 2020-present Bas Milius.
+
+Fluent Emoji (3D forecast icons), by Microsoft
+  https://github.com/microsoft/fluentui-emoji
+  MIT License. Copyright (c) Microsoft Corporation.
+
+— Data —
+
+Weather forecast: Data from MET Norway (https://api.met.no), under CC BY 4.0. On the Pro plan: Powered by WeatherAPI.com
+  (https://www.weatherapi.com). Model median (Ultra plan, when subscribed): Open-Meteo (https://open-meteo.com), CC BY 4.0.
+Airport observation (METAR): Aviation Weather Center, NOAA (US public domain).
+Background artworks: The Metropolitan Museum of Art, Open Access (CC0).
+Approximate location from the IP: ipwho.is.
+Movie and series details, posters, cast and ratings: Trakt (https://trakt.tv). Sofaly uses Trakt but is not endorsed
+  or certified by Trakt. On the Pro plan, when subscribed: TMDB (https://www.themoviedb.org). This product uses the TMDB
+  API but is not endorsed or certified by TMDB. Community rating: Simkl (https://simkl.com), with the person's own account.
+Subtitles: Subtitles provided by OpenSubtitles.com (https://www.opensubtitles.com). Each subtitle stays only on the TV that asked for it.
+Episode intros (skip intro): IntroDB (https://introdb.app), a community database.
+Radio stations: Radio Browser (https://www.radio-browser.info).
+Cities and time zones: GeoNames (https://www.geonames.org), under CC BY 4.0. The city search runs on the TV.
+Address from the Brazilian postal code (CEP): ViaCEP (https://viacep.com.br).
+Real sky and screensaver: GOES satellite clouds (NOAA, US public domain) through NASA GIBS
+  (https://earthdata.nasa.gov/gibs); Natural Earth map (https://www.naturalearthdata.com, public domain);
+  Space Station orbit (NORAD TLE) through CelesTrak (https://celestrak.org).
+"Earth seen from space" screensaver: photos taken by the Space Station astronauts, NASA (https://images.nasa.gov;
+  no copyright in the US, credit to NASA; NASA does not support or endorse this app).
+
+The alarm sounds were made by the project itself.
+
+— Photos —
+
+"Noite", "Serra" and "Vale" home screen backgrounds (assets/fundos)
+  https://unsplash.com
+  Unsplash License (https://unsplash.com/license).

@@ -15,12 +15,17 @@ class LicencasActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (VigiaAtualizacao.fechada(this)) return   // modo seguro: tela que derrubou esta versão (VigiaAtualizacao)
-        var texto = try { assets.open("licencas.txt").bufferedReader().use { it.readText() } } catch (e: Exception) { getString(R.string.lic_sem_arquivo) }
+        // Língua (auditoria de telas, 27/11/2026): em inglês e nas outras línguas o texto aparecia em português.
+        // Português lê licencas.txt (o mesmo do repositório público); as demais, licencas-en.txt (LicencasTextoTest
+        // confere que os dois citam os mesmos endereços).
+        val pt = resources.configuration.locales[0].language == "pt"
+        val sufixo = if (pt) "" else "-en"
+        var texto = try { assets.open("licencas$sufixo.txt").bufferedReader().use { it.readText() } } catch (e: Exception) { getString(R.string.lic_sem_arquivo) }
         // Build da Play (16/11/2026): as fontes de dados são outras (MET Norway, GeoNames, Trakt; sem TMDB, Open-Meteo,
         // Nominatim e IP). A seção "— Dados —" vem de src/play/assets/licencas-dados-play.txt no lugar da do site.
-        if (BuildConfig.PLAY) runCatching { assets.open("licencas-dados-play.txt").bufferedReader().use { it.readText() } }.getOrNull()?.let { dados ->
-            val i = texto.indexOf("— Dados —")
-            val fim = texto.indexOf("Os sons do despertador", maxOf(i, 0))
+        if (BuildConfig.PLAY) runCatching { assets.open("licencas-dados-play$sufixo.txt").bufferedReader().use { it.readText() } }.getOrNull()?.let { dados ->
+            val i = texto.indexOf(if (pt) "— Dados —" else "— Data —")
+            val fim = texto.indexOf(if (pt) "Os sons do despertador" else "The alarm sounds", maxOf(i, 0))
             if (i >= 0 && fim > i) texto = texto.substring(0, i) + dados.trimEnd() + "\n\n" + texto.substring(fim)
         }
         fun dp(v: Int) = Estilo.dp(this, v)

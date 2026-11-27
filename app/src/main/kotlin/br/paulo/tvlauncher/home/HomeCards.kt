@@ -161,6 +161,13 @@ object HomeCards {
     /** Nova contagem de falhas seguidas de um serviço depois de um teste. */
     fun falhas(antes: Int, ok: Boolean): Int = if (ok) 0 else (antes + 1).coerceAtMost(99)
 
+    /**
+     * A rodada de testes conta? Não quando a própria TV está sem internet (#559): a rede ativa sem validar, ou dois ou
+     * mais serviços falhando todos juntos. Senão, 10 min sem internet viravam "todos os serviços fora do ar".
+     */
+    fun rodadaConta(resultados: List<Boolean>, redeValidada: Boolean): Boolean =
+        redeValidada && !(resultados.size >= 2 && resultados.none { it })
+
     /** Os nomes fora do ar (na ordem da lista), pelas falhas seguidas de cada um. */
     fun foraDoAr(lista: List<Servico>, falhas: Map<String, Int>): List<String> =
         lista.filter { (falhas[it.nome] ?: 0) >= FALHAS_PARA_AVISAR }.map { it.nome }

@@ -268,7 +268,7 @@
     <string name="bn_sem_senha">geen back-upwachtwoord (stel het in bij Instellingen)</string>
     <string name="bn_montar">kon de back-up niet maken (%1$s)</string>
     <string name="bn_gravar">kon niet op de tv opslaan (%1$s)</string>
-    <string name="cal_sem_permissao">Geen toestemming voor de agenda (pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">Geen toegang tot de agenda van deze tv.</string>
     <string name="bv_claude">Gebruiken met Claude (optioneel)</string>
     <string name="bv_claude_det">Claude, ChatGPT of Codex controleren de tv en vragen om acties, van overal. Stap voor stap met een QR-code.</string>
     <string name="cb_cinza">Grijstrappen</string>

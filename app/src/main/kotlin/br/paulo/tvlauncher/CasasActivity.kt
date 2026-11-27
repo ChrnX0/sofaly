@@ -64,16 +64,16 @@ class CasasActivity : Activity() {
         val mostrar = Estilo.linhaOpcao(this, getString(R.string.casas_mostrar), getString(R.string.casas_mostrar_det)).apply {
             setOnClickListener { pedirCodigo() }
         }
-        col.addView(mostrar, LinearLayout.LayoutParams(dp(420), -2).apply { topMargin = dp(20) })
+        col.addView(mostrar, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(20) })
         col.addView(Estilo.linhaOpcao(this, getString(R.string.casas_digitar), getString(R.string.casas_digitar_det)).apply {
             setOnClickListener { digitarCodigo() }
-        }, LinearLayout.LayoutParams(dp(420), -2).apply { topMargin = dp(8) })
+        }, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(8) })
         val casas = RelayCasas.casas(this)
         if (casas.isNotEmpty()) col.addView(Estilo.secao(this, getString(R.string.casas_conectadas)),
             LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(24) })
         for (c in casas) col.addView(Estilo.linhaOpcao(this, c.nome, getString(R.string.casas_remover_det)).apply {
             setOnClickListener { remover(c) }
-        }, LinearLayout.LayoutParams(dp(420), -2).apply { topMargin = dp(8) })
+        }, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(8) })
 
         // Direita: o código grande e o que está acontecendo.
         val lado = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER }
@@ -87,7 +87,9 @@ class CasasActivity : Activity() {
             gravity = Gravity.CENTER_VERTICAL
             background = Estilo.fundoTela(context)
             setPaddingRelative(dp(Estilo.MARGEM_LATERAL), dp(Estilo.MARGEM_VERTICAL + 9), dp(Estilo.MARGEM_LATERAL), dp(Estilo.MARGEM_VERTICAL))
-            addView(col, LinearLayout.LayoutParams(0, -2, 1f))
+            // Auditoria de telas (27/11/2026): os cartões tinham 420 dp numa coluna de ~412 dp e a borda direita do
+            // focado sumia; agora ocupam a coluna, que rola quando há muitas casas.
+            addView(android.widget.ScrollView(context).apply { isVerticalScrollBarEnabled = false; addView(col) }, LinearLayout.LayoutParams(0, -1, 1f))
             addView(lado, LinearLayout.LayoutParams(0, -2, 1f).apply { marginStart = dp(40) })
         }
         setContentView(raiz)

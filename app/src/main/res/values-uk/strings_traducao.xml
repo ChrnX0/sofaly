@@ -282,7 +282,7 @@
     <string name="bn_sem_senha">немає пароля резервної копії (задайте його в Налаштуваннях)</string>
     <string name="bn_montar">не вдалося створити резервну копію (%1$s)</string>
     <string name="bn_gravar">не вдалося зберегти на телевізорі (%1$s)</string>
-    <string name="cal_sem_permissao">Немає дозволу на календар (pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">Немає доступу до календаря цього телевізора.</string>
     <string name="bv_claude">Використовувати з Claude (необов\'язково)</string>
     <string name="bv_claude_det">Claude, ChatGPT чи Codex перевіряють телевізор і просять дій, звідусіль. Крок за кроком з QR-кодом.</string>
     <string name="cb_cinza">Сірі сходинки</string>

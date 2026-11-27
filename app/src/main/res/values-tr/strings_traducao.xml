@@ -240,7 +240,7 @@
     <string name="bn_sem_senha">yedekleme şifresi yok (Ayarlar’da belirleyin)</string>
     <string name="bn_montar">yedek oluşturulamadı (%1$s)</string>
     <string name="bn_gravar">TV’ye kaydedilemedi (%1$s)</string>
-    <string name="cal_sem_permissao">Takvim izni yok (pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">Bu TV\'nin takvimine erişim yok.</string>
     <string name="bv_claude">Claude ile kullan (isteğe bağlı)</string>
     <string name="bv_claude_det">Claude, ChatGPT veya Codex her yerden TV’yi denetler ve işlem ister. QR kodla adım adım.</string>
     <string name="cb_cinza">Gri basamaklar</string>

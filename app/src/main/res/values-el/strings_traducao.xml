@@ -268,7 +268,7 @@
     <string name="bn_sem_senha">χωρίς κωδικό αντιγράφου (ορίστε τον στις Ρυθμίσεις)</string>
     <string name="bn_montar">δεν ήταν δυνατή η δημιουργία του αντιγράφου (%1$s)</string>
     <string name="bn_gravar">δεν ήταν δυνατή η αποθήκευση στην τηλεόραση (%1$s)</string>
-    <string name="cal_sem_permissao">Χωρίς άδεια ημερολογίου (pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">Χωρίς πρόσβαση στο ημερολόγιο αυτής της τηλεόρασης.</string>
     <string name="bv_claude">Χρήση με το Claude (προαιρετικό)</string>
     <string name="bv_claude_det">Το Claude, το ChatGPT ή το Codex ελέγχουν την τηλεόραση και ζητούν ενέργειες, από οπουδήποτε. Βήμα βήμα με κωδικό QR.</string>
     <string name="cb_cinza">Γκρι βαθμίδες</string>

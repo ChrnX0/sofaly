@@ -240,7 +240,7 @@
     <string name="bn_sem_senha">لا كلمة مرور للنسخ الاحتياطي (عيّنها في الإعدادات)</string>
     <string name="bn_montar">تعذّر إنشاء النسخة الاحتياطية (%1$s)</string>
     <string name="bn_gravar">تعذّر الحفظ على التلفزيون (%1$s)</string>
-    <string name="cal_sem_permissao">لا إذن للتقويم (pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">لا يوجد وصول إلى تقويم هذا التلفاز.</string>
     <string name="bv_claude">الاستخدام مع Claude (اختياري)</string>
     <string name="bv_claude_det">يفحص Claude أو ChatGPT أو Codex التلفزيون ويطلبون إجراءات، من أي مكان. خطوة بخطوة برمز QR.</string>
     <string name="cb_cinza">تدرجات رمادية</string>

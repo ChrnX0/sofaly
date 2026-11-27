@@ -92,11 +92,11 @@ class CenasActivity : Activity() {
         setPaddingRelative(dp(20), dp(12), dp(20), dp(12))
         fun pintar(foco: Boolean) {
             val sb = SpannableStringBuilder(titulo)
-            sb.setSpan(AbsoluteSizeSpan(dp(17), false), 0, sb.length, 0)
+            sb.setSpan(AbsoluteSizeSpan(dp(20), false), 0, sb.length, 0)
             sb.setSpan(ForegroundColorSpan(if (foco) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO), 0, sb.length, 0)
             val ini = sb.length
             sb.append("\n").append(detalhe)
-            sb.setSpan(AbsoluteSizeSpan(dp(13), false), ini, sb.length, 0)
+            sb.setSpan(AbsoluteSizeSpan(dp(18), false), ini, sb.length, 0)
             sb.setSpan(ForegroundColorSpan(if (foco) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2), ini, sb.length, 0)
             text = sb
         }
