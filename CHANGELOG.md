@@ -7,6 +7,17 @@ What changed*; when it is rewritten for a new Release, the previous one moves do
 ## Current version
 
 <!-- auto:current -->
+- Phone app: it asks for the camera before opening the QR reader; if you say no, it offers Try again or the phone's settings, in the phone's language
+- Help other homes: “See what goes today” shows each server address as it reads, without backslashes
+- Panel: turning the phone microphone or camera off also clears the “Microphone on” or “Live on the TV” notice
+- Air quality: “Hazardous” is shown in alert red
+- Test channel: updates come in parts, so the TV downloads less, and the home screen frees graphics memory while another app is open or the screen is off
+<!-- /auto:current -->
+
+<!-- history -->
+
+## Until 2026-11-27
+
 - Phone app: the QR reader stands upright with a square window and orange corners, instead of the wide barcode reader
 - Phone app: a paired TV shows its own name, not “TV” or a code
 - Phone as a helper: the camera picture keeps the TV's shape, the phone microphone cuts out less, and “Find the remote” lists only real remotes and remembers when each was last used
@@ -24,9 +35,7 @@ What changed*; when it is rewritten for a new Release, the previous one moves do
 - Settings: “Home and network” is now “Home and remote access”
 - Sofaly checks the screens by reading the app in front and, when it cannot read one, says why
 - Texts that ran words together got the missing space, as in Internet diagnostics
-<!-- /auto:current -->
 
-<!-- history -->
 
 ## Until 2026-11-27
 

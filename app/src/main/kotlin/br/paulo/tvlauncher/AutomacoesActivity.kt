@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import br.paulo.tvlauncher.alarm.Despertador
@@ -92,7 +93,7 @@ class AutomacoesActivity : Activity() {
                 else { v.text = valor(); t.refresh() }
             }
             val row = linha(t, evento, "evento:${e.chave}", nomeEvento(e), valor(),
-                if (cenas.isEmpty()) getString(R.string.rot_cena_sem) else null) { girar(1) }
+                if (cenas.isEmpty()) getString(R.string.rot_cena_sem) else null, valorEmbaixo = true) { girar(1) }
             v = row.second
             girarComSetas(row.first) { girar(it) }
             // Elevação 10.5: com cena escolhida, uma linha "só se" logo abaixo (◀ ▶ / OK trocam a condição).
@@ -187,8 +188,15 @@ class AutomacoesActivity : Activity() {
      * [recuo]: a linha "só se", que pertence ao evento de cima. Devolve a linha, o texto do valor e o do título.
      */
     private fun linha(t: ColumnsScreen, sec: LinearLayout, chave: String, titulo: String, valor: String, explica: String?,
-                      recuo: Boolean = false, aoClicar: () -> Unit): Triple<LinearLayout, TextView, TextView> {
-        val (row, label, value) = t.valueRow()
+                      recuo: Boolean = false, valorEmbaixo: Boolean = false,
+                      aoClicar: () -> Unit): Triple<LinearLayout, TextView, TextView> {
+        // valorEmbaixo: o valor vai numa 2ª linha, sob o título. Na Sala (v476385, 27/11/2026) "Filme ou vídeo começou"
+        // quebrava em 3-4 linhas espremido ao lado de "‹ nenhuma ação ›" na coluna do meio.
+        val (row, label, value) = if (valorEmbaixo) {
+            val r = Estilo.linhaOpcao(this, titulo, valor)
+            val col = r.getChildAt(0) as ViewGroup
+            Triple(r, col.getChildAt(0) as TextView, col.getChildAt(1) as TextView)
+        } else t.valueRow()
         row.tag = chave
         label.text = titulo
         value.text = valor

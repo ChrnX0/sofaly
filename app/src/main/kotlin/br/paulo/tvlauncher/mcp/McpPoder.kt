@@ -159,7 +159,7 @@ object McpPoder {
         if (ConfirmacoesTv.permitir(app, acao, oQue, "internet")) return
         throw McpProtocolo.ErroFerramenta(
             if (ConfirmacoesTv.modo(app, acao) == Confirmacoes.Modo.BLOQUEAR)
-                "\"${acao.titulo}\" está bloqueado nas Confirmações da TV (Configurações › Sistema › Confirmações)"
+                "\"${acao.titulo}\" está bloqueado nas Confirmações da TV (Configurações › Sistema › Avançado › Confirmações)"
             else "a TV negou, ou ninguém respondeu em 60 s")
     }
 
