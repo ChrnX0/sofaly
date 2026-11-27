@@ -69,7 +69,7 @@ object WeatherApiSource {
         return try {
             c.connectTimeout = 8000; c.readTimeout = 8000
             c.setRequestProperty("User-Agent", ClimaMet.AGENTE)
-            WeatherHost.sign(c)   // cota do dia por TV (item 23)
+            br.paulo.tvlauncher.RelaySign.sign(c)   // cota do dia por TV (item 23)
             if (c.responseCode == 200) {
                 c.inputStream.bufferedReader().use { it.readText() }.also { guardado = Guardado(chave, it, agora) }
             } else {

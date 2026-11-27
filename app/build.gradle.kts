@@ -157,6 +157,7 @@ dependencies {
     implementation(project(":resources"))
     implementation(project(":weather"))   // refatoração G, etapa 5: clima, previsão, céu e localização
     implementation(project(":media"))     // refatoração G, etapa 5: dados do player (catálogos, fichas, legendas)
+    implementation(project(":listen"))    // refatoração G, etapa 7: dados do Ouvir (rádios, podcasts, transcrição)
     // Shell proprio MARCO 2: cliente ADB embutido (pareamento + TLS + shell). Licenca Apache-2.0 (opcao da dupla).
     implementation("com.github.MuntashirAkon:libadb-android:3.1.1")
     implementation("com.github.MuntashirAkon:sun-security-android:1.1")

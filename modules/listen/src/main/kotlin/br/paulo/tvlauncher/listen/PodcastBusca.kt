@@ -71,7 +71,7 @@ object PodcastBusca {
         return try {
             c.connectTimeout = 8_000; c.readTimeout = 12_000
             c.setRequestProperty("User-Agent", Http.USER_AGENT)
-            for ((k, v) in br.paulo.tvlauncher.relay.RelayTv.assinatura("GET", java.net.URL(u).path)) c.setRequestProperty(k, v)
+            br.paulo.tvlauncher.RelaySign.sign(c)   // requestMethod padrão = GET
             ultimaFalha = falhaDe(c.responseCode)
             if (ultimaFalha != Falha.NENHUMA) null
             else c.inputStream.use { Http.readLimited(it, 1_000_000, true) }?.toString(Charsets.UTF_8)
