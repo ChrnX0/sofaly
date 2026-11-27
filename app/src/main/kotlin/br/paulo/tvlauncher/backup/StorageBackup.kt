@@ -64,6 +64,7 @@ object StorageBackup {
         val dia = SimpleDateFormat("yyyy-MM-dd HH-mm", Locale.ROOT).format(Date())
         val base = MidiaContas.juntar(MidiaContas.juntar(Smb.inicio(conta), PASTA), dia)
         var feito = 0L
+        val ruins = mutableListOf<String>()
         return try {
             Smb.abrir(conta).use { a ->
                 fun mkdirs(caminho: String) {
@@ -76,7 +77,6 @@ object StorageBackup {
                 }
                 mkdirs(base)
                 val buf = ByteArray(256 * 1024)
-                val ruins = mutableListOf<String>()
                 for (f in percorrer(raiz, ruins)) {
                     val rel = f.relativeTo(raiz).invariantSeparatorsPath
                     if (rel.isEmpty()) continue
