@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hl_titulo">준비된 스타일</string>
+    <string name="hl_sofaly">Sofaly</string>
+    <string name="hl_night">밤</string>
+    <string name="hl_mountain">산</string>
+    <string name="hl_easy">잘 보이게</string>
+    <string name="hl_minimal">미니멀</string>
+    <string name="hl_voltar">원래대로</string>
+    <string name="hl_em_uso">%1$s, 사용 중</string>
+</resources>

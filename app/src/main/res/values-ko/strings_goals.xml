@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goal_read">더 잘 읽기</string>
+    <string name="goal_clean">더 깔끔한 화면</string>
+    <string name="goal_energy">에너지 절약</string>
+    <string name="goal_kids">아이 보호</string>
+    <string name="goal_desfazer">%1$s, 켜짐.</string>
+    <string name="goal_feito">%1$s: 완료.</string>
+    <string name="goal_desfeito">%1$s: 되돌림</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=글자 크게|글씨 크게|글자 키워|글씨 키워|큰 글자;TEXT_SMALLER=글자 작게|글씨 작게|글자 줄여|글씨 줄여|작은 글자;GOAL_READ=잘 읽기|읽기 어려워|잘 안 보여;GOAL_CLEAN=깔끔한 화면|화면 깔끔|단순한 화면;GOAL_ENERGY=에너지 절약|전기 절약|전기 아끼기;LOOK_SOFALY=sofaly 스타일|기본 스타일;LOOK_NIGHT=밤 스타일|어두운 하늘;LOOK_MOUNTAIN=산 스타일;LOOK_MINIMAL=미니멀 스타일</string>
+    <string name="si_fazer">지금 하기: %1$s</string>
+    <string name="si_desfazer">되돌리기: %1$s</string>
+    <string name="si_fazer_det">바로 바뀝니다.</string>
+    <string name="si_maior">글자 크게</string>
+    <string name="si_menor">글자 작게</string>
+</resources>

@@ -30,4 +30,6 @@
     <string name="bb_titulo">홈 화면 모양</string>
     <string name="bb_cruz">크로스</string>
     <string name="bb_barra">하단 바</string>
+    <string name="wo_ultimos">최근 사용한 것 먼저</string>
+    <string name="wo_aleatorio">무작위(매일 바뀜)</string>
 </resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">다른 집 돕기</string>
+    <string name="hoh_question">다른 집을 도와줄까요?</string>
+    <string name="hoh_line">여기서 뭔가를 고치면 다른 Sofaly에게 결과를 알려 줍니다. 누구인지는 말하지 않습니다.</string>
+    <string name="hoh_yes">네, 돕고 싶어요</string>
+    <string name="hoh_not_now">나중에</string>
+    <string name="hoh_how">어떻게 작동하나요?</string>
+    <string name="hoh_how_title">작동 방식</string>
+    <string name="hoh_how_line">다른 집에서 같은 문제가 생기면 그 집의 Sofaly가 이미 해결 방법을 압니다.</string>
+    <string name="hoh_goes">보내는 것</string>
+    <string-array name="hoh_goes_list">
+        <item>TV 모델과 Sofaly 버전</item>
+        <item>고장 난 것(카테고리별)</item>
+        <item>무엇으로 고쳤고 잘 됐는지</item>
+        <item>메모리와 네트워크 수준(좋음 또는 약함)</item>
+    </string-array>
+    <string name="hoh_never">절대 보내지 않는 것</string>
+    <string-array name="hoh_never_list">
+        <item>이름과 네트워크 이름</item>
+        <item>무엇을 언제 보는지</item>
+        <item>앱과 입력한 내용</item>
+        <item>사진, 음성, 주소, IP</item>
+    </string-array>
+    <string name="hoh_back_here">다른 Sofaly가 배운 것은 여기로 돌아옵니다. 설정 &gt; Sofy가 아는 것에서 언제든 바꿀 수 있습니다.</string>
+    <string name="hoh_thanks">고마워요! 이제 Sofaly가 다른 집을 돕고 있습니다.</string>
+    <string name="hoh_state_on">켜짐: 하루 한 번 이 TV가 수리 결과를 공유합니다</string>
+    <string name="hoh_state_off">꺼짐: 이 TV는 아무것도 공유하지 않습니다</string>
+    <string name="hoh_stop">돕기 중지</string>
+    <string name="hoh_stop_det">이 TV는 공유를 멈춥니다. 다른 집이 배운 것은 계속 받습니다.</string>
+    <string name="hoh_start">돕기 시작</string>
+    <string name="hoh_start_det">보내는 것과 보내지 않는 것을 본 뒤 선택하세요</string>
+    <string name="hoh_today">오늘 보낼 내용 보기</string>
+    <string name="hoh_today_det">이 TV가 보낼 패키지 그대로, 항목별로</string>
+    <string name="hoh_today_sub">서버로 가는 내용 그대로입니다. 집 코드는 매일 바뀝니다.</string>
+    <string name="hoh_forget">보낸 내용 잊기</string>
+    <string name="hoh_forget_det">이 TV의 코드를 바꿉니다. 보낸 내용은 더 이상 이 TV와 연결되지 않으며 30일 안에 삭제됩니다.</string>
+    <string name="hoh_forgot">완료. 이제부터 새 코드를 씁니다. 보낸 내용은 30일 안에 삭제됩니다.</string>
+    <string name="hoh_row_det">다른 집과 공유하는 것과 끄는 방법</string>
+</resources>

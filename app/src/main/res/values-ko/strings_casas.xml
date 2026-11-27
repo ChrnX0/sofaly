@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">다른 집</string>
+    <string name="casas_texto">이 TV를 가족의 TV와 연결해 멀리 있어도 함께 볼 수 있습니다. 재생, 일시정지, 반응만 암호화되어 전달됩니다. 아무도 계정이 필요 없습니다.</string>
+    <string name="casas_mostrar">코드 보여주기</string>
+    <string name="casas_mostrar_det">다른 집에서 자기 TV에 입력합니다</string>
+    <string name="casas_digitar">코드 입력</string>
+    <string name="casas_digitar_det">다른 TV에 표시된 코드</string>
+    <string name="casas_conectadas">연결된 집</string>
+    <string name="casas_remover_det">함께 보기 · 삭제</string>
+    <string name="casas_remover_titulo">%1$s을(를) 삭제할까요?</string>
+    <string name="casas_remover">삭제</string>
+    <string name="casas_pedindo">코드를 받는 중…</string>
+    <string name="casas_codigo_det">이 코드를 다른 집에 읽어 주세요. 그쪽 TV에서: 설정, 가족, 다른 집, 코드 입력. 10분 동안 한 번만 쓸 수 있습니다.</string>
+    <string name="casas_esperando">다른 TV의 확인을 기다리는 중…</string>
+    <string name="casas_conectando">연결 중…</string>
+    <string name="casas_conectar">연결</string>
+    <string name="casas_chegou">%1$s이(가) 코드를 입력했습니다</string>
+    <string name="casas_confirmou">%1$s이(가) 확인했습니다. 여기서도 숫자를 확인하세요</string>
+    <string name="casas_pelo_celular">%1$s이(가) 함께 보기에 연결되어 있습니다(%2$s이(가) 추가)</string>
+    <string name="casas_conferir_titulo">%1$s와(과) 연결할까요?</string>
+    <string name="casas_conferir_texto">다른 TV에 같은 숫자가 보이는지 전화로 확인하세요:\n\n%1$s\n\n다르면 취소하세요.</string>
+    <string name="casas_pronto">%1$s와(과) 연결되었습니다. 두 TV 모두 이 숫자를 보여줍니다. 함께 보려면 작품을 열고 함께 보기를 선택하세요.</string>
+    <string name="casas_falhou">실패했습니다. 인터넷을 확인하고 새 코드로 다시 해 보세요.</string>
+    <string name="casas_sem_rede">Sofaly 서비스가 응답하지 않습니다. 인터넷을 확인하세요.</string>
+    <string name="casas_codigo_errado">그 코드는 맞지 않습니다. 문자와 숫자 8자리이며 10분 동안 유효합니다.</string>
+    <string name="casas_menu">다른 집</string>
+    <string name="casas_menu_det">멀리 있는 가족의 TV와 함께 보기</string>
+</resources>
