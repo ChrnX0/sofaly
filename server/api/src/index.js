@@ -23,6 +23,7 @@
 //   GET    /v1/community/lessons   pública: as lições vistas em 5+ casas nos últimos 14 dias
 //   POST   /v1/community/cases     pública: o pacote do dia da rede de Sofys (opt-in na TV), só campos fixos (src/fleet.js)
 //   GET    /v1/community/cases/summary  só com o REPORTS_TOKEN: os grupos de casos de [minHomes]+ casas, para a IA central
+//   GET    /v1/community/recipes   pública: as receitas da última noite (src/recipes.js), só dado; a TV começa em sombra
 //   GET    /v1/updates/hold        pública: versões que as TVs não devem instalar (src/updates.js, variável UPDATES_HOLD)
 //   POST   /v1/report              assinada: relato de problema, guardado em particular (src/reports.js)
 //   GET    /v1/reports             só com o REPORTS_TOKEN: a fila de relatos, para a Sofy virar issue sem dado pessoal
@@ -36,6 +37,7 @@ import { handleWeatherOpen } from './weatherOpen.js';
 import { handleTranscribe, MAX_B64 } from './transcribe.js';
 import { handleCommunity } from './community.js';
 import { handleFleetPost, handleFleetSummary } from './fleet.js';
+import { handleRecipes, nightly } from './recipes.js';
 import { handleHold } from './updates.js';
 import { healthBody } from './health.js';
 import { identify, quotaFor } from './quota.js';
@@ -54,6 +56,12 @@ const json = (obj, status = 200) => new Response(JSON.stringify(obj), {
 const fail = (r) => json({ error: r.error }, r.status ?? 400);
 
 export default {
+  // A noite da rede de Sofys (cron em wrangler.toml): refaz o resumo e as receitas. Com DISABLED=1, nada.
+  async scheduled(event, env, ctx) {
+    if (env.DISABLED === '1') return;
+    ctx.waitUntil(nightly(env, event.scheduledTime ?? Date.now()));
+  },
+
   async fetch(req, env) {
     const url = new URL(req.url);
     const path = url.pathname;
@@ -110,6 +118,8 @@ export default {
       return handleFleetPost(req, env, { ip, take: await quota(body) });
     }
     if (path === '/v1/community/cases/summary' && req.method === 'GET') return handleFleetSummary(req, env);
+    // Receitas da rede de Sofys (pública, igual para todos; recipes.js). Só dado: a TV confere e começa em sombra.
+    if (path === '/v1/community/recipes' && req.method === 'GET') return handleRecipes(env);
 
     if (path === '/v1/weather/open' && req.method === 'GET') return handleWeatherOpen(url, env, { ip, take: await quota() });
     if (path === '/v1/weather' && req.method === 'GET') return handleWeather(url, env, { ip, take: await quota() });

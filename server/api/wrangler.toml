@@ -17,6 +17,10 @@ UPDATES_HOLD = ""
 
 # Previews (cada PR fora da main, Workers Builds roda `npx wrangler preview`): sem este bloco o build do PR falhava.
 # DISABLED = "1": a versão de preview responde 503 em tudo e nunca toca nos Durable Objects nem nos limites de produção.
+# A noite da rede de Sofys (src/recipes.js): 06:15 UTC = 03:15 em Brasília, depois do teste de modelos e longe do uso.
+[triggers]
+crons = ["15 6 * * *"]
+
 [previews.vars]
 DISABLED = "1"
 
