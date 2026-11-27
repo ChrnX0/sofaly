@@ -89,13 +89,11 @@ class AgendaPerfisReceiver : BroadcastReceiver() {
  * pergunta se apaga. "Adicionar" pergunta em 3 passos curtos: de quem, que dias, que hora. Abre atrás do PIN dos pais.
  */
 class AgendaFamiliaActivity : Activity() {
-    private lateinit var coluna: LinearLayout
+    // Molde das telas de ajuste (ColumnsScreen; passada da Sala 27/11/2026: esta ainda era a coluna única esticada).
+    // Uma seção só (o trilho some); cada troca com os dias à direita da linha. Cada [montar] refaz a tela.
 
     override fun onCreate(b: Bundle?) {
         super.onCreate(b)
-        val (raiz, col) = Estilo.telaLista(this, getString(R.string.agf_titulo), getString(R.string.agf_sub))
-        coluna = col
-        setContentView(raiz)
         montar()
     }
 
@@ -109,14 +107,17 @@ class AgendaFamiliaActivity : Activity() {
     private fun hora(min: Int) = "%02d:%02d".format(min / 60, min % 60)
 
     private fun montar() {
-        coluna.removeAllViews()
+        val t = ColumnsScreen(this, getString(R.string.agf_titulo), getString(R.string.agf_sub))
+        val coluna = t.section(getString(R.string.agf_titulo))
         val l = AgendaPerfisTv.lista(this)
-        val add = Estilo.linhaOpcao(this, getString(R.string.agf_adicionar), getString(R.string.agf_adicionar_det)).apply {
+        val add = Estilo.linhaOpcao(this, getString(R.string.agf_adicionar)).apply {
             setOnClickListener { if (l.size >= AgendaPerfis.MAX) aviso(getString(R.string.agf_cheia)) else escolherConta() }
         }
-        coluna.addView(add, lp())
+        t.describe(add) { ColumnsScreen.Info(null, getString(R.string.agf_adicionar), getString(R.string.agf_adicionar_det)) }
+        coluna.addView(add, t.lpRow())
         for (e in l) {
-            coluna.addView(Estilo.linhaOpcao(this, "${hora(e.minuto)} · ${Perfil.nome(this, e.conta)}", nomeDias(e.dias)).apply {
+            coluna.addView(Estilo.linhaOpcao(this, "${hora(e.minuto)} · ${Perfil.nome(this, e.conta)}", null,
+                Estilo.valor(this, nomeDias(e.dias), seta = false)).apply {
                 setOnClickListener {
                     CaixaTv(this@AgendaFamiliaActivity).setTitle(getString(R.string.agf_apagar))
                         .setMessage("${hora(e.minuto)} · ${Perfil.nome(this@AgendaFamiliaActivity, e.conta)} · ${nomeDias(e.dias)}")
@@ -125,9 +126,10 @@ class AgendaFamiliaActivity : Activity() {
                             AgendaPerfisTv.gravar(this@AgendaFamiliaActivity, AgendaPerfisTv.lista(this@AgendaFamiliaActivity) - e); montar()
                         }.show()
                 }
-            }, lp())
+            }, t.lpRow())
         }
-        add.requestFocus()
+        setContentView(t.root)
+        t.start(add)
     }
 
     /** Uma caixa com uma lista de opções (passo do "Adicionar"). */

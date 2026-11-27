@@ -279,13 +279,16 @@ class PluginsActivity : Activity() {
     }
 
     private fun montar() {
-        val (raiz, coluna) = Estilo.telaLista(this, getString(R.string.plg_titulo), getString(R.string.wp_det))
+        // Molde das telas de ajuste (ColumnsScreen; passada da Sala 27/11/2026: esta ainda era a coluna única esticada,
+        // com os títulos de seção no meio da lista). Agora cada tipo de plugin é uma seção do trilho à esquerda.
+        val t = ColumnsScreen(this, getString(R.string.plg_titulo), getString(R.string.wp_det))
+        var coluna: android.widget.LinearLayout
         val fundos = WallpaperPlugins.instalados(this)
         val pacotes = PacoteIcones.deFora(this)
         val cartoes = PluginsTv.instalados(this)
 
         // ---- Fundos
-        coluna.addView(Estilo.secao(this, getString(R.string.wp_secao_fundos)))
+        coluna = t.section(getString(R.string.wp_secao_fundos))
         if (fundos.isEmpty()) coluna.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.wp_nenhum_fundo)))
         val escolhido = WallpaperPlugins.escolhidoId(this)
         for (f in fundos) {
@@ -295,11 +298,11 @@ class PluginsActivity : Activity() {
             val sub = (if (!emUso) PluginsTv.motivoDesligado(this, f.pacote) else null) ?: getString(R.string.wp_tipo_fundo)
             coluna.addView(Estilo.linhaOpcao(this, f.nome, sub, valor).apply {
                 setOnClickListener { menuFundo(f, emUso) }
-            }, Estilo.lpLinha(this))
+            }, t.lpRow())
         }
 
         // ---- Ícones
-        coluna.addView(Estilo.secao(this, getString(R.string.wp_secao_icones)).apply { setPaddingRelative(0, Estilo.dp(context, 24), 0, 0) })
+        coluna = t.section(getString(R.string.wp_secao_icones))
         if (pacotes.isEmpty()) coluna.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.wp_nenhum_icone)))
         for ((pac, nome) in pacotes) {
             val emUso = PacoteIcones.escolhido(this) == pac
@@ -310,11 +313,11 @@ class PluginsActivity : Activity() {
                     PacoteIcones.escolher(this@PluginsActivity, if (emUso) "" else pac)   // de novo no que está em uso = desliga
                     montar()
                 }
-            }, Estilo.lpLinha(this))
+            }, t.lpRow())
         }
 
         // ---- Cartões
-        coluna.addView(Estilo.secao(this, getString(R.string.wp_secao_cartoes)).apply { setPaddingRelative(0, Estilo.dp(context, 24), 0, 0) })
+        coluna = t.section(getString(R.string.wp_secao_cartoes))
         if (cartoes.isEmpty()) coluna.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.plg_nenhum)))
         for (p in cartoes) {
             val valor = Estilo.valor(this, "", seta = false)
@@ -329,12 +332,12 @@ class PluginsActivity : Activity() {
                         android.widget.Toast.makeText(this@PluginsActivity, getString(R.string.plg_limite, PluginCartao.MAX_PLUGINS), android.widget.Toast.LENGTH_LONG).show()
                     pintar()
                 }
-            }, Estilo.lpLinha(this))
+            }, t.lpRow())
         }
 
         // ---- Botões do painel rápido (PluginTile, 24/11/2026)
         val botoes = PluginTilesTv.instalados(this)
-        coluna.addView(Estilo.secao(this, getString(R.string.ext_secao_botoes)).apply { setPaddingRelative(0, Estilo.dp(context, 24), 0, 0) })
+        coluna = t.section(getString(R.string.ext_secao_botoes))
         if (botoes.isEmpty()) coluna.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.ext_nenhum_botao)))
         for (p in botoes) {
             val valor = Estilo.valor(this, "", seta = false)
@@ -349,21 +352,21 @@ class PluginsActivity : Activity() {
                         android.widget.Toast.makeText(this@PluginsActivity, getString(R.string.plg_limite, PluginTile.MAX), android.widget.Toast.LENGTH_LONG).show()
                     pintar()
                 }
-            }, Estilo.lpLinha(this))
+            }, t.lpRow())
         }
 
         // ---- Widgets de outros apps (PluginWidgetsTv, 24/11/2026): vivos na HOME; o modo de edição põe, move e tira.
         if (PluginWidgetsTv.existe(this)) {
-            coluna.addView(Estilo.secao(this, getString(R.string.ext_secao_widgets)).apply { setPaddingRelative(0, Estilo.dp(context, 24), 0, 0) })
+            coluna = t.section(getString(R.string.ext_secao_widgets))
             val n = PluginWidgetsTv.escolhidos(this).size
             coluna.addView(Estilo.linhaOpcao(this, getString(R.string.wdg_titulo), getString(R.string.wdg_det),
                 Estilo.valor(this, "$n / ${PluginWidget.MAX}")).apply {
                 setOnClickListener { if (pro()) startActivity(Intent(this@PluginsActivity, WidgetLayoutActivity::class.java)) }
-            }, Estilo.lpLinha(this))
+            }, t.lpRow())
         }
 
         // ---- Conseguir plugins (vitrine)
-        coluna.addView(Estilo.secao(this, getString(R.string.wp_secao_descobrir)).apply { setPaddingRelative(0, Estilo.dp(context, 24), 0, 0) })
+        coluna = t.section(getString(R.string.wp_secao_descobrir))
         val instalados = (fundos.map { it.pacote } + pacotes.map { it.first }).toSet()
         val vitrine = PluginsTv.vitrine(this)
         for (e in vitrine) {
@@ -373,13 +376,11 @@ class PluginsActivity : Activity() {
             val valor = Estilo.valor(this, if (ja) getString(R.string.wp_instalado) else "", seta = !ja)
             coluna.addView(Estilo.linhaOpcao(this, e.nome, listOf(tipo, PluginsTv.descricao(this, e)).filter { it.isNotEmpty() }.joinToString(" · "), valor).apply {
                 setOnClickListener { if (ja) montar() else oferecer(e) }
-            }, Estilo.lpLinha(this))
+            }, t.lpRow())
         }
         coluna.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.plg_seguranca)).apply { setPaddingRelative(0, 24, 0, 0) })
-        setContentView(raiz)
-        coluna.getChildAt(1)?.takeIf { it.isFocusable }?.requestFocus() ?: run {
-            for (k in 0 until coluna.childCount) if (coluna.getChildAt(k).isFocusable) { coluna.getChildAt(k).requestFocus(); break }
-        }
+        setContentView(t.root)
+        t.start()   // começa no trilho: o tipo de plugin primeiro, como nas Configurações
     }
 
     private fun instaladoNoSistema(p: String) =

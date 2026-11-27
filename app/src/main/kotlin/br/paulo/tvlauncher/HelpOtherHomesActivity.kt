@@ -7,7 +7,6 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -181,11 +180,17 @@ class HelpOtherHomesActivity : Activity() {
 
     private fun settings() {
         val on = SofyCommunityTv.sharing(this)
-        val (raiz, lista) = Estilo.telaLista(this, getString(R.string.hoh_title_short), getString(if (on) R.string.hoh_state_on else R.string.hoh_state_off))
-        fun linha(t: Int, d: Int, aoClicar: () -> Unit) = lista.addView(Estilo.linhaOpcao(this, getString(t), getString(d)).apply {
-            setOnClickListener { aoClicar() }
-            layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { bottomMargin = dp(8) }
-        })
+        // Molde das telas de ajuste (ColumnsScreen; passada da Sala 27/11/2026: esta ainda era a coluna única esticada).
+        // O estado fica no subtítulo, à vista; o que cada ação faz vai para a coluna da direita.
+        val t = ColumnsScreen(this, getString(R.string.hoh_title_short), getString(if (on) R.string.hoh_state_on else R.string.hoh_state_off))
+        val lista = t.section(getString(R.string.hoh_title_short))
+        var primeira: View? = null
+        fun linha(tit: Int, d: Int, aoClicar: () -> Unit) {
+            val l = Estilo.linhaOpcao(this, getString(tit)).apply { setOnClickListener { aoClicar() } }
+            t.describe(l) { ColumnsScreen.Info(null, getString(tit), getString(d)) }
+            lista.addView(l, t.lpRow())
+            if (primeira == null) primeira = l
+        }
         if (on) linha(R.string.hoh_stop, R.string.hoh_stop_det) { comPin { SofyCommunityTv.setSharing(this, false); montar() } }
         else linha(R.string.hoh_start, R.string.hoh_start_det) { tela = View0.HOW; montar() }
         linha(R.string.hoh_today, R.string.hoh_today_det) { tela = View0.TODAY; montar() }
@@ -195,8 +200,8 @@ class HelpOtherHomesActivity : Activity() {
                 AvisoTv.rapido(applicationContext, getString(R.string.hoh_title_short), getString(R.string.hoh_forgot))
             }
         }
-        setContentView(raiz)
-        lista.getChildAt(0)?.requestFocus()
+        setContentView(t.root)
+        t.start(primeira)
     }
 
     /** Desligar e esquecer pedem o PIN quando a casa tem PIN (como "O que a Sofy sabe"). Ligar não: é só um pedido. */

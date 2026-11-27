@@ -42,7 +42,17 @@ class ServicosFilmesActivity : Activity() {
 
     private val ui = Handler(Looper.getMainLooper())
     private val rede = java.util.concurrent.Executors.newSingleThreadExecutor()
+    // Molde das telas de ajuste (ColumnsScreen; passada da Sala 27/11/2026: esta ainda era a coluna única esticada).
+    // Uma seção só (o trilho some): cada serviço com o estado à direita e, na coluna da direita, o que ele faz.
+    private var tela: ColumnsScreen? = null
     private lateinit var lista: LinearLayout
+
+    /** Começa a tela da lista (vazia até [desenhar] trazer os estados) e a põe na tela. */
+    private fun novaLista(focar: View? = null, comecar: Boolean = true) {
+        val t = ColumnsScreen(this, getString(R.string.sv_titulo), getString(R.string.sv_subtitulo))
+        tela = t; lista = t.section(getString(R.string.sv_titulo))
+        if (comecar) { setContentView(t.root); t.start(focar) }
+    }
     private var telaCodigo: View? = null
     private var servicoNoCodigo: Servico? = null
 
@@ -52,9 +62,7 @@ class ServicosFilmesActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val (raiz, coluna) = Estilo.telaLista(this, getString(R.string.sv_titulo), getString(R.string.sv_subtitulo))
-        lista = coluna
-        setContentView(raiz)
+        novaLista()
         rede.execute { ServicosContas.renovarSePreciso(this) }   // token do Trakt perto de vencer: renova já
         desenhar()
         // Veio do convite da ficha: vai direto ao código (só Trakt/Simkl e só se ainda não conectou).
@@ -79,11 +87,13 @@ class ServicosFilmesActivity : Activity() {
         rede.execute {
             val estados = ServicosContas.estados(this)
             ui.post {
-                if (isDestroyed) return@post
-                lista.removeAllViews()
+                if (isDestroyed || telaCodigo != null) return@post
+                novaLista(comecar = false)
+                val t = tela!!
                 val visiveis = estados.filter { it.situacao != Situacao.INDISPONIVEL }
                 if (visiveis.isEmpty()) {
                     lista.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.sv_sem_chave)).apply { textSize = Estilo.Leitura.AVISO })
+                    setContentView(t.root); t.start()
                     return@post
                 }
                 var focar: View? = null
@@ -94,14 +104,17 @@ class ServicosFilmesActivity : Activity() {
                         Situacao.ENTRANDO -> getString(R.string.sv_entrando)
                         else -> getString(R.string.sv_desligado)
                     }
-                    val det = detalhe(e.servico) + if (e.servico == Servico.TMDB) "\n" + getString(R.string.sv_tmdb_atribuicao) else ""
-                    val linha = Estilo.linhaOpcao(this, e.servico.nome, det, Estilo.valor(this, valor, seta = e.servico != Servico.TMDB))
+                    // A frase de atribuição do TMDB fica à vista na linha (o TMDB exige); o resto vai para a coluna da direita.
+                    val tmdb = if (e.servico == Servico.TMDB) getString(R.string.sv_tmdb_atribuicao) else null
+                    val linha = Estilo.linhaOpcao(this, e.servico.nome, tmdb, Estilo.valor(this, valor, seta = e.servico != Servico.TMDB))
                     ampliar(linha)
                     linha.setOnClickListener { escolher(e) }
-                    lista.addView(linha, Estilo.lpLinha(this))
+                    t.describe(linha) { ColumnsScreen.Info(null, e.servico.nome, detalhe(e.servico)) }
+                    lista.addView(linha, t.lpRow())
                     if (e.servico == foco || focar == null) focar = linha
                 }
-                focar?.requestFocus()
+                setContentView(t.root)
+                t.start(focar)
             }
         }
     }
@@ -295,9 +308,7 @@ class ServicosFilmesActivity : Activity() {
         ui.removeCallbacks(volta)
         if (s != null && ServicosContas.sessao(s)?.estado == ServicosContas.EstadoLogin.ESPERANDO) ServicosContas.cancelar(s)
         telaCodigo = null; servicoNoCodigo = null
-        val (raiz, coluna) = Estilo.telaLista(this, getString(R.string.sv_titulo), getString(R.string.sv_subtitulo))
-        lista = coluna
-        setContentView(raiz)
+        novaLista()
         desenhar(s)
     }
 

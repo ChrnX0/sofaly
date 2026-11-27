@@ -24,19 +24,23 @@ import br.paulo.tvlauncher.panel.PainelArmazem
  * destino ou desligaria o backup.
  */
 class BackupNoturnoActivity : Activity() {
+    // Molde das telas de ajuste (ColumnsScreen; passada da Sala 27/11/2026: esta ainda era a coluna única esticada):
+    // rótulo à esquerda, o valor de agora à direita. Uma seção só, então o trilho some.
+    private lateinit var tela: ColumnsScreen
     private lateinit var coluna: LinearLayout
-    private val linhas = mutableListOf<Pair<TextView, () -> String>>()
+    /** Cada linha: o texto do valor e como relê-lo (o rótulo não muda). */
+    private val linhas = mutableListOf<Triple<LinearLayout, TextView, () -> String>>()
     private var pinOk = false
     private var rodando = false
 
     override fun onCreate(b: Bundle?) {
         super.onCreate(b)
         if (VigiaAtualizacao.fechada(this)) return   // modo seguro da atualização vigiada
-        // Molde único de tela (Estilo.telaLista): título + explicação como subtítulo, fundo grafite da HOME.
-        val (raiz, col) = Estilo.telaLista(this, getString(R.string.bkn_titulo), getString(R.string.bkn_explica))
-        coluna = col
-        setContentView(raiz)
+        tela = ColumnsScreen(this, getString(R.string.bkn_titulo), getString(R.string.bkn_explica))
+        coluna = tela.section(getString(R.string.bkn_titulo))
         montar()
+        setContentView(tela.root)
+        tela.start(linhas.firstOrNull()?.first)
     }
 
     override fun onResume() { super.onResume(); atualizar() }
@@ -44,16 +48,16 @@ class BackupNoturnoActivity : Activity() {
     private fun dp(v: Int) = (v * resources.displayMetrics.density).toInt()
 
     private fun montar() {
-        linha({ getString(R.string.bkn_titulo) + ": " + getString(if (BackupNoturno.ligado(this)) R.string.bkn_ligado else R.string.bkn_desligado) }) {
+        linha(getString(R.string.bkn_titulo), { getString(if (BackupNoturno.ligado(this)) R.string.bkn_ligado else R.string.bkn_desligado) }) {
             comPin {
                 val ligar = !BackupNoturno.ligado(this)
                 if (!BackupNoturno.definirLigado(this, ligar)) mostrar(getString(R.string.bkn_sem_senha))
             }
         }
-        linha({ getString(R.string.bkn_senha) + ": " + getString(if (BackupNoturno.temSenha(this)) R.string.bkn_senha_ok else R.string.bkn_senha_falta) }) {
+        linha(getString(R.string.bkn_senha), { getString(if (BackupNoturno.temSenha(this)) R.string.bkn_senha_ok else R.string.bkn_senha_falta) }) {
             comPin { pedirSenha() }
         }
-        val horario = linha({ getString(R.string.bkn_horario) + ": " + BackupNoturnoRegras.hhmm(BackupNoturno.minutoDoDia(this)) }) {
+        val horario = linha(getString(R.string.bkn_horario), { "‹  " + BackupNoturnoRegras.hhmm(BackupNoturno.minutoDoDia(this)) + "  ›" }) {
             comPin { mudarHorario(30) }
         }
         horario.setOnKeyListener { _, code, e ->
@@ -64,7 +68,7 @@ class BackupNoturnoActivity : Activity() {
                 else -> false
             }
         }
-        linha({ getString(R.string.bkn_extra) + ": " + BackupNoturno.rotuloDestino(this, BackupNoturno.destino(this)) }) {
+        linha(getString(R.string.bkn_extra), { BackupNoturno.rotuloDestino(this, BackupNoturno.destino(this)) }) {
             comPin {
                 // Ler as contas decifra pelo Keystore: fora da thread da tela, e aplica o resultado nela.
                 val app = applicationContext
@@ -84,7 +88,7 @@ class BackupNoturnoActivity : Activity() {
             }
         }
         // Google Drive (DriveBackup): conectar abre a tela do código para o celular; conectada, OK oferece desconectar.
-        linha({ getString(R.string.drv_conta) + ": " + (DriveBackup.email(this) ?: getString(R.string.drv_nao_conectada)) }) {
+        linha(getString(R.string.drv_conta), { (DriveBackup.email(this) ?: getString(R.string.drv_nao_conectada)) }) {
             comPin {
                 if (!DriveBackup.conectado(this))
                     startActivity(android.content.Intent(this, FotoPerfilActivity::class.java).putExtra(FotoPerfilActivity.EXTRA_DRIVE, true))
@@ -95,8 +99,8 @@ class BackupNoturnoActivity : Activity() {
                     }.setNegativeButton(android.R.string.cancel, null).show()
             }
         }
-        linha({ getString(R.string.drv_restaurar) }) { comPin { restaurarDoDrive() } }
-        linha({ getString(R.string.bkn_agora) + if (rodando) " …" else "" }) {
+        linha(getString(R.string.drv_restaurar), { "" }) { comPin { restaurarDoDrive() } }
+        linha(getString(R.string.bkn_agora), { if (rodando) "…" else "" }) {
             comPin {
                 if (rodando) return@comPin
                 if (!BackupNoturno.temSenha(this)) { mostrar(getString(R.string.bkn_sem_senha)); return@comPin }
@@ -105,24 +109,26 @@ class BackupNoturnoActivity : Activity() {
             }
         }
         // OK relê e mostra (TodoBotaoFazAlgoTest, 25/11/2026: a linha focava e o OK não fazia nada).
-        linha({ getString(R.string.bkn_ultimo) + ": " + BackupNoturno.ultimo(this).ifEmpty { getString(R.string.bkn_nunca) } }) {
+        linha(getString(R.string.bkn_ultimo), { BackupNoturno.ultimo(this).ifEmpty { getString(R.string.bkn_nunca) } }) {
             AvisoTv.rapido(this, getString(R.string.bkn_titulo), getString(R.string.bkn_ultimo) + ": " + BackupNoturno.ultimo(this).ifEmpty { getString(R.string.bkn_nunca) })
         }
-        linhas.firstOrNull()?.first?.requestFocus()
     }
 
     private fun mudarHorario(delta: Int) =
         BackupNoturno.definirMinutoDoDia(this, BackupNoturnoRegras.mudarHorario(BackupNoturno.minutoDoDia(this), delta))
 
-    /** Linha padrão do sistema de design (Estilo.linhaTexto): a mesma de Extras, Casa e Configurações. */
-    private fun linha(texto: () -> String, ao: () -> Unit): TextView {
-        val t = Estilo.linhaTexto(this).apply { setOnClickListener { ao(); atualizar() } }
-        coluna.addView(t, Estilo.lpLinha(this))
-        linhas += t to texto
-        return t
+    /** Linha de ajuste do molde ([ColumnsScreen.valueRow]): [rotulo] fixo, [valor] relido a cada [atualizar]. */
+    private fun linha(rotulo: String, valor: () -> String, ao: () -> Unit): LinearLayout {
+        val (row, label, value) = tela.valueRow()
+        label.text = rotulo
+        value.text = valor()
+        row.setOnClickListener { ao(); atualizar() }
+        coluna.addView(row, tela.lpRow())
+        linhas += Triple(row, value, valor)
+        return row
     }
 
-    private fun atualizar() { for ((t, texto) in linhas) t.text = texto() }
+    private fun atualizar() { for ((_, v, valor) in linhas) v.text = valor() }
 
     /** Roda [acao] direto se não há PIN ou já foi conferido nesta tela; senão pede o PIN antes. */
     private fun comPin(acao: () -> Unit) {

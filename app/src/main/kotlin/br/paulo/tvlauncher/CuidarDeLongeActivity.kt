@@ -18,39 +18,47 @@ import br.paulo.tvlauncher.panel.PainelWeb
  * o controle de verdade. Desligar retira o consentimento na hora.
  */
 class CuidarDeLongeActivity : Activity() {
+    // Molde das telas de ajuste em três colunas (Paulo, 26/11/2026; passada da Sala 27/11/2026: esta ainda era a
+    // coluna única esticada): seções no trilho à esquerda, os ajustes com o valor no meio e, à direita, o que o item faz.
+    private var tela: ColumnsScreen? = null
     private lateinit var lista: LinearLayout
+    /** As linhas na ordem em que entram: o foco volta para a mesma depois de [montar] (que refaz a tela inteira). */
+    private val linhas = mutableListOf<android.view.View>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val (raiz, coluna) = Estilo.telaLista(this, getString(R.string.cuidar_titulo), getString(R.string.cuidar_subtitulo))
-        lista = coluna
-        setContentView(raiz)
+        if (VigiaAtualizacao.fechada(this)) return
     }
 
     override fun onResume() {
         super.onResume()
+        if (isFinishing) return
         montar()   // volta do consentimento ou do QR: o estado pode ter mudado
     }
 
-    private fun linha(titulo: String, detalhe: String?, valor: String? = null, acao: () -> Unit) {
-        val l = Estilo.linhaOpcao(this, titulo, detalhe, valor?.let { Estilo.valor(this, it) }).apply { setOnClickListener { acao() } }
-        // Letra de leitura (Estilo.Leitura): quem configura pode ser quem vai receber os avisos, mas pode ser quem mora aqui.
-        (l.getChildAt(0) as? LinearLayout)?.let { col ->
-            (col.getChildAt(0) as? android.widget.TextView)?.textSize = Estilo.Leitura.ITEM + 1
-            (col.getChildAt(1) as? android.widget.TextView)?.textSize = Estilo.Leitura.ITEM_DETALHE
-        }
-        (l.getChildAt(1) as? android.widget.TextView)?.textSize = Estilo.Leitura.ITEM + 1
-        lista.addView(l, Estilo.lpLinha(this))
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        if (tela?.back() != true) @Suppress("DEPRECATION") super.onBackPressed()
     }
 
-    private fun secao(nome: String) = lista.addView(Estilo.secao(this, nome).apply { setPaddingRelative(Estilo.dp(context, 8), Estilo.dp(context, Estilo.E3), 0, Estilo.dp(context, Estilo.E1)) })
+    /** [naLinha] = o detalhe fica embaixo do título (o estado, que precisa estar à vista); senão vai para a coluna da direita. */
+    private fun linha(titulo: String, detalhe: String?, valor: String? = null, naLinha: Boolean = false, acao: () -> Unit) {
+        val l = Estilo.linhaOpcao(this, titulo, if (naLinha) detalhe else null, valor?.let { Estilo.valor(this, it) }).apply { setOnClickListener { acao() } }
+        if (!detalhe.isNullOrEmpty() && !naLinha) tela?.describe(l) { ColumnsScreen.Info(null, titulo, detalhe) }
+        lista.addView(l, tela!!.lpRow())
+        linhas += l
+    }
+
+    private fun secao(nome: String) { lista = tela!!.section(nome) }
 
     private fun sim(b: Boolean) = getString(if (b) R.string.cuidar_sim else R.string.cuidar_nao)
     private fun hhmm(min: Int) = "%02d:%02d".format(min / 60, min % 60)
 
     private fun montar() {
-        val foco = currentFocus?.let { lista.indexOfChild(it) } ?: -1
-        lista.removeAllViews()
+        val foco = currentFocus?.let { f -> linhas.indexOfFirst { it === f } } ?: -1
+        linhas.clear()
+        tela = ColumnsScreen(this, getString(R.string.cuidar_titulo), getString(R.string.cuidar_subtitulo))
+        secao(getString(R.string.cl_ci_situacao))
         val c = CuidarDeLongeTv.config(this)
         val e = CuidarDeLongeTv.estado(this)
         val consentido = CuidarDeLonge.consentido(c)
@@ -61,11 +69,11 @@ class CuidarDeLongeActivity : Activity() {
             c.consentimento.isNotEmpty() -> getString(R.string.cuidar_estado_mudou)
             else -> getString(R.string.cuidar_estado_desligado)
         }
-        if (consentido) linha(getString(R.string.cuidar_desligar), estado) {
+        if (consentido) linha(getString(R.string.cuidar_desligar), estado, naLinha = true) {
             // Confirma: é a 1ª linha (onde o foco cai ao entrar); um OK por hábito não pode desligar o cuidado.
             Estilo.lista(this, getString(R.string.cuidar_desligar_pergunta, c.nome), listOf(getString(R.string.cuidar_desligar), getString(R.string.cuidar_cancelar)),
                 listOf(1)) { i -> if (i == 0) { CuidarDeLongeTv.retirar(this, "tv"); montar() } }
-        } else linha(getString(R.string.cuidar_ligar), estado) {
+        } else linha(getString(R.string.cuidar_ligar), estado, naLinha = true) {
             when (CuidarDeLongeTv.pedirConsentimento(this)) {
                 CuidarDeLonge.Falta.NOME -> pedirNome()
                 CuidarDeLonge.Falta.APARELHO -> escolherAparelhos()
@@ -97,8 +105,8 @@ class CuidarDeLongeActivity : Activity() {
 
         secao(getString(R.string.cuidar_sec_lembretes))
         if (c.lembretes.isEmpty()) lista.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.cuidar_sem_lembretes)).apply {
-            textSize = Estilo.Leitura.ITEM_DETALHE; setPaddingRelative(Estilo.dp(context, 8), 0, 0, 0) })
-        for (l in c.lembretes) linha("${l.hhmm}  ${l.texto}", diasTexto(l.dias)) {
+            textSize = Estilo.Leitura.ITEM_DETALHE; setPaddingRelative(Estilo.dp(context, 8), 0, 0, Estilo.dp(context, Estilo.E1)) })
+        for (l in c.lembretes) linha("${l.hhmm}  ${l.texto}", diasTexto(l.dias), naLinha = true) {
             Estilo.lista(this, "${l.hhmm}  ${l.texto}", listOf(getString(R.string.cuidar_apagar), getString(R.string.cuidar_cancelar))) { i ->
                 if (i == 0) { CuidarDeLongeTv.removerLembrete(this, l.id); montar() }
             }
@@ -134,8 +142,9 @@ class CuidarDeLongeActivity : Activity() {
                 listOf(CuidarDeLonge.MARGENS.indexOf(c.margemMin))) { i -> CuidarDeLongeTv.mudar(this) { it.copy(margemMin = CuidarDeLonge.MARGENS[i]) }; montar() }
         }
 
-        val alvo = lista.getChildAt(if (foco >= 0) foco.coerceAtMost(lista.childCount - 1) else 0)
-        alvo?.post { if (alvo.isFocusable) alvo.requestFocus() else lista.getChildAt(0)?.requestFocus() }
+        val t = tela!!
+        setContentView(t.root)
+        t.start(linhas.getOrNull(if (foco >= 0) foco.coerceAtMost(linhas.size - 1) else 0))
     }
 
     private fun diasTexto(dias: Int): String {
