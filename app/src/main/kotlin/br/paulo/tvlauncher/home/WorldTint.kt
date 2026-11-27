@@ -3,10 +3,9 @@ package br.paulo.tvlauncher.home
 import android.content.Context
 
 /**
- * O "mundo" de cada tela (18/11/2026, identidade visual): as categorias da cruz já têm cor (Assistir laranja, Ouvir
- * turquesa, Jogar violeta) e a HOME já tinge a arte de fundo com ela. Agora a cor continua DENTRO do mundo: Filmes,
- * Séries, TV, Na rede... abrem com o brilho quente de Assistir; Rádio e Podcasts com o turquesa de Ouvir; Jogos com o
- * violeta. Quem entra numa tela sabe onde está pela cor do ar, sem ler nada (pensado também para quem enxerga pouco).
+ * O "mundo" de cada tela (18/11/2026, identidade visual). Nasceu com um brilho de cor por mundo (Ouvir turquesa, Jogar
+ * violeta); desde 27/11/2026 todos são grafite neutro (regra: o escuro nunca é azulado) e a cor de cada mundo fica só
+ * nos ícones e destaques. O enum continua para o mundo de cada tela ter um lugar só.
  *
  * É só o brilho de cima, à esquerda, do grafite padrão ([desenharFundoEscuro]); o resto da tela (texto, foco branco,
  * acento laranja) não muda. As cores são as mesmas da HOME, mais escuras para não brigar com o texto.
@@ -20,8 +19,10 @@ enum class World(val glow: Int) {
     // Assistir segue o neutro (crítica de design 19/11/2026, decisão 4: o laranja fica só para marca, foco e progresso;
     // depois, 26/11, o azul também saiu pela regra do escuro sem azul). O mundo continua existindo para o futuro.
     WATCH(0x5A5753),
-    LISTEN(0x2A9A8E),
-    PLAY(0x5257C8);
+    // Ouvir (era turquesa 0x2A9A8E) e Jogar (era violeta 0x5257C8) também viraram grafite na auditoria de 27/11/2026: nas
+    // fotos eram as únicas telas com o escuro azulado. A cor de cada mundo segue nos ícones da cruz.
+    LISTEN(0x5A5753),
+    PLAY(0x5A5753);
 
     companion object {
         private val WATCH_SCREENS = setOf(
