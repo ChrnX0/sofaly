@@ -30,4 +30,6 @@
     <string name="bb_titulo">Tata letak beranda</string>
     <string name="bb_cruz">Silang</string>
     <string name="bb_barra">Bilah bawah</string>
+    <string name="wo_ultimos">Terakhir dipakai lebih dulu</string>
+    <string name="wo_aleatorio">Urutan acak (berganti setiap hari)</string>
 </resources>

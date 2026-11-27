@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">Rumah lain</string>
+    <string name="casas_texto">Hubungkan TV ini dengan TV kerabat untuk menonton bersama dari jauh. Hanya putar, jeda, dan reaksi yang dikirim, terenkripsi. Tidak ada yang perlu akun.</string>
+    <string name="casas_mostrar">Tampilkan kode</string>
+    <string name="casas_mostrar_det">Rumah lain mengetiknya di TV mereka</string>
+    <string name="casas_digitar">Ketik kode</string>
+    <string name="casas_digitar_det">Kode yang tampil di TV lain</string>
+    <string name="casas_conectadas">Rumah terhubung</string>
+    <string name="casas_remover_det">Menonton bersama · hapus</string>
+    <string name="casas_remover_titulo">Hapus %1$s?</string>
+    <string name="casas_remover">Hapus</string>
+    <string name="casas_pedindo">Meminta kode…</string>
+    <string name="casas_codigo_det">Bacakan kode ini ke rumah lain. Di TV mereka: Setelan, Keluarga, Rumah lain, Ketik kode. Berlaku 10 menit dan sekali pakai.</string>
+    <string name="casas_esperando">Menunggu TV lain mengonfirmasi…</string>
+    <string name="casas_conectando">Menghubungkan…</string>
+    <string name="casas_conectar">Hubungkan</string>
+    <string name="casas_chegou">%1$s mengetik kodenya</string>
+    <string name="casas_confirmou">%1$s sudah mengonfirmasi. Cocokkan angkanya di sini juga</string>
+    <string name="casas_pelo_celular">%1$s terhubung untuk menonton bersama (ditambahkan oleh %2$s)</string>
+    <string name="casas_conferir_titulo">Hubungkan dengan %1$s?</string>
+    <string name="casas_conferir_texto">Pastikan lewat telepon bahwa TV lain menampilkan angka yang sama:\n\n%1$s\n\nJika berbeda, batalkan.</string>
+    <string name="casas_pronto">Terhubung dengan %1$s. Kedua TV menampilkan angka ini. Untuk menonton bersama, buka judul dan pilih Tonton bersama.</string>
+    <string name="casas_falhou">Gagal. Periksa internet dan coba lagi dengan kode baru.</string>
+    <string name="casas_sem_rede">Layanan Sofaly tidak menjawab. Periksa internet.</string>
+    <string name="casas_codigo_errado">Kode ini tidak berhasil. Kode terdiri dari 8 huruf dan angka dan berlaku 10 menit.</string>
+    <string name="casas_menu">Rumah lain</string>
+    <string name="casas_menu_det">Menonton bersama TV kerabat yang tinggal jauh</string>
+</resources>
