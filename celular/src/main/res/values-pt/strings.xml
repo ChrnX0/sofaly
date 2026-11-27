@@ -71,4 +71,7 @@
     <string name="cel_fora_esperar">Muitas tentativas. Espere %1$d s e tente de novo.</string>
     <string name="cel_fora_falhou">Não deu certo. Tente de novo em casa, com a TV ligada.</string>
     <string name="cel_fora_pronto">Pronto. Este celular agora controla a TV também de fora de casa.</string>
+    <string name="cel_camera_negada">O app precisa da câmera só para ler o código na tela da TV.</string>
+    <string name="cel_camera_bloqueada">A câmera está bloqueada para este app. Abra os ajustes do app e permita a câmera.</string>
+    <string name="cel_abrir_ajustes">Abrir ajustes</string>
 </resources>

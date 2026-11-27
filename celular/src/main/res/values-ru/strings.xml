@@ -67,4 +67,7 @@
     <string name="cel_fora_esperar">Слишком много попыток. Подождите %1$d с и попробуйте снова.</string>
     <string name="cel_fora_falhou">Не получилось. Попробуйте ещё раз дома при включённом телевизоре.</string>
     <string name="cel_fora_pronto">Готово. Теперь этот телефон управляет телевизором и вне дома.</string>
+    <string name="cel_camera_negada">Камера нужна приложению только чтобы прочитать код на экране телевизора.</string>
+    <string name="cel_camera_bloqueada">Камера заблокирована для этого приложения. Откройте настройки приложения и разрешите камеру.</string>
+    <string name="cel_abrir_ajustes">Открыть настройки</string>
 </resources>

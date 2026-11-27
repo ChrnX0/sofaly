@@ -6,6 +6,12 @@ plugins {
     id("org.jetbrains.kotlin.android") version "2.2.21" apply false
 }
 
+// versionCode do app (04/11/2026): minutos desde 01/01/2026 na hora do build, para sempre crescer; `-PversionCode=N`
+// fixa o número (o Release monta a ponte e o app novo com o MESMO). Calculado UMA vez aqui (refatoração G, 27/11/2026):
+// o :app (versionCode do APK) e o :resources (BuildConfig.VERSION_CODE) leem este, então nunca caem em minutos diferentes.
+extra["sofalyVersionCode"] = (findProperty("versionCode") as String?)?.toInt()
+    ?: ((System.currentTimeMillis() - 1_767_225_600_000L) / 60_000L).toInt()
+
 // Configuração comum dos módulos do Shizuku (na origem isto ficava no build.gradle raiz do repositório deles).
 // Sem NDK desde 15/11/2026: a parte nativa (librish.so, o terminal "rish") ficou de fora; o servidor não precisa dela.
 subprojects {

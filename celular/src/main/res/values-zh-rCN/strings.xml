@@ -67,4 +67,7 @@
     <string name="cel_fora_esperar">尝试次数过多。请等待 %1$d 秒后重试。</string>
     <string name="cel_fora_falhou">没有成功。请在家里、电视开机时重试。</string>
     <string name="cel_fora_pronto">完成。这部手机现在在外面也能控制电视。</string>
+    <string name="cel_camera_negada">应用只用相机读取电视屏幕上的二维码。</string>
+    <string name="cel_camera_bloqueada">此应用的相机已被禁止。请打开应用设置并允许使用相机。</string>
+    <string name="cel_abrir_ajustes">打开设置</string>
 </resources>

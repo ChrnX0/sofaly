@@ -38,6 +38,13 @@ include(":core")
 include(":resources")   // refatoração G: recursos do app (a pasta continua em app/src/main/res)
 include(":celular")   // ideia 101: app de celular (casca fina do painel)
 include(":extras")    // plugin Sofaly Extras (16/11/2026): app separado do site, ver extras/build.gradle.kts
+// Refatoração G (27/11/2026): partes baixadas sob demanda. Só no build com partes (-Psplits); no build de sempre o app
+// leva tudo dentro, como antes (ver app/build.gradle.kts).
+if (providers.gradleProperty("splits").isPresent) {
+    include(":translate", ":tunnel")
+    project(":translate").projectDir = file("features/translate")
+    project(":tunnel").projectDir = file("features/tunnel")
+}
 
 // Servidor do Shizuku embutido (fork thedjchi, ver shizuku/NOTICE.md). Saiu em 12/11/2026 (o APK definia as permissões
 // do Shizuku e não instalava onde o app Shizuku existia) e voltou em 15/11/2026 SEM definir permissão nenhuma: o

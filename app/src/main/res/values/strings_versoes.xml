@@ -16,40 +16,28 @@
     <string name="ver_respondido_sim">answered “yes”</string>
     <string name="ver_respondido_nao">answered “no”</string>
     <string-array name="novidades">
-        <item>Phone app: the QR reader stands upright with a square window and orange corners, instead of the wide barcode reader</item>
-        <item>Phone app: a paired TV shows its own name, not “TV” or a code</item>
-        <item>Phone as a helper: the camera picture keeps the TV\'s shape, the phone microphone cuts out less, and “Find the remote” lists only real remotes and remembers when each was last used</item>
-        <item>The panel icon on the phone, the browser tab, the TV in Windows\' Network and the website use the graphite logo, without the old navy blue</item>
-        <item>Phone app: reading the TV\'s QR code no longer closes it, the path to the QR on the TV is right, and the remote and “Use away from home?” respond again</item>
-        <item>Help other homes: the screen now says that the name and version of apps that crashed also go, and “See what goes today” shows all of it</item>
-        <item>The settings screens that were still one stretched column now use three columns; the forecast shows its art under the dark veil</item>
-        <item>Movies, Radio, theme, rows and focus lists follow the same standard as the other screens</item>
-        <item>Weather saved by the home no longer shows up as a change in Undo or in the TV\'s diary</item>
-        <item>Sofaly name everywhere: the phone app downloads as sofaly-phone.apk and the panel certificate as sofaly-panel.crt</item>
-        <item>With a film open, the subtitle delay and the player settings changed in Settings no longer erase each other</item>
-        <item>Settings: “Home and network” is now “Home and remote access”</item>
-        <item>Sofaly checks the screens by reading the app in front and, when it cannot read one, says why</item>
-        <item>Texts that ran words together got the missing space, as in Internet diagnostics</item>
+        <item>Phone app: it asks for the camera before opening the QR reader; if you say no, it offers Try again or the phone\'s settings, in the phone\'s language</item>
+        <item>Help other homes: “See what goes today” shows each server address as it reads, without backslashes</item>
+        <item>Panel: turning the phone microphone or camera off also clears the “Microphone on” or “Live on the TV” notice</item>
+        <item>Air quality: “Hazardous” is shown in alert red</item>
+        <item>Test channel: updates come in parts, so the TV downloads less, and the home screen frees graphics memory while another app is open or the screen is off</item>
     </string-array>
     <string-array name="roteiro_ids" translatable="false">
-        <item>celular_le_qr</item>
-        <item>celular_nome_tv</item>
-        <item>ajudar_o_que_vai</item>
+        <item>celular_camera</item>
+        <item>ajudar_enderecos</item>
+        <item>painel_aviso_mic</item>
         <item>legenda_ajustes</item>
-        <item>diagnostico_espacos</item>
     </string-array>
     <string-array name="roteiro_titulos">
-        <item>Phone reads the QR</item>
-        <item>TV name on the phone</item>
-        <item>What goes</item>
+        <item>Phone camera</item>
+        <item>Addresses</item>
+        <item>Panel microphone</item>
         <item>Subtitles and settings</item>
-        <item>Spaces in texts</item>
     </string-array>
     <string-array name="roteiro_perguntas">
-        <item>In the phone app, tap Read the TV\'s QR code (the reader stands upright, with a square window) and read the QR in Settings › Home and remote access › Remote access › Sign in from your phone: does the panel open, and does the remote\'s Home key take the TV to the home screen?</item>
-        <item>Back in the phone app\'s list of TVs, does this TV show its own name, not “TV” or a code?</item>
-        <item>Open Help other homes and How it works: does “What goes” list the name and version of apps that crashed, and does “See what goes today” show two parts?</item>
-        <item>With a film open, change the subtitle delay and, in Settings, a player setting; reopen the film: did both stick?</item>
-        <item>In Internet diagnostics, is there a space between sentences and before “(system app)” and “(5 min ago)”?</item>
+        <item>In the phone app, tap Read the TV\'s QR code and answer Don\'t allow to the camera question: does the app offer Try again, in the phone\'s language?</item>
+        <item>Open Help other homes › See what goes today: do the addresses read like https://api.sofaly.tv/v1/…, without backslashes?</item>
+        <item>In the panel on the phone, turn the microphone on and then off: does the “Microphone on” notice go away?</item>
+        <item>With a film open, turn subtitles on, change the subtitle delay and, in Settings, a player setting; reopen the film: did both stick?</item>
     </string-array>
 </resources>

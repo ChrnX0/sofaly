@@ -67,4 +67,7 @@
     <string name="cel_fora_esperar">Çok fazla deneme. %1$d sn bekleyip tekrar deneyin.</string>
     <string name="cel_fora_falhou">Olmadı. Evde, TV açıkken tekrar deneyin.</string>
     <string name="cel_fora_pronto">Tamam. Bu telefon artık TV\'yi evin dışından da kontrol ediyor.</string>
+    <string name="cel_camera_negada">Uygulama kamerayı yalnızca TV ekranındaki kodu okumak için kullanır.</string>
+    <string name="cel_camera_bloqueada">Kamera bu uygulama için engelli. Uygulama ayarlarını açın ve kameraya izin verin.</string>
+    <string name="cel_abrir_ajustes">Ayarları aç</string>
 </resources>

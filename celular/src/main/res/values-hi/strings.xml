@@ -67,4 +67,7 @@
     <string name="cel_fora_esperar">बहुत ज़्यादा कोशिशें। %1$d सेकंड रुककर फिर कोशिश करें।</string>
     <string name="cel_fora_falhou">यह नहीं हुआ। घर पर, टीवी चालू रखकर फिर कोशिश करें।</string>
     <string name="cel_fora_pronto">हो गया। अब यह फ़ोन घर से बाहर भी टीवी चलाता है।</string>
+    <string name="cel_camera_negada">ऐप को कैमरा सिर्फ़ टीवी की स्क्रीन पर कोड पढ़ने के लिए चाहिए।</string>
+    <string name="cel_camera_bloqueada">इस ऐप के लिए कैमरा बंद है। ऐप की सेटिंग्स खोलें और कैमरे की अनुमति दें।</string>
+    <string name="cel_abrir_ajustes">सेटिंग्स खोलें</string>
 </resources>

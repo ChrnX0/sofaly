@@ -9,7 +9,9 @@ Code layout (21/11/2026 refactor): sources live in subpackages by area under `br
 listen, panel, mcp, weather, alarm, screensaver, privilege, network, backup, observer, family, games, settings, input,
 search); manifest components, JNI classes and the core (Fundo, Estilo, Prefs, Http...) stay in the root package. Modules (G refactor, 27/11/2026): pure logic
 with no R/BuildConfig lives in `:core` (`core/src/main/kotlin`, same packages); resources are compiled by `:resources`
-(the folder stays `app/src/main/res`), so R is `br.paulo.tvlauncher.resources.R` (import it, also in root-package files). Tests
+(the folder stays `app/src/main/res`), so R is `br.paulo.tvlauncher.resources.R` (import it, also in root-package files). `:resources` also generates
+`br.paulo.tvlauncher.BuildConfig` (same name and constants as before; fields and `-Pplay` logic in `resources/build.gradle.kts`,
+the versionCode once in the root `build.gradle.kts`); `:app` no longer generates its own. Tests
 that read sources find files with `CodeSource.file(name)`. Background work goes through `Fundo.rodar`/`Fundo.juntos`
 (coroutines); only endless loops (servers, watchers) keep their own Thread.
 Every bitmap is created through `br.paulo.tvlauncher.image.Images` (in `:core`; origin = area/file), never `BitmapFactory`/

@@ -1,0 +1,68 @@
+{
+ "versionCode": 476305,
+ "files": [
+  {
+   "name": "part-base.apk",
+   "split": "base",
+   "abi": "",
+   "sha256": "6a85553c21e99f18a2953f04835874da5b7222adb890ade90200a4cd59f19b7e",
+   "size": 25074145
+  },
+  {
+   "name": "part-base-armeabi_v7a.apk",
+   "split": "base",
+   "abi": "armeabi-v7a",
+   "sha256": "886a80194dce9aac190e54e320b4aa080a0ae69a88de44502fcd700849c1920e",
+   "size": 5333955
+  },
+  {
+   "name": "part-base-arm64_v8a.apk",
+   "split": "base",
+   "abi": "arm64-v8a",
+   "sha256": "e4b95bdc99f8dbf1fc89cd2a35e3c7b1f2222cc2e8a9da4aaa3dae1245b2c046",
+   "size": 5669809
+  },
+  {
+   "name": "part-translate.apk",
+   "split": "translate",
+   "abi": "",
+   "sha256": "dd1ed55d126249fc5db223bf826d440e415982a9a3df0216bf144797a7fdddb6",
+   "size": 1185615
+  },
+  {
+   "name": "part-translate-armeabi_v7a.apk",
+   "split": "translate",
+   "abi": "armeabi-v7a",
+   "sha256": "8f5cc5768effd0b6e49ef9ff620b4bdba1ef84b9e96b12d673eab082316e4397",
+   "size": 6005103
+  },
+  {
+   "name": "part-translate-arm64_v8a.apk",
+   "split": "translate",
+   "abi": "arm64-v8a",
+   "sha256": "72a4de0fe993e9b624ac334f517127a4a8c6a6aa95f8a10c7c24966879cf228f",
+   "size": 6787437
+  },
+  {
+   "name": "part-tunnel.apk",
+   "split": "tunnel",
+   "abi": "",
+   "sha256": "7794ac4ed1bfa80489510c2712244b6d0040ec24e4d8932c6f26e9b8ab063ca8",
+   "size": 8339
+  },
+  {
+   "name": "part-tunnel-armeabi_v7a.apk",
+   "split": "tunnel",
+   "abi": "armeabi-v7a",
+   "sha256": "bb3b65d28357a4d7f05a0755bfb9bd5cb311d0e9873bec515a60b8dcfc0d531b",
+   "size": 8348007
+  },
+  {
+   "name": "part-tunnel-arm64_v8a.apk",
+   "split": "tunnel",
+   "abi": "arm64-v8a",
+   "sha256": "dd0e532a3642233f51fe8a4aa5677e2ffa92c9cbe4f017b9c619559f03d6941f",
+   "size": 7962981
+  }
+ ]
+}

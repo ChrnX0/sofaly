@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Partes baixadas sob demanda (refatoração G, 27/11/2026): nome de cada parte. -->
+<resources>
+    <string name="part_translate_title">Subtitle translation</string>
+    <string name="part_tunnel_title">Access from the internet</string>
+</resources>

@@ -1,5 +1,3 @@
-// "java.util.Properties" escrito por extenso não funciona aqui: no script do Gradle, "java" é a extensão do plugin Java.
-import java.util.Properties
 
 plugins {
     id("com.android.application")
@@ -10,25 +8,13 @@ plugins {
 // VPN própria (vpn.* ali dentro) iam em texto puro para o APK via BuildConfig; com a troca para o app AdGuard VPN
 // elas saíram do build. O local.properties do dono continua como está.
 
-// 05/11/2026: dados PESSOAIS (cidade, coordenadas, apps preferidos, eclipses da cidade) saíram do Config.kt, porque o
-// repositório é público. Eles vêm do arquivo pessoal.properties, na raiz do repo, que NÃO vai para o git (.gitignore).
-// Sem o arquivo (quem baixa do GitHub, ou o build do GitHub Actions), valem padrões neutros. Modelo comentado em
-// pessoal.properties.exemplo. Cada valor vira um campo da classe BuildConfig, que o Config.kt lê.
-val pessoal = Properties().apply {
-    val f = rootProject.file("pessoal.properties")
-    if (f.exists()) f.reader(Charsets.UTF_8).use { load(it) }   // UTF-8: acentos (ã, ç) saem certos
-}
-// Texto Java entre aspas, com \ e " escapados (senão um valor com aspas quebra a compilação do BuildConfig).
-fun textoJava(v: String) = "\"" + v.replace("\\", "\\\\").replace("\"", "\\\"") + "\""
-// Build da Play (-Pplay, 17/11/2026): sai do PC do dono, que tem o pessoal.properties; cidade, coordenadas, apps fixos,
-// METAR e eclipses dele NÃO podem ir para o app de todos os clientes. Na Play só as chaves de serviço (chaveApp) vêm de lá.
-val dadosPessoais = if (project.hasProperty("play")) Properties() else pessoal
-fun pessoalTexto(chave: String, padrao: String = "") = textoJava(dadosPessoais.getProperty(chave, padrao).trim())
-// Chaves dos APLICATIVOS de filmes e séries (ServicosFilmes.kt, 14/11/2026): uma por projeto, nunca no git. No PC vêm do
-// pessoal.properties; no GitHub Actions, das variáveis de ambiente que o release.yml preenche com os secrets de mesmo nome.
-// Sem a chave, o serviço some da tela do launcher.
-fun chaveApp(nome: String) = textoJava((System.getenv(nome) ?: pessoal.getProperty(nome.lowercase(), "")).trim())
-fun pessoalNumero(chave: String, padrao: Double) = (dadosPessoais.getProperty(chave)?.trim()?.toDoubleOrNull() ?: padrao).toString()
+// Dados pessoais, chaves dos serviços e as outras constantes de build (PLAY, VERSION_CODE...) saíram daqui para o
+// resources/build.gradle.kts (refatoração G, 27/11/2026): a classe br.paulo.tvlauncher.BuildConfig é gerada lá, com o
+// mesmo nome e as mesmas constantes, para que os módulos de área também a enxerguem.
+// Refatoração G (27/11/2026): `-Psplits` monta o app como base + partes baixadas sob demanda (features/translate e
+// features/tunnel), num .aab (bundleRelease) que o bundletool parte em APKs. Sem a propriedade, o build é o de sempre:
+// um APK por arquitetura com tudo dentro (o que as TVs atuais e o site baixam).
+val comPartes = project.hasProperty("splits")
 
 android {
     namespace = "br.paulo.tvlauncher"
@@ -53,46 +39,11 @@ android {
         // Cabe num Int por uns 4 mil anos.
         // `-PversionCode=N`: o Release monta a ponte e o app novo com o MESMO número (dois builds podem cair em minutos
         // diferentes, e a ponte reconhece o app novo do mesmo Release pela tag).
-        versionCode = (project.findProperty("versionCode") as String?)?.toInt()
-            ?: ((System.currentTimeMillis() - 1_767_225_600_000L) / 60_000L).toInt()
+        // Calculado uma vez só no build.gradle.kts da raiz: o BuildConfig (no :resources) usa o mesmo número.
+        versionCode = (project.findProperty("versionCode") as String?)?.toInt() ?: rootProject.extra["sofalyVersionCode"] as Int
         versionName = "1.0"
 
 
-        // Dados pessoais (ver pessoal.properties no topo). Padrões neutros entre aspas ou como número.
-        buildConfigField("String", "CIDADE", pessoalTexto("cidade"))
-        buildConfigField("double", "LATITUDE", pessoalNumero("latitude", 0.0))
-        buildConfigField("double", "LONGITUDE", pessoalNumero("longitude", 0.0))
-        buildConfigField("boolean", "USAR_FAHRENHEIT", (dadosPessoais.getProperty("fahrenheit")?.trim() == "true").toString())
-        buildConfigField("String", "ESTACAO_METAR", pessoalTexto("estacao_metar"))
-        // Quantas línguas o app traz (pastas values-* com strings.xml + o inglês padrão): o Placar diz o número certo
-        // sem ninguém lembrar de trocar o texto a cada língua nova (estava "14" com 26, 24/11/2026).
-        // Línguas distintas: values-pt e values-pt-rPT contam uma (português); + 1 = o inglês de values/.
-        buildConfigField("int", "IDIOMAS", (file("src/main/res").listFiles { d -> d.name.startsWith("values-") && d.resolve("strings.xml").exists() }!!
-            .map { it.name.removePrefix("values-").substringBefore("-r") }.toSet().size + 1).toString())
-        buildConfigField("String", "APPS_FIXOS", pessoalTexto("apps_fixos"))
-        buildConfigField("String", "APPS_ORDEM", pessoalTexto("apps_ordem",
-            "com.google.android.youtube.tv,com.google.android.youtube.tvmusic,com.netflix.ninja,com.android.vending"))
-        buildConfigField("String", "BOTAO_NETFLIX", pessoalTexto("botao_netflix", "com.netflix.ninja"))
-        buildConfigField("String", "ECLIPSES", pessoalTexto("eclipses"))
-        // Cuidar de longe (15/11/2026, decisão do Paulo): a Play proíbe app que avisa terceiros sobre um adulto, mesmo
-        // com consentimento (regra de stalkerware). Build da Play = `-Pplay`: só fica o pedido de ajuda (77); o aviso à
-        // família do lembrete (78) e da TV que não ligou (79) só existe no APK do site.
-        buildConfigField("boolean", "CUIDAR_FAMILIA", (!project.hasProperty("play")).toString())
-        // Build da Play (`-Pplay`, 16/11/2026): o produto Sofaly. PLAY liga a cobrança da Play e desliga o que a loja
-        // não aceita (atualizador do GitHub, instalar APK). A fonte do clima não depende mais do build (19/11/2026): é o
-        // plano e a licença que escolhem, em DataSources.kt (MET Norway no Básico).
-        buildConfigField("boolean", "PLAY", project.hasProperty("play").toString())
-        // Build da Play: sem TMDB (chave pessoal; uso comercial pede contrato) até haver contrato. O Simkl entra (19/11/2026)
-        // só no caminho grátis que eles aceitaram: a conta da própria pessoa e o convite "Conecte sua conta"; a nota sem
-        // login fica para o Pro com licença (DataSources.kt). Trakt (Standard) e OpenSubtitles (login da pessoa) ficam.
-        val semLicencaNaPlay = setOf("TMDB_CHAVE")
-        for (k in listOf("TMDB_CHAVE", "TRAKT_ID", "TRAKT_SEGREDO", "SIMKL_ID", "OPENSUBTITLES_CHAVE"))
-            buildConfigField("String", k, if (project.hasProperty("play") && k in semLicencaNaPlay) "\"\"" else chaveApp(k))
-        // Degrau 2a (17/11/2026): e-mail que recebe o "Relatar um problema" (quem não tem conta no GitHub). Fora do git:
-        // Padrão = o e-mail do produto (Paulo, 17/11/2026: contact@sofaly.tv). pessoal.properties "suporte_email" ou a
-        // variável SUPORTE_EMAIL do repo trocam; um valor inválido faz o QR voltar ao formulário do GitHub.
-        buildConfigField("String", "SUPORTE_EMAIL", textoJava((System.getenv("SUPORTE_EMAIL")?.takeIf { it.isNotBlank() }
-            ?: pessoal.getProperty("suporte_email")?.takeIf { it.isNotBlank() } ?: "contact@sofaly.tv").trim()))
     }
 
     // Um APK por arquitetura (12/11/2026, pedido do dono: versões de 32 e 64 bits no GitHub).
@@ -104,7 +55,8 @@ android {
     // com o mesmo versionCode. Só essas duas: x86 e as outras não entram (antes o conscrypt trazia 4 ABIs, ~7 MB à toa).
     splits {
         abi {
-            isEnable = true
+            // Com -Psplits quem parte por arquitetura é o .aab (bundle { abi } abaixo); os APKs por ABI daqui quebram as partes.
+            isEnable = !comPartes
             reset()
             include("armeabi-v7a", "arm64-v8a")
             isUniversalApk = false
@@ -112,7 +64,7 @@ android {
     }
 
     buildFeatures {
-        buildConfig = true   // gera a classe BuildConfig (campos do pessoal.properties, ver defaultConfig)
+        buildConfig = false   // a classe BuildConfig vem do :resources (mesmo nome, mesmas constantes)
     }
 
     // Extrai as .so para a pasta lib/arm do app instalado: o túnel (libtsnet.so) é um executável que o TunelTailscale roda
@@ -177,6 +129,18 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
+    if (comPartes) {
+        dynamicFeatures += setOf(":translate", ":tunnel")
+        // As mesmas duas arquiteturas dos APKs de sempre (algumas dependências trazem x86, que nenhuma TV nossa usa).
+        defaultConfig.ndk.abiFilters += setOf("armeabi-v7a", "arm64-v8a")
+        // Partes só por arquitetura: idioma e densidade ficam na base (a TV muda de idioma sem baixar nada).
+        bundle {
+            language { enableSplit = false }
+            density { enableSplit = false }
+            abi { enableSplit = true }
+        }
+    }
 }
 
 // Kotlin 2.2 trocou o bloco kotlinOptions { } (dentro de android) por este.
@@ -235,7 +199,8 @@ dependencies {
     // Sessão de mídia dos players (SessaoMidia.kt, 17/11/2026): o sistema, o Gemini e o MCP passam a ver o que toca.
     implementation("androidx.media3:media3-session:1.11.1")
     // Ideia 90: tradução de legenda NA TV (ML Kit, offline; modelo de ~30 MB baixado no primeiro uso). +~12 MB no APK.
-    implementation("com.google.mlkit:translate:17.0.3")
+    // Com -Psplits ele vai para a parte features/translate (baixada sob demanda), não para a base.
+    if (!comPartes) implementation("com.google.mlkit:translate:17.0.3")
     // Player completo (15/11/2026): FFmpeg (LGPL-2.1) e libass compilados por nós (nativo/compilar.sh), com cola própria
     // (nativo/cola + FfNativo.kt). Substitui a NextLib (GPL). As .so prontas ficam em nativo/libs (ver sourceSets abaixo).
     // Mídias da rede, etapa 2 (07/11/2026): pasta compartilhada SMB 2/3 (Windows, NAS). Apache-2.0. Traz bcprov e slf4j;
@@ -314,7 +279,10 @@ val compilarTunel = tasks.register("compilarTunel") {
         }
     }
 }
-android.sourceSets["main"].jniLibs.srcDir(pastaTunel)
+// Com -Psplits o túnel vai para a parte features/tunnel (baixada por quem liga o acesso pela internet).
+if (!comPartes) android.sourceSets["main"].jniLibs.srcDir(pastaTunel)
+// O motor de tradução (MlKitSubtitles) mora em features/translate; no build de sempre entra no app.
+if (!comPartes) android.sourceSets["main"].java.srcDir(rootProject.file("features/translate/src/main/kotlin"))
 // Player: FFmpeg, libass e a cola nativa, já compilados (nativo/compilar.sh). O build do app não precisa do NDK.
 android.sourceSets["main"].jniLibs.srcDir(rootProject.file("nativo/libs"))
 // Refatoração G, etapa 3: src/main/res é compilada pelo módulo :resources (R = br.paulo.tvlauncher.resources.R).
@@ -324,3 +292,56 @@ android.sourceSets["main"].res.setSrcDirs(emptyList<File>())
 // compilada junto no app da TV e no app do celular, para os dois lados nunca divergirem.
 android.sourceSets["main"].java.srcDir(rootProject.file("relay-core/src/main/kotlin"))
 tasks.named("preBuild") { dependsOn(compilarTunel) }
+
+// Refatoração G (27/11/2026): os APKs das partes, para o Atualizador (o site e a Play não usam isto).
+// `./gradlew :app:buildPartApks -Psplits` parte o .aab com o bundletool (a mesma versão que o AGP usa) e deixa, por
+// arquitetura, em build/outputs/parts/<abi>/: base-master.apk + base-<abi>.apk (o app) e translate-*/tunnel-* (as partes).
+// Assina com a chave do Release (ASSINATURA_*) quando existe, senão com a chave debug desta máquina, como o resto do build.
+val bundletool by configurations.creating
+dependencies { bundletool("com.android.tools.build:bundletool:1.18.1") }
+if (comPartes) {
+    val pastaPartes = layout.buildDirectory.dir("outputs/parts")
+    val conjunto = layout.buildDirectory.file("outputs/parts/all.apks")
+    val montarConjunto = tasks.register<JavaExec>("buildPartApkSet") {
+        dependsOn("bundleRelease")
+        classpath = bundletool
+        mainClass.set("com.android.tools.build.bundletool.BundleToolMain")
+        val aab = layout.buildDirectory.file("outputs/bundle/release/app-release.aab")
+        inputs.file(aab)
+        outputs.file(conjunto)
+        doFirst {
+            conjunto.get().asFile.delete()
+            val ks = System.getenv("ASSINATURA_ARQUIVO")?.takeIf { it.isNotBlank() }
+            val chave = if (ks != null) listOf("--ks=$ks",
+                "--ks-pass=env:ASSINATURA_SENHA",
+                "--ks-key-alias=" + (System.getenv("ASSINATURA_ALIAS")?.trim()?.takeIf { it.isNotBlank() } ?: "androiddebugkey"),
+                "--key-pass=env:" + (if (System.getenv("ASSINATURA_SENHA_CHAVE").isNullOrBlank()) "ASSINATURA_SENHA" else "ASSINATURA_SENHA_CHAVE"))
+            // Sem a chave real (PR): a mesma chave de debug com que o AGP acabou de assinar o .aab. O caminho vem da
+            // configuração "debug" do AGP (no runner do GitHub não é ~/.android, e o PR #639 caiu nisso).
+            else android.signingConfigs.getByName("debug").let { d ->
+                listOf("--ks=${d.storeFile!!.absolutePath}", "--ks-pass=pass:${d.storePassword}",
+                    "--ks-key-alias=${d.keyAlias}", "--key-pass=pass:${d.keyPassword}")
+            }
+            // O jar do bundletool no Maven não traz o aapt2: usa o do SDK (a versão de build-tools que o AGP usa).
+            val aapt2 = android.sdkDirectory.resolve("build-tools/${android.buildToolsVersion}/aapt2")
+            args = listOf("build-apks", "--bundle=${aab.get().asFile}", "--output=${conjunto.get().asFile}", "--aapt2=$aapt2") + chave
+        }
+    }
+    val abis = mapOf("armeabi-v7a" to 34, "arm64-v8a" to 34)
+    val extrair = abis.keys.map { abi ->
+        tasks.register<JavaExec>("extractPartApks-$abi") {
+            dependsOn(montarConjunto)
+            classpath = bundletool
+            mainClass.set("com.android.tools.build.bundletool.BundleToolMain")
+            val saida = pastaPartes.get().dir(abi).asFile
+            val spec = layout.buildDirectory.file("outputs/parts/spec-$abi.json").get().asFile
+            doFirst {
+                saida.deleteRecursively(); saida.mkdirs()
+                spec.writeText("""{"supportedAbis":["$abi"],"supportedLocales":["en"],"screenDensity":320,"sdkVersion":${abis[abi]}}""")
+                args = listOf("extract-apks", "--apks=${conjunto.get().asFile}", "--output-dir=$saida",
+                    "--device-spec=$spec", "--modules=_ALL_")
+            }
+        }
+    }
+    tasks.register("buildPartApks") { dependsOn(extrair) }
+}
