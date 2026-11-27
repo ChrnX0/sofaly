@@ -4,14 +4,9 @@ import br.paulo.tvlauncher.resources.R
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.text.SpannableStringBuilder
-import android.text.style.AbsoluteSizeSpan
-import android.text.style.ForegroundColorSpan
 import android.view.KeyEvent
 import android.view.View
-import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.ScrollView
 import android.widget.TextView
 import br.paulo.tvlauncher.alarm.Despertador
 import br.paulo.tvlauncher.family.Perfil
@@ -41,51 +36,50 @@ class AutomacoesActivity : Activity() {
         desenhar()
     }
 
-    private fun desenhar() {
-        val focoAntes = (currentFocus?.tag as? Linha)?.chave
-        val raiz = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            background = Estilo.fundoTela(context)
-            setPaddingRelative(dp(Estilo.MARGEM_LATERAL), dp(Estilo.MARGEM_VERTICAL + 9), dp(Estilo.MARGEM_LATERAL), dp(Estilo.MARGEM_VERTICAL))
-        }
-        raiz.addView(Estilo.tituloTela(this, getString(R.string.aut_titulo)))
-        raiz.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.aut_det)), LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(4) })
-        val lista = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPaddingRelative(dp(8), dp(4), dp(8), dp(4)); clipChildren = false; clipToPadding = false }
-        raiz.addView(ScrollView(this).apply { isVerticalScrollBarEnabled = false; clipChildren = false; addView(lista) },
-            LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f).apply { topMargin = dp(16) })
+    // Molde das telas de ajuste (ColumnsScreen; passada das telas 27/11/2026: esta ainda era a coluna única esticada, com
+    // "+ Nova rotina" numa caixa da largura da tela). Os quatro grupos viram o trilho; a explicação vai para a direita.
+    private var tela: ColumnsScreen? = null
 
+    override fun onBackPressed() {
+        if (tela?.back() != true) @Suppress("DEPRECATION") super.onBackPressed()
+    }
+
+    private fun desenhar() {
+        val focoAntes = currentFocus?.tag as? String
+        val t = ColumnsScreen(this, getString(R.string.aut_titulo), getString(R.string.aut_det))
+        tela = t
         val regras = Automacoes.listar(this)
         val cenas = Cenas.lista(this).map { it.nome }
 
-        secao(lista, R.string.aut_horario)
-        adicionar(lista, linha("nova-rotina", getString(R.string.rot_nova_mais), getString(R.string.rot_nova_det)) {
+        val hora = t.section(getString(R.string.aut_horario))
+        linha(t, hora, "nova-rotina", getString(R.string.rot_nova_mais), "", getString(R.string.rot_nova_det)) {
             startActivity(Intent(this, RotinasActivity::class.java).putExtra(RotinasActivity.EXTRA_ROTINA, -1))
-        })
+        }
         for (r in Rotinas.listar(this)) {
-            adicionar(lista, linha("rotina:${r.id}", "%02d:%02d  ·  %s".format(r.hora, r.minuto, Rotinas.descricao(this, r)),
-                Despertador.diasTexto(this, r.dias) + if (r.ativa) "" else getString(R.string.rot_desligada_sufixo)) {
+            val dias = Despertador.diasTexto(this, r.dias) + if (r.ativa) "" else getString(R.string.rot_desligada_sufixo)
+            linha(t, hora, "rotina:${r.id}", "%02d:%02d  ·  %s".format(r.hora, r.minuto, Rotinas.descricao(this, r)), dias, null) {
                 startActivity(Intent(this, RotinasActivity::class.java).putExtra(RotinasActivity.EXTRA_ROTINA, r.id))
-            })
+            }
         }
 
-        secao(lista, R.string.aut_botao)
-        adicionar(lista, linha("novo-botao", getString(R.string.tec_nova), getString(R.string.tec_nova_det)) {
+        val botao = t.section(getString(R.string.aut_botao))
+        linha(t, botao, "novo-botao", getString(R.string.tec_nova), "", getString(R.string.tec_nova_det)) {
             startActivity(Intent(this, TeclasActivity::class.java).putExtra(TeclasActivity.EXTRA_TECLA, 0))
-        })
+        }
         for (tecla in regras.mapNotNull { (it.quando as? Automacoes.Quando.Botao)?.tecla }.distinct()) {
             val det = regras.filter { (it.quando as? Automacoes.Quando.Botao)?.tecla == tecla }
                 .joinToString("  ·  ") { "${nomeGesto((it.quando as Automacoes.Quando.Botao).gesto)}: ${rotulo(it.faz)}" }
-            adicionar(lista, linha("tecla:$tecla", RemapTeclas.nome(this, tecla), det) {
+            linha(t, botao, "tecla:$tecla", RemapTeclas.nome(this, tecla), "", det) {
                 startActivity(Intent(this, TeclasActivity::class.java).putExtra(TeclasActivity.EXTRA_TECLA, tecla))
-            })
+            }
         }
 
-        secao(lista, R.string.aut_evento)
+        val evento = t.section(getString(R.string.aut_evento))
         val gatilhos = Gatilhos.todos(this).toMutableMap()
         for (e in Gatilhos.Evento.values()) {
+            // "Evento → o que a TV faz" (crítica de design 19/11/2026): o evento à esquerda, a cena escolhida à direita.
+            fun valor() = "‹  ${gatilhos[e] ?: getString(R.string.aut_nenhuma_acao)}  ›"
             lateinit var v: TextView
-            // "Evento → o que a TV faz" (crítica de design 19/11/2026): "Filme começou: nenhum" misturava gatilho e estado.
-            fun texto() = "${nomeEvento(e)}  →  ${gatilhos[e] ?: getString(R.string.aut_nenhuma_acao)}"
             fun girar(passo: Int) {
                 // Sem cena nenhuma, girar não tem o que escolher: diz como criar uma, em vez de não fazer nada (25/11/2026,
                 // TodoBotaoFazAlgoTest: as 15 linhas de evento focavam e o OK ficava mudo).
@@ -95,18 +89,12 @@ class AutomacoesActivity : Activity() {
                 if (novo.isEmpty()) gatilhos.remove(e) else gatilhos[e] = novo
                 Gatilhos.salvar(this, gatilhos)
                 if (tinha != (gatilhos[e] != null)) desenhar()   // a linha "só se" aparece ou some (o foco volta a esta)
-                else v.titulo(texto())
+                else { v.text = valor(); t.refresh() }
             }
-            v = linha("evento:${e.chave}", texto(), if (cenas.isEmpty()) getString(R.string.rot_cena_sem) else "") { girar(1) }
-            v.setOnKeyListener { _, k, ev ->
-                if (ev.action != KeyEvent.ACTION_DOWN) return@setOnKeyListener false
-                when (k) {
-                    KeyEvent.KEYCODE_DPAD_LEFT -> { girar(-1); true }
-                    KeyEvent.KEYCODE_DPAD_RIGHT -> { girar(1); true }
-                    else -> false
-                }
-            }
-            adicionar(lista, v)
+            val row = linha(t, evento, "evento:${e.chave}", nomeEvento(e), valor(),
+                if (cenas.isEmpty()) getString(R.string.rot_cena_sem) else null) { girar(1) }
+            v = row.second
+            girarComSetas(row.first) { girar(it) }
             // Elevação 10.5: com cena escolhida, uma linha "só se" logo abaixo (◀ ▶ / OK trocam a condição).
             if (gatilhos[e] != null) {
                 lateinit var w: TextView
@@ -119,33 +107,34 @@ class AutomacoesActivity : Activity() {
                     val novo = roda[(roda.indexOf(atual) + passo).mod(roda.size)]
                     if (novo.isEmpty()) m.remove(e) else m[e] = novo
                     Gatilhos.salvarSoSe(this, m)
-                    w.titulo("    " + textoSoSe(novo))
+                    w.text = textoSoSe(novo)
+                    t.refresh()
                 }
-                w = linha("soSe:${e.chave}", "    " + textoSoSe(Gatilhos.soSe(this)[e].orEmpty()), "") { girarSoSe(1) }
-                w.setOnKeyListener { _, k, ev ->
-                    if (ev.action != KeyEvent.ACTION_DOWN) return@setOnKeyListener false
-                    when (k) {
-                        KeyEvent.KEYCODE_DPAD_LEFT -> { girarSoSe(-1); true }
-                        KeyEvent.KEYCODE_DPAD_RIGHT -> { girarSoSe(1); true }
-                        else -> false
-                    }
-                }
-                adicionar(lista, w)
+                val ss = linha(t, evento, "soSe:${e.chave}", textoSoSe(Gatilhos.soSe(this)[e].orEmpty()), "", null,
+                    recuo = true) { girarSoSe(1) }
+                w = ss.third
+                girarComSetas(ss.first) { girarSoSe(it) }
             }
         }
 
-        secao(lista, R.string.aut_link)
-        adicionar(lista, linha("links", resources.getQuantityString(R.plurals.aut_links, cenas.size, cenas.size), getString(R.string.aut_link_det)) {
+        val link = t.section(getString(R.string.aut_link))
+        linha(t, link, "links", resources.getQuantityString(R.plurals.aut_links, cenas.size, cenas.size), "", getString(R.string.aut_link_det)) {
             startActivity(Intent(this, CenasActivity::class.java))
-        })
+        }
 
-        setContentView(raiz)
-        // Sem foco anterior, null == null casava com o 1º filho sem Linha (o título "Quando for hora", que não aceita foco):
-        // a tela ficava sem nenhum foco ao voltar (teste de ciclo de vida, 24/11/2026).
-        val alvo = focoAntes?.let { f -> (0 until lista.childCount).map { lista.getChildAt(it) }.firstOrNull { (it.tag as? Linha)?.chave == f } }
-        // Depois do layout (Sala, 17/11/2026): pedido aqui direto, a tela abria sem nenhuma linha em foco e o 1º ▼ só achava a 1ª.
-        val primeira = alvo ?: (0 until lista.childCount).map { lista.getChildAt(it) }.firstOrNull { it.tag is Linha }
-        lista.post { primeira?.requestFocus() }
+        setContentView(t.root)
+        // Volta ao item que estava em foco (os editores voltam para cá e a tela se redesenha no onResume).
+        t.start(focoAntes?.let { t.root.findViewWithTag<View>(it) })
+    }
+
+    /** ◀ ▶ trocam o valor da linha (e não voltam ao trilho). */
+    private fun girarComSetas(v: View, girar: (Int) -> Unit) = v.setOnKeyListener { _, k, ev ->
+        if (ev.action != KeyEvent.ACTION_DOWN) return@setOnKeyListener false
+        when (k) {
+            KeyEvent.KEYCODE_DPAD_LEFT -> { girar(-1); true }
+            KeyEvent.KEYCODE_DPAD_RIGHT -> { girar(1); true }
+            else -> false
+        }
     }
 
     private fun nomeGesto(g: RemapTeclas.Gesto) = getString(when (g) {
@@ -191,46 +180,22 @@ class AutomacoesActivity : Activity() {
         else -> faz
     }
 
-    // ---------------------------------------------------------------- peças (iguais às das Rotinas)
+    // ---------------------------------------------------------------- peças
 
-    private fun secao(lista: LinearLayout, texto: Int) =
-        lista.addView(Estilo.secao(this, getString(texto)), LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(12); bottomMargin = dp(8) })
-
-    private fun adicionar(lista: LinearLayout, v: View) =
-        lista.addView(v, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { bottomMargin = dp(8) })
-
-    private class Linha(val chave: String, var titulo: String, val detalhe: String)
-
-    private fun linha(chave: String, titulo: String, detalhe: String, aoClicar: () -> Unit): TextView = TextView(this).apply {
-        tag = Linha(chave, titulo, detalhe)
-        typeface = Estilo.fonte(500)
-        titulo(titulo)
-        isFocusable = true
-        isClickable = true
-        background = Estilo.superficie(context, false)
-        setOnClickListener { aoClicar() }
-        setOnFocusChangeListener { v, temFoco ->
-            Estilo.focarLinha(v, temFoco)
-            (v as TextView).titulo((v.tag as Linha).titulo)   // as cores estão nos spans: refaz com as do foco
-            v.animate().scaleX(if (temFoco) Estilo.ESCALA_LINHA else 1f).scaleY(if (temFoco) Estilo.ESCALA_LINHA else 1f).setDuration(Estilo.FOCO_MS).start()
-        }
-    }
-
-    private fun TextView.titulo(t: String) {
-        val l = tag as Linha
-        l.titulo = t
-        val foco = isFocused
-        val sb = SpannableStringBuilder(t)
-        sb.setSpan(AbsoluteSizeSpan(dp(20), false), 0, sb.length, 0)
-        sb.setSpan(ForegroundColorSpan(if (foco) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO), 0, sb.length, 0)
-        if (l.detalhe.isNotEmpty()) {
-            val ini = sb.length
-            sb.append("\n").append(l.detalhe)
-            sb.setSpan(AbsoluteSizeSpan(dp(18), false), ini, sb.length, 0)
-            sb.setSpan(ForegroundColorSpan(if (foco) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2), ini, sb.length, 0)
-        }
-        text = sb
-        setPaddingRelative(dp(20), dp(12), dp(20), dp(12))
+    /**
+     * Linha do molde ([ColumnsScreen.valueRow]): [titulo] à esquerda, [valor] à direita, [explica] na coluna da direita.
+     * [recuo]: a linha "só se", que pertence ao evento de cima. Devolve a linha, o texto do valor e o do título.
+     */
+    private fun linha(t: ColumnsScreen, sec: LinearLayout, chave: String, titulo: String, valor: String, explica: String?,
+                      recuo: Boolean = false, aoClicar: () -> Unit): Triple<LinearLayout, TextView, TextView> {
+        val (row, label, value) = t.valueRow()
+        row.tag = chave
+        label.text = titulo
+        value.text = valor
+        row.setOnClickListener { aoClicar() }
+        t.describe(row) { ColumnsScreen.Info(headline = label.text, body = explica) }
+        sec.addView(row, t.lpRow().apply { if (recuo) marginStart = dp(32) })
+        return Triple(row, value, label)
     }
 
     private fun dp(valor: Int): Int = (valor * resources.displayMetrics.density + 0.5f).toInt()
