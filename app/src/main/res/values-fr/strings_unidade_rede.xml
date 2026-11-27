@@ -11,7 +11,7 @@
     <string name="mtp_pergunta">« %1$s » veut voir et copier les fichiers du stockage de la TV via le réseau domestique. Autoriser cet ordinateur ?</string>
     <string name="mtp_pcs">Ordinateurs autorisés</string>
     <string name="mtp_pcs_nenhum">Aucun pour l’instant. La TV demande à l’écran quand un ordinateur réclame les fichiers.</string>
-    <string name="mtp_pcs_lista">%1$s · OK les oublie tous (chacun redemandera)</string>
+    <string name="mtp_pcs_lista">%1$s</string>
     <string name="mtp_pcs_esquecidos">Ordinateurs oubliés</string>
     <string name="ur_atalho_nome">Ouvrir le panneau de la TV</string>
     <string name="ssdp_painel">panneau</string>

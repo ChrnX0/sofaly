@@ -36,5 +36,5 @@
     <string name="l72_guia_nada_agora">%1$s: τίποτα στον οδηγό τώρα</string>
     <string name="l72_guia_depois">Επόμενο: %1$s (%2$s)</string>
     <!-- Ideia 75: a pílula Tocando agora da HOME (acessibilidade e MCP acham pelo nome). -->
-    <string name="l75_pilula">Παίζει τώρα: %1$s, %2$s. Το OK κάνει παύση ή συνέχεια· κρατήστε OK για άνοιγμα της εφαρμογής</string>
+    <string name="l75_pilula">Παίζει τώρα: %1$s, %2$s.</string>
 </resources>

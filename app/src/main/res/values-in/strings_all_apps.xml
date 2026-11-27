@@ -30,9 +30,6 @@
     <string name="aa_risk_care">Ubah dengan hati-hati, menurut kartunya</string>
     <string name="aa_risk_essential">Penting bagi TV: jangan dibekukan</string>
     <string name="aa_tip_idle">Tidak dibuka selama %1$d hari. Membekukan mengosongkan memori dan bisa dibatalkan.</string>
-    <string name="aa_hint_app">OK membuka · tahan OK untuk memindah, menyembunyikan, membekukan, atau mencopot</string>
-    <string name="aa_hint_frozen">OK mencairkan dan membuka</string>
-    <string name="aa_hint_lock">OK meminta PIN dan menampilkan aplikasi tersembunyi di sini</string>
     <string name="aa_open">Buka</string>
     <string name="aa_freeze">Bekukan</string>
     <string name="aa_freezing">Membekukan %1$s…</string>

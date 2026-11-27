@@ -7,8 +7,8 @@
     <string name="bkn_desligado">kapalı</string>
     <string name="bkn_sem_senha">kapalı · önce yedek şifresini belirleyin</string>
     <string name="bkn_senha">Yedek şifresi</string>
-    <string name="bkn_senha_ok">belirlendi · OK değiştirir</string>
-    <string name="bkn_senha_falta">belirlenmedi · OK belirler</string>
+    <string name="bkn_senha_ok">belirlendi</string>
+    <string name="bkn_senha_falta">belirlenmedi</string>
     <string name="bkn_senha_nova">Yedek şifresi (8 veya daha fazla karakter)</string>
     <string name="bkn_senha_repetir">Şifreyi yeniden yazın</string>
     <string name="bkn_senha_curta">Şifre 8 ile 128 karakter arasında olmalı.</string>

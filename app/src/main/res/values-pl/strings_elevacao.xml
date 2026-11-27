@@ -43,9 +43,8 @@
     <string name="elv_leg_embaixo">na dole</string>
     <string name="elv_leg_em_cima">na górze</string>
     <string name="elv_bf_fazer">Zrób</string>
-    <string name="elv_bf_ok_faz">OK robi to teraz</string>
     <string name="elv_bf_wifi">Pokaż Wi-Fi dla gości</string>
-    <string name="elv_bf_wifi_configurar">Jeszcze nie ustawione: OK otwiera Ustawienia (Goście)</string>
+    <string name="elv_bf_wifi_configurar">Jeszcze nie ustawione</string>
     <string name="elv_bf_letra_maior">Większy tekst (%1$d%%)</string>
     <string name="elv_bf_letra_menor">Mniejszy tekst (%1$d%%)</string>
     <string name="elv_bf_letra_limite">Już jest w tym rozmiarze</string>
@@ -114,6 +113,5 @@
     <string name="elv_ss_noite">jest po zachodzie słońca</string>
     <string name="elv_ss_dia_util">jest dzień roboczy</string>
     <string name="elv_ss_perfil">profil to %1$s</string>
-    <string name="elv_ss_det">◀ ▶ zmieniają warunek</string>
     <string name="extras_ABERTURA_PRONTA">Pomiń czołówkę (IntroDB): w odcinkach telewizor pyta społecznościową usługę IntroDB, gdzie jest czołówka (wysyła tylko odcinek, nigdy Twoje konto); wyłączone — tylko czołówki oznaczone przez Ciebie</string>
 </resources>

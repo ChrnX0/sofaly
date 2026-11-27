@@ -15,7 +15,7 @@
     <string name="desf_barra">Άλλαξε: %1$s</string>
     <string name="desf_botao">Αναίρεση</string>
     <string name="desf_tela">Πρόσφατες αλλαγές</string>
-    <string name="desf_tela_det">Τι άλλαξε τις τελευταίες 7 ημέρες. OK σε μία την επαναφέρει όπως ήταν.</string>
+    <string name="desf_tela_det">Τι άλλαξε τις τελευταίες 7 ημέρες.</string>
     <string name="desf_tela_vazia">Καμία αλλαγή τις τελευταίες 7 ημέρες.</string>
     <string name="desf_ja_desfeita">αναιρέθηκε</string>
     <string name="desf_rot_config">Ρυθμίσεις</string>

@@ -36,5 +36,5 @@
     <string name="l72_guia_nada_agora">%1$s: ei mitään oppaassa nyt</string>
     <string name="l72_guia_depois">Seuraavaksi: %1$s (%2$s)</string>
     <!-- Ideia 75: a pílula Tocando agora da HOME (acessibilidade e MCP acham pelo nome). -->
-    <string name="l75_pilula">Nyt toistetaan: %1$s, %2$s. OK tauottaa tai jatkaa; pidä OK avataksesi sovelluksen</string>
+    <string name="l75_pilula">Nyt toistetaan: %1$s, %2$s.</string>
 </resources>

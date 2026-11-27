@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">الأصوات الأوضح مفعّلة</string>
     <string name="acess_voz_desligado">الأصوات الأوضح متوقفة</string>
     <string name="acess_config_titulo">الصوت والترجمة</string>
-    <string name="acess_config_texto">لمن يرى أو يسمع بصعوبة. موجود أيضًا في قائمة ▼ في المشغّل.</string>
+    <string name="acess_config_texto">لمن يرى أو يسمع بصعوبة.</string>
 </resources>

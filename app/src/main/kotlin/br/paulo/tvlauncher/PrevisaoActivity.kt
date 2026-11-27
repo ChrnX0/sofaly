@@ -609,7 +609,7 @@ class PrevisaoActivity : Activity() {
     // Os cartões ficam por cima do céu/da pintura do fundo: vidro do sistema de design (Estilo.vidro). Foco = anel branco,
     // o mesmo dos cards da HOME (o cartão tem gráficos desenhados, então não vira pílula branca como uma linha de lista).
     private fun fundoCartao(foco: Boolean) =
-        if (foco) Estilo.fundoFocado(this, Estilo.RAIO, Estilo.vidro(this)) else Estilo.vidro(this)
+        if (foco) Estilo.fundoFocado(this, Estilo.RAIO, Estilo.caixa(this)) else Estilo.caixa(this)
 
     private fun itemFoco(foco: Boolean) =
         if (foco) Estilo.fundoFocado(this, Estilo.RAIO_PEQUENO + 4)

@@ -43,9 +43,8 @@
     <string name="elv_leg_embaixo">नीचे</string>
     <string name="elv_leg_em_cima">ऊपर</string>
     <string name="elv_bf_fazer">करें</string>
-    <string name="elv_bf_ok_faz">OK दबाएँ, अभी हो जाएगा</string>
     <string name="elv_bf_wifi">मेहमानों का Wi-Fi दिखाएँ</string>
-    <string name="elv_bf_wifi_configurar">अभी सेट नहीं: OK से सेटिंग्स (मेहमान) खुलती हैं</string>
+    <string name="elv_bf_wifi_configurar">अभी सेट नहीं</string>
     <string name="elv_bf_letra_maior">बड़े अक्षर (%1$d%%)</string>
     <string name="elv_bf_letra_menor">छोटे अक्षर (%1$d%%)</string>
     <string name="elv_bf_letra_limite">पहले से इसी आकार में है</string>
@@ -114,6 +113,5 @@
     <string name="elv_ss_noite">सूर्यास्त के बाद हो</string>
     <string name="elv_ss_dia_util">कामकाजी दिन हो</string>
     <string name="elv_ss_perfil">प्रोफ़ाइल %1$s हो</string>
-    <string name="elv_ss_det">◀ ▶ शर्त बदलते हैं</string>
     <string name="extras_ABERTURA_PRONTA">इंट्रो छोड़ें (IntroDB): एपिसोड में टीवी सामुदायिक सेवा IntroDB से इंट्रो की जगह पूछता है (सिर्फ़ एपिसोड भेजता है, आपका खाता कभी नहीं); बंद होने पर सिर्फ़ आपके चिह्नित इंट्रो</string>
 </resources>

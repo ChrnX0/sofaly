@@ -92,7 +92,6 @@
     <string name="lb_lembrete">Hatırlatma</string>
     <string name="lb_quando_em">%1$s, %2$s kanalında.</string>
     <string name="ms_ola">Merhaba!</string>
-    <string name="ms_ola_det">Oklarla seçin ve OK’ye basın.</string>
     <string name="ms_pedir_ajuda">Yardım iste</string>
     <string name="ms_pedido_ajuda">Yardım isteği</string>
     <string name="ms_alguem_pediu">%1$s TV’sinde biri yardım istedi.</string>
@@ -148,7 +147,6 @@
     <string name="bc_categorias">KATEGORİLER</string>
     <string name="bc_canais">KANALLAR</string>
     <string name="bc_carregando">kanallar yükleniyor…</string>
-    <string name="bc_dica">OK engeller veya engeli kaldırır · bir kategoride OK tümüne uygulanır · ◀ ▶ kategoriler ve kanallar · GERİ çıkar (zaten kaydedildi)</string>
     <string name="bc_categoria_bloqueada">«%1$s» kategorisinin tamamı engelli: engeli sol sütunda kaldırın</string>
     <string name="bc_filme">Film · %1$s</string>
     <string name="bc_serie">Dizi · %1$s</string>

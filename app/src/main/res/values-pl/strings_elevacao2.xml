@@ -18,7 +18,7 @@
     <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
     <string name="elv_cat_n_temporadas">Sezony: %d</string>
     <string name="elv_cat_procurando">Szukam plakatu…</string>
-    <string name="elv_cat_nada">Nic nie znaleziono w TMDB. Przytrzymaj OK, aby wpisać właściwą nazwę.</string>
+    <string name="elv_cat_nada">Nic nie znaleziono w TMDB.</string>
     <string name="elv_cat_corrigir_titulo">Popraw: %s</string>
     <string name="elv_cat_corrigir_explica">Zły plakat lub opis? Poproś o następny wynik albo wpisz właściwą nazwę i rok. Pusta nazwa przywraca tryb automatyczny.</string>
     <string name="elv_cat_nao_e">To nie ten</string>

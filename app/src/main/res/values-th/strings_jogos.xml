@@ -26,7 +26,7 @@
     <string name="jogos_parear_falhou">ทีวีนี้ไม่เปิดการตั้งค่า Bluetooth เปิดการตั้งค่า รีโมตและอุปกรณ์เสริม</string>
     <string name="jogos_baixar">หาเกม</string>
     <string name="jogos_escolher">เลือกแอป</string>
-    <string name="jogos_escolher_sub">แอปใดอยู่ในเล่น OK เพื่อสลับระหว่างเล่นและแอป</string>
+    <string name="jogos_escolher_sub">แอปใดอยู่ในเล่น</string>
     <string name="jogos_no_card">ในเล่น</string>
     <string name="jogos_na_linha">ในแอป</string>
     <string name="jogos_grupo_nuvem">บนคลาวด์</string>

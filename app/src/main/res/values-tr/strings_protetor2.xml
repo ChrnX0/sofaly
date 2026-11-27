@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">Ekran koruyucu arka planı</string>
-    <string name="pv2_fundo_det">temanınki ya da uzaydan Dünya’nın gerçek fotoğrafları · OK değiştirir</string>
     <string name="pv2_fundo_tema">Temadan</string>
     <string name="pv2_fundo_terra">Uzaydan Dünya</string>
     <string name="pv2_relogio">Ekran koruyucu saati</string>
-    <string name="pv2_relogio_det">altı stil · OK değiştirir</string>
     <string name="pv2_rel_fino">İnce</string>
     <string name="pv2_rel_editorial">Dergi</string>
     <string name="pv2_rel_monumental">Anıtsal</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">Yazıyla</string>
     <string name="pv2_rel_empilhado">Üst üste</string>
     <string name="pv2_posicao">Saatin yeri</string>
-    <string name="pv2_posicao_det">OK değiştirir</string>
     <string name="pv2_pos_alto">Sol üst</string>
     <string name="pv2_pos_baixo">Sol alt</string>
     <string name="pv2_pos_centro">Ortada</string>
     <string name="pv2_tamanho">Saatin boyutu</string>
-    <string name="pv2_tamanho_det">büyük rakamlar uzaktan daha kolay okunur · OK değiştirir</string>
     <string name="pv2_tam_normal">Normal</string>
     <string name="pv2_tam_grande">Büyük</string>
     <string name="pv2_mostrar">Ekran koruyucu ne gösterir</string>
-    <string name="pv2_mostrar_det">\"Yalnızca saat\": kumandada herhangi bir tuş geri kalanını 15 sn gösterir · OK değiştirir</string>
     <string name="pv2_mostrar_so">Yalnızca saat</string>
     <string name="pv2_mostrar_vez">Ara sıra</string>
     <string name="pv2_mostrar_sempre">Her şey</string>
     <string name="pv2_elementos">Ekran koruyucuda</string>
-    <string name="pv2_el_det">ekran koruyucuda görünür · OK açar veya kapatır</string>
     <string name="pv2_el_saudacao">Selamlama</string>
     <string name="pv2_el_data">Tarih</string>
     <string name="pv2_el_linha_dia">Gün çizgisi</string>

@@ -29,7 +29,7 @@
     <string name="lbl_cenas">Cenas</string>
     <string name="pr_cenas">Cenas</string>
     <string name="cenas_titulo">Cenas</string>
-    <string name="cenas_det">OK roda a cena. Crie e edite no painel web › Casa e automações › Cenas.</string>
+    <string name="cenas_det">Crie e edite no painel web › Casa e automações › Cenas.</string>
     <string name="cenas_vazio">Nenhuma cena ainda. Crie uma no painel web › Casa e automações › Cenas.</string>
     <string name="tec_titulo">Botões do comando</string>
     <string name="tec_det">Netflix e YouTube valem em qualquer ecrã; teclas coloridas e números, só na HOME.</string>

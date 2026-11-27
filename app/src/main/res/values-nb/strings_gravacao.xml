@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">hver uke</string>
     <string name="grv_cancelar_pergunta">Avbryte opptaket av \"%1$s\"?</string>
     <string name="grv_gravadas">Tatt opp</string>
-    <string name="grv_vazio">Ingenting tatt opp ennå. I avspilleren, ▶▶ › Ta opp; i guiden, OK på et kommende program.</string>
+    <string name="grv_vazio">Ingenting tatt opp ennå.</string>
     <string name="grv_vazio_sem_destino">Koble en USB-stasjon til huben for å se og lage opptak.</string>
     <string name="grv_partes">%1$d deler</string>
     <string name="grv_parte">del %1$d av %2$d</string>

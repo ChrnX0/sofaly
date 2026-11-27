@@ -15,7 +15,7 @@
     <string name="desf_barra">Изменено: %1$s</string>
     <string name="desf_botao">Отменить</string>
     <string name="desf_tela">Недавние изменения</string>
-    <string name="desf_tela_det">Что менялось за последние 7 дней. OK на пункте возвращает как было.</string>
+    <string name="desf_tela_det">Что менялось за последние 7 дней.</string>
     <string name="desf_tela_vazia">За последние 7 дней изменений нет.</string>
     <string name="desf_ja_desfeita">отменено</string>
     <string name="desf_rot_config">Настройки</string>

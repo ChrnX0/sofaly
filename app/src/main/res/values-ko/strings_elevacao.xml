@@ -43,9 +43,8 @@
     <string name="elv_leg_embaixo">아래</string>
     <string name="elv_leg_em_cima">위</string>
     <string name="elv_bf_fazer">실행</string>
-    <string name="elv_bf_ok_faz">OK를 누르면 지금 실행</string>
     <string name="elv_bf_wifi">손님용 Wi-Fi 보기</string>
-    <string name="elv_bf_wifi_configurar">아직 설정 안 됨: OK를 누르면 설정(손님)이 열립니다</string>
+    <string name="elv_bf_wifi_configurar">아직 설정 안 됨</string>
     <string name="elv_bf_letra_maior">글자 크게 (%1$d%%)</string>
     <string name="elv_bf_letra_menor">글자 작게 (%1$d%%)</string>
     <string name="elv_bf_letra_limite">이미 이 크기입니다</string>
@@ -114,6 +113,5 @@
     <string name="elv_ss_noite">해가 진 뒤일</string>
     <string name="elv_ss_dia_util">평일일</string>
     <string name="elv_ss_perfil">프로필이 %1$s일</string>
-    <string name="elv_ss_det">◀ ▶ 로 조건 변경</string>
     <string name="extras_ABERTURA_PRONTA">오프닝 건너뛰기(IntroDB): 에피소드에서 TV가 커뮤니티 서비스 IntroDB에 오프닝 위치를 묻습니다(에피소드만 보내고 계정은 보내지 않음). 끄면 직접 표시한 오프닝만</string>
 </resources>

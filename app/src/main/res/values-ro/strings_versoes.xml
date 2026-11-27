@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="ver_novidades">Ce s-a schimbat</string>
-    <string name="ver_novidades_det">%1$d schimbări în versiunea %2$s · OK pentru a citi</string>
+    <string name="ver_novidades_det">%1$d schimbări în versiunea %2$s</string>
     <string name="ver_novidades_sobre">Versiunea %1$s</string>
     <string name="ver_ok">OK</string>
     <string name="ver_conferir">Verificați pe TV</string>
-    <string name="ver_conferir_det">%1$d din %2$d verificate cu telecomanda · OK pentru a începe</string>
-    <string name="ver_conferir_sub">Versiunea %1$s · %2$d elemente · OK pe un element pentru a răspunde</string>
+    <string name="ver_conferir_det">%1$d din %2$d verificate cu telecomanda</string>
+    <string name="ver_conferir_sub">Versiunea %1$s · %2$d elemente</string>
     <string name="ver_conferido">%1$d din %2$d verificate</string>
     <string name="ver_sim">Da</string>
     <string name="ver_nao">Nu</string>

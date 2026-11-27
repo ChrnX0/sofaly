@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Players, proposta C, etapa 1 (20/11/2026): resumo, créditos, "termina às", "o que foi dito?". -->
 <resources>
-    <string name="seg_pular_resumo">Pomiń streszczenie · OK</string>
-    <string name="seg_proximo">Następny odcinek · OK</string>
-    <string name="seg_proximo_em">Następny odcinek za %1$d · OK</string>
+    <string name="seg_pular_resumo">Pomiń streszczenie</string>
+    <string name="seg_proximo">Następny odcinek</string>
+    <string name="seg_proximo_em">Następny odcinek za %1$d</string>
     <string name="seg_termina">koniec o %1$s</string>
     <string name="seg_repetir">Co powiedział?</string>
     <string name="seg_repetir_info">10 s wstecz z napisami</string>

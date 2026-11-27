@@ -14,7 +14,6 @@
     <string name="dp_abrindo">Abrindo…</string>
     <string name="dp_erro">Não deu para abrir este lugar. Confira se ele está conectado e tente de novo.</string>
     <string name="dp_arquivos">Arquivos nesta pasta: %1$d</string>
-    <string name="dp_dicas">OK: abrir · VOLTAR: voltar</string>
     <string name="dp_diario">%1$s recebeu %2$s pelo seletor</string>
     <string name="dp_sem_nome">sem nome</string>
 </resources>

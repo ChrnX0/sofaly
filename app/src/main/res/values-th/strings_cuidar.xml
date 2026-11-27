@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">คุณรอได้เลย</string>
     <string name="cuidar_nao_avisado">แจ้ง %1$s ไม่ได้</string>
     <string name="cuidar_sem_aparelho">ไม่มีโทรศัพท์ที่ตั้งให้รับ ตรวจสอบ การตั้งค่า › ครอบครัว › ดูแลจากที่ไกล</string>
-    <string name="cuidar_sem_internet">ตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้ง (กดปุ่มค้าง 3 วินาที)</string>
+    <string name="cuidar_sem_internet">ตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้ง</string>
     <string name="cuidar_lembrete_sobre">การเตือน · %1$s</string>
     <string name="cuidar_lembrete_explica">กด OK เมื่อทำเสร็จแล้ว</string>
     <string name="cuidar_lembrete_explica_aviso">กด OK เมื่อทำเสร็จแล้ว ถ้าไม่กดภายใน %1$d นาที %2$s จะได้รับประกาศ</string>

@@ -50,7 +50,7 @@
     <string name="l51_digitar_titulo">Skriv på tv\'et</string>
     <string name="l51_digitar_texto">Et tekstfelt er åbent i %1$s. Tryk for at skrive herfra.</string>
     <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">rum %1$s</string>
     <string name="casa_movimento">Bevægelse</string>
     <string name="casa_sem_movimento">Ingen bevægelse</string>

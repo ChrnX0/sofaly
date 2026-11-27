@@ -70,6 +70,10 @@ internal fun ConfigLauncherActivity.mostrarPortas(foco: Int = PortasConfig.daAba
     grade.visibility = View.VISIBLE
     grade.removeAllViews()
     val uso = UsoTv.atual(this)
+    // Padrão das Fileiras (Paulo aprovou a prévia, 26/11/2026): fora do painel ao lado da HOME (estreito demais), as
+    // portas são duas fileiras de 6 cartões em tela cheia, sobre a arte com véu, em qualquer jeito das telas.
+    if (!janelaPainel) { portasEmCartoes(uso, foco); return }
+    larguraCheia(false)
 
     // Busca e Simples/Completo numa linha só, em cima (Ajustes do Apple Watch e Reddit no Mobbin: a busca vem antes de tudo).
     // Guiado: a coluna da lista tem 400 dp e as duas pílulas lado a lado não cabem ("Modo: Completo" quebrava e cortava,
@@ -199,6 +203,82 @@ private fun ConfigLauncherActivity.portasEmLista(portas: List<Int>, foco: Int) {
     focar?.post { focar?.requestFocus() }
 }
 
+/**
+ * As portas em cartões (prévia "Arte com véu", aprovada pelo Paulo em 26/11/2026; refs Mobbin na prévia): em cima
+ * Buscar, Modo e os 4 objetivos; embaixo as portas. Tudo cabe sem rolar, ícone no centro e o nome embaixo, como as
+ * Fileiras da HOME. O ícone do cartão em foco fica laranja.
+ */
+private fun ConfigLauncherActivity.portasEmCartoes(uso: UsoTv, foco: Int) {
+    sairDaBarra()
+    larguraCheia(true)
+    if (guiado) grade.addView(Estilo.cabecaDeFila(this, "modo", getString(R.string.cfg_titulo)),
+        LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(Estilo.E2) })
+    val ativo = SettingsGoals.ativo(this)
+    val atalhos = ArrayList<View>()
+    atalhos += Estilo.cartao(this, "buscar", getString(R.string.elv_aj_buscar)) { abrirBuscaDasPortas() }
+    atalhos += Estilo.cartao(this, "modo", getString(R.string.cfg3_modo, nomeUso(uso))) {
+        UsoTv.escolher(this, UsoTv.proximo(UsoTv.atual(this)))
+        mostrarPortas(foco)
+        grade.post { grade.findViewWithTag<View>(TAG_MODO)?.requestFocus() }
+    }.apply { tag = TAG_MODO }
+    for (g in SettingsGoals.Goal.entries) {
+        val nome = getString(when (g) {
+            SettingsGoals.Goal.READ -> R.string.goal_read
+            SettingsGoals.Goal.CLEAN -> R.string.goal_clean
+            SettingsGoals.Goal.ENERGY -> R.string.goal_energy
+            SettingsGoals.Goal.KIDS -> R.string.goal_kids
+        })
+        val icone = when (g) { SettingsGoals.Goal.READ -> "letra"; SettingsGoals.Goal.CLEAN -> "tela"; SettingsGoals.Goal.ENERGY -> "energia"; SettingsGoals.Goal.KIDS -> "criancas" }
+        atalhos += Estilo.cartao(this, icone, (if (g == ativo) "✓ " else "") + nome) { objetivo(g, ativo, nome, foco) }.apply {
+            tag = "goal:" + g.name
+            if (g == ativo) contentDescription = getString(R.string.goal_desfazer, nome)
+        }
+    }
+    grade.addView(Estilo.filaDeCartoes(this, atalhos, 6), LinearLayout.LayoutParams(MATCH, WRAP))
+
+    grade.addView(Estilo.cabecaDeFila(this, "sistema", getString(R.string.cfg4_fila_portas)),
+        LinearLayout.LayoutParams(MATCH, WRAP).apply { topMargin = dp(Estilo.E3 + 4); bottomMargin = dp(Estilo.E2) })
+    val portas = PortasConfig.PORTAS.indices.filter { PortasConfig.abasVisiveis(it, uso).isNotEmpty() }
+    var focar: View? = null
+    val cartoes = portas.map { p ->
+        Estilo.cartao(this, ICONES_PORTA[p], nomeDaPorta(p), getString(FRASES[p])) { abrirPorta(p) }.also {
+            if (p == foco || focar == null) focar = it
+        }
+    }
+    grade.addView(Estilo.filaDeCartoes(this, cartoes, 6), LinearLayout.LayoutParams(MATCH, WRAP))
+    focar?.post { focar?.requestFocus() }
+}
+
+/** Os ícones das portas nos cartões (mesma ordem de [PortasConfig.PORTAS]). */
+private val ICONES_PORTA = listOf("grade", "tv", "familia", "lua", "casa", "sistema")
+
+/**
+ * Guiado: nas portas a explicação da esquerda some e a lista ocupa a tela toda (6 cartões não cabem na coluna de 400 dp);
+ * dentro de uma porta volta o molde guiado. Nos outros jeitos não faz nada.
+ */
+private fun ConfigLauncherActivity.larguraCheia(cheia: Boolean) {
+    if (!guiado) return
+    guia?.visibility = if (cheia) View.GONE else View.VISIBLE
+    val raiz = grade.parent as? View ?: return
+    val lp = raiz.layoutParams as? LinearLayout.LayoutParams ?: return
+    lp.width = if (cheia) MATCH else dp(GuidedPane.LISTA_DP + Estilo.MARGEM_LATERAL)
+    raiz.layoutParams = lp
+    raiz.setPaddingRelative(if (cheia) dp(Estilo.MARGEM_LATERAL) else 0, raiz.paddingTop, raiz.paddingEnd, raiz.paddingBottom)
+}
+
+/** OK num objetivo: aplica, desfaz ou (Crianças) abre a receita; o mesmo das pílulas antigas. */
+private fun ConfigLauncherActivity.objetivo(g: SettingsGoals.Goal, ativo: SettingsGoals.Goal?, nome: String, foco: Int) {
+    when {
+        g == SettingsGoals.Goal.KIDS -> { startActivity(android.content.Intent(this, br.paulo.tvlauncher.ReceitasActivity::class.java)
+            .putExtra(br.paulo.tvlauncher.ReceitasActivity.EXTRA_CONFIRMAR, br.paulo.tvlauncher.settings.Receitas.Receita.CRIANCAS.name)); return }
+        g == ativo -> { SettingsGoals.desfazer(this); aviso(getString(R.string.goal_desfeito, nome)) }
+        else -> { SettingsGoals.aplicar(this, g); aviso(getString(R.string.goal_feito, nome)) }
+    }
+    if (g == SettingsGoals.Goal.READ) { recreate(); return }
+    mostrarPortas(foco)
+    grade.post { grade.findViewWithTag<View>("goal:" + g.name)?.requestFocus() }
+}
+
 /** Uma linha de porta no painel: azulejo, nome e frase, e "›" à direita. Foco = o jeito escolhido (Anel, Quadro...). */
 private fun ConfigLauncherActivity.linhaDaPorta(p: Int): View {
     val primeira = abas[PortasConfig.PORTAS[p].first()]
@@ -217,7 +297,7 @@ private fun ConfigLauncherActivity.linhaDaPorta(p: Int): View {
         val tSeta = Estilo.texto(context, Estilo.Papel.CORPO, if (guiado) "▸" else "›").apply { setTextColor(Estilo.TEXTO_3) }
         addView(tSeta, LinearLayout.LayoutParams(WRAP, WRAP).apply { marginStart = dp(Estilo.E1) })
         setOnFocusChangeListener { v, f ->
-            v.background = when { !f -> null; guiado -> Estilo.fundo(context, 0x2EFFFFFF, Estilo.RAIO_PILULA); else -> Estilo.fundoFocado(context, Estilo.RAIO) }
+            v.background = if (f) Estilo.fundoFocado(context, Estilo.RAIO) else null   // o foco de todo o sistema, também na tela guiada
             val escura = f && !guiado && Estilo.focoEscurece(context)
             tNome.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
             tFrase.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2)
@@ -336,6 +416,7 @@ private const val PORTA_CASA_REDE = 4
 internal fun ConfigLauncherActivity.abrirPorta(p: Int, aba: Int? = null) {
     val alvo = aba ?: PortasConfig.abasVisiveis(p, UsoTv.atual(this)).firstOrNull() ?: PortasConfig.PORTAS[p].first()
     sairDaBarra()
+    larguraCheia(false)
     grade.visibility = View.GONE
     colunas.visibility = View.VISIBLE
     // Painel: na "Tela inicial" a HOME atrás fica nítida e muda na hora (a prévia); nas outras portas ela escurece.
@@ -350,6 +431,7 @@ internal fun ConfigLauncherActivity.abrirPorta(p: Int, aba: Int? = null) {
 /** A busca aberta pela pílula das portas: o menu mostra só "Buscar" e o foco vai para a caixa. */
 private fun ConfigLauncherActivity.abrirBuscaDasPortas() {
     sairDaBarra()
+    larguraCheia(false)
     grade.visibility = View.GONE
     colunas.visibility = View.VISIBLE
     mostrarBusca()

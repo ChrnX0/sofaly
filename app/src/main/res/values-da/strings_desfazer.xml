@@ -15,7 +15,7 @@
     <string name="desf_barra">Ændret: %1$s</string>
     <string name="desf_botao">Fortryd</string>
     <string name="desf_tela">Seneste ændringer</string>
-    <string name="desf_tela_det">Hvad der er ændret de seneste 7 dage. OK på en sætter den tilbage, som den var.</string>
+    <string name="desf_tela_det">Hvad der er ændret de seneste 7 dage.</string>
     <string name="desf_tela_vazia">Ingen ændringer de seneste 7 dage.</string>
     <string name="desf_ja_desfeita">fortrudt</string>
     <string name="desf_rot_config">Indstillinger</string>

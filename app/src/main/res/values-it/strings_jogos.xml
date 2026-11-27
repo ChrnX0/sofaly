@@ -17,7 +17,7 @@
     <string name="jogos_parear_falhou">Questa TV non ha aperto le impostazioni Bluetooth. Apri Impostazioni, Telecomandi e accessori.</string>
     <string name="jogos_baixar">Scarica giochi</string>
     <string name="jogos_escolher">Scegli app</string>
-    <string name="jogos_escolher_sub">Quali app stanno in Gioca. OK sposta tra Gioca e App.</string>
+    <string name="jogos_escolher_sub">Quali app stanno in Gioca.</string>
     <string name="jogos_no_card">in Gioca</string>
     <string name="jogos_na_linha">in App</string>
     <string name="jogos_grupo_nuvem">Nel cloud</string>

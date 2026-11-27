@@ -34,5 +34,5 @@
     <string name="l72_guia_agora">%1$s jetzt: %2$s (bis %3$s)</string>
     <string name="l72_guia_nada_agora">%1$s: gerade nichts im Programmführer</string>
     <string name="l72_guia_depois">Danach: %1$s (%2$s)</string>
-    <string name="l75_pilula">Läuft gerade: %1$s, %2$s. OK pausiert oder setzt fort; OK halten öffnet die App</string>
+    <string name="l75_pilula">Läuft gerade: %1$s, %2$s.</string>
 </resources>

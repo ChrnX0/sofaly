@@ -41,7 +41,7 @@
     <string name="l51_uso_zerar">Azzera</string>
     <string name="l51_digitar_titulo">Scrivi sulla TV</string>
     <string name="l51_digitar_texto">C’è una casella di testo aperta in %1$s. Tocca per scrivere da qui.</string>
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">stanza %1$s</string>
     <string name="casa_movimento">Movimento</string>
     <string name="casa_sem_movimento">Nessun movimento</string>

@@ -16,10 +16,10 @@
     <string name="cfg_rotinas">Routines</string>
     <string name="cfg_sec_atualizacao">Updates</string>
     <string name="cfg_atualizar">Check for a new version</string>
-    <string name="cfg_atualizar_det">Version %1$s · %2$s · OK checks now</string>
+    <string name="cfg_atualizar_det">Version %1$s · %2$s</string>
     <string name="cfg_procurando">checking GitHub…</string>
     <string name="cfg_instalar">Install version %1$d now</string>
-    <string name="cfg_instalar_det">The launcher closes and comes back by itself in a few seconds · OK installs</string>
+    <string name="cfg_instalar_det">The launcher closes and comes back by itself in a few seconds</string>
     <string name="cfg_instalando">downloading and checking…</string>
     <string name="cfg_sec_rede">Network</string>
     <string name="cfg_dns">Private DNS</string>
@@ -31,7 +31,6 @@
     <string name="cfg_sec_ligado">What is on — %1$s</string>
     <string name="cfg_ligado">on</string>
     <string name="cfg_so_pc">" · only with a computer (adb)"</string>
-    <string name="cfg_tenta_ligar">" · OK tries to turn on"</string>
     <string name="cfg_perm_fixas">Fixed permissions granted</string>
     <string name="cfg_shell_estado">Own shell</string>
     <string name="cfg_shell_pareado">paired: the launcher reconnects by itself over Wireless debugging</string>
@@ -67,7 +66,7 @@
     <string name="rec_teclas">Key service</string>
     <string name="rec_teclas_sem">without it: HOME may open the Google launcher and the Netflix/YouTube keys are not remapped</string>
     <string name="rec_tudo">everything on</string>
-    <string name="rec_faltam">%1$d of %2$d features missing · OK on an item tries to turn it on</string>
+    <string name="rec_faltam">%1$d of %2$d features missing</string>
     <!-- BoasVindasActivity.kt -->
     <string name="bv_titulo">Welcome</string>
     <string name="bv_texto">The home screen, clock, weather, alarm and screen saver already work. Turn on the rest here if you want (%1$s).</string>
@@ -96,7 +95,6 @@
     <string name="rot_desligada_sufixo">" · off"</string>
     <string name="rot_nova">New routine</string>
     <string name="rot_editar">Edit routine</string>
-    <string name="rot_editor_det">OK changes each line · BACK leaves without saving</string>
     <string name="rot_hora">Time: %1$s</string>
     <string name="rot_dias">Days: %1$s</string>
     <string name="rot_acao">Action: %1$s</string>
@@ -105,12 +103,7 @@
     <string name="rot_ocioso">Only if nobody touched it for: %1$s</string>
     <string name="rot_ligada">On</string>
     <string name="rot_desligada">Off</string>
-    <string name="rot_hora_det">◀ ▶ 5 minutes · OK +1 hour</string>
-    <string name="rot_dias_det">OK: every day, Mon to Fri, weekend, once</string>
-    <string name="rot_ok_muda">OK changes</string>
-    <string name="rot_app_det">OK or ▶ next · ◀ previous</string>
     <string name="rot_ocioso_det">Does not interrupt someone watching</string>
-    <string name="rot_ativa_det">OK turns this routine on/off</string>
     <string name="rot_salvar">Save</string>
     <string name="rot_escolha_app">Choose the app</string>
     <string name="rot_apagar">Delete this routine</string>
@@ -188,7 +181,6 @@
     <string name="pp_conectar">Connect</string>
     <!-- CalendarioActivity.kt -->
     <string name="cal_sem_conta">no Google account</string>
-    <string name="cal_dica">◀ ▶ change the month</string>
     <string name="cal_30">Next 30 days</string>
     <string name="cal_nenhuma_conta">No Google account on the TV</string>
     <string name="cal_nada">Nothing scheduled (or the calendar is still syncing)</string>
@@ -309,7 +301,6 @@
     <string name="fd_nascer">sunrise %1$s</string>
     <string name="fd_por">sunset %1$s</string>
     <!-- DnsActivity.kt -->
-    <string name="dns_dica">OK: use   ·   hold OK on one of your servers: remove   ·   Back: exit</string>
     <string name="dns_auto">Automatic</string>
     <string name="dns_auto_det">Uses the router DNS and encrypts when it accepts (Android default)</string>
     <string name="dns_desl">Off</string>
@@ -428,7 +419,7 @@
     <string name="atu_migracao_disponivel">version %1$d: ready to move this TV to the new app (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">installing the new app (%1$d); it then takes over this TV with all settings</string>
     <string name="atu_disponivel">version %1$d ready to install (installed %2$d)</string>
-    <string name="atu_trocou">the version changed since the last check · OK checks again</string>
+    <string name="atu_trocou">the version changed since the last check</string>
     <string name="atu_instalando">installing %1$d (installed %2$d)</string>
     <string name="atu_ok">updated</string>
     <string name="atu_falhou">install failed (%1$d): %2$s</string>
@@ -439,7 +430,6 @@
     <string name="vig_pausada_tela">version %1$d crashed twice right after installing · \"%2$s\" stays off until the next one</string>
     <string name="vig_tela_bloqueada">This screen is off until the next update (it crashed the launcher)</string>
     <string name="cfg_vig_liberar">Safe mode</string>
-    <string name="cfg_vig_liberar_det">" · OK turns it back on"</string>
     <!-- Universal player (06/11/2026) -->
     <string name="home_voz_indisponivel">Voice search did not open on this TV</string>
     <string name="home_alarme_hoje">today</string>
@@ -449,12 +439,10 @@
     <string name="vod_carregando">Loading video…</string>
     <string name="player_sem_canais">No channel list added yet.</string>
     <string name="player_tentando">No signal on channel %1$d. Trying again…</string>
-    <string name="player_sem_sinal">Channel %1$d did not respond. Pick another with ▲ ▼ or OK.</string>
+    <string name="player_sem_sinal">Channel %1$d did not respond.</string>
     <string name="player_canal_nao_existe">There is no channel %1$d.</string>
     <string name="player_ao_vivo">LIVE</string>
     <string name="player_a_seguir">next: %1$s</string>
-    <string name="player_teclas">▲ ▼ channel · OK channel list · hold OK 2 s: favorite · ◀ previous channel · ▶ ▶ options · BACK exit</string>
-    <string name="player_teclas_pausa">▶❙❙ or OK resume · ▶ options (back to live) · ▲ ▼ channel · BACK exit</string>
     <string name="player_cat_busca">Search: %1$s</string>
     <string name="player_acao_buscar">Search</string>
     <string name="player_acao_filtros">Filters</string>
@@ -478,7 +466,6 @@
     <string name="filmes_interesse_pos">★ %1$s added to watchlist</string>
     <string name="filmes_interesse_tirou">%1$s removed from watchlist</string>
     <string name="filmes_interesses_cheio">The watchlist already has 500 titles: remove one first.</string>
-    <string name="filmes_interesses_vazio">Hold OK for 2 seconds on a poster to add it here (and again to remove it).</string>
     <string name="filmes_assistido">Watched</string>
     <string name="filmes_selo_leg">SUB</string>
     <string name="vod_sem_conta">This video\'s account no longer exists.</string>
@@ -487,7 +474,6 @@
     <string name="vod_audio">Audio</string>
     <string name="vod_legenda">Subtitles</string>
     <string name="vod_faixas">Audio and subtitles</string>
-    <string name="vod_teclas">OK pause · ◀ 10 s · ▶ 30 s (hold to go faster) · ▼ audio, subtitles and picture · ⏮ ⏭ chapters · BACK exit</string>
     <string name="series_titulo">Series</string>
     <string name="series_carregando">Loading series…</string>
     <string name="series_vazio">No series yet</string>
@@ -502,7 +488,6 @@
     </plurals>
     <string name="player_acao_guia">Program guide</string>
     <string name="player_sem_guia_curto">No program guide</string>
-    <string name="player_grade_teclas">OK watch · ◀ ▶ program · ▲ ▼ channel</string>
     <string name="player_busca_dica">Channel or program name</string>
     <string name="player_busca_nada">Nothing found for “%1$s”.</string>
     <string name="player_filtro_qualquer">Any</string>
@@ -523,7 +508,6 @@
     <string name="infantil_titulo">Kids categories</string>
     <string name="infantil_carregando">loading categories…</string>
     <string name="infantil_coluna_itens">WHAT IS IN IT</string>
-    <string name="infantil_dica">OK marks or unmarks the category as kids · applies to Live TV, Movies and Series · BACK leaves (already saved)</string>
     <string name="infantil_so_categoria">mark the whole category in the left column</string>
     <string name="infantil_vazio">no categories: add an account in Settings › TV and movies and reload the channels</string>
     <string name="infantil_limite">an adult category cannot be a kids category</string>
@@ -541,11 +525,10 @@
     <string name="player_cat_favoritos">Favorites</string>
     <string name="player_cat_recentes">Recent</string>
     <string name="player_cat_outros">Other</string>
-    <string name="player_sem_favoritos">No favorites yet. Hold OK for 2 s on a channel to add it here.</string>
+    <string name="player_sem_favoritos">No favorites yet.</string>
     <string name="player_categoria_vazia">No channels in this category.</string>
     <string name="player_sem_guia">No program guide for this channel.</string>
     <string name="player_depois">LATER</string>
-    <string name="player_lista_teclas">OK watch · hold OK 2 s: favorite or remove · hold OK on a category: hide · ◀ categories</string>
     <string name="player_favorito_pos">★ %1$s added to favorites</string>
     <string name="player_favorito_tirou">%1$s removed from favorites</string>
     <string name="player_favoritos_cheio">There are already 500 favorites: remove one first.</string>
@@ -716,7 +699,6 @@
     <string name="tvv_vazio">This channel has no saved programs yet.</string>
     <string name="tvv_voltou">Back to live</string>
     <string name="tvv_selo">CATCH-UP</string>
-    <string name="tvv_teclas">◀ ▶ 30 s · OK options · BACK live</string>
     <string name="tvv_pausar">Pause</string>
     <string name="tvv_continuar">Resume</string>
     <string name="tvv_ao_vivo">Back to live</string>
@@ -734,7 +716,7 @@
     <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
     <string name="idioma_secao">Movies and series</string>
     <string name="idioma_titulo">Preferred audio</string>
-    <string name="idioma_det">Original with subtitles in the TV’s language, or dubbed in it. Each movie and series remembers the change made in the player (▼)</string>
+    <string name="idioma_det">Original with subtitles in the TV’s language, or dubbed in it. Each movie and series remembers the change made in the player</string>
     <string name="idioma_original">Original with subtitles</string>
     <string name="idioma_dublado">Dubbed</string>
     <string name="idioma_legendado">Subtitled</string>
@@ -848,8 +830,8 @@
     <string name="st_titulo">USB drive and storage</string>
     <string name="st_explica">Choose how the TV uses a USB drive. Low on space? It can become TV storage for heavy apps.</string>
     <string name="st_linha_det">Use a USB drive as TV storage</string>
-    <string name="st_sem_shell">Needs the TV\'s own shell (Settings › System › Advanced). OK to try again.</string>
-    <string name="st_sem_pen">No USB drive connected. Plug one in and press OK.</string>
+    <string name="st_sem_shell">Needs the TV\'s own shell (Settings › System › Advanced).</string>
+    <string name="st_sem_pen">No USB drive connected.</string>
     <string name="st_tv_livre">TV storage: %1$s free of %2$s</string>
     <string name="st_pen">USB drive · %1$s · %2$s</string>
     <string name="st_modo_comum">Regular USB drive</string>
@@ -863,14 +845,13 @@
     <string name="st_motivo_grande">half for apps, half for recordings and files</string>
     <string name="st_motivo_apertada">the TV is almost full</string>
     <string name="st_medido">writes at %1$s MB/s</string>
-    <string name="st_medir_dica">OK measures its speed</string>
     <string name="st_usar_comum">Use as a regular USB drive</string>
-    <string name="st_usar_misto">Use as mixed: %1$d%% regular  ◀ ▶</string>
+    <string name="st_usar_misto">Use as mixed: %1$d%% regular</string>
     <string name="st_usar_tv">Use as TV storage</string>
     <string name="st_apps">Apps on the USB drive</string>
     <string name="st_apps_det">Choose apps to move (biggest first)</string>
     <string name="st_apps_nenhum">No app can move.</string>
-    <string name="st_apps_rodape">OK moves the app; ✓ = already on the USB drive</string>
+    <string name="st_apps_rodape">✓ = already on the USB drive</string>
     <string name="st_compartilhado">Photos and files: %1$s</string>
     <string name="st_na_tv">on the TV</string>
     <string name="st_no_pen">on the USB drive</string>
@@ -895,7 +876,7 @@
     <string name="st_voltar_comum">Back to a regular USB drive (apps come back to the TV)</string>
     <string name="st_trazendo">Bringing %1$s back to the TV…</string>
     <string name="st_sumiram">The USB drive is out: %1$s are hidden until it\'s back.</string>
-    <string name="st_sugestao">TV storage is almost full. Move %1$s (%2$s) to the USB drive: hold OK on the app.</string>
+    <string name="st_sugestao">TV storage is almost full. Move %1$s (%2$s) to the USB drive</string>
     <string name="st_medindo">Measuring the drive\'s speed to recommend the best use…</string>
     <string name="st_lento_titulo">Drive too slow</string>
     <string name="st_lento_bloqueado">This drive writes at %1$s MB/s. To become TV storage it needs at least %2$d MB/s: below that apps freeze and the TV may not start. Use it as a regular drive.</string>

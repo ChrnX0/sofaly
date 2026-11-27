@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">Dla kogo jest ten telewizor?</string>
-    <string name="rec_subtitulo">Jedno OK i telewizor jest gotowy. Możesz to cofnąć w każdej chwili.</string>
+    <string name="rec_subtitulo">Możesz to cofnąć w każdej chwili.</string>
     <string name="rec_vo">Telewizor babci</string>
     <string name="rec_vo_det">Duże karty z czytanymi nazwami, większy tekst i przycisk Poproś o pomoc.</string>
     <string name="rec_criancas">Telewizor dzieci</string>

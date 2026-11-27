@@ -17,7 +17,7 @@
     <string name="jogos_parear_falhou">Cette TV n’a pas ouvert les paramètres Bluetooth. Ouvrez Paramètres, Télécommandes et accessoires.</string>
     <string name="jogos_baixar">Obtenir des jeux</string>
     <string name="jogos_escolher">Choisir des apps</string>
-    <string name="jogos_escolher_sub">Quelles apps vivent dans Jouer. OK bascule entre Jouer et Applications.</string>
+    <string name="jogos_escolher_sub">Quelles apps vivent dans Jouer.</string>
     <string name="jogos_no_card">dans Jouer</string>
     <string name="jogos_na_linha">dans Applications</string>
     <string name="jogos_grupo_nuvem">Dans le cloud</string>

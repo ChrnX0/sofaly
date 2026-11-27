@@ -26,7 +26,7 @@
     <string name="jogos_parear_falhou">Deze tv opende de Bluetooth-instellingen niet. Open Instellingen, Afstandsbedieningen en accessoires.</string>
     <string name="jogos_baixar">Games halen</string>
     <string name="jogos_escolher">Apps kiezen</string>
-    <string name="jogos_escolher_sub">Welke apps in Spelen staan. OK wisselt tussen Spelen en Apps.</string>
+    <string name="jogos_escolher_sub">Welke apps in Spelen staan.</string>
     <string name="jogos_no_card">in Spelen</string>
     <string name="jogos_na_linha">in Apps</string>
     <string name="jogos_grupo_nuvem">In de cloud</string>

@@ -28,7 +28,7 @@
     <string name="jogos_parear_falhou">A TV não abriu o Bluetooth. Abra Configurações, Controles e acessórios.</string>
     <string name="jogos_baixar">Baixar jogos</string>
     <string name="jogos_escolher">Escolher apps</string>
-    <string name="jogos_escolher_sub">Quais apps moram em Jogar. OK troca entre Jogar e Aplicativos.</string>
+    <string name="jogos_escolher_sub">Quais apps moram em Jogar.</string>
     <string name="jogos_no_card">em Jogar</string>
     <string name="jogos_na_linha">em Aplicativos</string>
     <string name="jogos_grupo_nuvem">Na nuvem</string>

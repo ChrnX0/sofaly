@@ -34,5 +34,5 @@
     <string name="l72_guia_agora">%1$s maintenant : %2$s (jusqu’à %3$s)</string>
     <string name="l72_guia_nada_agora">%1$s : rien dans le guide en ce moment</string>
     <string name="l72_guia_depois">Ensuite : %1$s (%2$s)</string>
-    <string name="l75_pilula">En lecture : %1$s, %2$s. OK met en pause ou reprend ; maintenir OK ouvre l’app</string>
+    <string name="l75_pilula">En lecture : %1$s, %2$s.</string>
 </resources>

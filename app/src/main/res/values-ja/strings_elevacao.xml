@@ -43,9 +43,8 @@
     <string name="elv_leg_embaixo">下</string>
     <string name="elv_leg_em_cima">上</string>
     <string name="elv_bf_fazer">実行</string>
-    <string name="elv_bf_ok_faz">OKで今すぐ実行</string>
     <string name="elv_bf_wifi">来客用Wi-Fiを表示</string>
-    <string name="elv_bf_wifi_configurar">未設定：OKで設定（来客）を開きます</string>
+    <string name="elv_bf_wifi_configurar">未設定</string>
     <string name="elv_bf_letra_maior">文字を大きく（%1$d%%）</string>
     <string name="elv_bf_letra_menor">文字を小さく（%1$d%%）</string>
     <string name="elv_bf_letra_limite">すでにこのサイズです</string>
@@ -114,6 +113,5 @@
     <string name="elv_ss_noite">日没後</string>
     <string name="elv_ss_dia_util">平日</string>
     <string name="elv_ss_perfil">プロフィールが%1$s</string>
-    <string name="elv_ss_det">◀ ▶ で条件を変更</string>
     <string name="extras_ABERTURA_PRONTA">オープニングをスキップ（IntroDB）：エピソードでは、コミュニティのIntroDBにオープニングの位置を問い合わせます（送るのはエピソードだけで、アカウントは送りません）。オフ：自分で印を付けたオープニングのみ</string>
 </resources>

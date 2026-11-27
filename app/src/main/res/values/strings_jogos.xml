@@ -26,7 +26,7 @@
     <string name="jogos_parear_falhou">This TV did not open the Bluetooth settings. Open Settings, Remotes and accessories.</string>
     <string name="jogos_baixar">Get games</string>
     <string name="jogos_escolher">Choose apps</string>
-    <string name="jogos_escolher_sub">Which apps live in Play. OK switches between Play and Apps.</string>
+    <string name="jogos_escolher_sub">Which apps live in Play.</string>
     <string name="jogos_no_card">in Play</string>
     <string name="jogos_na_linha">in Apps</string>
     <string name="jogos_grupo_nuvem">In the cloud</string>

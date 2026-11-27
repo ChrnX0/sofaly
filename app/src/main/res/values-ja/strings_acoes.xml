@@ -29,7 +29,7 @@
     <string name="lbl_cenas">シーン</string>
     <string name="pr_cenas">シーン</string>
     <string name="cenas_titulo">シーン</string>
-    <string name="cenas_det">OK でシーンを実行。作成と編集はウェブパネル › ホームと自動化 › シーンで行います。</string>
+    <string name="cenas_det">作成と編集はウェブパネル › ホームと自動化 › シーンで行います。</string>
     <string name="cenas_vazio">シーンはまだありません。ウェブパネル › ホームと自動化 › シーンで作成してください。</string>
     <string name="tec_titulo">リモコンのボタン</string>
     <string name="tec_det">Netflix と YouTube はどの画面でも使えます。カラーキーと数字はホーム画面でのみ有効です。</string>

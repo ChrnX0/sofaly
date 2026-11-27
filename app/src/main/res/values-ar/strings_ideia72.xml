@@ -34,5 +34,5 @@
     <string name="l72_guia_agora">%1$s الآن: %2$s (حتى %3$s)</string>
     <string name="l72_guia_nada_agora">%1$s: لا شيء في الدليل الآن</string>
     <string name="l72_guia_depois">التالي: %1$s (%2$s)</string>
-    <string name="l75_pilula">قيد التشغيل الآن: %1$s، %2$s. OK يوقف مؤقتًا أو يستأنف؛ اضغط مطولًا على OK لفتح التطبيق</string>
+    <string name="l75_pilula">قيد التشغيل الآن: %1$s، %2$s.</string>
 </resources>

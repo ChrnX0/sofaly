@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Marque primeiro o início da abertura</string>
     <string name="abertura_invalida">Isso não parece abertura: ela deve durar de 10 s a 5 min e começar nos primeiros 15 min</string>
     <string name="abertura_apagada">Marcação da abertura apagada</string>
-    <string name="abertura_pular">Pular abertura · OK</string>
+    <string name="abertura_pular">Pular abertura</string>
 </resources>

@@ -74,8 +74,9 @@ class TodoTileFazAlgoTest {
         val ctl = Robolectric.buildActivity(PainelRapidoActivity::class.java).setup()
         ShadowLooper.idleMainLooper(2, TimeUnit.SECONDS)
         val foc = ArrayList<View>(); ctl.get().window.decorView.addFocusables(foc, View.FOCUS_DOWN)
-        val r = foc.withIndex().filter { (it.value as? ViewGroup)?.childCount == 2 && it.value.isClickable }
-            .map { (it.value as ViewGroup).let { g -> textos(g).substringBefore("|") } to it.index }
+        // O bloco é o cartão das Fileiras (26/11/2026): caixa do ícone, nome e estado; o nome é o 2º filho.
+        val r = foc.withIndex().filter { (it.value as? ViewGroup)?.let { g -> g.childCount == 3 && g.getChildAt(1) is TextView } == true && it.value.isClickable }
+            .map { (it.value as ViewGroup).let { g -> (g.getChildAt(1) as TextView).text.toString() } to it.index }
         ctl.pause().stop().destroy()
         return r
     }
@@ -96,7 +97,7 @@ class TodoTileFazAlgoTest {
             val a = ctl.get()
             ShadowLooper.idleMainLooper(2, TimeUnit.SECONDS)
             val foc = ArrayList<View>(); a.window.decorView.addFocusables(foc, View.FOCUS_DOWN)
-            val bloco = foc.filterIsInstance<ViewGroup>().firstOrNull { it.childCount == 2 && it.isClickable && textos(it).substringBefore("|") == nome }
+            val bloco = foc.filterIsInstance<ViewGroup>().firstOrNull { it.childCount == 3 && it.isClickable && (it.getChildAt(1) as? TextView)?.text?.toString() == nome }
                 ?: run { mudos += "$nome (sumiu)"; ctl.pause().stop().destroy(); continue }
             val antes = textos(bloco)
             bloco.requestFocus()

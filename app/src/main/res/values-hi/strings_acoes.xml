@@ -29,7 +29,7 @@
     <string name="lbl_cenas">सीन</string>
     <string name="pr_cenas">सीन</string>
     <string name="cenas_titulo">सीन</string>
-    <string name="cenas_det">OK से सीन चलता है। इन्हें वेब पैनल › घर और ऑटोमेशन › सीन में बनाएँ और बदलें।</string>
+    <string name="cenas_det">इन्हें वेब पैनल › घर और ऑटोमेशन › सीन में बनाएँ और बदलें।</string>
     <string name="cenas_vazio">अभी कोई सीन नहीं। वेब पैनल › घर और ऑटोमेशन › सीन में एक बनाएँ।</string>
     <string name="tec_titulo">रिमोट बटन</string>
     <string name="tec_det">Netflix और YouTube हर स्क्रीन पर काम करते हैं; रंगीन कुंजियाँ और नंबर सिर्फ़ होम स्क्रीन पर।</string>

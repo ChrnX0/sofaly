@@ -32,6 +32,7 @@
     <string name="cfg_titulo">SeHlaw</string>   <!-- Settings -->
     <string name="elv_aj_buscar">SeHlaw nej</string>   <!-- Search settings -->
     <string name="cfg3_modo">mIw: %1$s</string>   <!-- Mode: %1$s -->
+    <string name="cfg4_fila_portas">SeHlaw</string>   <!-- Settings areas -->
     <string name="uso_completo">naQ</string>   <!-- Complete -->
     <string name="cfg2_aba_inicio">juH HaSta</string>   <!-- Home screen -->
     <string name="cl_aba_conta">HaSta lutmey je</string>   <!-- TV and movies -->

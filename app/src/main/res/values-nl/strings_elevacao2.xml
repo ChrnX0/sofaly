@@ -22,7 +22,7 @@
     <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
     <string name="elv_cat_n_temporadas">Seizoenen: %d</string>
     <string name="elv_cat_procurando">De poster zoeken…</string>
-    <string name="elv_cat_nada">Niets gevonden op TMDB. Houd OK ingedrukt om de juiste naam te typen.</string>
+    <string name="elv_cat_nada">Niets gevonden op TMDB.</string>
     <string name="elv_cat_corrigir_titulo">Corrigeren: %s</string>
     <string name="elv_cat_corrigir_explica">Verkeerde poster of samenvatting? Vraag het volgende resultaat, of typ de juiste naam en het jaar. Een lege naam gaat terug naar automatisch.</string>
     <string name="elv_cat_nao_e">Niet deze</string>

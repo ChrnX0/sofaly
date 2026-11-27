@@ -26,7 +26,7 @@
     <string name="jogos_parear_falhou">Ez a TV nem nyitotta meg a Bluetooth-beállításokat. Nyissa meg a Beállítások, Távirányítók és tartozékok menüt.</string>
     <string name="jogos_baixar">Játékok beszerzése</string>
     <string name="jogos_escolher">Alkalmazások kiválasztása</string>
-    <string name="jogos_escolher_sub">Mely alkalmazások éljenek a Játszaniban. Az OK vált a Játszani és az Alkalmazások között.</string>
+    <string name="jogos_escolher_sub">Mely alkalmazások éljenek a Játszaniban.</string>
     <string name="jogos_no_card">a Játszaniban</string>
     <string name="jogos_na_linha">az Alkalmazásokban</string>
     <string name="jogos_grupo_nuvem">A felhőben</string>

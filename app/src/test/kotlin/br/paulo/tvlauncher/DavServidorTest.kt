@@ -290,6 +290,7 @@ class DavServidorTest {
     }
 
     @Test fun naoSaiDaRaiz() {
+        org.junit.Assume.assumeFalse("só no Linux/Android (o Windows não aceita link simbólico sem admin)", System.getProperty("os.name").startsWith("Windows"))
         assertEquals(400, pedir("GET", "/dav/../etc/passwd").codigo)
         assertEquals(400, pedir("GET", "/dav/%2e%2e/%2e%2e/etc/passwd").codigo)
         assertEquals(400, pedir("PROPFIND", "/dav/Android/data", mapOf("Depth" to "1")).codigo)
@@ -324,6 +325,7 @@ class DavServidorTest {
     }
 
     @Test fun pastaNoNavegadorViraPaginaSemScript() {
+        org.junit.Assume.assumeFalse("só no Linux/Android (o Windows não aceita < e > no nome de arquivo)", System.getProperty("os.name").startsWith("Windows"))
         File(raiz, "Download/<script>.txt").writeText("x")
         val r = pedir("GET", "/dav/Download/")
         assertEquals(200, r.codigo)

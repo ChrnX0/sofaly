@@ -323,6 +323,7 @@ class PainelSegurancaTest {
     }
 
     @Test fun dentroDaRaiz() {
+        org.junit.Assume.assumeFalse("só no Linux/Android (o Windows não aceita caminho com / da TV)", System.getProperty("os.name").startsWith("Windows"))
         assertTrue(ChecagensPainel.dentroDe("/storage/emulated/0", "/storage/emulated/0"))
         assertTrue(ChecagensPainel.dentroDe("/storage/emulated/0/Download/a", "/storage/emulated/0"))
         assertFalse(ChecagensPainel.dentroDe("/storage/emulated/01/x", "/storage/emulated/0"))

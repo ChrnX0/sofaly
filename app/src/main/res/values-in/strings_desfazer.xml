@@ -15,7 +15,7 @@
     <string name="desf_barra">Diubah: %1$s</string>
     <string name="desf_botao">Urungkan</string>
     <string name="desf_tela">Perubahan terbaru</string>
-    <string name="desf_tela_det">Yang diubah dalam 7 hari terakhir. OK pada salah satunya mengembalikannya.</string>
+    <string name="desf_tela_det">Yang diubah dalam 7 hari terakhir.</string>
     <string name="desf_tela_vazia">Tidak ada perubahan dalam 7 hari terakhir.</string>
     <string name="desf_ja_desfeita">sudah diurungkan</string>
     <string name="desf_rot_config">Setelan</string>

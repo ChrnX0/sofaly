@@ -6,7 +6,6 @@
     <string name="pl_a_seguir">A continuación</string>
     <string name="pl_dormir">Temporizador para dormir</string>
     <string name="pl_dormir_min">En %1$d min</string>
-    <string name="pl_barra_dica">◀ ▶ mueven 10 s · mantén para ir más rápido</string>
     <string name="pl_abrir">Abrir el reproductor</string>
     <string name="pl_abrir_det">Pantalla completa, con lo que sigue</string>
 </resources>

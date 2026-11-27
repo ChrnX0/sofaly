@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">Tisztább hangok be</string>
     <string name="acess_voz_desligado">Tisztább hangok ki</string>
     <string name="acess_config_titulo">Hang és feliratok</string>
-    <string name="acess_config_texto">Annak, aki rosszabbul lát vagy hall. A lejátszó ▼ menüjében is.</string>
+    <string name="acess_config_texto">Annak, aki rosszabbul lát vagy hall.</string>
 </resources>

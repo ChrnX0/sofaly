@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">Чёткие голоса вкл</string>
     <string name="acess_voz_desligado">Чёткие голоса выкл</string>
     <string name="acess_config_titulo">Звук и субтитры</string>
-    <string name="acess_config_texto">Для тех, кто хуже видит или слышит. Также в меню ▼ плеера.</string>
+    <string name="acess_config_texto">Для тех, кто хуже видит или слышит.</string>
 </resources>

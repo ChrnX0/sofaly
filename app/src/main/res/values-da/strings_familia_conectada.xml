@@ -3,7 +3,7 @@
 <resources>
     <string name="famc_titulo">Familielink</string>
     <string name="famc_det">Børn og børnebørn sender fotos og noter til dette tv med et link, ingen konto nødvendig</string>
-    <string name="famc_ligado">Til: OK viser QR-koden for at dele igen</string>
+    <string name="famc_ligado">Til</string>
     <string name="famc_texto">Scan koden med din telefon, og send linket til familien (WhatsApp, e-mail). Den, der har linket, kan sende fotos og noter: de vises på skærmen med det samme, noter bliver på tavlen i hurtigpanelet, og fotos kommer med i pauseskærmsbillederne. Intet går gennem vores servere.</string>
     <string name="famc_sem_tunel">Dette bruger adgang udefra (Tailscale), som ikke er opsat på dette tv endnu. Opsæt det i Indstillinger › Hjem og netværk › Fjernadgang, og kom så tilbage hertil.</string>
     <string name="famc_trocar">Nyt link</string>

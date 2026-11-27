@@ -199,9 +199,9 @@ object Perfil {
     private fun desenharInicial(letra: String, lado: Int): Bitmap {
         val bitmap = Bitmap.createBitmap(lado, lado, Bitmap.Config.ARGB_8888)
         val tela = Canvas(bitmap)
-        val cores = intArrayOf(0xFF3E7C6E.toInt(), 0xFF4A6FA5.toInt(), 0xFF8A5A9E.toInt(), 0xFFB06A4F.toInt(), 0xFF5E8C4A.toInt())
         val tinta = Paint(Paint.ANTI_ALIAS_FLAG)
-        tinta.color = if (letra.isEmpty()) 0xFF3A4743.toInt() else cores[letra[0].code % cores.size]
+        // Grafite com um toque de laranja pela letra (era verde/azul/roxo; 27/11/2026 só a paleta).
+        tinta.color = br.paulo.tvlauncher.Estilo.corCapa(letra)
         tela.drawRect(0f, 0f, lado.toFloat(), lado.toFloat(), tinta)
         tinta.color = Color.WHITE
         if (letra.isNotEmpty()) {

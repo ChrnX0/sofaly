@@ -439,8 +439,9 @@ class AlarmesActivity : Activity() {
             coluna.aoMudar = {
                 explica.text = when (zona) {
                     2 -> it?.info ?: ""
-                    0 -> getString(R.string.al_op_hora) + ":  ▲▼ " + getString(R.string.al_dica_mudar)
-                    else -> getString(R.string.al_op_minuto) + ":  ▲▼ " + getString(R.string.al_dica_mudar)
+                    // Sem dica de tecla (Paulo, 26/11/2026: "remove de tudo"): só o nome do campo.
+                    0 -> getString(R.string.al_op_hora)
+                    else -> getString(R.string.al_op_minuto)
                 }
             }
             conteudo.addView(CrossColumn.dicas(this@AlarmesActivity,
@@ -468,15 +469,15 @@ class AlarmesActivity : Activity() {
 
         fun item(op: Op): OptionList.Item {
             val sim = getString(R.string.al_sim); val nao = getString(R.string.al_nao)
-            fun o(rot: Int, valor: String, det: Int) = OptionList.Item(getString(rot), valor, getString(det))
+            fun o(rot: Int, valor: String, det: Int?) = OptionList.Item(getString(rot), valor, det?.let { getString(it) } ?: "")   // null: sem detalhe (as dicas de tecla saíram, 26/11/2026)
             fun acao(rot: Int, det: Int) = OptionList.Item("", getString(rot), getString(det))
             return when (op) {
-                Op.LIGADO -> o(R.string.al_op_alarme, getString(if (v.ativo) R.string.al_ligado else R.string.al_desligado), R.string.al_op_ligado_det)
-                Op.REPETIR -> o(R.string.al_op_repetir, Despertador.diasTexto(this@AlarmesActivity, v.dias), R.string.al_op_repetir_det)
-                Op.SOM -> o(R.string.al_op_som, SomAlarme.NOMES.getOrElse(v.som) { SomAlarme.NOMES[0] }, R.string.al_op_som_det)
+                Op.LIGADO -> o(R.string.al_op_alarme, getString(if (v.ativo) R.string.al_ligado else R.string.al_desligado), null)
+                Op.REPETIR -> o(R.string.al_op_repetir, Despertador.diasTexto(this@AlarmesActivity, v.dias), null)
+                Op.SOM -> o(R.string.al_op_som, SomAlarme.NOMES.getOrElse(v.som) { SomAlarme.NOMES[0] }, null)
                 Op.RAMPA -> o(R.string.al_op_rampa, SomAlarme.rampaTexto(v.rampa), R.string.al_op_rampa_det)
                 Op.BOM_DIA -> o(R.string.al_op_bom_dia, if (v.bomDia) sim else nao, R.string.al_op_bom_dia_det)
-                Op.CENA -> o(R.string.al_op_cena, v.cena.ifBlank { getString(R.string.rot_nenhum) }, R.string.al_op_cena_det)
+                Op.CENA -> o(R.string.al_op_cena, v.cena.ifBlank { getString(R.string.rot_nenhum) }, null)
                 Op.NOME -> o(R.string.al_op_nome, v.nome.ifBlank { getString(R.string.rot_nenhum) }, R.string.al_op_nome_det)
                 Op.SALVAR -> acao(R.string.rot_salvar, R.string.al_op_salvar_det)
                 Op.APAGAR -> acao(R.string.al_op_apagar, R.string.al_op_apagar_det)

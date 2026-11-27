@@ -15,7 +15,7 @@
     <string name="desf_barra">Changed: %1$s</string>
     <string name="desf_botao">Undo</string>
     <string name="desf_tela">Recent changes</string>
-    <string name="desf_tela_det">What was changed in the last 7 days. OK on one puts it back as it was.</string>
+    <string name="desf_tela_det">What was changed in the last 7 days.</string>
     <string name="desf_tela_vazia">No changes in the last 7 days.</string>
     <string name="desf_ja_desfeita">undone</string>
     <string name="desf_rot_config">Settings</string>

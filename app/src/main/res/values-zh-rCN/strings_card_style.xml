@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">微调</string>
-    <string name="ft_dica">OK 或 ▶ ◀ 切换 · 返回关闭</string>
     <string name="ft_abrir">边看主屏幕边调整</string>
     <string name="ft_abrir_det">字体、时钟、强调色、圆角、光晕和大小，实时预览</string>
     <string name="cs_destaque">强调色</string>

@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">Đang chờ bạn xác nhận trên điện thoại…</string>
     <string name="rede_nuvem_salvando">Đang đăng nhập…</string>
     <string name="rede_nuvem_recusado">Dịch vụ từ chối. Hãy kiểm tra app id và thử lại.</string>
-    <string name="rede_erro_nuvem_login">Quyền của tài khoản này đã hết hạn hoặc bị gỡ. Hãy xóa tài khoản (giữ OK) và đăng nhập lại.</string>
+    <string name="rede_erro_nuvem_login">Quyền của tài khoản này đã hết hạn hoặc bị gỡ. Hãy xóa tài khoản và đăng nhập lại.</string>
     <string name="rede_od_titulo">OneDrive: ứng dụng của bạn tại Microsoft</string>
     <string name="rede_od_explica">Một lần, trên máy tính: entra.microsoft.com › App registrations › New registration. Ở loại tài khoản, chọn loại có bao gồm tài khoản Microsoft cá nhân. Sau đó, trong Authentication, bật “Allow public client flows”. Sao chép “Application (client) ID” và nhập vào đây (bạn có thể nhập từ điện thoại, trong bảng điều khiển).</string>
     <string name="rede_od_id">Application (client) ID</string>

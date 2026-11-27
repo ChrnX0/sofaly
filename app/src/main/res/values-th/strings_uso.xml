@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">ปิดอยู่จนกว่าผู้ที่อาศัยอยู่ที่นั่นจะยินยอมบนทีวี</string>
     <string name="uso_cartoes">การ์ดใหญ่บนหน้าจอหลัก</string>
     <string name="uso_cartoes_det">แอปใหญ่ไม่กี่แอป อ่านชื่อออกเสียง และปุ่ม \"ขอความช่วยเหลือ\" การปิดต้องใช้ PIN</string>
-    <string name="uso_trocar_det">ตอนนี้: %1$s OK เพื่อเลือกอีกครั้ง</string>
+    <string name="uso_trocar_det">ตอนนี้: %1$s</string>
 </resources>

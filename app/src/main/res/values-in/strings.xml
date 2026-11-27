@@ -15,10 +15,10 @@
     <string name="cfg_rotinas">Rutinitas</string>
     <string name="cfg_sec_atualizacao">Pembaruan</string>
     <string name="cfg_atualizar">Periksa versi baru</string>
-    <string name="cfg_atualizar_det">Versi %1$s · %2$s · OK memeriksa sekarang</string>
+    <string name="cfg_atualizar_det">Versi %1$s · %2$s</string>
     <string name="cfg_procurando">memeriksa GitHub…</string>
     <string name="cfg_instalar">Pasang versi %1$d sekarang</string>
-    <string name="cfg_instalar_det">Launcher tertutup dan kembali sendiri dalam beberapa detik · OK memasang</string>
+    <string name="cfg_instalar_det">Launcher tertutup dan kembali sendiri dalam beberapa detik</string>
     <string name="cfg_instalando">mengunduh dan memeriksa…</string>
     <string name="cfg_sec_rede">Jaringan</string>
     <string name="cfg_dns">DNS pribadi</string>
@@ -30,7 +30,6 @@
     <string name="cfg_sec_ligado">Yang aktif — %1$s</string>
     <string name="cfg_ligado">aktif</string>
     <string name="cfg_so_pc">" · hanya dengan komputer (adb)"</string>
-    <string name="cfg_tenta_ligar">" · OK mencoba mengaktifkan"</string>
     <string name="cfg_perm_fixas">Izin tetap diberikan</string>
     <string name="cfg_shell_estado">Shell sendiri</string>
     <string name="cfg_shell_pareado">dipasangkan: launcher tersambung lagi sendiri lewat Debugging nirkabel</string>
@@ -65,7 +64,7 @@
     <string name="rec_teclas">Layanan tombol</string>
     <string name="rec_teclas_sem">tanpa ini: HOME bisa membuka launcher Google dan tombol Netflix/YouTube tidak diatur ulang</string>
     <string name="rec_tudo">semua aktif</string>
-    <string name="rec_faltam">%1$d dari %2$d fitur belum aktif · OK pada item mencoba mengaktifkannya</string>
+    <string name="rec_faltam">%1$d dari %2$d fitur belum aktif</string>
     <string name="bv_titulo">Selamat datang</string>
     <string name="bv_texto">Layar utama, jam, cuaca, alarm, dan screensaver sudah berfungsi. Aktifkan sisanya di sini jika mau (%1$s).</string>
     <string name="bv_comecar">Mulai</string>
@@ -90,7 +89,6 @@
     <string name="rot_desligada_sufixo">" · nonaktif"</string>
     <string name="rot_nova">Rutinitas baru</string>
     <string name="rot_editar">Edit rutinitas</string>
-    <string name="rot_editor_det">OK mengubah tiap baris · BACK keluar tanpa menyimpan</string>
     <string name="rot_hora">Jam: %1$s</string>
     <string name="rot_dias">Hari: %1$s</string>
     <string name="rot_acao">Tindakan: %1$s</string>
@@ -99,12 +97,7 @@
     <string name="rot_ocioso">Hanya jika tidak ada yang menyentuhnya selama: %1$s</string>
     <string name="rot_ligada">Aktif</string>
     <string name="rot_desligada">Nonaktif</string>
-    <string name="rot_hora_det">◀ ▶ 5 menit · OK +1 jam</string>
-    <string name="rot_dias_det">OK: setiap hari, Sen sampai Jum, akhir pekan, sekali</string>
-    <string name="rot_ok_muda">OK mengubah</string>
-    <string name="rot_app_det">OK atau ▶ berikutnya · ◀ sebelumnya</string>
     <string name="rot_ocioso_det">Tidak mengganggu orang yang sedang menonton</string>
-    <string name="rot_ativa_det">OK mengaktifkan/menonaktifkan rutinitas ini</string>
     <string name="rot_salvar">Simpan</string>
     <string name="rot_escolha_app">Pilih aplikasi</string>
     <string name="rot_apagar">Hapus rutinitas ini</string>
@@ -167,7 +160,6 @@
     <string name="pp_carregando">Memuat…</string>
     <string name="pp_conectar">Hubungkan</string>
     <string name="cal_sem_conta">tidak ada akun Google</string>
-    <string name="cal_dica">◀ ▶ mengganti bulan</string>
     <string name="cal_30">30 hari ke depan</string>
     <string name="cal_nenhuma_conta">Tidak ada akun Google di TV</string>
     <string name="cal_nada">Tidak ada jadwal (atau kalender masih menyinkronkan)</string>
@@ -256,7 +248,6 @@
     <string name="esc_botao">Tombol %1$s membuka:</string>
     <string name="fd_nascer">terbit %1$s</string>
     <string name="fd_por">terbenam %1$s</string>
-    <string name="dns_dica">OK: gunakan   ·   tahan OK pada server Anda: hapus   ·   Back: keluar</string>
     <string name="dns_auto">Otomatis</string>
     <string name="dns_auto_det">Memakai DNS router dan mengenkripsi jika diterima (bawaan Android)</string>
     <string name="dns_desl">Nonaktif</string>
@@ -369,7 +360,7 @@
     <string name="atu_versao">Rilis %1$d: versi APK (%2$d) tidak cocok dengan tag</string>
     <string name="atu_chave">GitHub punya versi %1$d, tetapi ditandatangani dengan kunci lain yang tidak diterima TV ini: TV ini diperbarui dari PC</string>
     <string name="atu_disponivel">versi %1$d siap dipasang (terpasang %2$d)</string>
-    <string name="atu_trocou">versi berubah sejak pemeriksaan terakhir · OK memeriksa lagi</string>
+    <string name="atu_trocou">versi berubah sejak pemeriksaan terakhir</string>
     <string name="atu_instalando">memasang %1$d (terpasang %2$d)</string>
     <string name="atu_ok">diperbarui</string>
     <string name="atu_falhou">pemasangan gagal (%1$d): %2$s</string>
@@ -380,7 +371,6 @@
     <string name="vig_pausada_tela">versi %1$d crash dua kali tepat setelah dipasang · “%2$s” tetap nonaktif sampai versi berikutnya</string>
     <string name="vig_tela_bloqueada">Layar ini nonaktif sampai pembaruan berikutnya (membuat launcher crash)</string>
     <string name="cfg_vig_liberar">Mode aman</string>
-    <string name="cfg_vig_liberar_det">" · OK mengaktifkannya lagi"</string>
     <string name="home_voz_indisponivel">Pencarian suara tidak terbuka di TV ini</string>
     <string name="home_alarme_hoje">hari ini</string>
     <string name="home_alarme_amanha">besok</string>
@@ -389,12 +379,10 @@
     <string name="vod_carregando">Memuat video…</string>
     <string name="player_sem_canais">Belum ada daftar saluran.</string>
     <string name="player_tentando">Tidak ada sinyal di saluran %1$d. Mencoba lagi…</string>
-    <string name="player_sem_sinal">Saluran %1$d tidak merespons. Pilih yang lain dengan ▲ ▼ atau OK.</string>
+    <string name="player_sem_sinal">Saluran %1$d tidak merespons.</string>
     <string name="player_canal_nao_existe">Tidak ada saluran %1$d.</string>
     <string name="player_ao_vivo">LANGSUNG</string>
     <string name="player_a_seguir">berikutnya: %1$s</string>
-    <string name="player_teclas">▲ ▼ saluran · OK daftar saluran · tahan OK 2 dtk: favorit · ◀ saluran sebelumnya · ▶ ▶ opsi · BACK keluar</string>
-    <string name="player_teclas_pausa">▶❙❙ atau OK lanjutkan · ▶ opsi (kembali ke siaran langsung) · ▲ ▼ saluran · BACK keluar</string>
     <string name="player_cat_busca">Cari: %1$s</string>
     <string name="player_acao_buscar">Cari</string>
     <string name="player_acao_filtros">Filter</string>
@@ -418,7 +406,6 @@
     <string name="filmes_interesse_pos">★ %1$s ditambahkan ke daftar tontonan</string>
     <string name="filmes_interesse_tirou">%1$s dihapus dari daftar tontonan</string>
     <string name="filmes_interesses_cheio">Daftar tontonan sudah berisi 500 judul: hapus satu dulu.</string>
-    <string name="filmes_interesses_vazio">Tahan OK 2 detik pada poster untuk menambahkannya ke sini (lakukan lagi untuk menghapus).</string>
     <string name="filmes_assistido">Sudah ditonton</string>
     <string name="filmes_selo_leg">SUB</string>
     <string name="vod_sem_conta">Akun video ini sudah tidak ada.</string>
@@ -427,7 +414,6 @@
     <string name="vod_audio">Audio</string>
     <string name="vod_legenda">Subtitle</string>
     <string name="vod_faixas">Audio dan subtitle</string>
-    <string name="vod_teclas">OK jeda · ◀ 10 dtk · ▶ 30 dtk (tahan agar lebih cepat) · ▼ audio, subtitle, dan gambar · ⏮ ⏭ bab · BACK keluar</string>
     <string name="series_titulo">Serial</string>
     <string name="series_carregando">Memuat serial…</string>
     <string name="series_vazio">Belum ada serial</string>
@@ -438,7 +424,6 @@
     <string name="series_temporada">Musim %1$d</string>
     <string name="player_acao_guia">Panduan acara</string>
     <string name="player_sem_guia_curto">Tidak ada panduan acara</string>
-    <string name="player_grade_teclas">OK tonton · ◀ ▶ acara · ▲ ▼ saluran</string>
     <string name="player_busca_dica">Nama saluran atau acara</string>
     <string name="player_busca_nada">Tidak ditemukan apa pun untuk “%1$s”.</string>
     <string name="player_filtro_qualquer">Semua</string>
@@ -459,7 +444,6 @@
     <string name="infantil_titulo">Kategori anak</string>
     <string name="infantil_carregando">memuat kategori…</string>
     <string name="infantil_coluna_itens">ISINYA</string>
-    <string name="infantil_dica">OK menandai atau menghapus tanda kategori anak · berlaku untuk TV Langsung, Film, dan Serial · BACK keluar (sudah tersimpan)</string>
     <string name="infantil_so_categoria">tandai seluruh kategori di kolom kiri</string>
     <string name="infantil_vazio">tidak ada kategori: tambahkan akun di Setelan › TV dan film dan muat ulang saluran</string>
     <string name="infantil_limite">kategori dewasa tidak bisa menjadi kategori anak</string>
@@ -477,11 +461,10 @@
     <string name="player_cat_favoritos">Favorit</string>
     <string name="player_cat_recentes">Terakhir</string>
     <string name="player_cat_outros">Lainnya</string>
-    <string name="player_sem_favoritos">Belum ada favorit. Tahan OK 2 dtk pada saluran untuk menambahkannya ke sini.</string>
+    <string name="player_sem_favoritos">Belum ada favorit.</string>
     <string name="player_categoria_vazia">Tidak ada saluran di kategori ini.</string>
     <string name="player_sem_guia">Tidak ada panduan acara untuk saluran ini.</string>
     <string name="player_depois">NANTI</string>
-    <string name="player_lista_teclas">OK tonton · tahan OK 2 dtk: favorit atau hapus · tahan OK pada kategori: sembunyikan · ◀ kategori</string>
     <string name="player_favorito_pos">★ %1$s ditambahkan ke favorit</string>
     <string name="player_favorito_tirou">%1$s dihapus dari favorit</string>
     <string name="player_favoritos_cheio">Sudah ada 500 favorit: hapus satu dulu.</string>
@@ -642,7 +625,6 @@ AS\\Film).</string>
     <string name="tvv_vazio">Saluran ini belum punya acara tersimpan.</string>
     <string name="tvv_voltou">Kembali ke siaran langsung</string>
     <string name="tvv_selo">SIARAN ULANG</string>
-    <string name="tvv_teclas">◀ ▶ 30 dtk · OK opsi · BACK langsung</string>
     <string name="tvv_pausar">Jeda</string>
     <string name="tvv_continuar">Lanjutkan</string>
     <string name="tvv_ao_vivo">Kembali ke siaran langsung</string>
@@ -659,7 +641,7 @@ AS\\Film).</string>
     <string name="series_nao_visto">Tandai belum ditonton</string>
     <string name="idioma_secao">Film dan serial</string>
     <string name="idioma_titulo">Audio pilihan</string>
-    <string name="idioma_det">Asli dengan subtitle dalam bahasa TV, atau disulih suara ke bahasa itu. Tiap film dan serial mengingat perubahan yang dibuat di pemutar (▼)</string>
+    <string name="idioma_det">Asli dengan subtitle dalam bahasa TV, atau disulih suara ke bahasa itu. Tiap film dan serial mengingat perubahan yang dibuat di pemutar</string>
     <string name="idioma_original">Asli dengan subtitle</string>
     <string name="idioma_dublado">Sulih suara</string>
     <string name="idioma_legendado">Bersubtitle</string>
@@ -807,8 +789,8 @@ AS\\Film).</string>
     <string name="st_titulo">Flashdisk dan penyimpanan</string>
     <string name="st_explica">Pilih cara TV memakai flashdisk. Ruang kurang? Bisa jadi penyimpanan TV untuk aplikasi berat.</string>
     <string name="st_linha_det">Gunakan flashdisk sebagai penyimpanan TV</string>
-    <string name="st_sem_shell">Butuh shell bawaan TV (Setelan › Sistem › Lanjutan). OK untuk coba lagi.</string>
-    <string name="st_sem_pen">Tidak ada flashdisk. Colokkan satu dan tekan OK.</string>
+    <string name="st_sem_shell">Butuh shell bawaan TV (Setelan › Sistem › Lanjutan).</string>
+    <string name="st_sem_pen">Tidak ada flashdisk.</string>
     <string name="st_tv_livre">Penyimpanan TV: %1$s kosong dari %2$s</string>
     <string name="st_pen">Flashdisk · %1$s · %2$s</string>
     <string name="st_modo_comum">Flashdisk biasa</string>
@@ -822,14 +804,13 @@ AS\\Film).</string>
     <string name="st_motivo_grande">separuh untuk aplikasi, separuh untuk rekaman dan file</string>
     <string name="st_motivo_apertada">TV hampir penuh</string>
     <string name="st_medido">menulis %1$s MB/dtk</string>
-    <string name="st_medir_dica">OK mengukur kecepatan</string>
     <string name="st_usar_comum">Gunakan sebagai flashdisk biasa</string>
-    <string name="st_usar_misto">Gunakan campuran: %1$d%% biasa  ◀ ▶</string>
+    <string name="st_usar_misto">Gunakan campuran: %1$d%% biasa</string>
     <string name="st_usar_tv">Gunakan sebagai penyimpanan TV</string>
     <string name="st_apps">Aplikasi di flashdisk</string>
     <string name="st_apps_det">Pilih aplikasi untuk dipindah (terbesar dulu)</string>
     <string name="st_apps_nenhum">Tidak ada aplikasi yang bisa dipindah.</string>
-    <string name="st_apps_rodape">OK memindah aplikasi; ✓ = sudah di flashdisk</string>
+    <string name="st_apps_rodape">✓ = sudah di flashdisk</string>
     <string name="st_compartilhado">Foto dan file: %1$s</string>
     <string name="st_na_tv">di TV</string>
     <string name="st_no_pen">di flashdisk</string>
@@ -854,7 +835,7 @@ AS\\Film).</string>
     <string name="st_voltar_comum">Kembali jadi flashdisk biasa (aplikasi kembali ke TV)</string>
     <string name="st_trazendo">Mengembalikan %1$s ke TV…</string>
     <string name="st_sumiram">Flashdisk dicabut: %1$s tersembunyi sampai dicolok lagi.</string>
-    <string name="st_sugestao">Penyimpanan TV hampir penuh. Pindahkan %1$s (%2$s) ke flashdisk: tahan OK pada aplikasi.</string>
+    <string name="st_sugestao">Penyimpanan TV hampir penuh. Pindahkan %1$s (%2$s) ke flashdisk</string>
     <string name="st_medindo">Mengukur kecepatan flashdisk untuk menyarankan penggunaan terbaik…</string>
     <string name="st_lento_titulo">Flashdisk terlalu lambat</string>
     <string name="st_lento_bloqueado">Flashdisk ini menulis %1$s MB/dtk. Untuk menjadi memori TV perlu minimal %2$d MB/dtk: di bawah itu aplikasi macet dan TV mungkin tidak menyala. Gunakan sebagai flashdisk biasa.</string>
@@ -872,12 +853,12 @@ AS\\Film).</string>
     <string name="aviso_sync_texto">Tidak ada akun %1$s di TV ini. Hubungkan di Setelan › TV dan film.</string>
     <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
     <string name="ver_novidades">Yang baru</string>
-    <string name="ver_novidades_det">%1$d perubahan di versi %2$s · OK untuk membaca</string>
+    <string name="ver_novidades_det">%1$d perubahan di versi %2$s</string>
     <string name="ver_novidades_sobre">Versi %1$s</string>
     <string name="ver_ok">OK</string>
     <string name="ver_conferir">Periksa di TV</string>
-    <string name="ver_conferir_det">%1$d dari %2$d diperiksa dengan remote · OK untuk mulai</string>
-    <string name="ver_conferir_sub">Versi %1$s · %2$d item · OK pada item untuk menjawab</string>
+    <string name="ver_conferir_det">%1$d dari %2$d diperiksa dengan remote</string>
+    <string name="ver_conferir_sub">Versi %1$s · %2$d item</string>
     <string name="ver_conferido">%1$d dari %2$d diperiksa</string>
     <string name="ver_sim">Ya</string>
     <string name="ver_nao">Tidak</string>

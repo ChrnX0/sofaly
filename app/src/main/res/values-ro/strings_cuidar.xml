@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Puteți aștepta.</string>
     <string name="cuidar_nao_avisado">Nu s-a putut anunța %1$s</string>
     <string name="cuidar_sem_aparelho">Niciun telefon nu e setat să primească. Verificați Setări › Familie › Grijă de la distanță.</string>
-    <string name="cuidar_sem_internet">Verificați internetul și încercați din nou (țineți butonul 3 secunde).</string>
+    <string name="cuidar_sem_internet">Verificați internetul și încercați din nou.</string>
     <string name="cuidar_lembrete_sobre">Memento · %1$s</string>
     <string name="cuidar_lembrete_explica">Apăsați OK când e gata.</string>
     <string name="cuidar_lembrete_explica_aviso">Apăsați OK când e gata. Fără asta în %1$d minute, %2$s primește un anunț.</string>

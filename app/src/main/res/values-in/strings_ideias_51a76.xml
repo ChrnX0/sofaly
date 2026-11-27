@@ -41,7 +41,7 @@
     <string name="l51_uso_zerar">Atur ulang</string>
     <string name="l51_digitar_titulo">Ketik di TV</string>
     <string name="l51_digitar_texto">Kotak teks terbuka di %1$s. Ketuk untuk mengetik dari sini.</string>
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">ruangan %1$s</string>
     <string name="casa_movimento">Gerakan</string>
     <string name="casa_sem_movimento">Tidak ada gerakan</string>

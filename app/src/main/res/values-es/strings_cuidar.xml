@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Puedes esperar.</string>
     <string name="cuidar_nao_avisado">No se pudo avisar a %1$s</string>
     <string name="cuidar_sem_aparelho">Ningún móvil está configurado para recibir. Revisa Ajustes › Familia › Cuidar a distancia.</string>
-    <string name="cuidar_sem_internet">Revisa internet y vuelve a intentarlo (mantén el botón 3 segundos).</string>
+    <string name="cuidar_sem_internet">Revisa internet y vuelve a intentarlo.</string>
     <string name="cuidar_lembrete_sobre">Recordatorio · %1$s</string>
     <string name="cuidar_lembrete_explica">Pulsa OK cuando esté hecho.</string>
     <string name="cuidar_lembrete_explica_aviso">Pulsa OK cuando esté hecho. Si no, en %1$d minutos %2$s recibe un aviso.</string>

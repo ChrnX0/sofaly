@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Players, proposta C, etapa 1 (20/11/2026): resumo, créditos, "termina às", "o que foi dito?". -->
 <resources>
-    <string name="seg_pular_resumo">Пропустити переказ · OK</string>
-    <string name="seg_proximo">Наступна серія · OK</string>
-    <string name="seg_proximo_em">Наступна серія через %1$d · OK</string>
+    <string name="seg_pular_resumo">Пропустити переказ</string>
+    <string name="seg_proximo">Наступна серія</string>
+    <string name="seg_proximo_em">Наступна серія через %1$d</string>
     <string name="seg_termina">закінчується о %1$s</string>
     <string name="seg_repetir">Що вони сказали?</string>
     <string name="seg_repetir_info">Назад 10 с із субтитрами</string>

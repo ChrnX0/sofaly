@@ -41,13 +41,12 @@
     <string name="casa_desligado">Spento</string>
     <string name="casa_aberta">Aperta</string>
     <string name="casa_fechada">Chiusa</string>
-    <string name="casa_rodar">OK per eseguire</string>
     <string name="casa_indisponivel">Non disponibile</string>
     <string name="casa_sem_config_titulo">Collega la tua casa</string>
     <string name="casa_dica_acionar">accendi o spegni</string>
     <string name="casa_erro">Home Assistant non ha risposto: %1$s</string>
     <string name="casa_ligado_pct">Acceso · %1$d%%</string>
-    <string name="casa_brilho_ajuste">Luminosità %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">Luminosità %1$d%%</string>
     <string name="casa_dica_brilho">luminosità</string>
     <string name="casa_tecla_segurar_ok">TIENI PREMUTO OK</string>
     <string name="ca_liberado">Liberati %1$s. Libero ora: %2$s.</string>

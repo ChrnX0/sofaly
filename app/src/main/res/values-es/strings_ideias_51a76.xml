@@ -41,7 +41,7 @@
     <string name="l51_uso_zerar">Reiniciar</string>
     <string name="l51_digitar_titulo">Escribir en la TV</string>
     <string name="l51_digitar_texto">Hay un cuadro de texto abierto en %1$s. Toca para escribir desde aquí.</string>
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">ambiente %1$s</string>
     <string name="casa_movimento">Movimiento</string>
     <string name="casa_sem_movimento">Sin movimiento</string>

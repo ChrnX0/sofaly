@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">Voci mai clare activate</string>
     <string name="acess_voz_desligado">Voci mai clare dezactivate</string>
     <string name="acess_config_titulo">Sunet și subtitrări</string>
-    <string name="acess_config_texto">Pentru cine vede sau aude mai puțin bine. Și în meniul ▼ al playerului.</string>
+    <string name="acess_config_texto">Pentru cine vede sau aude mai puțin bine.</string>
 </resources>

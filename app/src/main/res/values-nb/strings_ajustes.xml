@@ -18,8 +18,7 @@
     <string name="qrd_roteador_det">UniFi-ruterens adresse og API-nøkkel, i nettpanelet</string>
     <!-- Ideia 42: blocos do painel rápido -->
     <string name="pb_titulo">Fliser i hurtigpanelet</string>
-    <string name="pb_subtitulo">OK viser eller skjuler · ◀ ▶ endrer rekkefølgen</string>
-    <string name="pb_cfg_det">Velg hvilke fliser hurtigpanelet (hold TILBAKE) viser, og i hvilken rekkefølge</string>
+    <string name="pb_cfg_det">Velg hvilke fliser hurtigpanelet viser, og i hvilken rekkefølge</string>
     <string name="pb_mostrado">vist</string>
     <string name="pb_escondido">skjult</string>
     <string name="pb_padrao">Tilbake til standardflisene</string>
@@ -42,14 +41,14 @@
     <string name="cfg2_sec_ferramentas">Verktøy</string>
     <string name="cfg2_sec_ocultos_sistema">Systemapper skjult av launcheren</string>
     <string name="cfg2_apps_visita_det">Velg hvilke apper som forsvinner mens gjestemodus er på</string>
-    <string name="cfg2_apps_visita_sub">OK bytter · disse forsvinner mens gjestemodus er på</string>
+    <string name="cfg2_apps_visita_sub">disse forsvinner mens gjestemodus er på</string>
     <string name="cfg2_some_visita">skjult for gjester</string>
     <string name="cfg2_fica_visita">blir</string>
     <string name="cfg2_casa_det">Lys, stikkontakter og scener fra Google Home eller Home Assistant</string>
     <string name="oc_titulo">Skjulte apper</string>
-    <string name="oc_subtitulo">OK viser eller skjuler en app på startskjermen · skjulte kommer først</string>
-    <string name="oc_nenhum">Ingen skjulte apper · OK for å velge</string>
-    <string name="oc_quantos">Skjult: %1$d · OK for å vise dem igjen</string>
+    <string name="oc_subtitulo">skjulte kommer først</string>
+    <string name="oc_nenhum">Ingen skjulte apper</string>
+    <string name="oc_quantos">Skjult: %1$d</string>
     <string name="oc_oculto">skjult</string>
     <string name="oc_aparece">på startskjermen</string>
     <string name="oc_aviso_titulo">App skjult</string>
@@ -72,7 +71,7 @@
     <string name="tt_grande">Stor</string>
     <string name="tt_maior">Større</string>
     <string name="pi_titulo">Ikonpakke</string>
-    <string name="pi_det">Bytt appikoner til en innebygd stil (Symbol, Duotone) eller en installert ikonpakke. OK velger den neste.</string>
+    <string name="pi_det">Bytt appikoner til en innebygd stil (Symbol, Duotone) eller en installert ikonpakke.</string>
     <string name="pi_det_vazio">Ingen ikonpakke installert. Hent én fra Play Butikk, så dukker den opp her.</string>
     <string name="pi_nenhum">Ingen</string>
     <string name="fm_titulo">Min bakgrunn</string>
@@ -81,12 +80,12 @@
     <string name="fm_nenhum">Ingen (tilbake til Mørk)</string>
     <string name="fm_brilho">Bakgrunnens lysstyrke</string>
     <string name="fm_contraste">Bakgrunnens kontrast</string>
-    <string name="fm_ajuste_det">Gjelder Min bakgrunn. OK endrer trinnet.</string>
+    <string name="fm_ajuste_det">Gjelder Min bakgrunn.</string>
     <string name="vp_titulo">Kommer du fra Projectivy?</string>
     <string name="vp_texto">Fire trinn henter oppsettet ditt over på omtrent ett minutt. Hvert kan gjøres senere i Innstillinger.</string>
     <string name="vp_cfg_det">Hent skjulte apper, ikonpakke og bakgrunn fra Projectivy.</string>
     <string name="vp_1">1. Skjulte apper</string>
-    <string name="vp_1_det">Merk appene du hadde skjult. For å endre rekkefølgen, hold OK på en app på startskjermen.</string>
+    <string name="vp_1_det">Merk appene du hadde skjult.</string>
     <string name="vp_2">2. Ikonpakke</string>
     <string name="vp_2_det">De samme ikonpakkene som Projectivy bruker, virker her.</string>
     <string name="vp_3">3. Bakgrunn</string>

@@ -2,7 +2,6 @@
 <!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
 <resources>
     <string name="vpr_titulo">مظاهر جاهزة</string>
-    <string name="vpr_det">كل ضغطة OK تنتقل إلى المظهر التالي: السمة والنص ولون الخلفية معًا</string>
     <string name="vpr_meu">إعدادك</string>
     <string name="vpr_classico">كلاسيكي</string>
     <string name="vpr_leitura">قراءة سهلة</string>

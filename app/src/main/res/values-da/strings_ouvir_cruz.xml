@@ -11,11 +11,10 @@
     <string name="ouv_favoritar_det">Favoritter afspilles også med tasterne 1 til 9 på fjernbetjeningen</string>
     <string name="ouv_tecla">Tast %d på fjernbetjeningen</string>
     <string name="ouv_ao_sair">Når du forlader</string>
-    <string name="ouv_ao_sair_continua">Bliver ved med at spille på startskærmen\n▶❙❙ på fjernbetjeningen sætter den på pause fra enhver skærm</string>
+    <string name="ouv_ao_sair_continua">Bliver ved med at spille på startskærmen</string>
     <string name="ouv_ao_sair_para">Stopper, når du forlader denne skærm</string>
     <string name="ouv_recentes">Seneste</string>
     <string name="ouv_sem_favoritas">Ingen favoritter endnu</string>
-    <string name="ouv_sem_favoritas_det">Hold OK på en station for at beholde den her</string>
     <string name="ouv_sem_recentes">Intet her endnu</string>
     <string name="ouv_sem_recentes_det">De stationer, du afspiller, vises her</string>
     <string name="ouv_paises">Lande</string>
@@ -23,9 +22,7 @@
     <string name="ouv_ao_vivo">Live</string>
     <string name="ouv_dica_pular">spring over</string>
     <string name="ouv_voltar">Tilbage 15 s</string>
-    <string name="ouv_voltar_det">Også ◀◀ på fjernbetjeningen</string>
     <string name="ouv_avancar">Frem 30 s</string>
-    <string name="ouv_avancar_det">Også ▶▶ på fjernbetjeningen</string>
     <string name="ouv_velocidade_det">%s · stemmen beholder sin tonehøjde</string>
     <string name="ouv_parar_pod_det">Hvor du stoppede, gemmes til senere</string>
     <string name="ouv_seguindo">Følger</string>

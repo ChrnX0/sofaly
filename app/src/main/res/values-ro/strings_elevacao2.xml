@@ -22,7 +22,7 @@
     <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
     <string name="elv_cat_n_temporadas">Sezoane: %d</string>
     <string name="elv_cat_procurando">Se caută posterul…</string>
-    <string name="elv_cat_nada">Nimic găsit pe TMDB. Țineți OK pentru a tasta numele corect.</string>
+    <string name="elv_cat_nada">Nimic găsit pe TMDB.</string>
     <string name="elv_cat_corrigir_titulo">Corectează: %s</string>
     <string name="elv_cat_corrigir_explica">Poster sau rezumat greșit? Cereți rezultatul următor sau tastați numele și anul corect. Un nume gol revine la automat.</string>
     <string name="elv_cat_nao_e">Nu acesta</string>

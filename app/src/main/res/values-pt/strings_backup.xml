@@ -7,8 +7,8 @@
     <string name="bkn_desligado">desligado</string>
     <string name="bkn_sem_senha">desligado · defina a senha do backup primeiro</string>
     <string name="bkn_senha">Senha do backup</string>
-    <string name="bkn_senha_ok">definida · OK troca</string>
-    <string name="bkn_senha_falta">não definida · OK define</string>
+    <string name="bkn_senha_ok">definida</string>
+    <string name="bkn_senha_falta">não definida</string>
     <string name="bkn_senha_nova">Senha do backup (8 ou mais caracteres)</string>
     <string name="bkn_senha_repetir">Digite a senha de novo</string>
     <string name="bkn_senha_curta">A senha precisa ter de 8 a 128 caracteres.</string>

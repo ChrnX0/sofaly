@@ -11,7 +11,7 @@
     <string name="mtp_pergunta">“%1$s” ingin melihat dan menyalin file di penyimpanan TV lewat jaringan rumah. Izinkan komputer ini?</string>
     <string name="mtp_pcs">Komputer yang diizinkan</string>
     <string name="mtp_pcs_nenhum">Belum ada. TV bertanya di layar saat komputer meminta file.</string>
-    <string name="mtp_pcs_lista">%1$s · OK melupakan semua (tiap komputer bertanya lagi)</string>
+    <string name="mtp_pcs_lista">%1$s</string>
     <string name="mtp_pcs_esquecidos">Komputer dilupakan</string>
     <string name="ur_atalho_nome">Buka panel TV</string>
     <string name="ssdp_painel">panel</string>

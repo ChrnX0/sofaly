@@ -15,7 +15,7 @@
     <string name="anteriormente_titulo">Anteriormente em %1$s</string>
     <string name="anteriormente_assistir">Assistir %1$s</string>
     <string name="anteriormente_pular_sempre">Não mostrar mais</string>
-    <string name="anteriormente_desligado">Resumos desligados. Para ligar de novo: segure OK num episódio.</string>
+    <string name="anteriormente_desligado">Resumos desligados.</string>
     <string name="anteriormente_ligar">Mostrar o resumo “Anteriormente”</string>
     <string name="idade_titulo">Idade máxima no modo infantil</string>
     <string name="idade_det">Filmes e séries com classificação até esta idade aparecem de qualquer categoria (classificação do TMDB). Os sem classificação, só nas categorias infantis.</string>
@@ -25,8 +25,8 @@
     <string name="onde_tambem_em">Também em: %1$s (JustWatch)</string>
     <string name="onde_fora">Não está na sua lista · está em %1$s</string>
     <string name="onde_grupo">Em outros lugares (JustWatch)</string>
-    <string name="legenda_auto_pronta">Legenda transferida automaticamente (feita para este ficheiro) · ▼ para trocar</string>
-    <string name="legenda_auto_pronta_nome">Legenda transferida automaticamente · ▼ para trocar ou ajustar o atraso</string>
+    <string name="legenda_auto_pronta">Legenda transferida automaticamente (feita para este ficheiro)</string>
+    <string name="legenda_auto_pronta_nome">Legenda transferida automaticamente</string>
     <string name="legenda_trad_rotulo">Tradução automática</string>
     <string name="legenda_trad_traduzindo">Sem legenda em português: a traduzir a inglesa na TV…</string>
     <string name="legenda_trad_parcial">Legenda traduzida na TV (tradução automática). O resto continua a traduzir.</string>

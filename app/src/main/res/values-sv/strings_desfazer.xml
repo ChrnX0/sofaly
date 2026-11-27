@@ -15,7 +15,7 @@
     <string name="desf_barra">Ändrat: %1$s</string>
     <string name="desf_botao">Ångra</string>
     <string name="desf_tela">Senaste ändringar</string>
-    <string name="desf_tela_det">Vad som ändrades de senaste 7 dagarna. OK på en sätter tillbaka den som den var.</string>
+    <string name="desf_tela_det">Vad som ändrades de senaste 7 dagarna.</string>
     <string name="desf_tela_vazia">Inga ändringar de senaste 7 dagarna.</string>
     <string name="desf_ja_desfeita">ångrat</string>
     <string name="desf_rot_config">Inställningar</string>

@@ -31,7 +31,7 @@
     <string name="lbl_cenas">Scener</string>
     <string name="pr_cenas">Scener</string>
     <string name="cenas_titulo">Scener</string>
-    <string name="cenas_det">OK kör scenen. Skapa och redigera dem i webbpanelen › Hem och automatiseringar › Scener.</string>
+    <string name="cenas_det">Skapa och redigera dem i webbpanelen › Hem och automatiseringar › Scener.</string>
     <string name="cenas_vazio">Inga scener än. Skapa en i webbpanelen › Hem och automatiseringar › Scener.</string>
     <plurals name="cenas_acoes">
         <item quantity="one">%d åtgärd</item>

@@ -228,7 +228,7 @@ object SomNoFone {
         val col = LinearLayout(a).apply {
             orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER_HORIZONTAL
             setPaddingRelative(dp(40), dp(32), dp(40), dp(32))
-            background = Estilo.vidro(a, 24)
+            background = Estilo.fundo(a, Estilo.VIDRO_TINTA, Estilo.RAIO)
             addView(TextView(a).apply { text = a.getString(R.string.fone_titulo); textSize = 30f; setTextColor(Estilo.TEXTO); typeface = Fontes.nunito(700); gravity = Gravity.CENTER })
             addView(TextView(a).apply { text = a.getString(R.string.fone_texto, SomNoFoneRegras.MAX_CELULARES); textSize = 20f; setTextColor(Estilo.TEXTO_2); gravity = Gravity.CENTER },
                 LinearLayout.LayoutParams(dp(560), -2).apply { topMargin = dp(12) })

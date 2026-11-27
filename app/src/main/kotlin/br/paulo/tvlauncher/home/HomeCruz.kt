@@ -510,9 +510,10 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         return true
     }
     private fun avisoDeMover() {
-        val t = context.getString(R.string.rw_reordenar_dica)
-        if (fileiras) rows.aviso(t, MOVER_AVISO_MS) else if (faixa) strip.aviso(t, MOVER_AVISO_MS)
-        announceForAccessibility(t)
+        // Na tela só o nome do card que anda (Paulo, 26/11/2026: dicas de teclas saem de tudo); as teclas ficam para o leitor de tela.
+        val nome = itemAtual()?.nome.orEmpty()
+        if (fileiras) rows.aviso(nome, MOVER_AVISO_MS) else if (faixa) strip.aviso(nome, MOVER_AVISO_MS)
+        announceForAccessibility(context.getString(R.string.rw_reordenar_dica))
     }
 
     /**

@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Спершу позначте початок заставки</string>
     <string name="abertura_invalida">Це не схоже на заставку: вона має тривати від 10 с до 5 хв і починатися в перші 15 хв</string>
     <string name="abertura_apagada">Позначку заставки видалено</string>
-    <string name="abertura_pular">Пропустити заставку · OK</string>
+    <string name="abertura_pular">Пропустити заставку</string>
 </resources>

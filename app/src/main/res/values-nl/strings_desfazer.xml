@@ -15,7 +15,7 @@
     <string name="desf_barra">Gewijzigd: %1$s</string>
     <string name="desf_botao">Ongedaan maken</string>
     <string name="desf_tela">Recente wijzigingen</string>
-    <string name="desf_tela_det">Wat er de laatste 7 dagen is gewijzigd. OK op een wijziging zet het terug zoals het was.</string>
+    <string name="desf_tela_det">Wat er de laatste 7 dagen is gewijzigd.</string>
     <string name="desf_tela_vazia">Geen wijzigingen in de laatste 7 dagen.</string>
     <string name="desf_ja_desfeita">ongedaan gemaakt</string>
     <string name="desf_rot_config">Instellingen</string>

@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Markera introts början först</string>
     <string name="abertura_invalida">Det ser inte ut som ett intro: det måste vara 10 s till 5 min och börja inom de första 15 min</string>
     <string name="abertura_apagada">Intromarkering borttagen</string>
-    <string name="abertura_pular">Hoppa över intro · OK</string>
+    <string name="abertura_pular">Hoppa över intro</string>
 </resources>

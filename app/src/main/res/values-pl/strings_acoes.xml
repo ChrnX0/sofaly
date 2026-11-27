@@ -29,7 +29,7 @@
     <string name="lbl_cenas">Sceny</string>
     <string name="pr_cenas">Sceny</string>
     <string name="cenas_titulo">Sceny</string>
-    <string name="cenas_det">OK uruchamia scenę. Twórz i edytuj je w panelu WWW › Dom i automatyzacje › Sceny.</string>
+    <string name="cenas_det">Twórz i edytuj je w panelu WWW › Dom i automatyzacje › Sceny.</string>
     <string name="cenas_vazio">Brak scen. Utwórz scenę w panelu WWW › Dom i automatyzacje › Sceny.</string>
     <string name="tec_titulo">Przyciski pilota</string>
     <string name="tec_det">Netflix i YouTube działają na każdym ekranie; kolorowe przyciski i cyfry tylko na ekranie głównym.</string>

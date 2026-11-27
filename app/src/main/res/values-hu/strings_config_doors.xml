@@ -11,4 +11,5 @@
     <string name="cfg3_porta_3_det">Képernyővédő, alvás, ébredés</string>
     <string name="cfg3_porta_4_det">Otthon, telefon és panel</string>
     <string name="cfg3_porta_5_det">Frissítések, mentés és súgó</string>
+    <string name="cfg4_fila_portas">Beállítások</string>
 </resources>

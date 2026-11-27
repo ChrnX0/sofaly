@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">Fine-tune</string>
-    <string name="ft_dica">OK or ▶ ◀ changes · BACK closes</string>
     <string name="ft_abrir">Adjust while seeing the home screen</string>
     <string name="ft_abrir_det">Font, clock, highlight color, corners, glow and size, live</string>
     <string name="cs_destaque">Highlight color</string>

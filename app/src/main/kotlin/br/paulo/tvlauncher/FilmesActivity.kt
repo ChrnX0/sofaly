@@ -561,7 +561,7 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
             if (pct == null) c.etiqueta.visibility = View.GONE else {
                 c.etiqueta.visibility = View.VISIBLE
                 c.etiqueta.text = when (pct) { 100 -> getString(R.string.filmes_assistido); else -> BarraTempo.faltam(this@FilmesActivity, BarraTempo.duracao(pos!!.duracao - pos.ms)) }
-                (c.etiqueta.background as GradientDrawable).setColor(if (pct == 100) verdeEtiqueta else 0xD9121212.toInt())
+                (c.etiqueta.background as GradientDrawable).setColor(if (pct == 100) corConcluida else 0xD9121212.toInt())
             }
             c.estrela.visibility = if (f.chave in interesses) View.VISIBLE else View.GONE
             (c.capa as? CapaCartao)?.semente = Idioma.semMarca(f.nome)   // capa gerada quando não há pôster (ideia 8)
@@ -620,7 +620,7 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
         tela.removeCallbacks(lerFichaRapida)
         if (f == null) {
             painel.mostrarFoco(when {
-                chave == INTERESSES -> getString(R.string.filmes_interesses_vazio)
+                chave == INTERESSES -> ""
                 filtro.ativo -> getString(R.string.filmes_filtro_vazio)
                 else -> ""
             }); return
@@ -1119,6 +1119,6 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
         return if (min < 60) "$min min" else String.format(Locale.ROOT, "%d h %02d min", min / 60, min % 60)
     }
 
-    private fun vidro(raio: Int) = GradientDrawable().apply { cornerRadius = dp(raio).toFloat(); setColor(0xD9121212.toInt()); setStroke(dp(1), Estilo.SUPERFICIE_ALTA) }
+    private fun vidro(raio: Int) = GradientDrawable().apply { cornerRadius = dp(raio).toFloat(); setColor(0xD9121212.toInt()) }
 
 }

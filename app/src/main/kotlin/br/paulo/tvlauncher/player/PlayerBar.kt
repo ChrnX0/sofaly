@@ -46,7 +46,7 @@ object PlayerBar {
         fun dp(v: Int) = (v * ctx.resources.displayMetrics.density + 0.5f).toInt()
         val raiz = LinearLayout(ctx).apply {
             orientation = LinearLayout.VERTICAL
-            background = Estilo.fundo(ctx, Estilo.alfa(Estilo.FUNDO, 0xD9), Estilo.RAIO, Estilo.VIDRO_BORDA)
+            background = Estilo.fundo(ctx, Estilo.alfa(Estilo.FUNDO, 0xD9), Estilo.RAIO)
             setPaddingRelative(dp(24), dp(16), dp(24), dp(16))
         }
         val linha = LinearLayout(ctx).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL }

@@ -4,8 +4,8 @@
     <string name="pausa_pausar">Παύση ζωντανής TV</string>
     <string name="pausa_continuar">Συνέχεια</string>
     <string name="pausa_ao_vivo">Πίσω στο ζωντανό</string>
-    <string name="pausa_selo">⏸ ΣΕ ΠΑΥΣΗ · OK συνεχίζει</string>
-    <string name="pausa_atrasado_min">%1$d ΛΕΠ. ΠΙΣΩ · ▶ ζωντανά</string>
-    <string name="pausa_atrasado_seg">%1$d Δ. ΠΙΣΩ · ▶ ζωντανά</string>
+    <string name="pausa_selo">⏸ ΣΕ ΠΑΥΣΗ</string>
+    <string name="pausa_atrasado_min">%1$d ΛΕΠ. ΠΙΣΩ</string>
+    <string name="pausa_atrasado_seg">%1$d Δ. ΠΙΣΩ</string>
     <string name="pausa_voltou">Σε παύση περισσότερο απ’ όσο χωρά η μνήμη: πίσω στο ζωντανό</string>
 </resources>

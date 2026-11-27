@@ -14,7 +14,6 @@
     <string name="dp_abrindo">Đang mở…</string>
     <string name="dp_erro">Không mở được nơi này. Hãy kiểm tra kết nối và thử lại.</string>
     <string name="dp_arquivos">Tệp trong thư mục này: %1$d</string>
-    <string name="dp_dicas">OK: mở · BACK: quay lại</string>
     <string name="dp_diario">%1$s đã nhận %2$s từ trình chọn</string>
     <string name="dp_sem_nome">không có tên</string>
 </resources>

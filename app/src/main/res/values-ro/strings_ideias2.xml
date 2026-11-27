@@ -41,13 +41,12 @@
     <string name="casa_desligado">Oprit</string>
     <string name="casa_aberta">Deschis</string>
     <string name="casa_fechada">Închis</string>
-    <string name="casa_rodar">OK pentru a rula</string>
     <string name="casa_indisponivel">Indisponibil</string>
     <string name="casa_sem_config_titulo">Conectați-vă casa</string>
     <string name="casa_dica_acionar">pornește sau oprește</string>
     <string name="casa_erro">Home Assistant nu a răspuns: %1$s</string>
     <string name="casa_ligado_pct">Pornit · %1$d%%</string>
-    <string name="casa_brilho_ajuste">Luminozitate %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">Luminozitate %1$d%%</string>
     <string name="casa_dica_brilho">luminozitate</string>
     <string name="casa_tecla_segurar_ok">ȚINEȚI OK</string>
     <string name="ca_liberado">Eliberat %1$s. Liber acum: %2$s.</string>

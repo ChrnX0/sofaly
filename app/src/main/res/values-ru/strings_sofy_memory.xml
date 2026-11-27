@@ -2,7 +2,7 @@
 <!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
 <resources>
     <string name="smem_titulo">Что знает Sofy</string>
-    <string name="smem_sub">Что она узнала об этом доме. OK стирает пункт; она учится заново.</string>
+    <string name="smem_sub">Что она узнала об этом доме.</string>
     <string name="smem_linha_det">Что она узнала, с кнопкой Забыть</string>
     <string name="smem_uso">Когда смотрят телевизор</string>
     <string name="smem_uso_det">Изучено часов суток: %1$d</string>

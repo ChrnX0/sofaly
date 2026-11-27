@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">Tinh chỉnh</string>
-    <string name="ft_dica">OK hoặc ▶ ◀ để đổi · BACK để đóng</string>
     <string name="ft_abrir">Chỉnh trong khi xem màn hình chính</string>
     <string name="ft_abrir_det">Phông chữ, đồng hồ, màu nổi bật, góc bo, ánh sáng và kích thước, xem trực tiếp</string>
     <string name="cs_destaque">Màu nổi bật</string>

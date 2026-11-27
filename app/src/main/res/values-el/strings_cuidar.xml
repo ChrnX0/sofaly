@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Μπορείτε να περιμένετε.</string>
     <string name="cuidar_nao_avisado">Δεν ήταν δυνατή η ειδοποίηση του/της %1$s</string>
     <string name="cuidar_sem_aparelho">Κανένα κινητό δεν έχει οριστεί να λαμβάνει. Ελέγξτε Ρυθμίσεις › Οικογένεια › Φροντίδα από μακριά.</string>
-    <string name="cuidar_sem_internet">Ελέγξτε το internet και δοκιμάστε ξανά (κρατήστε το κουμπί για 3 δευτερόλεπτα).</string>
+    <string name="cuidar_sem_internet">Ελέγξτε το internet και δοκιμάστε ξανά.</string>
     <string name="cuidar_lembrete_sobre">Υπενθύμιση · %1$s</string>
     <string name="cuidar_lembrete_explica">Πατήστε OK όταν γίνει.</string>
     <string name="cuidar_lembrete_explica_aviso">Πατήστε OK όταν γίνει. Χωρίς αυτό σε %1$d λεπτά, ο/η %2$s λαμβάνει ειδοποίηση.</string>

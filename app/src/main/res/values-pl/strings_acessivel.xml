@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">Wyraźniejsze głosy wł.</string>
     <string name="acess_voz_desligado">Wyraźniejsze głosy wył.</string>
     <string name="acess_config_titulo">Dźwięk i napisy</string>
-    <string name="acess_config_texto">Dla osób, które gorzej widzą lub słyszą. Także w menu ▼ odtwarzacza.</string>
+    <string name="acess_config_texto">Dla osób, które gorzej widzą lub słyszą.</string>
 </resources>

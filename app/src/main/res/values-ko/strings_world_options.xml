@@ -30,5 +30,4 @@
     <string name="bb_titulo">홈 화면 모양</string>
     <string name="bb_cruz">크로스</string>
     <string name="bb_barra">하단 바</string>
-    <string name="bb_det">카테고리를 십자형으로, 또는 아래에 고정하고 앱은 위에 (▲)</string>
 </resources>

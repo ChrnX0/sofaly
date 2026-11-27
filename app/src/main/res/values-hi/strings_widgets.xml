@@ -2,8 +2,8 @@
 <!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
 <resources>
     <string name="wdg_titulo">होम विजेट बदलें</string>
-    <string name="wdg_det">होम स्क्रीन पर दूसरे ऐप्स के लाइव विजेट। तीर खिसकाते हैं, OK विकल्प दिखाता है।</string>
-    <string name="wdg_vazio">होम स्क्रीन पर अभी कोई विजेट नहीं। OK एक जोड़ता है।</string>
+    <string name="wdg_det">होम स्क्रीन पर दूसरे ऐप्स के लाइव विजेट।</string>
+    <string name="wdg_vazio">होम स्क्रीन पर अभी कोई विजेट नहीं।</string>
     <string name="wdg_estado_mover">खिसका रहे हैं: %1$s</string>
     <string name="wdg_estado_tamanho">आकार: %1$s · %2$d × %3$d</string>
     <string name="wdg_mover">खिसकाएँ</string>

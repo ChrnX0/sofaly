@@ -15,10 +15,10 @@
     <string name="cfg_rotinas">Rutinas</string>
     <string name="cfg_sec_atualizacao">Actualizaciones</string>
     <string name="cfg_atualizar">Buscar una versión nueva</string>
-    <string name="cfg_atualizar_det">Versión %1$s · %2$s · OK busca ahora</string>
+    <string name="cfg_atualizar_det">Versión %1$s · %2$s</string>
     <string name="cfg_procurando">consultando GitHub…</string>
     <string name="cfg_instalar">Instalar ahora la versión %1$d</string>
-    <string name="cfg_instalar_det">El launcher se cierra y vuelve solo en unos segundos · OK instala</string>
+    <string name="cfg_instalar_det">El launcher se cierra y vuelve solo en unos segundos</string>
     <string name="cfg_instalando">descargando y verificando…</string>
     <string name="cfg_sec_rede">Red</string>
     <string name="cfg_dns">DNS privado</string>
@@ -30,7 +30,6 @@
     <string name="cfg_sec_ligado">Qué está activo: %1$s</string>
     <string name="cfg_ligado">activado</string>
     <string name="cfg_so_pc">" · solo con una computadora (adb)"</string>
-    <string name="cfg_tenta_ligar">" · OK intenta activarlo"</string>
     <string name="cfg_perm_fixas">Permisos fijos concedidos</string>
     <string name="cfg_shell_estado">Shell propio</string>
     <string name="cfg_shell_pareado">vinculado: el launcher se reconecta solo por la depuración inalámbrica</string>
@@ -65,7 +64,7 @@
     <string name="rec_teclas">Servicio de teclas</string>
     <string name="rec_teclas_sem">sin esto: HOME puede abrir el launcher de Google y las teclas de Netflix/YouTube no se reasignan</string>
     <string name="rec_tudo">todo activado</string>
-    <string name="rec_faltam">faltan %1$d de %2$d funciones · OK en un elemento intenta activarlo</string>
+    <string name="rec_faltam">faltan %1$d de %2$d funciones</string>
     <string name="bv_titulo">Bienvenida</string>
     <string name="bv_texto">La pantalla de inicio, el reloj, el clima, la alarma y el protector ya funcionan. Activa el resto aquí si quieres (%1$s).</string>
     <string name="bv_comecar">Empezar</string>
@@ -90,7 +89,6 @@
     <string name="rot_desligada_sufixo">" · desactivada"</string>
     <string name="rot_nova">Nueva rutina</string>
     <string name="rot_editar">Editar rutina</string>
-    <string name="rot_editor_det">OK cambia cada línea · ATRÁS sale sin guardar</string>
     <string name="rot_hora">Hora: %1$s</string>
     <string name="rot_dias">Días: %1$s</string>
     <string name="rot_acao">Acción: %1$s</string>
@@ -99,12 +97,7 @@
     <string name="rot_ocioso">Solo si nadie la tocó durante: %1$s</string>
     <string name="rot_ligada">Activada</string>
     <string name="rot_desligada">Desactivada</string>
-    <string name="rot_hora_det">◀ ▶ 5 minutos · OK +1 hora</string>
-    <string name="rot_dias_det">OK: todos los días, lun a vie, fin de semana, una vez</string>
-    <string name="rot_ok_muda">OK cambia</string>
-    <string name="rot_app_det">OK o ▶ siguiente · ◀ anterior</string>
     <string name="rot_ocioso_det">No interrumpe a quien está mirando</string>
-    <string name="rot_ativa_det">OK activa/desactiva esta rutina</string>
     <string name="rot_salvar">Guardar</string>
     <string name="rot_escolha_app">Elige la app</string>
     <string name="rot_apagar">Borrar esta rutina</string>
@@ -167,7 +160,6 @@
     <string name="pp_carregando">Cargando…</string>
     <string name="pp_conectar">Conectar</string>
     <string name="cal_sem_conta">sin cuenta de Google</string>
-    <string name="cal_dica">◀ ▶ cambian el mes</string>
     <string name="cal_30">Próximos 30 días</string>
     <string name="cal_nenhuma_conta">No hay cuenta de Google en la TV</string>
     <string name="cal_nada">Nada programado (o el calendario aún se está sincronizando)</string>
@@ -256,7 +248,6 @@
     <string name="esc_botao">El botón %1$s abre:</string>
     <string name="fd_nascer">amanecer %1$s</string>
     <string name="fd_por">atardecer %1$s</string>
-    <string name="dns_dica">OK: usar   ·   mantén OK en uno de tus servidores: quitar   ·   Atrás: salir</string>
     <string name="dns_auto">Automático</string>
     <string name="dns_auto_det">Usa el DNS del router y cifra cuando lo acepta (estándar de Android)</string>
     <string name="dns_desl">Desactivado</string>
@@ -369,7 +360,7 @@
     <string name="atu_versao">Versión %1$d: la versión del APK (%2$d) no coincide con la etiqueta</string>
     <string name="atu_chave">GitHub tiene la versión %1$d, pero está firmada con otra clave que esta TV no acepta: esta TV se actualiza desde una PC</string>
     <string name="atu_disponivel">versión %1$d lista para instalar (instalada %2$d)</string>
-    <string name="atu_trocou">la versión cambió desde la última verificación · OK verifica de nuevo</string>
+    <string name="atu_trocou">la versión cambió desde la última verificación</string>
     <string name="atu_instalando">instalando %1$d (instalada %2$d)</string>
     <string name="atu_ok">actualizado</string>
     <string name="atu_falhou">la instalación falló (%1$d): %2$s</string>
@@ -380,7 +371,6 @@
     <string name="vig_pausada_tela">la versión %1$d se cerró dos veces justo después de instalarse · \"%2$s\" queda desactivada hasta la siguiente</string>
     <string name="vig_tela_bloqueada">Esta pantalla queda desactivada hasta la próxima actualización (cerró el launcher)</string>
     <string name="cfg_vig_liberar">Modo seguro</string>
-    <string name="cfg_vig_liberar_det">" · OK la vuelve a activar"</string>
     <string name="home_voz_indisponivel">La búsqueda por voz no abrió en esta TV</string>
     <string name="home_alarme_hoje">hoy</string>
     <string name="home_alarme_amanha">mañana</string>
@@ -389,12 +379,10 @@
     <string name="vod_carregando">Cargando el vídeo…</string>
     <string name="player_sem_canais">Aún no se agregó ninguna lista de canales.</string>
     <string name="player_tentando">Sin señal en el canal %1$d. Intentando de nuevo…</string>
-    <string name="player_sem_sinal">El canal %1$d no respondió. Elige otro con ▲ ▼ u OK.</string>
+    <string name="player_sem_sinal">El canal %1$d no respondió.</string>
     <string name="player_canal_nao_existe">No existe el canal %1$d.</string>
     <string name="player_ao_vivo">EN VIVO</string>
     <string name="player_a_seguir">después: %1$s</string>
-    <string name="player_teclas">▲ ▼ canal · OK lista de canales · mantén OK 2 s: favorito · ◀ canal anterior · ▶ ▶ opciones · ATRÁS salir</string>
-    <string name="player_teclas_pausa">▶❙❙ u OK continuar · ▶ opciones (volver al directo) · ▲ ▼ canal · ATRÁS salir</string>
     <string name="player_cat_busca">Búsqueda: %1$s</string>
     <string name="player_acao_buscar">Buscar</string>
     <string name="player_acao_filtros">Filtros</string>
@@ -418,7 +406,6 @@
     <string name="filmes_interesse_pos">★ %1$s agregada a Para ver</string>
     <string name="filmes_interesse_tirou">%1$s quitada de Para ver</string>
     <string name="filmes_interesses_cheio">Para ver ya tiene 500 títulos: quita uno primero.</string>
-    <string name="filmes_interesses_vazio">Mantén OK 2 segundos en un póster para agregarlo aquí (y otra vez para quitarlo).</string>
     <string name="filmes_assistido">Vista</string>
     <string name="filmes_selo_leg">SUB</string>
     <string name="vod_sem_conta">La cuenta de este video ya no existe.</string>
@@ -427,7 +414,6 @@
     <string name="vod_audio">Audio</string>
     <string name="vod_legenda">Subtítulos</string>
     <string name="vod_faixas">Audio y subtítulos</string>
-    <string name="vod_teclas">OK pausa · ◀ 10 s · ▶ 30 s (mantén para ir más rápido) · ▼ audio, subtítulos e imagen · ⏮ ⏭ capítulos · ATRÁS salir</string>
     <string name="series_titulo">Series</string>
     <string name="series_carregando">Cargando series…</string>
     <string name="series_vazio">Aún no hay series</string>
@@ -438,7 +424,6 @@
     <string name="series_temporada">Temporada %1$d</string>
     <string name="player_acao_guia">Guía de programación</string>
     <string name="player_sem_guia_curto">Sin guía de programación</string>
-    <string name="player_grade_teclas">OK ver · ◀ ▶ programa · ▲ ▼ canal</string>
     <string name="player_busca_dica">Nombre del canal o programa</string>
     <string name="player_busca_nada">No se encontró nada para “%1$s”.</string>
     <string name="player_filtro_qualquer">Cualquiera</string>
@@ -459,7 +444,6 @@
     <string name="infantil_titulo">Categorías infantiles</string>
     <string name="infantil_carregando">cargando categorías…</string>
     <string name="infantil_coluna_itens">QUÉ CONTIENE</string>
-    <string name="infantil_dica">OK marca o desmarca la categoría como infantil · vale para TV en vivo, Películas y Series · ATRÁS sale (ya guardado)</string>
     <string name="infantil_so_categoria">marca la categoría completa en la columna izquierda</string>
     <string name="infantil_vazio">sin categorías: agrega una cuenta en Ajustes › TV y películas y recarga los canales</string>
     <string name="infantil_limite">una categoría para adultos no puede ser infantil</string>
@@ -477,11 +461,10 @@
     <string name="player_cat_favoritos">Favoritos</string>
     <string name="player_cat_recentes">Recientes</string>
     <string name="player_cat_outros">Otros</string>
-    <string name="player_sem_favoritos">Aún no hay favoritos. Mantén OK 2 s en un canal para agregarlo aquí.</string>
+    <string name="player_sem_favoritos">Aún no hay favoritos.</string>
     <string name="player_categoria_vazia">No hay canales en esta categoría.</string>
     <string name="player_sem_guia">Sin guía de programación para este canal.</string>
     <string name="player_depois">DESPUÉS</string>
-    <string name="player_lista_teclas">OK ver · mantén OK 2 s: favorito o quitar · mantén OK en una categoría: ocultar · ◀ categorías</string>
     <string name="player_favorito_pos">★ %1$s agregado a favoritos</string>
     <string name="player_favorito_tirou">%1$s quitado de favoritos</string>
     <string name="player_favoritos_cheio">Ya hay 500 favoritos: quita uno primero.</string>
@@ -642,7 +625,6 @@ AS\\Peliculas).</string>
     <string name="tvv_vazio">Este canal aún no tiene programas guardados.</string>
     <string name="tvv_voltou">De vuelta al vivo</string>
     <string name="tvv_selo">DIFERIDO</string>
-    <string name="tvv_teclas">◀ ▶ 30 s · OK opciones · ATRÁS en vivo</string>
     <string name="tvv_pausar">Pausar</string>
     <string name="tvv_continuar">Continuar</string>
     <string name="tvv_ao_vivo">Volver al vivo</string>
@@ -659,7 +641,7 @@ AS\\Peliculas).</string>
     <string name="series_nao_visto">Marcar como no visto</string>
     <string name="idioma_secao">Películas y series</string>
     <string name="idioma_titulo">Audio preferido</string>
-    <string name="idioma_det">Original con subtítulos en el idioma de la TV, o doblado a él. Cada película y serie recuerda el cambio hecho en el reproductor (▼)</string>
+    <string name="idioma_det">Original con subtítulos en el idioma de la TV, o doblado a él. Cada película y serie recuerda el cambio hecho en el reproductor</string>
     <string name="idioma_original">Original con subtítulos</string>
     <string name="idioma_dublado">Doblado</string>
     <string name="idioma_legendado">Subtitulado</string>
@@ -813,8 +795,8 @@ AS\\Peliculas).</string>
     <string name="st_titulo">Memoria USB y almacenamiento</string>
     <string name="st_explica">Elige cómo usa la TV la memoria USB. ¿Falta espacio? Puede ser memoria de la TV para apps pesadas.</string>
     <string name="st_linha_det">Usar una memoria USB como almacenamiento de la TV</string>
-    <string name="st_sem_shell">Necesita el shell propio de la TV (Ajustes › Sistema › Avanzado). OK para reintentar.</string>
-    <string name="st_sem_pen">No hay memoria USB. Conecta una y pulsa OK.</string>
+    <string name="st_sem_shell">Necesita el shell propio de la TV (Ajustes › Sistema › Avanzado).</string>
+    <string name="st_sem_pen">No hay memoria USB.</string>
     <string name="st_tv_livre">Memoria de la TV: %1$s libres de %2$s</string>
     <string name="st_pen">Memoria USB · %1$s · %2$s</string>
     <string name="st_modo_comum">Memoria USB normal</string>
@@ -828,14 +810,13 @@ AS\\Peliculas).</string>
     <string name="st_motivo_grande">mitad para apps, mitad para grabaciones y archivos</string>
     <string name="st_motivo_apertada">la TV está casi llena</string>
     <string name="st_medido">escribe a %1$s MB/s</string>
-    <string name="st_medir_dica">OK mide la velocidad</string>
     <string name="st_usar_comum">Usar como memoria USB normal</string>
-    <string name="st_usar_misto">Usar como mixto: %1$d%% normal  ◀ ▶</string>
+    <string name="st_usar_misto">Usar como mixto: %1$d%% normal</string>
     <string name="st_usar_tv">Usar como memoria de la TV</string>
     <string name="st_apps">Apps en la memoria USB</string>
     <string name="st_apps_det">Elegir apps para mover (las más grandes primero)</string>
     <string name="st_apps_nenhum">Ninguna app se puede mover.</string>
-    <string name="st_apps_rodape">OK mueve la app; ✓ = ya está en la memoria</string>
+    <string name="st_apps_rodape">✓ = ya está en la memoria</string>
     <string name="st_compartilhado">Fotos y archivos: %1$s</string>
     <string name="st_na_tv">en la TV</string>
     <string name="st_no_pen">en la memoria USB</string>
@@ -860,7 +841,7 @@ AS\\Peliculas).</string>
     <string name="st_voltar_comum">Volver a memoria USB normal (las apps vuelven a la TV)</string>
     <string name="st_trazendo">Devolviendo %1$s a la TV…</string>
     <string name="st_sumiram">La memoria USB salió: %1$s quedan ocultas hasta que vuelva.</string>
-    <string name="st_sugestao">Memoria de la TV casi llena. Lleva %1$s (%2$s) a la memoria USB: mantén OK en la app.</string>
+    <string name="st_sugestao">Memoria de la TV casi llena. Lleva %1$s (%2$s) a la memoria USB</string>
     <string name="st_medindo">Midiendo la velocidad de la memoria USB para recomendar el mejor uso…</string>
     <string name="st_lento_titulo">Memoria USB demasiado lenta</string>
     <string name="st_lento_bloqueado">Esta memoria USB escribe a %1$s MB/s. Para ser memoria de la TV necesita al menos %2$d MB/s: por debajo las apps se traban y la TV puede no encender. Úsala como memoria USB normal.</string>
@@ -878,12 +859,12 @@ AS\\Peliculas).</string>
     <string name="aviso_sync_texto">No hay cuenta de %1$s en esta TV. Conéctala en Ajustes › TV y películas.</string>
     <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
     <string name="ver_novidades">Novedades</string>
-    <string name="ver_novidades_det">%1$d cambios en la versión %2$s · OK para leer</string>
+    <string name="ver_novidades_det">%1$d cambios en la versión %2$s</string>
     <string name="ver_novidades_sobre">Versión %1$s</string>
     <string name="ver_ok">OK</string>
     <string name="ver_conferir">Comprobar en la TV</string>
-    <string name="ver_conferir_det">%1$d de %2$d comprobados con el mando · OK para empezar</string>
-    <string name="ver_conferir_sub">Versión %1$s · %2$d elementos · OK en un elemento para responder</string>
+    <string name="ver_conferir_det">%1$d de %2$d comprobados con el mando</string>
+    <string name="ver_conferir_sub">Versión %1$s · %2$d elementos</string>
     <string name="ver_conferido">%1$d de %2$d comprobados</string>
     <string name="ver_sim">Sí</string>
     <string name="ver_nao">No</string>

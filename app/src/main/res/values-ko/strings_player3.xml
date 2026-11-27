@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">먼저 오프닝 시작을 표시하세요</string>
     <string name="abertura_invalida">오프닝 같지 않습니다: 길이는 10초~5분이어야 하고 처음 15분 안에 시작해야 합니다</string>
     <string name="abertura_apagada">오프닝 표시가 삭제됨</string>
-    <string name="abertura_pular">오프닝 건너뛰기 · OK</string>
+    <string name="abertura_pular">오프닝 건너뛰기</string>
 </resources>

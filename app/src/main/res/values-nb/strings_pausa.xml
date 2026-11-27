@@ -4,8 +4,8 @@
     <string name="pausa_pausar">Sett direkte-TV på pause</string>
     <string name="pausa_continuar">Fortsett</string>
     <string name="pausa_ao_vivo">Tilbake til direkte</string>
-    <string name="pausa_selo">⏸ PÅ PAUSE · OK fortsetter</string>
-    <string name="pausa_atrasado_min">%1$d MIN BAK · ▶ direkte</string>
-    <string name="pausa_atrasado_seg">%1$d S BAK · ▶ direkte</string>
+    <string name="pausa_selo">⏸ PÅ PAUSE</string>
+    <string name="pausa_atrasado_min">%1$d MIN BAK</string>
+    <string name="pausa_atrasado_seg">%1$d S BAK</string>
     <string name="pausa_voltou">På pause lenger enn minnet rekker: tilbake til direkte</string>
 </resources>

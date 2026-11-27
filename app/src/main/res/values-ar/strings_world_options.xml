@@ -30,5 +30,4 @@
     <string name="bb_titulo">شكل الشاشة الرئيسية</string>
     <string name="bb_cruz">صليب</string>
     <string name="bb_barra">شريط في الأسفل</string>
-    <string name="bb_det">الفئات على شكل صليب، أو ثابتة في الأسفل والتطبيقات فوقها (▲)</string>
 </resources>

@@ -15,7 +15,7 @@
     <string name="desf_barra">Schimbat: %1$s</string>
     <string name="desf_botao">Anulează</string>
     <string name="desf_tela">Schimbări recente</string>
-    <string name="desf_tela_det">Ce s-a schimbat în ultimele 7 zile. OK pe una o pune înapoi cum era.</string>
+    <string name="desf_tela_det">Ce s-a schimbat în ultimele 7 zile.</string>
     <string name="desf_tela_vazia">Nicio schimbare în ultimele 7 zile.</string>
     <string name="desf_ja_desfeita">anulat</string>
     <string name="desf_rot_config">Setări</string>

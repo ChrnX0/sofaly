@@ -30,9 +30,6 @@
     <string name="aa_risk_care">Ændr med forsigtighed, ifølge dens ark</string>
     <string name="aa_risk_essential">Nødvendig for tv\'et: frys ikke</string>
     <string name="aa_tip_idle">Ikke åbnet i %1$d dage. At fryse frigør hukommelse og kan fortrydes.</string>
-    <string name="aa_hint_app">OK åbner · hold OK for at flytte, skjule, fryse eller afinstallere</string>
-    <string name="aa_hint_frozen">OK tør op og åbner</string>
-    <string name="aa_hint_lock">OK beder om PIN-koden og viser de skjulte apps her</string>
     <string name="aa_open">Åbn</string>
     <string name="aa_freeze">Frys</string>
     <string name="aa_freezing">Fryser %1$s…</string>

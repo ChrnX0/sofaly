@@ -7,8 +7,8 @@
     <string name="bkn_desligado">关</string>
     <string name="bkn_sem_senha">关 · 请先设置备份密码</string>
     <string name="bkn_senha">备份密码</string>
-    <string name="bkn_senha_ok">已设置 · 按 OK 更改</string>
-    <string name="bkn_senha_falta">未设置 · 按 OK 设置</string>
+    <string name="bkn_senha_ok">已设置</string>
+    <string name="bkn_senha_falta">未设置</string>
     <string name="bkn_senha_nova">备份密码（8 个字符或以上）</string>
     <string name="bkn_senha_repetir">再次输入密码</string>
     <string name="bkn_senha_curta">密码需要 8 到 128 个字符。</string>

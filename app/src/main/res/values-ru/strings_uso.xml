@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Выключено, пока живущий там человек не согласится на телевизоре.</string>
     <string name="uso_cartoes">Крупные карточки на главном экране</string>
     <string name="uso_cartoes_det">Несколько крупных приложений, название озвучивается, кнопка «Позвать на помощь». Для отключения нужен PIN.</string>
-    <string name="uso_trocar_det">Сейчас: %1$s. OK — выбрать заново.</string>
+    <string name="uso_trocar_det">Сейчас: %1$s.</string>
 </resources>

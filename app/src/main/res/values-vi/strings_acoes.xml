@@ -31,7 +31,7 @@
     <string name="lbl_cenas">Cảnh</string>
     <string name="pr_cenas">Cảnh</string>
     <string name="cenas_titulo">Cảnh</string>
-    <string name="cenas_det">OK để chạy cảnh. Tạo và sửa cảnh trong bảng điều khiển web › Nhà và tự động hóa › Cảnh.</string>
+    <string name="cenas_det">Tạo và sửa cảnh trong bảng điều khiển web › Nhà và tự động hóa › Cảnh.</string>
     <string name="cenas_vazio">Chưa có cảnh nào. Tạo cảnh trong bảng điều khiển web › Nhà và tự động hóa › Cảnh.</string>
     <plurals name="cenas_acoes">
         <item quantity="one">%d hành động</item>

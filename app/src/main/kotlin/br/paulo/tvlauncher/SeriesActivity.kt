@@ -529,7 +529,7 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
      */
     override fun mostrarFocado(s: Serie?) {
         tela.removeCallbacks(lerFichaRapida)
-        if (s == null) { painelInfo.mostrarFoco(if (chave == INTERESSES) getString(R.string.filmes_interesses_vazio) else ""); return }
+        if (s == null) { painelInfo.mostrarFoco(""); return }
         val info = fichasRapidas[s.chave]
         painelInfo.mostrarFoco(Estilo.infoFoco(Idioma.tituloCurto(Vod.nomeTela(Idioma.semMarca(s.nome), s.ano)), notaRapida[s.chave] ?: s.nota, listOfNotNull(
             s.ano?.toString(),
@@ -634,7 +634,7 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
                 val marcado = etq == null && proximoCurto(s) != null
                 c.etiqueta.setTextColor(if (novo) Estilo.FUNDO else if (marcado) ambar else papel)
                 (c.etiqueta.background as GradientDrawable).setColor(when (etq) {
-                    EtiquetaSerie.Concluida -> verdeEtiqueta
+                    EtiquetaSerie.Concluida -> corConcluida
                     null -> 0xD9121212.toInt()
                     else -> ambar
                 })
@@ -1227,7 +1227,7 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
         background = StateListDrawable().apply {
             addState(intArrayOf(android.R.attr.state_focused), GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(papel) })
             // Sem foco: mais apagado (6% + fio, texto a 70%), para o botão branco com foco saltar aos olhos a 3 m (15/11/2026).
-            addState(intArrayOf(), GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(if (marcado) 0x4DF5B544 else Estilo.SUPERFICIE); if (!marcado) setStroke(dp(1), Estilo.BORDA) })
+            addState(intArrayOf(), GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(if (marcado) 0x4DF5B544 else Estilo.SUPERFICIE) })
         }
         setTextColor(ColorStateList(arrayOf(intArrayOf(android.R.attr.state_focused), intArrayOf()), intArrayOf(Estilo.FUNDO, if (marcado) papel else Estilo.TEXTO_2)))
         setOnClickListener { aoApertar() }

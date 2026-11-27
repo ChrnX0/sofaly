@@ -30,5 +30,4 @@
     <string name="bb_titulo">Startskärmens layout</string>
     <string name="bb_cruz">Kors</string>
     <string name="bb_barra">List längst ner</string>
-    <string name="bb_det">Kategorier i ett kors, eller fasta längst ner med apparna ovanför (▲)</string>
 </resources>

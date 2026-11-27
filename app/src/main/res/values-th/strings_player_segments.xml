@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Players, proposta C, etapa 1 (20/11/2026): resumo, créditos, "termina às", "o que foi dito?". -->
 <resources>
-    <string name="seg_pular_resumo">ข้ามสรุปเรื่อง · OK</string>
-    <string name="seg_proximo">ตอนถัดไป · OK</string>
-    <string name="seg_proximo_em">ตอนถัดไปในอีก %1$d · OK</string>
+    <string name="seg_pular_resumo">ข้ามสรุปเรื่อง</string>
+    <string name="seg_proximo">ตอนถัดไป</string>
+    <string name="seg_proximo_em">ตอนถัดไปในอีก %1$d</string>
     <string name="seg_termina">จบเวลา %1$s</string>
     <string name="seg_repetir">เมื่อกี้พูดว่าอะไร</string>
     <string name="seg_repetir_info">ย้อนกลับ 10 วินาทีพร้อมคำบรรยาย</string>

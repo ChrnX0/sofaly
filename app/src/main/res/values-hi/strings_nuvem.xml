@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">फ़ोन पर आपकी पुष्टि का इंतज़ार…</string>
     <string name="rede_nuvem_salvando">साइन इन हो रहा है…</string>
     <string name="rede_nuvem_recusado">सेवा ने मना किया। ऐप id जाँचें और फिर कोशिश करें।</string>
-    <string name="rede_erro_nuvem_login">इस खाते की अनुमति समाप्त हो गई या हटा दी गई। खाता हटाएँ (OK दबाए रखें) और फिर साइन इन करें।</string>
+    <string name="rede_erro_nuvem_login">इस खाते की अनुमति समाप्त हो गई या हटा दी गई। खाता हटाएँ और फिर साइन इन करें।</string>
     <string name="rede_od_titulo">OneDrive: Microsoft पर आपका ऐप</string>
     <string name="rede_od_explica">एक बार, कंप्यूटर पर: entra.microsoft.com › App registrations › New registration। खाता प्रकारों में वह चुनें जिसमें निजी Microsoft खाते शामिल हों। फिर Authentication में “Allow public client flows” चालू करें। “Application (client) ID” कॉपी करके यहाँ टाइप करें (पैनल में फ़ोन से टाइप कर सकते हैं)।</string>
     <string name="rede_od_id">Application (client) ID</string>

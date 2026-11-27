@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">स्क्रीनसेवर का बैकग्राउंड</string>
-    <string name="pv2_fundo_det">थीम वाला, या अंतरिक्ष से धरती की असली तस्वीरें · OK से बदलें</string>
     <string name="pv2_fundo_tema">थीम वाला</string>
     <string name="pv2_fundo_terra">अंतरिक्ष से धरती</string>
     <string name="pv2_relogio">स्क्रीनसेवर की घड़ी</string>
-    <string name="pv2_relogio_det">छह स्टाइल · OK से बदलें</string>
     <string name="pv2_rel_fino">पतली</string>
     <string name="pv2_rel_editorial">पत्रिका</string>
     <string name="pv2_rel_monumental">बड़ी</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">शब्दों में</string>
     <string name="pv2_rel_empilhado">ऊपर-नीचे</string>
     <string name="pv2_posicao">घड़ी की जगह</string>
-    <string name="pv2_posicao_det">OK से बदलें</string>
     <string name="pv2_pos_alto">ऊपर बाईं ओर</string>
     <string name="pv2_pos_baixo">नीचे बाईं ओर</string>
     <string name="pv2_pos_centro">बीच में</string>
     <string name="pv2_tamanho">घड़ी का आकार</string>
-    <string name="pv2_tamanho_det">बड़े अंक दूर से आसानी से पढ़े जाते हैं · OK से बदलें</string>
     <string name="pv2_tam_normal">सामान्य</string>
     <string name="pv2_tam_grande">बड़ा</string>
     <string name="pv2_mostrar">स्क्रीनसेवर क्या दिखाए</string>
-    <string name="pv2_mostrar_det">\"सिर्फ़ समय\": रिमोट का कोई भी बटन बाकी सब 15 सेकंड दिखाता है · OK से बदलें</string>
     <string name="pv2_mostrar_so">सिर्फ़ समय</string>
     <string name="pv2_mostrar_vez">कभी-कभी</string>
     <string name="pv2_mostrar_sempre">सब कुछ</string>
     <string name="pv2_elementos">स्क्रीनसेवर पर</string>
-    <string name="pv2_el_det">स्क्रीनसेवर पर दिखता है · OK से चालू या बंद</string>
     <string name="pv2_el_saudacao">अभिवादन</string>
     <string name="pv2_el_data">तारीख</string>
     <string name="pv2_el_linha_dia">दिन की रेखा</string>

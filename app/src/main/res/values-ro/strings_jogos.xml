@@ -28,7 +28,7 @@
     <string name="jogos_parear_falhou">Acest TV nu a deschis setările Bluetooth. Deschideți Setări, Telecomenzi și accesorii.</string>
     <string name="jogos_baixar">Obține jocuri</string>
     <string name="jogos_escolher">Alege aplicații</string>
-    <string name="jogos_escolher_sub">Ce aplicații stau în Joc. OK comută între Joc și Aplicații.</string>
+    <string name="jogos_escolher_sub">Ce aplicații stau în Joc.</string>
     <string name="jogos_no_card">în Joc</string>
     <string name="jogos_na_linha">în Aplicații</string>
     <string name="jogos_grupo_nuvem">În cloud</string>

@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">مُطفأ حتى يوافق ساكن المنزل على التلفاز.</string>
     <string name="uso_cartoes">بطاقات كبيرة على الشاشة الرئيسية</string>
     <string name="uso_cartoes_det">تطبيقات قليلة كبيرة، ويُقرأ الاسم بصوت عالٍ، وزر \"طلب المساعدة\". إيقافه يطلب الرمز.</string>
-    <string name="uso_trocar_det">الآن: %1$s. اضغط OK للاختيار من جديد.</string>
+    <string name="uso_trocar_det">الآن: %1$s.</string>
 </resources>

@@ -6,8 +6,8 @@
     <string name="bkn_desligado">vypnuto</string>
     <string name="bkn_sem_senha">vypnuto · nejprve nastavte heslo zálohy</string>
     <string name="bkn_senha">Heslo zálohy</string>
-    <string name="bkn_senha_ok">nastaveno · OK změní</string>
-    <string name="bkn_senha_falta">nenastaveno · OK nastaví</string>
+    <string name="bkn_senha_ok">nastaveno</string>
+    <string name="bkn_senha_falta">nenastaveno</string>
     <string name="bkn_senha_nova">Heslo zálohy (8 nebo více znaků)</string>
     <string name="bkn_senha_repetir">Zadejte heslo znovu</string>
     <string name="bkn_senha_curta">Heslo musí mít 8 až 128 znaků.</string>

@@ -109,7 +109,7 @@ class StorageActivity : Activity() {
                     // Medindo agora: a linha diz isso e para quê (antes dizia "OK mede" durante a medição, e um aviso
                     // solto cobria o topo da tela; teste de 21/11/2026).
                     ?: (if (pen.disco in medindo) "  ·  " + getString(R.string.st_medindo) else null)
-                    ?: pen.comum?.let { "  ·  " + getString(R.string.st_medir_dica) } ?: "")
+                    ?: "")
             // Medir só faz sentido com a parte comum montada (antes de formatar).
             val l = linha(textoRec, pen.comum?.let { c -> { medir(pen.disco, c) } })
             if (primeira == null) primeira = l

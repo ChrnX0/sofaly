@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">In attesa della tua conferma sul telefono…</string>
     <string name="rede_nuvem_salvando">Accesso in corso…</string>
     <string name="rede_nuvem_recusado">Il servizio ha rifiutato. Controlla l’id dell’app e riprova.</string>
-    <string name="rede_erro_nuvem_login">Il permesso di questo account è scaduto o è stato rimosso. Rimuovi l’account (tieni premuto OK) e accedi di nuovo.</string>
+    <string name="rede_erro_nuvem_login">Il permesso di questo account è scaduto o è stato rimosso. Rimuovi l’account e accedi di nuovo.</string>
     <string name="rede_od_titulo">OneDrive: la tua app su Microsoft</string>
     <string name="rede_od_explica">Una volta, su un computer: entra.microsoft.com › Registrazioni app › Nuova registrazione. Come tipo di account scegli quello che include gli account Microsoft personali. Poi, in Autenticazione, attiva «Consenti flussi client pubblici». Copia l’«ID applicazione (client)» e digitalo qui (puoi digitarlo dal telefono, nel pannello).</string>
     <string name="rede_od_id">ID applicazione (client)</string>

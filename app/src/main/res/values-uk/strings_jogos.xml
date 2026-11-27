@@ -30,7 +30,7 @@
     <string name="jogos_parear_falhou">Цей телевізор не відкрив налаштування Bluetooth. Відкрийте Налаштування, Пульти й аксесуари.</string>
     <string name="jogos_baixar">Отримати ігри</string>
     <string name="jogos_escolher">Вибрати застосунки</string>
-    <string name="jogos_escolher_sub">Які застосунки живуть у Грати. OK перемикає між Грати й Застосунками.</string>
+    <string name="jogos_escolher_sub">Які застосунки живуть у Грати.</string>
     <string name="jogos_no_card">у Грати</string>
     <string name="jogos_na_linha">у Застосунках</string>
     <string name="jogos_grupo_nuvem">У хмарі</string>

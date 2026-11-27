@@ -26,7 +26,7 @@
     <string name="jogos_parear_falhou">Αυτή η τηλεόραση δεν άνοιξε τις ρυθμίσεις Bluetooth. Ανοίξτε Ρυθμίσεις, Τηλεχειριστήρια και αξεσουάρ.</string>
     <string name="jogos_baixar">Βρείτε παιχνίδια</string>
     <string name="jogos_escolher">Επιλογή εφαρμογών</string>
-    <string name="jogos_escolher_sub">Ποιες εφαρμογές ζουν στο Παίζω. Το OK εναλλάσσει ανάμεσα σε Παίζω και Εφαρμογές.</string>
+    <string name="jogos_escolher_sub">Ποιες εφαρμογές ζουν στο Παίζω.</string>
     <string name="jogos_no_card">στο Παίζω</string>
     <string name="jogos_na_linha">στις Εφαρμογές</string>
     <string name="jogos_grupo_nuvem">Στο cloud</string>

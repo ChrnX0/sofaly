@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Voit odottaa.</string>
     <string name="cuidar_nao_avisado">Henkilölle %1$s ilmoittaminen epäonnistui</string>
     <string name="cuidar_sem_aparelho">Mitään puhelinta ei ole asetettu vastaanottamaan. Tarkista Asetukset › Perhe › Huolenpito etäältä.</string>
-    <string name="cuidar_sem_internet">Tarkista internet ja yritä uudelleen (pidä painiketta 3 sekuntia).</string>
+    <string name="cuidar_sem_internet">Tarkista internet ja yritä uudelleen.</string>
     <string name="cuidar_lembrete_sobre">Muistutus · %1$s</string>
     <string name="cuidar_lembrete_explica">Paina OK, kun se on tehty.</string>
     <string name="cuidar_lembrete_explica_aviso">Paina OK, kun se on tehty. Jos sitä ei tule %1$d minuutissa, %2$s saa ilmoituksen.</string>

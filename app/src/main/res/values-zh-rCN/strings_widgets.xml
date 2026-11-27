@@ -2,8 +2,8 @@
 <!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
 <resources>
     <string name="wdg_titulo">编辑主屏幕小部件</string>
-    <string name="wdg_det">主屏幕上其他应用的实时小部件。方向键移动,OK 显示选项。</string>
-    <string name="wdg_vazio">主屏幕上还没有小部件。按 OK 添加一个。</string>
+    <string name="wdg_det">主屏幕上其他应用的实时小部件。</string>
+    <string name="wdg_vazio">主屏幕上还没有小部件。</string>
     <string name="wdg_estado_mover">正在移动:%1$s</string>
     <string name="wdg_estado_tamanho">大小:%1$s · %2$d × %3$d</string>
     <string name="wdg_mover">移动</string>

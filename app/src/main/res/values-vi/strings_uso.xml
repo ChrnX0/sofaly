@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Tắt cho đến khi người sống ở đó đồng ý trên TV.</string>
     <string name="uso_cartoes">Thẻ lớn trên màn hình chính</string>
     <string name="uso_cartoes_det">Vài ứng dụng lớn, đọc to tên và nút \"Nhờ giúp đỡ\". Tắt cần PIN.</string>
-    <string name="uso_trocar_det">Hiện tại: %1$s. OK để chọn lại.</string>
+    <string name="uso_trocar_det">Hiện tại: %1$s.</string>
 </resources>

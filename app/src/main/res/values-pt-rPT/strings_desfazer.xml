@@ -15,7 +15,7 @@
     <string name="desf_barra">Alterou: %1$s</string>
     <string name="desf_botao">Anular</string>
     <string name="desf_tela">Alterações recentes</string>
-    <string name="desf_tela_det">O que foi alterado nos últimos 7 dias. OK numa delas volta ao que era.</string>
+    <string name="desf_tela_det">O que foi alterado nos últimos 7 dias.</string>
     <string name="desf_tela_vazia">Nenhuma alteração nos últimos 7 dias.</string>
     <string name="desf_ja_desfeita">anulada</string>
     <string name="desf_rot_config">Definições</string>

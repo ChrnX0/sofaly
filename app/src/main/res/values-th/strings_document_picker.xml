@@ -14,7 +14,6 @@
     <string name="dp_abrindo">กำลังเปิด…</string>
     <string name="dp_erro">เปิดที่นี่ไม่ได้ ตรวจสอบว่าเชื่อมต่ออยู่แล้วลองอีกครั้ง</string>
     <string name="dp_arquivos">ไฟล์ในโฟลเดอร์นี้: %1$d</string>
-    <string name="dp_dicas">OK: เปิด · BACK: กลับ</string>
     <string name="dp_diario">%1$s ได้รับ %2$s จากตัวเลือก</string>
     <string name="dp_sem_nome">ไม่มีชื่อ</string>
 </resources>

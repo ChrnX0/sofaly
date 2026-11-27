@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">このままお待ちください。</string>
     <string name="cuidar_nao_avisado">%1$s に通知できませんでした</string>
     <string name="cuidar_sem_aparelho">受け取るスマホが設定されていません。設定 › ファミリー › 離れて見守る を確認してください。</string>
-    <string name="cuidar_sem_internet">インターネットを確認してもう一度お試しください (ボタンを 3 秒長押し)。</string>
+    <string name="cuidar_sem_internet">インターネットを確認してもう一度お試しください。</string>
     <string name="cuidar_lembrete_sobre">リマインダー · %1$s</string>
     <string name="cuidar_lembrete_explica">終わったら OK を押してください。</string>
     <string name="cuidar_lembrete_explica_aviso">終わったら OK を押してください。%1$d 分以内に押さないと %2$s に通知が届きます。</string>

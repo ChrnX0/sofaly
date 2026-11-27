@@ -34,5 +34,5 @@
     <string name="l72_guia_agora">%1$s 지금: %2$s(%3$s까지)</string>
     <string name="l72_guia_nada_agora">%1$s: 지금 편성표에 내용이 없음</string>
     <string name="l72_guia_depois">다음: %1$s(%2$s)</string>
-    <string name="l75_pilula">지금 재생 중: %1$s, %2$s. OK로 일시정지 또는 재개, OK 길게 누르면 앱 열기</string>
+    <string name="l75_pilula">지금 재생 중: %1$s, %2$s.</string>
 </resources>

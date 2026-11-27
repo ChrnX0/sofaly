@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Marca primero el inicio de la intro</string>
     <string name="abertura_invalida">No parece una intro: debe durar de 10 s a 5 min y empezar en los primeros 15 min</string>
     <string name="abertura_apagada">Marca de la intro borrada</string>
-    <string name="abertura_pular">Saltar intro · OK</string>
+    <string name="abertura_pular">Saltar intro</string>
 </resources>

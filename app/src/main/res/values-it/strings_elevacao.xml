@@ -44,9 +44,8 @@
     <string name="elv_leg_embaixo">in basso</string>
     <string name="elv_leg_em_cima">in alto</string>
     <string name="elv_bf_fazer">Fai</string>
-    <string name="elv_bf_ok_faz">OK lo fa adesso</string>
     <string name="elv_bf_wifi">Mostra il Wi-Fi degli ospiti</string>
-    <string name="elv_bf_wifi_configurar">Non ancora configurato: OK apre le Impostazioni (Ospiti)</string>
+    <string name="elv_bf_wifi_configurar">Non ancora configurato</string>
     <string name="elv_bf_letra_maior">Testo più grande (%1$d%%)</string>
     <string name="elv_bf_letra_menor">Testo più piccolo (%1$d%%)</string>
     <string name="elv_bf_letra_limite">È già a questa dimensione</string>
@@ -118,6 +117,5 @@
     <string name="elv_ss_noite">è dopo il tramonto</string>
     <string name="elv_ss_dia_util">è un giorno feriale</string>
     <string name="elv_ss_perfil">il profilo è %1$s</string>
-    <string name="elv_ss_det">◀ ▶ cambiano la condizione</string>
     <string name="extras_ABERTURA_PRONTA">Salta sigla (IntroDB): negli episodi la TV chiede al servizio comunitario IntroDB dove si trova la sigla (invia l\'episodio, mai il tuo account); spento, solo le sigle che hai segnato</string>
 </resources>

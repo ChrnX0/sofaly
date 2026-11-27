@@ -16,10 +16,10 @@
     <string name="cfg_rotinas">Ρουτίνες</string>
     <string name="cfg_sec_atualizacao">Ενημερώσεις</string>
     <string name="cfg_atualizar">Έλεγχος για νέα έκδοση</string>
-    <string name="cfg_atualizar_det">Έκδοση %1$s · %2$s · OK ελέγχει τώρα</string>
+    <string name="cfg_atualizar_det">Έκδοση %1$s · %2$s</string>
     <string name="cfg_procurando">έλεγχος στο GitHub…</string>
     <string name="cfg_instalar">Εγκατάσταση της έκδοσης %1$d τώρα</string>
-    <string name="cfg_instalar_det">Ο launcher κλείνει και επιστρέφει μόνος του σε λίγα δευτερόλεπτα · OK εγκαθιστά</string>
+    <string name="cfg_instalar_det">Ο launcher κλείνει και επιστρέφει μόνος του σε λίγα δευτερόλεπτα</string>
     <string name="cfg_instalando">λήψη και έλεγχος…</string>
     <string name="cfg_sec_rede">Δίκτυο</string>
     <string name="cfg_dns">Ιδιωτικό DNS</string>
@@ -31,7 +31,6 @@
     <string name="cfg_sec_ligado">Τι είναι ενεργό — %1$s</string>
     <string name="cfg_ligado">ενεργό</string>
     <string name="cfg_so_pc">" · μόνο με υπολογιστή (adb)"</string>
-    <string name="cfg_tenta_ligar">" · OK προσπαθεί να το ενεργοποιήσει"</string>
     <string name="cfg_perm_fixas">Μόνιμες άδειες δόθηκαν</string>
     <string name="cfg_shell_estado">Δικό του shell</string>
     <string name="cfg_shell_pareado">σε σύζευξη: ο launcher επανασυνδέεται μόνος του μέσω Ασύρματου εντοπισμού σφαλμάτων</string>
@@ -67,7 +66,7 @@
     <string name="rec_teclas">Υπηρεσία κουμπιών</string>
     <string name="rec_teclas_sem">χωρίς αυτό: η ΑΡΧΙΚΗ μπορεί να ανοίξει τον launcher της Google και τα κουμπιά Netflix/YouTube δεν αντιστοιχίζονται ξανά</string>
     <string name="rec_tudo">όλα ενεργά</string>
-    <string name="rec_faltam">λείπουν %1$d από %2$d λειτουργίες · OK σε ένα στοιχείο προσπαθεί να το ενεργοποιήσει</string>
+    <string name="rec_faltam">λείπουν %1$d από %2$d λειτουργίες</string>
     <!-- BoasVindasActivity.kt -->
     <string name="bv_titulo">Καλώς ήρθατε</string>
     <string name="bv_texto">Η αρχική οθόνη, το ρολόι, ο καιρός, το ξυπνητήρι και η προφύλαξη οθόνης ήδη λειτουργούν. Ενεργοποιήστε τα υπόλοιπα εδώ αν θέλετε (%1$s).</string>
@@ -96,7 +95,6 @@
     <string name="rot_desligada_sufixo">" · ανενεργή"</string>
     <string name="rot_nova">Νέα ρουτίνα</string>
     <string name="rot_editar">Επεξεργασία ρουτίνας</string>
-    <string name="rot_editor_det">OK αλλάζει κάθε γραμμή · ΠΙΣΩ φεύγει χωρίς αποθήκευση</string>
     <string name="rot_hora">Ώρα: %1$s</string>
     <string name="rot_dias">Ημέρες: %1$s</string>
     <string name="rot_acao">Ενέργεια: %1$s</string>
@@ -105,12 +103,7 @@
     <string name="rot_ocioso">Μόνο αν κανείς δεν την άγγιξε για: %1$s</string>
     <string name="rot_ligada">Ενεργή</string>
     <string name="rot_desligada">Ανενεργή</string>
-    <string name="rot_hora_det">◀ ▶ 5 λεπτά · OK +1 ώρα</string>
-    <string name="rot_dias_det">OK: κάθε μέρα, Δευ έως Παρ, Σαββατοκύριακο, μία φορά</string>
-    <string name="rot_ok_muda">OK αλλάζει</string>
-    <string name="rot_app_det">OK ή ▶ επόμενο · ◀ προηγούμενο</string>
     <string name="rot_ocioso_det">Δεν διακόπτει κάποιον που βλέπει</string>
-    <string name="rot_ativa_det">OK ενεργοποιεί/απενεργοποιεί αυτή τη ρουτίνα</string>
     <string name="rot_salvar">Αποθήκευση</string>
     <string name="rot_escolha_app">Επιλέξτε την εφαρμογή</string>
     <string name="rot_apagar">Διαγραφή αυτής της ρουτίνας</string>
@@ -188,7 +181,6 @@
     <string name="pp_conectar">Σύνδεση</string>
     <!-- CalendarioActivity.kt -->
     <string name="cal_sem_conta">χωρίς λογαριασμό Google</string>
-    <string name="cal_dica">◀ ▶ αλλαγή μήνα</string>
     <string name="cal_30">Επόμενες 30 ημέρες</string>
     <string name="cal_nenhuma_conta">Κανένας λογαριασμός Google στην τηλεόραση</string>
     <string name="cal_nada">Τίποτα προγραμματισμένο (ή το ημερολόγιο ακόμα συγχρονίζεται)</string>
@@ -309,7 +301,6 @@
     <string name="fd_nascer">ανατολή %1$s</string>
     <string name="fd_por">δύση %1$s</string>
     <!-- DnsActivity.kt -->
-    <string name="dns_dica">OK: χρήση   ·   κρατήστε OK σε έναν δικό σας διακομιστή: αφαίρεση   ·   Πίσω: έξοδος</string>
     <string name="dns_auto">Αυτόματο</string>
     <string name="dns_auto_det">Χρησιμοποιεί το DNS του router και κρυπτογραφεί όταν το δέχεται (προεπιλογή Android)</string>
     <string name="dns_desl">Ανενεργό</string>
@@ -428,7 +419,7 @@
     <string name="atu_migracao_disponivel">έκδοση %1$d: έτοιμη να μεταφέρει αυτή την τηλεόραση στη νέα εφαρμογή (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">εγκατάσταση της νέας εφαρμογής (%1$d)· μετά αναλαμβάνει αυτή την τηλεόραση με όλες τις ρυθμίσεις</string>
     <string name="atu_disponivel">η έκδοση %1$d είναι έτοιμη για εγκατάσταση (εγκατεστημένη %2$d)</string>
-    <string name="atu_trocou">η έκδοση άλλαξε από τον τελευταίο έλεγχο · OK ελέγχει ξανά</string>
+    <string name="atu_trocou">η έκδοση άλλαξε από τον τελευταίο έλεγχο</string>
     <string name="atu_instalando">εγκατάσταση %1$d (εγκατεστημένη %2$d)</string>
     <string name="atu_ok">ενημερώθηκε</string>
     <string name="atu_falhou">η εγκατάσταση απέτυχε (%1$d): %2$s</string>
@@ -439,7 +430,6 @@
     <string name="vig_pausada_tela">η έκδοση %1$d κατέρρευσε δύο φορές αμέσως μετά την εγκατάσταση · το \"%2$s\" μένει ανενεργό ως την επόμενη</string>
     <string name="vig_tela_bloqueada">Αυτή η οθόνη είναι ανενεργή ως την επόμενη ενημέρωση (έριξε τον launcher)</string>
     <string name="cfg_vig_liberar">Ασφαλής λειτουργία</string>
-    <string name="cfg_vig_liberar_det">" · OK το ενεργοποιεί ξανά"</string>
     <!-- Universal player (06/11/2026) -->
     <string name="home_voz_indisponivel">Η φωνητική αναζήτηση δεν άνοιξε σε αυτή την τηλεόραση</string>
     <string name="home_alarme_hoje">σήμερα</string>
@@ -449,12 +439,10 @@
     <string name="vod_carregando">Φόρτωση βίντεο…</string>
     <string name="player_sem_canais">Δεν έχει προστεθεί ακόμα λίστα καναλιών.</string>
     <string name="player_tentando">Χωρίς σήμα στο κανάλι %1$d. Νέα προσπάθεια…</string>
-    <string name="player_sem_sinal">Το κανάλι %1$d δεν απάντησε. Επιλέξτε άλλο με ▲ ▼ ή OK.</string>
+    <string name="player_sem_sinal">Το κανάλι %1$d δεν απάντησε.</string>
     <string name="player_canal_nao_existe">Δεν υπάρχει κανάλι %1$d.</string>
     <string name="player_ao_vivo">ΖΩΝΤΑΝΑ</string>
     <string name="player_a_seguir">επόμενο: %1$s</string>
-    <string name="player_teclas">▲ ▼ κανάλι · OK λίστα καναλιών · κρατήστε OK 2 δ.: αγαπημένο · ◀ προηγούμενο κανάλι · ▶ ▶ επιλογές · ΠΙΣΩ έξοδος</string>
-    <string name="player_teclas_pausa">▶❙❙ ή OK συνέχεια · ▶ επιλογές (πίσω στο ζωντανό) · ▲ ▼ κανάλι · ΠΙΣΩ έξοδος</string>
     <string name="player_cat_busca">Αναζήτηση: %1$s</string>
     <string name="player_acao_buscar">Αναζήτηση</string>
     <string name="player_acao_filtros">Φίλτρα</string>
@@ -478,7 +466,6 @@
     <string name="filmes_interesse_pos">★ Το %1$s προστέθηκε στη λίστα παρακολούθησης</string>
     <string name="filmes_interesse_tirou">Το %1$s αφαιρέθηκε από τη λίστα παρακολούθησης</string>
     <string name="filmes_interesses_cheio">Η λίστα παρακολούθησης έχει ήδη 500 τίτλους: αφαιρέστε πρώτα έναν.</string>
-    <string name="filmes_interesses_vazio">Κρατήστε OK για 2 δευτερόλεπτα σε μια αφίσα για να την προσθέσετε εδώ (και ξανά για αφαίρεση).</string>
     <string name="filmes_assistido">Το έχω δει</string>
     <string name="filmes_selo_leg">ΥΠΟΤ</string>
     <string name="vod_sem_conta">Ο λογαριασμός αυτού του βίντεο δεν υπάρχει πια.</string>
@@ -487,7 +474,6 @@
     <string name="vod_audio">Ήχος</string>
     <string name="vod_legenda">Υπότιτλοι</string>
     <string name="vod_faixas">Ήχος και υπότιτλοι</string>
-    <string name="vod_teclas">OK παύση · ◀ 10 δ. · ▶ 30 δ. (κρατήστε για πιο γρήγορα) · ▼ ήχος, υπότιτλοι και εικόνα · ⏮ ⏭ κεφάλαια · ΠΙΣΩ έξοδος</string>
     <string name="series_titulo">Σειρές</string>
     <string name="series_carregando">Φόρτωση σειρών…</string>
     <string name="series_vazio">Καμία σειρά ακόμα</string>
@@ -502,7 +488,6 @@
     </plurals>
     <string name="player_acao_guia">Οδηγός προγράμματος</string>
     <string name="player_sem_guia_curto">Χωρίς οδηγό προγράμματος</string>
-    <string name="player_grade_teclas">OK προβολή · ◀ ▶ πρόγραμμα · ▲ ▼ κανάλι</string>
     <string name="player_busca_dica">Όνομα καναλιού ή προγράμματος</string>
     <string name="player_busca_nada">Δεν βρέθηκε τίποτα για «%1$s».</string>
     <string name="player_filtro_qualquer">Οποιαδήποτε</string>
@@ -523,7 +508,6 @@
     <string name="infantil_titulo">Παιδικές κατηγορίες</string>
     <string name="infantil_carregando">φόρτωση κατηγοριών…</string>
     <string name="infantil_coluna_itens">ΤΙ ΠΕΡΙΕΧΕΙ</string>
-    <string name="infantil_dica">OK σημειώνει ή αφαιρεί την κατηγορία ως παιδική · ισχύει για Ζωντανή TV, Ταινίες και Σειρές · ΠΙΣΩ φεύγει (ήδη αποθηκευμένο)</string>
     <string name="infantil_so_categoria">σημειώστε όλη την κατηγορία στην αριστερή στήλη</string>
     <string name="infantil_vazio">χωρίς κατηγορίες: προσθέστε λογαριασμό στις Ρυθμίσεις › TV και ταινίες και φορτώστε ξανά τα κανάλια</string>
     <string name="infantil_limite">μια κατηγορία ενηλίκων δεν μπορεί να είναι παιδική</string>
@@ -541,11 +525,10 @@
     <string name="player_cat_favoritos">Αγαπημένα</string>
     <string name="player_cat_recentes">Πρόσφατα</string>
     <string name="player_cat_outros">Άλλα</string>
-    <string name="player_sem_favoritos">Κανένα αγαπημένο ακόμα. Κρατήστε OK για 2 δ. σε ένα κανάλι για να το προσθέσετε εδώ.</string>
+    <string name="player_sem_favoritos">Κανένα αγαπημένο ακόμα.</string>
     <string name="player_categoria_vazia">Κανένα κανάλι σε αυτή την κατηγορία.</string>
     <string name="player_sem_guia">Χωρίς οδηγό προγράμματος για αυτό το κανάλι.</string>
     <string name="player_depois">ΑΡΓΟΤΕΡΑ</string>
-    <string name="player_lista_teclas">OK προβολή · κρατήστε OK 2 δ.: αγαπημένο ή αφαίρεση · κρατήστε OK σε κατηγορία: απόκρυψη · ◀ κατηγορίες</string>
     <string name="player_favorito_pos">★ Το %1$s προστέθηκε στα αγαπημένα</string>
     <string name="player_favorito_tirou">Το %1$s αφαιρέθηκε από τα αγαπημένα</string>
     <string name="player_favoritos_cheio">Υπάρχουν ήδη 500 αγαπημένα: αφαιρέστε πρώτα ένα.</string>
@@ -716,7 +699,6 @@
     <string name="tvv_vazio">Αυτό το κανάλι δεν έχει ακόμα αποθηκευμένα προγράμματα.</string>
     <string name="tvv_voltou">Πίσω στο ζωντανό</string>
     <string name="tvv_selo">CATCH-UP</string>
-    <string name="tvv_teclas">◀ ▶ 30 δ. · OK επιλογές · ΠΙΣΩ ζωντανά</string>
     <string name="tvv_pausar">Παύση</string>
     <string name="tvv_continuar">Συνέχεια</string>
     <string name="tvv_ao_vivo">Πίσω στο ζωντανό</string>
@@ -734,7 +716,7 @@
     <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
     <string name="idioma_secao">Ταινίες και σειρές</string>
     <string name="idioma_titulo">Προτιμώμενος ήχος</string>
-    <string name="idioma_det">Πρωτότυπο με υπότιτλους στη γλώσσα της τηλεόρασης, ή μεταγλωττισμένο σε αυτήν. Κάθε ταινία και σειρά θυμάται την αλλαγή που έγινε στο πρόγραμμα αναπαραγωγής (▼)</string>
+    <string name="idioma_det">Πρωτότυπο με υπότιτλους στη γλώσσα της τηλεόρασης, ή μεταγλωττισμένο σε αυτήν. Κάθε ταινία και σειρά θυμάται την αλλαγή που έγινε στο πρόγραμμα αναπαραγωγής</string>
     <string name="idioma_original">Πρωτότυπο με υπότιτλους</string>
     <string name="idioma_dublado">Μεταγλωττισμένο</string>
     <string name="idioma_legendado">Με υπότιτλους</string>
@@ -848,8 +830,8 @@
     <string name="st_titulo">USB στικ και αποθήκευση</string>
     <string name="st_explica">Επιλέξτε πώς χρησιμοποιεί η τηλεόραση ένα USB στικ. Λίγος χώρος; Μπορεί να γίνει χώρος αποθήκευσης TV για βαριές εφαρμογές.</string>
     <string name="st_linha_det">Χρήση USB στικ ως χώρου αποθήκευσης TV</string>
-    <string name="st_sem_shell">Χρειάζεται το δικό shell της τηλεόρασης (Ρυθμίσεις › Σύστημα › Για προχωρημένους). OK για νέα προσπάθεια.</string>
-    <string name="st_sem_pen">Κανένα USB στικ συνδεδεμένο. Συνδέστε ένα και πατήστε OK.</string>
+    <string name="st_sem_shell">Χρειάζεται το δικό shell της τηλεόρασης (Ρυθμίσεις › Σύστημα › Για προχωρημένους).</string>
+    <string name="st_sem_pen">Κανένα USB στικ συνδεδεμένο.</string>
     <string name="st_tv_livre">Αποθήκευση TV: %1$s ελεύθερα από %2$s</string>
     <string name="st_pen">USB στικ · %1$s · %2$s</string>
     <string name="st_modo_comum">Κανονικό USB στικ</string>
@@ -863,14 +845,13 @@
     <string name="st_motivo_grande">μισό για εφαρμογές, μισό για εγγραφές και αρχεία</string>
     <string name="st_motivo_apertada">η τηλεόραση είναι σχεδόν γεμάτη</string>
     <string name="st_medido">γράφει με %1$s MB/s</string>
-    <string name="st_medir_dica">OK μετρά την ταχύτητά του</string>
     <string name="st_usar_comum">Χρήση ως κανονικό USB στικ</string>
-    <string name="st_usar_misto">Χρήση ως μικτό: %1$d%% κανονικό  ◀ ▶</string>
+    <string name="st_usar_misto">Χρήση ως μικτό: %1$d%% κανονικό</string>
     <string name="st_usar_tv">Χρήση ως αποθήκευση TV</string>
     <string name="st_apps">Εφαρμογές στο USB στικ</string>
     <string name="st_apps_det">Επιλέξτε εφαρμογές για μετακίνηση (οι μεγαλύτερες πρώτα)</string>
     <string name="st_apps_nenhum">Καμία εφαρμογή δεν μπορεί να μετακινηθεί.</string>
-    <string name="st_apps_rodape">OK μετακινεί την εφαρμογή· ✓ = ήδη στο USB στικ</string>
+    <string name="st_apps_rodape">✓ = ήδη στο USB στικ</string>
     <string name="st_compartilhado">Φωτογραφίες και αρχεία: %1$s</string>
     <string name="st_na_tv">στην τηλεόραση</string>
     <string name="st_no_pen">στο USB στικ</string>
@@ -895,7 +876,7 @@
     <string name="st_voltar_comum">Επιστροφή σε κανονικό USB στικ (οι εφαρμογές επιστρέφουν στην τηλεόραση)</string>
     <string name="st_trazendo">Επιστροφή του %1$s στην τηλεόραση…</string>
     <string name="st_sumiram">Το USB στικ αφαιρέθηκε: τα %1$s είναι κρυφά ως να επιστρέψει.</string>
-    <string name="st_sugestao">Η αποθήκευση TV είναι σχεδόν γεμάτη. Μετακινήστε το %1$s (%2$s) στο USB στικ: κρατήστε OK στην εφαρμογή.</string>
+    <string name="st_sugestao">Η αποθήκευση TV είναι σχεδόν γεμάτη. Μετακινήστε το %1$s (%2$s) στο USB στικ</string>
     <string name="st_medindo">Μέτρηση της ταχύτητας του στικ για την καλύτερη πρόταση χρήσης…</string>
     <string name="st_lento_titulo">Το στικ είναι πολύ αργό</string>
     <string name="st_lento_bloqueado">Αυτό το στικ γράφει με %1$s MB/s. Για να γίνει αποθήκευση TV χρειάζεται τουλάχιστον %2$d MB/s: κάτω από αυτό οι εφαρμογές παγώνουν και η τηλεόραση ίσως δεν ξεκινά. Χρησιμοποιήστε το ως κανονικό στικ.</string>

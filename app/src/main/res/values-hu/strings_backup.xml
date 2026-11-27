@@ -6,8 +6,8 @@
     <string name="bkn_desligado">ki</string>
     <string name="bkn_sem_senha">ki · előbb állítsa be a mentés jelszavát</string>
     <string name="bkn_senha">Mentés jelszava</string>
-    <string name="bkn_senha_ok">beállítva · az OK módosítja</string>
-    <string name="bkn_senha_falta">nincs beállítva · az OK beállítja</string>
+    <string name="bkn_senha_ok">beállítva</string>
+    <string name="bkn_senha_falta">nincs beállítva</string>
     <string name="bkn_senha_nova">Mentés jelszava (legalább 8 karakter)</string>
     <string name="bkn_senha_repetir">Írja be újra a jelszót</string>
     <string name="bkn_senha_curta">A jelszó 8–128 karakter hosszú legyen.</string>

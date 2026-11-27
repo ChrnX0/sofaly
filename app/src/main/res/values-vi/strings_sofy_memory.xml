@@ -2,7 +2,7 @@
 <!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
 <resources>
     <string name="smem_titulo">Sofy biết gì</string>
-    <string name="smem_sub">Những gì cô ấy học về ngôi nhà. OK quên một mục; cô ấy học lại.</string>
+    <string name="smem_sub">Những gì cô ấy học về ngôi nhà.</string>
     <string name="smem_linha_det">Những gì đã học, có nút Quên</string>
     <string name="smem_uso">Khi nào TV được dùng</string>
     <string name="smem_uso_det">Đã học %1$d giờ trong ngày</string>

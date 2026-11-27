@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Markeer eerst het begin van de opening</string>
     <string name="abertura_invalida">Dat lijkt geen opening: die moet 10 s tot 5 min duren en in de eerste 15 min beginnen</string>
     <string name="abertura_apagada">Markering van de opening verwijderd</string>
-    <string name="abertura_pular">Opening overslaan · OK</string>
+    <string name="abertura_pular">Opening overslaan</string>
 </resources>

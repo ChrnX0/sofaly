@@ -6,7 +6,6 @@
     <string name="pl_a_seguir">Berikutnya</string>
     <string name="pl_dormir">Timer tidur</string>
     <string name="pl_dormir_min">Dalam %1$d mnt</string>
-    <string name="pl_barra_dica">◀ ▶ geser 10 dtk · tahan agar lebih cepat</string>
     <string name="pl_abrir">Buka pemutar</string>
     <string name="pl_abrir_det">Layar penuh, dengan yang diputar berikutnya</string>
 </resources>

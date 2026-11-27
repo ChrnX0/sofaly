@@ -2,7 +2,6 @@
 <!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
 <resources>
     <string name="vpr_titulo">Færdige udseender</string>
-    <string name="vpr_det">Hvert OK skifter til det næste udseende: tema, tekst og baggrundsfarve sammen</string>
     <string name="vpr_meu">Dit eget</string>
     <string name="vpr_classico">Klassisk</string>
     <string name="vpr_leitura">Let læsning</string>

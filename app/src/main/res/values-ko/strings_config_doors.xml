@@ -11,4 +11,5 @@
     <string name="cfg3_porta_3_det">화면 보호기, 절전, 알람</string>
     <string name="cfg3_porta_4_det">홈, 휴대폰, 패널</string>
     <string name="cfg3_porta_5_det">업데이트, 백업, 도움말</string>
+    <string name="cfg4_fila_portas">설정</string>
 </resources>

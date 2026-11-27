@@ -92,7 +92,6 @@
     <string name="lb_lembrete">रिमाइंडर</string>
     <string name="lb_quando_em">%1$s, %2$s पर।</string>
     <string name="ms_ola">नमस्ते!</string>
-    <string name="ms_ola_det">तीरों से चुनें और OK दबाएँ।</string>
     <string name="ms_pedir_ajuda">मदद माँगें</string>
     <string name="ms_pedido_ajuda">मदद का अनुरोध</string>
     <string name="ms_alguem_pediu">TV %1$s पर किसी ने मदद माँगी।</string>
@@ -148,7 +147,6 @@
     <string name="bc_categorias">श्रेणियाँ</string>
     <string name="bc_canais">चैनल</string>
     <string name="bc_carregando">चैनल लोड हो रहे हैं…</string>
-    <string name="bc_dica">OK ब्लॉक या अनब्लॉक करता है · श्रेणी पर OK पूरी पर लागू · ◀ ▶ श्रेणियाँ और चैनल · BACK बाहर (सेव हो चुका)</string>
     <string name="bc_categoria_bloqueada">पूरी श्रेणी “%1$s” ब्लॉक है: बाएँ कॉलम में अनब्लॉक करें</string>
     <string name="bc_filme">फ़िल्म · %1$s</string>
     <string name="bc_serie">सीरीज़ · %1$s</string>

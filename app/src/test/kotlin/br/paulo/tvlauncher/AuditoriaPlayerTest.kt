@@ -74,6 +74,7 @@ class AuditoriaPlayerTest {
     }
 
     @Test fun gravarAtomicoTrocaOArquivoInteiro() {
+        org.junit.Assume.assumeFalse("só no Linux/Android (o Windows não aceita trocar um arquivo aberto no lugar)", System.getProperty("os.name").startsWith("Windows"))
         val dir = Files.createTempDirectory("cache").toFile()
         try {
             val arq = File(dir, "guia.json")

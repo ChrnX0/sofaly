@@ -15,7 +15,7 @@
     <string name="desf_barra">เปลี่ยนแล้ว: %1$s</string>
     <string name="desf_botao">เลิกทำ</string>
     <string name="desf_tela">การเปลี่ยนแปลงล่าสุด</string>
-    <string name="desf_tela_det">สิ่งที่เปลี่ยนใน 7 วันที่ผ่านมา OK ที่รายการเพื่อคืนค่าเป็นเหมือนเดิม</string>
+    <string name="desf_tela_det">สิ่งที่เปลี่ยนใน 7 วันที่ผ่านมา</string>
     <string name="desf_tela_vazia">ไม่มีการเปลี่ยนแปลงใน 7 วันที่ผ่านมา</string>
     <string name="desf_ja_desfeita">ยกเลิกแล้ว</string>
     <string name="desf_rot_config">การตั้งค่า</string>

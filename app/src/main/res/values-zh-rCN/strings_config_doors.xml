@@ -11,4 +11,5 @@
     <string name="cfg3_porta_3_det">屏保、睡眠、闹钟</string>
     <string name="cfg3_porta_4_det">家居、手机和面板</string>
     <string name="cfg3_porta_5_det">更新、备份和帮助</string>
+    <string name="cfg4_fila_portas">设置</string>
 </resources>

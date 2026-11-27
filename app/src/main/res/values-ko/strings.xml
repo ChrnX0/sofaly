@@ -15,10 +15,10 @@
     <string name="cfg_rotinas">루틴</string>
     <string name="cfg_sec_atualizacao">업데이트</string>
     <string name="cfg_atualizar">새 버전 확인</string>
-    <string name="cfg_atualizar_det">버전 %1$s · %2$s · OK로 지금 확인</string>
+    <string name="cfg_atualizar_det">버전 %1$s · %2$s</string>
     <string name="cfg_procurando">GitHub 확인 중…</string>
     <string name="cfg_instalar">지금 버전 %1$d 설치</string>
-    <string name="cfg_instalar_det">런처가 닫혔다가 몇 초 후 자동으로 다시 열림 · OK로 설치</string>
+    <string name="cfg_instalar_det">런처가 닫혔다가 몇 초 후 자동으로 다시 열림</string>
     <string name="cfg_instalando">다운로드 및 확인 중…</string>
     <string name="cfg_sec_rede">네트워크</string>
     <string name="cfg_dns">비공개 DNS</string>
@@ -30,7 +30,6 @@
     <string name="cfg_sec_ligado">켜져 있는 항목 — %1$s</string>
     <string name="cfg_ligado">켜짐</string>
     <string name="cfg_so_pc">" · 컴퓨터(adb)로만 가능"</string>
-    <string name="cfg_tenta_ligar">" · OK로 켜기 시도"</string>
     <string name="cfg_perm_fixas">고정 권한 부여됨</string>
     <string name="cfg_shell_estado">자체 셸</string>
     <string name="cfg_shell_pareado">페어링됨: 런처가 무선 디버깅으로 자동 재연결</string>
@@ -65,7 +64,7 @@
     <string name="rec_teclas">키 서비스</string>
     <string name="rec_teclas_sem">없으면: 홈 버튼이 Google 런처를 열 수 있으며 Netflix/YouTube 키가 재지정되지 않음</string>
     <string name="rec_tudo">모두 켜짐</string>
-    <string name="rec_faltam">기능 %2$d개 중 %1$d개 꺼짐 · 항목에서 OK를 누르면 켜기 시도</string>
+    <string name="rec_faltam">기능 %2$d개 중 %1$d개 꺼짐</string>
     <string name="bv_titulo">환영합니다</string>
     <string name="bv_texto">홈 화면, 시계, 날씨, 알람, 화면 보호기는 이미 작동합니다. 원하면 나머지를 여기서 켜세요(%1$s).</string>
     <string name="bv_comecar">시작</string>
@@ -90,7 +89,6 @@
     <string name="rot_desligada_sufixo">" · 꺼짐"</string>
     <string name="rot_nova">새 루틴</string>
     <string name="rot_editar">루틴 편집</string>
-    <string name="rot_editor_det">OK로 각 줄 변경 · 뒤로를 누르면 저장하지 않고 나감</string>
     <string name="rot_hora">시간: %1$s</string>
     <string name="rot_dias">요일: %1$s</string>
     <string name="rot_acao">동작: %1$s</string>
@@ -99,12 +97,7 @@
     <string name="rot_ocioso">다음 시간 동안 아무도 조작하지 않은 경우에만: %1$s</string>
     <string name="rot_ligada">켜짐</string>
     <string name="rot_desligada">꺼짐</string>
-    <string name="rot_hora_det">◀ ▶ 5분 · OK +1시간</string>
-    <string name="rot_dias_det">OK: 매일, 월~금, 주말, 한 번</string>
-    <string name="rot_ok_muda">OK로 변경</string>
-    <string name="rot_app_det">OK 또는 ▶ 다음 · ◀ 이전</string>
     <string name="rot_ocioso_det">시청 중인 사람을 방해하지 않음</string>
-    <string name="rot_ativa_det">OK로 이 루틴 켜기/끄기</string>
     <string name="rot_salvar">저장</string>
     <string name="rot_escolha_app">앱 선택</string>
     <string name="rot_apagar">이 루틴 삭제</string>
@@ -167,7 +160,6 @@
     <string name="pp_carregando">로드 중…</string>
     <string name="pp_conectar">연결</string>
     <string name="cal_sem_conta">Google 계정 없음</string>
-    <string name="cal_dica">◀ ▶ 월 변경</string>
     <string name="cal_30">앞으로 30일</string>
     <string name="cal_nenhuma_conta">TV에 Google 계정이 없음</string>
     <string name="cal_nada">예정된 일정 없음(또는 캘린더 동기화 중)</string>
@@ -256,7 +248,6 @@
     <string name="esc_botao">%1$s 버튼으로 열기:</string>
     <string name="fd_nascer">일출 %1$s</string>
     <string name="fd_por">일몰 %1$s</string>
-    <string name="dns_dica">OK: 사용   ·   내 서버에서 OK 길게 누르기: 삭제   ·   뒤로: 나가기</string>
     <string name="dns_auto">자동</string>
     <string name="dns_auto_det">라우터 DNS를 사용하고 가능하면 암호화(Android 기본값)</string>
     <string name="dns_desl">꺼짐</string>
@@ -369,7 +360,7 @@
     <string name="atu_versao">릴리스 %1$d: APK 버전(%2$d)이 태그와 일치하지 않음</string>
     <string name="atu_chave">GitHub에 버전 %1$d이(가) 있지만 이 TV가 허용하지 않는 다른 키로 서명됨: 이 TV는 PC로 업데이트해야 함</string>
     <string name="atu_disponivel">버전 %1$d 설치 준비됨(설치됨 %2$d)</string>
-    <string name="atu_trocou">마지막 확인 이후 버전이 바뀜 · OK로 다시 확인</string>
+    <string name="atu_trocou">마지막 확인 이후 버전이 바뀜</string>
     <string name="atu_instalando">%1$d 설치 중(설치됨 %2$d)</string>
     <string name="atu_ok">업데이트됨</string>
     <string name="atu_falhou">설치 실패(%1$d): %2$s</string>
@@ -380,7 +371,6 @@
     <string name="vig_pausada_tela">버전 %1$d이(가) 설치 직후 두 번 비정상 종료됨 · ‘%2$s’은(는) 다음 버전까지 꺼져 있음</string>
     <string name="vig_tela_bloqueada">이 화면은 다음 업데이트까지 꺼져 있습니다(런처를 비정상 종료시켰음)</string>
     <string name="cfg_vig_liberar">안전 모드</string>
-    <string name="cfg_vig_liberar_det">" · OK로 다시 켜기"</string>
     <string name="home_voz_indisponivel">이 TV에서 음성 검색이 열리지 않았습니다</string>
     <string name="home_alarme_hoje">오늘</string>
     <string name="home_alarme_amanha">내일</string>
@@ -389,12 +379,10 @@
     <string name="vod_carregando">동영상 불러오는 중…</string>
     <string name="player_sem_canais">아직 추가된 채널 목록이 없습니다.</string>
     <string name="player_tentando">채널 %1$d 신호 없음. 다시 시도 중…</string>
-    <string name="player_sem_sinal">채널 %1$d이(가) 응답하지 않았습니다. ▲ ▼ 또는 OK로 다른 채널을 선택하세요.</string>
+    <string name="player_sem_sinal">채널 %1$d이(가) 응답하지 않았습니다.</string>
     <string name="player_canal_nao_existe">채널 %1$d은(는) 없습니다.</string>
     <string name="player_ao_vivo">실시간</string>
     <string name="player_a_seguir">다음: %1$s</string>
-    <string name="player_teclas">▲ ▼ 채널 · OK 채널 목록 · OK 2초 길게: 즐겨찾기 · ◀ 이전 채널 · ▶ ▶ 옵션 · 뒤로 나가기</string>
-    <string name="player_teclas_pausa">▶❙❙ 또는 OK 이어 보기 · ▶ 옵션(실시간으로 돌아가기) · ▲ ▼ 채널 · 뒤로 나가기</string>
     <string name="player_cat_busca">검색: %1$s</string>
     <string name="player_acao_buscar">검색</string>
     <string name="player_acao_filtros">필터</string>
@@ -418,7 +406,6 @@
     <string name="filmes_interesse_pos">★ %1$s을(를) 보고 싶은 목록에 추가함</string>
     <string name="filmes_interesse_tirou">%1$s을(를) 보고 싶은 목록에서 삭제함</string>
     <string name="filmes_interesses_cheio">보고 싶은 목록에 이미 500편이 있습니다. 먼저 하나를 삭제하세요.</string>
-    <string name="filmes_interesses_vazio">포스터에서 OK를 2초간 길게 누르면 여기에 추가됩니다(다시 누르면 삭제).</string>
     <string name="filmes_assistido">시청함</string>
     <string name="filmes_selo_leg">자막</string>
     <string name="vod_sem_conta">이 동영상의 계정이 더 이상 없습니다.</string>
@@ -427,7 +414,6 @@
     <string name="vod_audio">오디오</string>
     <string name="vod_legenda">자막</string>
     <string name="vod_faixas">오디오 및 자막</string>
-    <string name="vod_teclas">OK 일시정지 · ◀ 10초 · ▶ 30초(길게 누르면 더 빠르게) · ▼ 오디오, 자막, 화면 · ⏮ ⏭ 챕터 · 뒤로 나가기</string>
     <string name="series_titulo">시리즈</string>
     <string name="series_carregando">시리즈 로드 중…</string>
     <string name="series_vazio">아직 시리즈가 없습니다</string>
@@ -438,7 +424,6 @@
     <string name="series_temporada">시즌 %1$d</string>
     <string name="player_acao_guia">편성표</string>
     <string name="player_sem_guia_curto">편성표 없음</string>
-    <string name="player_grade_teclas">OK 보기 · ◀ ▶ 프로그램 · ▲ ▼ 채널</string>
     <string name="player_busca_dica">채널 또는 프로그램 이름</string>
     <string name="player_busca_nada">“%1$s”에 대한 결과가 없습니다.</string>
     <string name="player_filtro_qualquer">전체</string>
@@ -459,7 +444,6 @@
     <string name="infantil_titulo">어린이 카테고리</string>
     <string name="infantil_carregando">카테고리 로드 중…</string>
     <string name="infantil_coluna_itens">포함된 항목</string>
-    <string name="infantil_dica">OK로 카테고리를 어린이용으로 표시하거나 해제 · 실시간 TV, 영화, 시리즈에 적용 · 뒤로 나가기(이미 저장됨)</string>
     <string name="infantil_so_categoria">왼쪽 열에서 카테고리 전체를 표시하세요</string>
     <string name="infantil_vazio">카테고리 없음: 설정 › TV 및 영화에서 계정을 추가하고 채널을 다시 불러오세요</string>
     <string name="infantil_limite">성인 카테고리는 어린이 카테고리가 될 수 없습니다</string>
@@ -477,11 +461,10 @@
     <string name="player_cat_favoritos">즐겨찾기</string>
     <string name="player_cat_recentes">최근</string>
     <string name="player_cat_outros">기타</string>
-    <string name="player_sem_favoritos">아직 즐겨찾기가 없습니다. 채널에서 OK를 2초간 길게 누르면 여기에 추가됩니다.</string>
+    <string name="player_sem_favoritos">아직 즐겨찾기가 없습니다.</string>
     <string name="player_categoria_vazia">이 카테고리에 채널이 없습니다.</string>
     <string name="player_sem_guia">이 채널의 편성표가 없습니다.</string>
     <string name="player_depois">이후</string>
-    <string name="player_lista_teclas">OK 보기 · OK 2초 길게: 즐겨찾기 추가 또는 삭제 · 카테고리에서 OK 길게: 숨기기 · ◀ 카테고리</string>
     <string name="player_favorito_pos">★ %1$s을(를) 즐겨찾기에 추가함</string>
     <string name="player_favorito_tirou">%1$s을(를) 즐겨찾기에서 삭제함</string>
     <string name="player_favoritos_cheio">즐겨찾기가 이미 500개입니다. 먼저 하나를 삭제하세요.</string>
@@ -642,7 +625,6 @@ AS\\Movies).</string>
     <string name="tvv_vazio">이 채널에는 아직 저장된 프로그램이 없습니다.</string>
     <string name="tvv_voltou">실시간으로 돌아옴</string>
     <string name="tvv_selo">다시 보기</string>
-    <string name="tvv_teclas">◀ ▶ 30초 · OK 옵션 · 뒤로 실시간</string>
     <string name="tvv_pausar">일시정지</string>
     <string name="tvv_continuar">계속</string>
     <string name="tvv_ao_vivo">실시간으로 돌아가기</string>
@@ -659,7 +641,7 @@ AS\\Movies).</string>
     <string name="series_nao_visto">시청 안 함으로 표시</string>
     <string name="idioma_secao">영화 및 시리즈</string>
     <string name="idioma_titulo">선호 오디오</string>
-    <string name="idioma_det">TV 언어 자막이 있는 원어 또는 TV 언어 더빙. 영화와 시리즈마다 플레이어(▼)에서 바꾼 설정을 기억합니다</string>
+    <string name="idioma_det">TV 언어 자막이 있는 원어 또는 TV 언어 더빙. 영화와 시리즈마다 플레이어에서 바꾼 설정을 기억합니다</string>
     <string name="idioma_original">원어(자막)</string>
     <string name="idioma_dublado">더빙</string>
     <string name="idioma_legendado">자막</string>
@@ -807,8 +789,8 @@ AS\\Movies).</string>
     <string name="st_titulo">USB 드라이브와 저장공간</string>
     <string name="st_explica">TV가 USB 드라이브를 어떻게 쓸지 고르세요. 공간이 부족하면 무거운 앱용 TV 저장공간으로 쓸 수 있습니다.</string>
     <string name="st_linha_det">USB 드라이브를 TV 저장공간으로 사용</string>
-    <string name="st_sem_shell">TV 자체 셸이 필요합니다(설정 › 시스템 › 고급). 다시 시도하려면 OK.</string>
-    <string name="st_sem_pen">USB 드라이브가 없습니다. 꽂고 OK를 누르세요.</string>
+    <string name="st_sem_shell">TV 자체 셸이 필요합니다(설정 › 시스템 › 고급).</string>
+    <string name="st_sem_pen">USB 드라이브가 없습니다.</string>
     <string name="st_tv_livre">TV 저장공간: %2$s 중 %1$s 남음</string>
     <string name="st_pen">USB 드라이브 · %1$s · %2$s</string>
     <string name="st_modo_comum">일반 USB 드라이브</string>
@@ -822,14 +804,13 @@ AS\\Movies).</string>
     <string name="st_motivo_grande">절반은 앱, 절반은 녹화와 파일</string>
     <string name="st_motivo_apertada">TV가 거의 가득 찼습니다</string>
     <string name="st_medido">쓰기 %1$s MB/s</string>
-    <string name="st_medir_dica">OK로 속도 측정</string>
     <string name="st_usar_comum">일반 USB 드라이브로 사용</string>
-    <string name="st_usar_misto">혼합으로 사용: 일반 %1$d%%  ◀ ▶</string>
+    <string name="st_usar_misto">혼합으로 사용: 일반 %1$d%%</string>
     <string name="st_usar_tv">TV 저장공간으로 사용</string>
     <string name="st_apps">USB 드라이브의 앱</string>
     <string name="st_apps_det">옮길 앱 선택(큰 순서)</string>
     <string name="st_apps_nenhum">옮길 수 있는 앱이 없습니다.</string>
-    <string name="st_apps_rodape">OK로 앱 이동; ✓ = 이미 드라이브에 있음</string>
+    <string name="st_apps_rodape">✓ = 이미 드라이브에 있음</string>
     <string name="st_compartilhado">사진과 파일: %1$s</string>
     <string name="st_na_tv">TV에</string>
     <string name="st_no_pen">USB 드라이브에</string>
@@ -854,7 +835,7 @@ AS\\Movies).</string>
     <string name="st_voltar_comum">일반 USB 드라이브로 되돌리기(앱이 TV로 돌아옴)</string>
     <string name="st_trazendo">%1$s을(를) TV로 되돌리는 중…</string>
     <string name="st_sumiram">USB 드라이브가 빠졌습니다: 다시 꽂을 때까지 %1$s이(가) 숨겨집니다.</string>
-    <string name="st_sugestao">TV 저장공간이 거의 찼습니다. %1$s(%2$s)을(를) USB 드라이브로 옮기세요: 앱에서 OK를 길게 누르세요.</string>
+    <string name="st_sugestao">TV 저장공간이 거의 찼습니다. %1$s(%2$s)을(를) USB 드라이브로 옮기세요</string>
     <string name="st_medindo">가장 좋은 사용 방법을 추천하려고 USB 메모리 속도 측정 중…</string>
     <string name="st_lento_titulo">USB 메모리가 너무 느립니다</string>
     <string name="st_lento_bloqueado">이 USB 메모리의 쓰기 속도는 %1$s MB/s입니다. TV 저장소가 되려면 최소 %2$d MB/s가 필요합니다. 그보다 느리면 앱이 멈추고 TV가 켜지지 않을 수 있습니다. 일반 USB 메모리로 사용하세요.</string>
@@ -872,12 +853,12 @@ AS\\Movies).</string>
     <string name="aviso_sync_texto">이 TV에 %1$s 계정이 없습니다. 설정 › TV 및 영화에서 연결하세요.</string>
     <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
     <string name="ver_novidades">새로운 기능</string>
-    <string name="ver_novidades_det">버전 %2$s의 변경 사항 %1$d개 · 읽으려면 OK</string>
+    <string name="ver_novidades_det">버전 %2$s의 변경 사항 %1$d개</string>
     <string name="ver_novidades_sobre">버전 %1$s</string>
     <string name="ver_ok">확인</string>
     <string name="ver_conferir">TV에서 확인</string>
-    <string name="ver_conferir_det">리모컨으로 %2$d개 중 %1$d개 확인 · 시작하려면 OK</string>
-    <string name="ver_conferir_sub">버전 %1$s · 항목 %2$d개 · 답하려면 항목에서 OK</string>
+    <string name="ver_conferir_det">리모컨으로 %2$d개 중 %1$d개 확인</string>
+    <string name="ver_conferir_sub">버전 %1$s · 항목 %2$d개</string>
     <string name="ver_conferido">%2$d개 중 %1$d개 확인</string>
     <string name="ver_sim">예</string>
     <string name="ver_nao">아니요</string>

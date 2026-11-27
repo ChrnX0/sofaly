@@ -41,13 +41,12 @@
     <string name="casa_desligado">Ανενεργό</string>
     <string name="casa_aberta">Ανοιχτό</string>
     <string name="casa_fechada">Κλειστό</string>
-    <string name="casa_rodar">OK για εκτέλεση</string>
     <string name="casa_indisponivel">Μη διαθέσιμο</string>
     <string name="casa_sem_config_titulo">Συνδέστε το σπίτι σας</string>
     <string name="casa_dica_acionar">ενεργοποίηση ή απενεργοποίηση</string>
     <string name="casa_erro">Το Home Assistant δεν απάντησε: %1$s</string>
     <string name="casa_ligado_pct">Ενεργό · %1$d%%</string>
-    <string name="casa_brilho_ajuste">Φωτεινότητα %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">Φωτεινότητα %1$d%%</string>
     <string name="casa_dica_brilho">φωτεινότητα</string>
     <string name="casa_tecla_segurar_ok">ΚΡΑΤΗΣΤΕ OK</string>
     <string name="ca_liberado">Ελευθερώθηκαν %1$s. Ελεύθερα τώρα: %2$s.</string>

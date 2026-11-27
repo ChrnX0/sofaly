@@ -30,5 +30,4 @@
     <string name="bb_titulo">รูปแบบหน้าจอหลัก</string>
     <string name="bb_cruz">กากบาท</string>
     <string name="bb_barra">แถบด้านล่าง</string>
-    <string name="bb_det">หมวดหมู่แบบกากบาท หรือตรึงไว้ด้านล่างโดยมีแอปอยู่ด้านบน (▲)</string>
 </resources>

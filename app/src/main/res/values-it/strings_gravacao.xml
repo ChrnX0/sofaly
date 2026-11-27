@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">ogni settimana</string>
     <string name="grv_cancelar_pergunta">Annullare la registrazione di «%1$s»?</string>
     <string name="grv_gravadas">Registrate</string>
-    <string name="grv_vazio">Ancora nessuna registrazione. Nel player, ▶▶ › Registra; nella guida, OK su un programma futuro.</string>
+    <string name="grv_vazio">Ancora nessuna registrazione.</string>
     <string name="grv_vazio_sem_destino">Collega una chiavetta USB all’hub per vedere e fare registrazioni.</string>
     <string name="grv_partes">%1$d parti</string>
     <string name="grv_parte">parte %1$d di %2$d</string>

@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">každý týden</string>
     <string name="grv_cancelar_pergunta">Zrušit nahrávání \"%1$s\"?</string>
     <string name="grv_gravadas">Nahráno</string>
-    <string name="grv_vazio">Zatím nic nenahráno. V přehrávači ▶▶ › Nahrát; v průvodci OK na budoucím pořadu.</string>
+    <string name="grv_vazio">Zatím nic nenahráno.</string>
     <string name="grv_vazio_sem_destino">Připojte USB disk do rozbočovače, abyste viděli a pořizovali nahrávky.</string>
     <string name="grv_partes">%1$d částí</string>
     <string name="grv_parte">část %1$d z %2$d</string>

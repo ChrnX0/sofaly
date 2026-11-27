@@ -7,7 +7,7 @@ import android.graphics.Path
 import android.graphics.PixelFormat
 import android.graphics.RectF
 import android.graphics.drawable.Drawable
-import br.paulo.tvlauncher.DesignTokens
+import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.home.IconeCruz
 import br.paulo.tvlauncher.home.MolaViews
 import kotlin.math.PI
@@ -35,34 +35,12 @@ class IconeOuvir(val tipo: Tipo) : Drawable() {
     }
 
     companion object {
-        /** A cor de cada ícone (a cruz faz o mesmo em [IconeCruz.corLinha]). */
-        fun cor(t: Tipo): Int = when (t) {
-            Tipo.TOCANDO, Tipo.PAUSAR, Tipo.CONTINUAR -> DesignTokens.WORLD_LISTEN.toLong() and 0xFFFFFFFFL   // a cor do mundo Ouvir (laranja fica para marca/foco/progresso)
-            Tipo.VOLTAR, Tipo.AVANCAR -> 0xFF8FB4F0                   // azul acinzentado
-            Tipo.VELOCIDADE -> 0xFFE6C46A                             // dourado
-            Tipo.SILENCIO -> 0xFF9CD27E                               // verde-folha
-            Tipo.PARAR -> 0xFFE8E2DA                                  // creme
-            Tipo.SAIR -> 0xFFB9C6E4                                   // luar
-            Tipo.DORMIR -> 0xFFB9C6E4                                 // luar
-            Tipo.FAVORITAS -> 0xFFF2B84B                              // âmbar
-            Tipo.RECENTES -> 0xFFB9C6E4
-            Tipo.PERTO -> 0xFF45C2B1                                  // turquesa do Ouvir (laranja = só marca/foco/progresso, 19/11/2026)
-            Tipo.PAIS -> 0xFF6FC3B2                                   // verde-água
-            Tipo.GENEROS -> 0xFF8E92FA                                // violeta-azulado
-            Tipo.BUSCAR -> 0xFFE8E2DA
-            Tipo.EM_ALTA -> 0xFFE6C46A   // dourado (era laranja claro)
-            Tipo.ADICIONAR -> 0xFF9CD27E
-            Tipo.CELULAR -> 0xFF8FB4F0
-            Tipo.NOVOS -> 0xFFF2B84B
-            Tipo.MEUS, Tipo.EPISODIOS, Tipo.PODCAST -> 0xFF7FB2FF     // o azul dos podcasts (o mesmo da cruz)
-            Tipo.RADIO -> 0xFF45C2B1                                  // o turquesa da rádio (o mesmo da cruz)
-            Tipo.CONTROLE -> 0xFF8E92FA                               // o violeta do Jogar (o mesmo da cruz)
-            Tipo.SOFA -> 0xFFA9B0FF                                   // o lilás do sofá da cruz (era laranja claro)
-            Tipo.TURMA -> 0xFF8FB4F0                                  // azul acinzentado
-            Tipo.REDE -> 0xFF9CD27E                                   // verde-folha
-            Tipo.PC -> 0xFF7FB2FF
-            Tipo.OPCOES -> 0xFFE8E2DA                                 // creme
-        }.toInt()
+        /**
+         * A cor do traço: creme em todos (27/11/2026, padrão único: as cores de "mundo", turquesa, violeta, azul, verde,
+         * saíram de todos os modos). O laranja fica para o foco ([Estilo.corIconeNoFoco]), a marca e o progresso.
+         */
+        @Suppress("UNUSED_PARAMETER")
+        fun cor(t: Tipo): Int = Estilo.TEXTO
 
         const val TRACO = IconeCruz.TRACO_FINO
         const val DURACAO_MS = 1500L

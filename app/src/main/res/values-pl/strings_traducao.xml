@@ -92,7 +92,6 @@
     <string name="lb_lembrete">Przypomnienie</string>
     <string name="lb_quando_em">%1$s, na %2$s.</string>
     <string name="ms_ola">Cześć!</string>
-    <string name="ms_ola_det">Wybierz strzałkami i naciśnij OK.</string>
     <string name="ms_pedir_ajuda">Wezwij pomoc</string>
     <string name="ms_pedido_ajuda">Prośba o pomoc</string>
     <string name="ms_alguem_pediu">Ktoś wezwał pomoc przy telewizorze %1$s.</string>
@@ -148,7 +147,6 @@
     <string name="bc_categorias">KATEGORIE</string>
     <string name="bc_canais">KANAŁY</string>
     <string name="bc_carregando">ładowanie kanałów…</string>
-    <string name="bc_dica">OK blokuje lub odblokowuje · OK na kategorii – całą · ◀ ▶ kategorie i kanały · WSTECZ wyjście (już zapisane)</string>
     <string name="bc_categoria_bloqueada">cała kategoria „%1$s” jest zablokowana: odblokuj ją w lewej kolumnie</string>
     <string name="bc_filme">Film · %1$s</string>
     <string name="bc_serie">Serial · %1$s</string>

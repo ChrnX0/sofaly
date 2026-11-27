@@ -51,7 +51,7 @@
     <string name="l51_digitar_titulo">Digitar na TV</string>
     <string name="l51_digitar_texto">Tem um campo de texto aberto em %1$s. Toque para digitar daqui.</string>
     <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">ambiente %1$s</string>
     <string name="casa_movimento">Movimento</string>
     <string name="casa_sem_movimento">Sem movimento</string>

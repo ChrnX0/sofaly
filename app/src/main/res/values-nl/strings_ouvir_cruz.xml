@@ -11,11 +11,10 @@
     <string name="ouv_favoritar_det">Favorieten spelen ook met de toetsen 1 tot 9 op de afstandsbediening</string>
     <string name="ouv_tecla">Toets %d op de afstandsbediening</string>
     <string name="ouv_ao_sair">Bij weggaan</string>
-    <string name="ouv_ao_sair_continua">Blijft spelen op het startscherm\n▶❙❙ op de afstandsbediening pauzeert hem vanaf elk scherm</string>
+    <string name="ouv_ao_sair_continua">Blijft spelen op het startscherm</string>
     <string name="ouv_ao_sair_para">Stopt als je dit scherm verlaat</string>
     <string name="ouv_recentes">Recent</string>
     <string name="ouv_sem_favoritas">Nog geen favorieten</string>
-    <string name="ouv_sem_favoritas_det">Houd OK ingedrukt op een zender om hem hier te bewaren</string>
     <string name="ouv_sem_recentes">Hier staat nog niets</string>
     <string name="ouv_sem_recentes_det">De zenders die je afspeelt verschijnen hier</string>
     <string name="ouv_paises">Landen</string>
@@ -23,9 +22,7 @@
     <string name="ouv_ao_vivo">Live</string>
     <string name="ouv_dica_pular">overslaan</string>
     <string name="ouv_voltar">15 s terug</string>
-    <string name="ouv_voltar_det">Ook ◀◀ op de afstandsbediening</string>
     <string name="ouv_avancar">30 s vooruit</string>
-    <string name="ouv_avancar_det">Ook ▶▶ op de afstandsbediening</string>
     <string name="ouv_velocidade_det">%s · de stem houdt zijn toonhoogte</string>
     <string name="ouv_parar_pod_det">Waar je stopte, wordt bewaard voor later</string>
     <string name="ouv_seguindo">Volgend</string>

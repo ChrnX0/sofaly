@@ -6,9 +6,8 @@
     <string name="vid_onde">观看：设置 › 家人 › 家人视频。</string>
     <string name="vid_depois">稍后</string>
     <string name="vid_assistir">观看</string>
-    <string name="vid_ok_para_assistir">按 OK 观看。</string>
     <string name="vid_lista">家人视频</string>
-    <string name="vid_lista_det">通过家人链接发来。每个保留 30 天。长按 OK 删除。</string>
+    <string name="vid_lista_det">通过家人链接发来。每个保留 30 天。</string>
     <string name="vid_nenhum">还没有视频。</string>
     <string name="vid_apagar">删除视频</string>
     <string name="vid_aceitar">接收视频</string>

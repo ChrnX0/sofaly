@@ -254,13 +254,13 @@ object AvisoTv {
                 topMargin = dp(Estilo.E1 + 4)
             })
         }
-        val pilula = Estilo.pilula(svc, icone ?: Estilo.fundo(svc, Estilo.ACENTO, Estilo.RAIO_PILULA), focavel = false).apply {
+        val pilula = Estilo.pilula(svc, icone ?: Estilo.fundo(svc, Estilo.ACENTO, Estilo.RAIO), focavel = false).apply {
             // sem ícone: um ponto no acento, menor que o ícone (os 20 dp da pílula ficam para ícone de verdade)
             if (icone == null) (getChildAt(0).layoutParams as LinearLayout.LayoutParams).apply { width = dp(8); height = dp(8); marginEnd = dp(10) }
             if (sofy != null) (getChildAt(0).layoutParams as LinearLayout.LayoutParams).apply { width = dp(SOFY_DP); height = dp(SOFY_DP) }
             // Tinta mais densa que a da pílula da HOME (teste da noite, 25/11/2026): lá só há o fundo atrás; aqui a janela
             // flutua sobre texto e filme, e com 55% o cabeçalho da HOME aparecia através do aviso da Sofy (foto na Sala).
-            background = Estilo.fundo(svc, AVISO_TINTA, Estilo.RAIO_PILULA, Estilo.VIDRO_BORDA)
+            background = Estilo.fundo(svc, AVISO_TINTA, Estilo.RAIO)
             if (cartao) {
                 background = Estilo.fundo(svc, AVISO_TINTA, Estilo.RAIO, Estilo.VIDRO_BORDA)
                 setPaddingRelative(dp(14), dp(12), dp(16), dp(12))

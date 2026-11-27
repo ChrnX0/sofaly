@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">在住在那里的人在电视上同意之前保持关闭。</string>
     <string name="uso_cartoes">主屏幕大卡片</string>
     <string name="uso_cartoes_det">少量大应用，名称朗读，并有“求助”按钮。关闭时需要 PIN。</string>
-    <string name="uso_trocar_det">当前：%1$s。按 OK 重新选择。</string>
+    <string name="uso_trocar_det">当前：%1$s。</string>
 </resources>

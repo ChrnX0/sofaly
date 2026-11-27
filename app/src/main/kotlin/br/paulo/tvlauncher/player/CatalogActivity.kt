@@ -52,7 +52,8 @@ abstract class CatalogActivity<T>(protected val kind: String, protected val isSe
     protected val suave = Estilo.TEXTO_2
     protected val apagado = Estilo.TEXTO_3
     protected val ambar = Estilo.ATENCAO
-    protected val verdeEtiqueta = 0xE62E7D4F.toInt()
+    /** Selo de "visto"/"concluída": laranja escurecido (era verde; 27/11/2026 só a paleta), o creme lê bem por cima. */
+    protected val corConcluida = (br.paulo.tvlauncher.settings.BackgroundStyle.escurecer(Estilo.ACENTO, 0.7f) and 0x00FFFFFF) or (0xE6 shl 24)
     protected val fonteMedia = Fontes.nunito(500)
 
     protected var catalogo: List<T> = emptyList()      // o catálogo inteiro, como veio do servidor

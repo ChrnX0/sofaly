@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">Who is this TV for?</string>
-    <string name="rec_subtitulo">One OK sets up the TV. You can undo it any time.</string>
+    <string name="rec_subtitulo">You can undo it any time.</string>
     <string name="rec_vo">Grandma\'s TV</string>
     <string name="rec_vo_det">Big cards with names read aloud, larger text and a Get help button.</string>
     <string name="rec_criancas">Kids\' TV</string>

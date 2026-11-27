@@ -104,7 +104,6 @@
     <string name="lb_lembrete">Reminder</string>
     <string name="lb_quando_em">%1$s, on %2$s.</string>
     <string name="ms_ola">Hello!</string>
-    <string name="ms_ola_det">Choose with the arrows and press OK.</string>
     <string name="ms_pedir_ajuda">Ask for help</string>
     <string name="ms_pedido_ajuda">Help request</string>
     <string name="ms_alguem_pediu">Someone asked for help on the TV %1$s.</string>
@@ -172,7 +171,6 @@
     <string name="bc_categorias">CATEGORIES</string>
     <string name="bc_canais">CHANNELS</string>
     <string name="bc_carregando">loading channels…</string>
-    <string name="bc_dica">OK blocks or unblocks · OK on a category applies to all of it · ◀ ▶ categories and channels · BACK leaves (already saved)</string>
     <string name="bc_categoria_bloqueada">the whole category \"%1$s\" is blocked: unblock it in the left column</string>
     <string name="bc_filme">Movie · %1$s</string>
     <string name="bc_serie">Series · %1$s</string>

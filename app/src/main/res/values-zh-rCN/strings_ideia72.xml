@@ -34,5 +34,5 @@
     <string name="l72_guia_agora">%1$s 正在播出：%2$s（至 %3$s）</string>
     <string name="l72_guia_nada_agora">%1$s：节目指南中当前没有内容</string>
     <string name="l72_guia_depois">接下来：%1$s（%2$s）</string>
-    <string name="l75_pilula">正在播放：%1$s，%2$s。OK 暂停或继续；长按 OK 打开应用</string>
+    <string name="l75_pilula">正在播放：%1$s，%2$s。</string>
 </resources>

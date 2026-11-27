@@ -47,9 +47,8 @@
     <string name="elv_leg_em_cima">ด้านบน</string>
     <!-- 3.11 busca que faz -->
     <string name="elv_bf_fazer">ทำเลย</string>
-    <string name="elv_bf_ok_faz">OK เพื่อทำตอนนี้</string>
     <string name="elv_bf_wifi">แสดง Wi-Fi สำหรับผู้เยี่ยมชม</string>
-    <string name="elv_bf_wifi_configurar">ยังไม่ได้ตั้งค่า: OK เพื่อเปิดการตั้งค่า (ผู้เยี่ยมชม)</string>
+    <string name="elv_bf_wifi_configurar">ยังไม่ได้ตั้งค่า</string>
     <string name="elv_bf_letra_maior">ตัวอักษรใหญ่ขึ้น (%1$d%%)</string>
     <string name="elv_bf_letra_menor">ตัวอักษรเล็กลง (%1$d%%)</string>
     <string name="elv_bf_letra_limite">เป็นขนาดนี้อยู่แล้ว</string>
@@ -122,6 +121,5 @@
     <string name="elv_ss_noite">หลังพระอาทิตย์ตก</string>
     <string name="elv_ss_dia_util">เป็นวันธรรมดา</string>
     <string name="elv_ss_perfil">โปรไฟล์คือ %1$s</string>
-    <string name="elv_ss_det">◀ ▶ เปลี่ยนเงื่อนไข</string>
     <string name="extras_ABERTURA_PRONTA">ข้ามช่วงเปิดเรื่อง (IntroDB): สำหรับตอนของซีรีส์ ทีวีจะถามบริการชุมชน IntroDB ว่าช่วงเปิดเรื่องอยู่ตรงไหน (ส่งเพียงว่าเป็นตอนไหน ไม่ส่งบัญชีของคุณ) เมื่อปิด จะใช้เฉพาะช่วงเปิดเรื่องที่คุณทำเครื่องหมายไว้</string>
 </resources>

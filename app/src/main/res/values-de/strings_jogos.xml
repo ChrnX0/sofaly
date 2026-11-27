@@ -17,7 +17,7 @@
     <string name="jogos_parear_falhou">Dieser Fernseher hat die Bluetooth-Einstellungen nicht geöffnet. Öffne Einstellungen, Fernbedienungen und Zubehör.</string>
     <string name="jogos_baixar">Spiele holen</string>
     <string name="jogos_escolher">Apps auswählen</string>
-    <string name="jogos_escolher_sub">Welche Apps in Spielen leben. OK wechselt zwischen Spielen und Apps.</string>
+    <string name="jogos_escolher_sub">Welche Apps in Spielen leben.</string>
     <string name="jogos_no_card">in Spielen</string>
     <string name="jogos_na_linha">in Apps</string>
     <string name="jogos_grupo_nuvem">In der Cloud</string>

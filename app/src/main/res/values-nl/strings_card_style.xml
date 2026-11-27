@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">Fijnafstelling</string>
-    <string name="ft_dica">OK of ▶ ◀ wijzigt · TERUG sluit</string>
     <string name="ft_abrir">Afstellen terwijl je het startscherm ziet</string>
     <string name="ft_abrir_det">Lettertype, klok, accentkleur, hoeken, gloed en grootte, live</string>
     <string name="cs_destaque">Accentkleur</string>

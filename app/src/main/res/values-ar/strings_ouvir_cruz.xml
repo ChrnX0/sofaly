@@ -11,11 +11,10 @@
     <string name="ouv_favoritar_det">تعمل المفضلة أيضًا بالأزرار من 1 إلى 9 في جهاز التحكم</string>
     <string name="ouv_tecla">الزر %d في جهاز التحكم</string>
     <string name="ouv_ao_sair">عند الخروج</string>
-    <string name="ouv_ao_sair_continua">يستمر التشغيل في الشاشة الرئيسية\n▶❙❙ في جهاز التحكم يوقف مؤقتًا من أي شاشة</string>
+    <string name="ouv_ao_sair_continua">يستمر التشغيل في الشاشة الرئيسية</string>
     <string name="ouv_ao_sair_para">يتوقف عند مغادرة هذه الشاشة</string>
     <string name="ouv_recentes">الأخيرة</string>
     <string name="ouv_sem_favoritas">لا توجد مفضلة بعد</string>
-    <string name="ouv_sem_favoritas_det">اضغط مطولًا على OK في محطة لحفظها هنا</string>
     <string name="ouv_sem_recentes">لا شيء هنا بعد</string>
     <string name="ouv_sem_recentes_det">تظهر هنا المحطات التي استمعت إليها</string>
     <string name="ouv_paises">البلدان</string>
@@ -23,9 +22,7 @@
     <string name="ouv_ao_vivo">مباشر</string>
     <string name="ouv_dica_pular">تخطٍّ</string>
     <string name="ouv_voltar">رجوع 15 ث</string>
-    <string name="ouv_voltar_det">أو ◀◀ في جهاز التحكم</string>
     <string name="ouv_avancar">تقديم 30 ث</string>
-    <string name="ouv_avancar_det">أو ▶▶ في جهاز التحكم</string>
     <string name="ouv_velocidade_det">%s · لا تتغير طبقة الصوت</string>
     <string name="ouv_parar_pod_det">يُحفظ موضع التوقف</string>
     <string name="ouv_seguindo">متابَع</string>

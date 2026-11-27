@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">이 TV는 누가 쓰나요?</string>
-    <string name="rec_subtitulo">OK 한 번이면 TV가 준비됩니다. 언제든 되돌릴 수 있어요.</string>
+    <string name="rec_subtitulo">언제든 되돌릴 수 있어요.</string>
     <string name="rec_vo">할머니 TV</string>
     <string name="rec_vo_det">이름을 읽어 주는 큰 카드, 더 큰 글자, 도움 요청 버튼.</string>
     <string name="rec_criancas">아이들 TV</string>

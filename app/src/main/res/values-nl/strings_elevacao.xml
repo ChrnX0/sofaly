@@ -47,9 +47,8 @@
     <string name="elv_leg_em_cima">boven</string>
     <!-- 3.11 busca que faz -->
     <string name="elv_bf_fazer">Doen</string>
-    <string name="elv_bf_ok_faz">OK doet het nu</string>
     <string name="elv_bf_wifi">De gastwifi tonen</string>
-    <string name="elv_bf_wifi_configurar">Nog niet ingesteld: OK opent Instellingen (Bezoek)</string>
+    <string name="elv_bf_wifi_configurar">Nog niet ingesteld</string>
     <string name="elv_bf_letra_maior">Grotere tekst (%1$d%%)</string>
     <string name="elv_bf_letra_menor">Kleinere tekst (%1$d%%)</string>
     <string name="elv_bf_letra_limite">Het staat al op deze grootte</string>
@@ -122,6 +121,5 @@
     <string name="elv_ss_noite">na zonsondergang</string>
     <string name="elv_ss_dia_util">het een werkdag is</string>
     <string name="elv_ss_perfil">het profiel %1$s is</string>
-    <string name="elv_ss_det">◀ ▶ de voorwaarde wijzigen</string>
     <string name="extras_ABERTURA_PRONTA">Intro overslaan (IntroDB): bij afleveringen vraagt de tv de community-dienst IntroDB waar de opening zit (hij stuurt welke aflevering, nooit je account); uit, alleen intro\'s die je markeerde</string>
 </resources>

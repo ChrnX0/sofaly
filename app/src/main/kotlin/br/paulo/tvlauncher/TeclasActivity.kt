@@ -122,7 +122,7 @@ class TeclasActivity : Activity() {
             redesenhar()
         }
         for (g in RemapTeclas.Gesto.values()) {
-            val v = linha("", getString(R.string.rot_app_det)) { girar(g, 1) }
+            val v = linha("", "") { girar(g, 1) }
             v.setOnKeyListener { _, k, e ->
                 if (e.action != KeyEvent.ACTION_DOWN) return@setOnKeyListener false
                 when (k) {

@@ -14,8 +14,7 @@
     <string name="tp_frio_texto">Ner till %d° i natt · Klä dig varmt</string>
     <string name="tp_cfg">Varning för värme och kyla</string>
     <string name="tp_cfg_det">Ett kort ovanpå alla appar när det i dag blir %1$d° eller i natt sjunker till %2$d°</string>
-    <string name="mu_ok_lido">OK markerar som läst</string>
-    <string name="mu_ok_nao_lido">Läst · OK markerar som oläst</string>
+    <string name="mu_ok_nao_lido">Läst</string>
     <string name="mu_lido_desc">Meddelande, läst: %s. OK markerar som oläst.</string>
     <string name="mu_nao_lido_desc">Meddelande: %s. OK markerar som läst.</string>
     <string name="mu_apagar">Ta bort meddelande: %s</string>

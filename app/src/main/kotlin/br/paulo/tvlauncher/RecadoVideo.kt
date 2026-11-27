@@ -268,7 +268,7 @@ class RecadoVideoActivity : Activity() {
         val depois = Estilo.botao(this, getString(R.string.vid_depois), primario = false).apply { setOnClickListener { finish() } }
         val ver = Estilo.botao(this, getString(R.string.vid_assistir)).apply { setOnClickListener { RecadoVideo.tocar(this@RecadoVideoActivity, v) } }
         setContentView(Estilo.dialogo(this, null, getString(R.string.vid_de, v.quem),
-            listOf(v.texto, getString(R.string.vid_ok_para_assistir)).filter { it.isNotEmpty() }.joinToString("\n"), listOf(depois, ver), larguraDp = 720))
+            v.texto, listOf(depois, ver), larguraDp = 720))
         ver.post { ver.requestFocus() }   // depois do layout: senão o Android devolve o foco ao primeiro botão
     }
 

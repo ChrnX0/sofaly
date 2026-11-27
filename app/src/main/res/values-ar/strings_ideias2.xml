@@ -41,13 +41,12 @@
     <string name="casa_desligado">مطفأ</string>
     <string name="casa_aberta">مفتوح</string>
     <string name="casa_fechada">مغلق</string>
-    <string name="casa_rodar">OK للتشغيل</string>
     <string name="casa_indisponivel">غير متاح</string>
     <string name="casa_sem_config_titulo">اربط منزلك</string>
     <string name="casa_dica_acionar">تشغيل أو إطفاء</string>
     <string name="casa_erro">Home Assistant لم يستجب: %1$s</string>
     <string name="casa_ligado_pct">يعمل · %1$d%%</string>
-    <string name="casa_brilho_ajuste">السطوع %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">السطوع %1$d%%</string>
     <string name="casa_dica_brilho">السطوع</string>
     <string name="casa_tecla_segurar_ok">اضغط مطولًا على OK</string>
     <string name="ca_liberado">تم تحرير %1$s. المساحة الحرة الآن: %2$s.</string>

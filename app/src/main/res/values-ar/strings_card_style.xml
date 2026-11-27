@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">ضبط دقيق</string>
-    <string name="ft_dica">OK أو ▶ ◀ للتغيير · رجوع للإغلاق</string>
     <string name="ft_abrir">اضبط وأنت ترى الشاشة الرئيسية</string>
     <string name="ft_abrir_det">الخط والساعة ولون التمييز والزوايا والتوهج والحجم، مباشرة</string>
     <string name="cs_destaque">لون التمييز</string>

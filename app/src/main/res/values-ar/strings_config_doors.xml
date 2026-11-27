@@ -11,4 +11,5 @@
     <string name="cfg3_porta_3_det">شاشة التوقف والنوم والمنبه</string>
     <string name="cfg3_porta_4_det">المنزل والهاتف واللوحة</string>
     <string name="cfg3_porta_5_det">التحديث والنسخ والمساعدة</string>
+    <string name="cfg4_fila_portas">الإعدادات</string>
 </resources>

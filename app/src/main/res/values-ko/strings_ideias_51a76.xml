@@ -41,7 +41,7 @@
     <string name="l51_uso_zerar">초기화</string>
     <string name="l51_digitar_titulo">TV에 입력</string>
     <string name="l51_digitar_texto">%1$s에 텍스트 상자가 열려 있습니다. 눌러서 여기에서 입력하세요.</string>
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">실내 %1$s</string>
     <string name="casa_movimento">움직임 감지</string>
     <string name="casa_sem_movimento">움직임 없음</string>

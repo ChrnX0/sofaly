@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">Väntar på att du bekräftar på telefonen…</string>
     <string name="rede_nuvem_salvando">Loggar in…</string>
     <string name="rede_nuvem_recusado">Tjänsten vägrade. Kontrollera app-id och försök igen.</string>
-    <string name="rede_erro_nuvem_login">Det här kontots behörighet har gått ut eller tagits bort. Ta bort kontot (håll OK) och logga in igen.</string>
+    <string name="rede_erro_nuvem_login">Det här kontots behörighet har gått ut eller tagits bort. Ta bort kontot och logga in igen.</string>
     <string name="rede_od_titulo">OneDrive: din app hos Microsoft</string>
     <string name="rede_od_explica">En gång, på en dator: entra.microsoft.com › Appregistreringar › Ny registrering. För kontotyper, välj den som inkluderar personliga Microsoft-konton. Slå sedan på ”Tillåt offentliga klientflöden” under Autentisering. Kopiera ”Program-ID (klient)” och skriv det här (du kan skriva från telefonen, i panelen).</string>
     <string name="rede_od_id">Program-ID (klient)</string>

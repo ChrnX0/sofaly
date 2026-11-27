@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">जब तक वहाँ रहने वाले टीवी पर सहमति न दें, बंद रहेगा।</string>
     <string name="uso_cartoes">होम स्क्रीन पर बड़े कार्ड</string>
     <string name="uso_cartoes_det">कुछ बड़े ऐप, नाम बोलकर सुनाया जाता है और \"मदद माँगें\" बटन। बंद करने पर PIN माँगा जाता है।</string>
-    <string name="uso_trocar_det">अभी: %1$s। फिर से चुनने के लिए OK।</string>
+    <string name="uso_trocar_det">अभी: %1$s।</string>
 </resources>

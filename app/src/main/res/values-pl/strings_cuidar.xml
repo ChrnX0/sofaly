@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Możesz poczekać.</string>
     <string name="cuidar_nao_avisado">Nie udało się powiadomić: %1$s</string>
     <string name="cuidar_sem_aparelho">Żaden telefon nie jest ustawiony do odbioru. Sprawdź Ustawienia › Rodzina › Opieka na odległość.</string>
-    <string name="cuidar_sem_internet">Sprawdź internet i spróbuj ponownie (przytrzymaj przycisk 3 sekundy).</string>
+    <string name="cuidar_sem_internet">Sprawdź internet i spróbuj ponownie.</string>
     <string name="cuidar_lembrete_sobre">Przypomnienie · %1$s</string>
     <string name="cuidar_lembrete_explica">Naciśnij OK, gdy będzie zrobione.</string>
     <string name="cuidar_lembrete_explica_aviso">Naciśnij OK, gdy będzie zrobione. W przeciwnym razie za %1$d minut %2$s dostanie powiadomienie.</string>

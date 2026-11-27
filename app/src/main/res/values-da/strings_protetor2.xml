@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">Pauseskærmens baggrund</string>
-    <string name="pv2_fundo_det">temaets, eller rigtige fotos af Jorden set fra rummet · OK ændrer</string>
     <string name="pv2_fundo_tema">Temaets</string>
     <string name="pv2_fundo_terra">Jorden fra rummet</string>
     <string name="pv2_relogio">Pauseskærmens ur</string>
-    <string name="pv2_relogio_det">seks stilarter · OK ændrer</string>
     <string name="pv2_rel_fino">Tynd</string>
     <string name="pv2_rel_editorial">Redaktionel</string>
     <string name="pv2_rel_monumental">Monumental</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">Med ord</string>
     <string name="pv2_rel_empilhado">Stablet</string>
     <string name="pv2_posicao">Urets placering</string>
-    <string name="pv2_posicao_det">OK ændrer</string>
     <string name="pv2_pos_alto">Øverst til venstre</string>
     <string name="pv2_pos_baixo">Nederst til venstre</string>
     <string name="pv2_pos_centro">Midten</string>
     <string name="pv2_tamanho">Urets størrelse</string>
-    <string name="pv2_tamanho_det">store tal er lettere at læse på afstand · OK ændrer</string>
     <string name="pv2_tam_normal">Normal</string>
     <string name="pv2_tam_grande">Stor</string>
     <string name="pv2_mostrar">Hvad pauseskærmen viser</string>
-    <string name="pv2_mostrar_det">\"Kun tiden\": enhver tast på fjernbetjeningen viser resten i 15 s · OK ændrer</string>
     <string name="pv2_mostrar_so">Kun tiden</string>
     <string name="pv2_mostrar_vez">Nu og da</string>
     <string name="pv2_mostrar_sempre">Alt</string>
     <string name="pv2_elementos">På pauseskærmen</string>
-    <string name="pv2_el_det">vist på pauseskærmen · OK slår til eller fra</string>
     <string name="pv2_el_saudacao">Hilsen</string>
     <string name="pv2_el_data">Dato</string>
     <string name="pv2_el_linha_dia">Dagslyslinje</string>

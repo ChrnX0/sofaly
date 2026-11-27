@@ -36,5 +36,5 @@
     <string name="l72_guia_nada_agora">%1$s: ไม่มีข้อมูลในผังรายการตอนนี้</string>
     <string name="l72_guia_depois">ถัดไป: %1$s (%2$s)</string>
     <!-- Ideia 75: a pílula Tocando agora da HOME (acessibilidade e MCP acham pelo nome). -->
-    <string name="l75_pilula">กำลังเล่น: %1$s, %2$s OK เพื่อหยุดชั่วคราวหรือเล่นต่อ กด OK ค้างเพื่อเปิดแอป</string>
+    <string name="l75_pilula">กำลังเล่น: %1$s, %2$s</string>
 </resources>

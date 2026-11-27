@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">İnce ayar</string>
-    <string name="ft_dica">OK veya ▶ ◀ değiştirir · GERİ kapatır</string>
     <string name="ft_abrir">Ana ekranı görerek ayarla</string>
     <string name="ft_abrir_det">Yazı tipi, saat, vurgu rengi, köşeler, parıltı ve boyut, canlı</string>
     <string name="cs_destaque">Vurgu rengi</string>

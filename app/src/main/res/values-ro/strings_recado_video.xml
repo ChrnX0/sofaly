@@ -6,9 +6,8 @@
     <string name="vid_onde">Pentru a viziona: Setări › Familie › Videoclipuri de familie.</string>
     <string name="vid_depois">Mai târziu</string>
     <string name="vid_assistir">Vizionează</string>
-    <string name="vid_ok_para_assistir">Apăsați OK pentru a viziona.</string>
     <string name="vid_lista">Videoclipuri de familie</string>
-    <string name="vid_lista_det">Trimise prin linkul de familie. Fiecare rămâne 30 de zile. Țineți OK pentru a șterge.</string>
+    <string name="vid_lista_det">Trimise prin linkul de familie. Fiecare rămâne 30 de zile.</string>
     <string name="vid_nenhum">Încă niciun videoclip.</string>
     <string name="vid_apagar">Șterge videoclipul</string>
     <string name="vid_aceitar">Acceptă videoclipuri</string>

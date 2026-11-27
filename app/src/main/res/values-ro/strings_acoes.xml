@@ -31,7 +31,7 @@
     <string name="lbl_cenas">Scene</string>
     <string name="pr_cenas">Scene</string>
     <string name="cenas_titulo">Scene</string>
-    <string name="cenas_det">OK rulează scena. Creați-le și editați-le în panoul web › Casă și automatizări › Scene.</string>
+    <string name="cenas_det">Creați-le și editați-le în panoul web › Casă și automatizări › Scene.</string>
     <string name="cenas_vazio">Încă nu există scene. Creați una în panoul web › Casă și automatizări › Scene.</string>
     <plurals name="cenas_acoes">
         <item quantity="one">%d acțiune</item>

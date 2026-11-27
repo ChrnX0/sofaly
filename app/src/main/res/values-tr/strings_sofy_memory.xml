@@ -2,7 +2,7 @@
 <!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
 <resources>
     <string name="smem_titulo">Sofy neler biliyor</string>
-    <string name="smem_sub">Bu ev hakkında öğrendikleri. OK bir öğeyi unutur; yeniden öğrenir.</string>
+    <string name="smem_sub">Bu ev hakkında öğrendikleri.</string>
     <string name="smem_linha_det">Öğrendikleri, Unut ile</string>
     <string name="smem_uso">TV ne zaman kullanılıyor</string>
     <string name="smem_uso_det">Öğrenilen saat: %1$d</string>

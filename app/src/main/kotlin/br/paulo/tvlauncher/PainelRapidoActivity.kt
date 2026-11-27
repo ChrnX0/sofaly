@@ -123,7 +123,8 @@ class PainelRapidoActivity : Activity() {
             saida != null && Regex("""Result: Parcel\(\s*(0x[0-9a-f]+:\s*)?00000000\b""").containsMatchIn(saida)
 
         /** Largura: a do painel do Google TV medida na foto da Sala (13/11/2026). */
-        private const val LARGURA_DP = 272
+        // 26/11/2026 (Paulo aprovou a prévia "Arte com véu"): 440 dp, para a grade de 3 cartões; era 272, a do Google.
+        private const val LARGURA_DP = 440
         /** Margem da janela: 16 dp em cima e embaixo, 24 dp à direita (como o do Google). */
         private const val MARGEM_V_DP = 16
         private const val MARGEM_D_DP = 24
@@ -134,7 +135,8 @@ class PainelRapidoActivity : Activity() {
         /** Tile: altura fixa e tamanhos do nome e do detalhe. */
         // Brainstorm 26/11 (item 3, letras grandes para idosos): uma coluna, nome 18 sp e detalhe 16 sp. Em duas colunas
         // sobravam ~74 dp por nome e a 18 sp "Bluetooth" já não cabia.
-        private const val TILE_DP = 64
+        // Grade de 3 cartões (prévia aprovada 26/11/2026): a caixa do ícone tem 48 dp; nome e estado ficam embaixo dela.
+        private const val TILE_DP = 48
         private const val TILE_SP = 18f
         private const val DETALHE_SP = 16f
         /** Botões redondos do cabeçalho e do Tocando agora. */
@@ -146,31 +148,28 @@ class PainelRapidoActivity : Activity() {
     }
 
     /** Um tile: a casca focável, o ícone, o nome e o detalhe (some quando vazio). [ligado] pinta ícone e detalhe de acento. */
-    private inner class Tile(val casca: LinearLayout, val icone: IconeCard, val titulo: TextView, val detalhe: TextView) {
+    private inner class Tile(val casca: LinearLayout, val caixa: View, val icone: IconeCard, val titulo: TextView, val detalhe: TextView) {
         var ligado = false
             set(v) { field = v; pintar() }
         fun pintar() {
             val foco = casca.isFocused
-            casca.background = Estilo.superficie(this@PainelRapidoActivity, foco)
-            titulo.setTextColor(if (foco) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
-            titulo.typeface = Estilo.fonte(if (foco && Estilo.focoEscurece(this@PainelRapidoActivity)) 600 else 500)   // só no Quadro branco o texto escuro precisa de mais peso
+            val ctx = this@PainelRapidoActivity
+            // O cartão das Fileiras: só a caixa do ícone ganha o foco; nome e estado ficam embaixo, sobre o painel.
+            caixa.background = Estilo.superficie(ctx, foco)
+            titulo.setTextColor(if (foco) Estilo.TEXTO else Estilo.TEXTO_2)
             icone.definirCor(when {
-                ligado && foco -> Estilo.ACENTO_NO_FOCO
+                foco && Estilo.focoEscurece(ctx) -> Estilo.TEXTO_NO_FOCO
+                foco -> Estilo.corIconeNoFoco(ctx)
                 ligado -> Estilo.ACENTO
-                foco -> Estilo.TEXTO_NO_FOCO
                 else -> ICONE_APAGADO
             })
-            detalhe.setTextColor(when {
-                ligado && foco -> Estilo.ACENTO_NO_FOCO
-                ligado -> Estilo.ACENTO
-                foco -> Estilo.TEXTO_NO_FOCO_2
-                else -> Estilo.TEXTO_3
-            })
+            detalhe.setTextColor(if (ligado) Estilo.ACENTO else Estilo.TEXTO_3)
         }
         /** Troca o detalhe; vazio = tile de uma linha só. */
         fun detalhe(texto: String) {
             detalhe.text = texto
-            detalhe.visibility = if (texto.isEmpty()) View.GONE else View.VISIBLE
+            // INVISIBLE, não GONE: os cartões da mesma fileira ficam da mesma altura.
+            detalhe.visibility = if (texto.isEmpty()) View.INVISIBLE else View.VISIBLE
         }
     }
 
@@ -263,7 +262,14 @@ class PainelRapidoActivity : Activity() {
         }
         val painel = FrameLayout(this).apply {
             // Opaco (13/11/2026): com o vidro, a HOME e os banners dos apps apareciam por trás ("meio transparente").
-            background = Estilo.fundo(this@PainelRapidoActivity, FUNDO_PAINEL, RAIO_PAINEL_DP)
+            // A arte com véu, como em toda tela (Paulo, 26/11/2026), e por cima um véu firme para ler sobre a HOME.
+            background = android.graphics.drawable.LayerDrawable(arrayOf(
+                br.paulo.tvlauncher.home.GlassBackground.veiled(this@PainelRapidoActivity) ?: android.graphics.drawable.ColorDrawable(FUNDO_PAINEL),
+                android.graphics.drawable.GradientDrawable(android.graphics.drawable.GradientDrawable.Orientation.TOP_BOTTOM,
+                    intArrayOf(0xC7121212.toInt(), 0xF0121212.toInt(), 0xF0121212.toInt()))))
+            outlineProvider = object : android.view.ViewOutlineProvider() {
+                override fun getOutline(v: View, o: android.graphics.Outline) = o.setRoundRect(0, 0, v.width, v.height, dp(RAIO_PAINEL_DP).toFloat())
+            }
             clipToOutline = true
             addView(rolagem, FrameLayout.LayoutParams(-1, -1))
         }
@@ -411,15 +417,16 @@ class PainelRapidoActivity : Activity() {
         setOnClickListener { aoClicar() }
         setOnFocusChangeListener { v, foco ->
             v.background = if (dentro is ImageView && !foco) null else anel(foco)
-            (dentro as? IconeCard)?.definirCor(if (foco) Estilo.TEXTO_SOBRE_FOCO else Estilo.TEXTO)
+            (dentro as? IconeCard)?.definirCor(if (foco) Estilo.corIconeNoFoco(this@PainelRapidoActivity) else Estilo.TEXTO)
             v.animate().scaleX(if (foco) 1.1f else 1f).scaleY(if (foco) 1.1f else 1f).setDuration(Estilo.FOCO_MS).start()
         }
     }
 
     private fun anel(foco: Boolean) = GradientDrawable().apply {
         shape = GradientDrawable.OVAL
-        setColor(if (foco) Estilo.FOCO else Estilo.SUPERFICIE_ALTA)
-        setStroke(dp(1), if (foco) Estilo.FOCO else Estilo.BORDA)
+        // o foco de todo o sistema (26/11/2026): círculo mais claro com a borda creme; parado, a caixa sem contorno
+        setColor(if (foco) Estilo.FOCO_CARTAO else Estilo.CAIXA)
+        if (foco) setStroke(dp(Estilo.ANEL_DP), Estilo.TEXTO)
     }
 
     /** As contas Google da TV como bolinhas (OK troca o perfil ativo) e o "+" (Configurações > Contas e perfis). */
@@ -480,14 +487,14 @@ class PainelRapidoActivity : Activity() {
             ellipsize = TextUtils.TruncateAt.END
             typeface = Estilo.fonte(500)
             setPaddingRelative(dp(Estilo.E2 - 4), dp(7), dp(Estilo.E2 - 4), dp(7))
-            background = Estilo.fundo(this@PainelRapidoActivity, Estilo.SUPERFICIE, Estilo.RAIO_PILULA)
+            background = Estilo.caixa(this@PainelRapidoActivity)
             setOnClickListener {
                 val conta = alvoCrianca ?: return@setOnClickListener
                 PerfilCriancaTv.alternarMarca(this@PainelRapidoActivity, conta, ativa) { mostrarCrianca() }
             }
             setOnFocusChangeListener { v, foco ->
                 // Foco do padrão único (26/11/2026): o jeito escolhido (Anel por padrão), não um branco próprio.
-                v.background = if (foco) Estilo.fundoFocado(this@PainelRapidoActivity, Estilo.RAIO_PILULA, Estilo.fundo(this@PainelRapidoActivity, Estilo.SUPERFICIE, Estilo.RAIO_PILULA)) else Estilo.fundo(this@PainelRapidoActivity, Estilo.SUPERFICIE, Estilo.RAIO_PILULA)
+                v.background = if (foco) Estilo.fundoFocado(this@PainelRapidoActivity, Estilo.RAIO, Estilo.caixa(this@PainelRapidoActivity)) else Estilo.caixa(this@PainelRapidoActivity)
                 (v as TextView).setTextColor(when { !foco -> Estilo.TEXTO_2; Estilo.focoEscurece(this@PainelRapidoActivity) -> Estilo.TEXTO_NO_FOCO; else -> Estilo.TEXTO })
             }
             visibility = if (contas.isEmpty()) View.GONE else View.VISIBLE
@@ -525,7 +532,8 @@ class PainelRapidoActivity : Activity() {
     private fun anelPerfil(foco: Boolean, eAtiva: Boolean) = GradientDrawable().apply {
         shape = GradientDrawable.OVAL
         setColor(Color.TRANSPARENT)
-        setStroke(dp(3), when { foco -> Estilo.FOCO; eAtiva -> Estilo.ACENTO; else -> Estilo.BORDA })
+        // foco = a borda creme do sistema; o perfil ativo, o laranja; os outros, sem contorno (26/11/2026)
+        when { foco -> setStroke(dp(Estilo.ANEL_DP), Estilo.TEXTO); eAtiva -> setStroke(dp(Estilo.ANEL_DP), Estilo.ACENTO) }
     }
 
     // ---------------------------------------------------------------- tocando agora
@@ -653,11 +661,10 @@ class PainelRapidoActivity : Activity() {
                 else -> id in porId
             }
         }
-        val grade = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; clipChildren = false }
+        // Grade de 3 cartões (prévia aprovada 26/11/2026), na ordem escolhida em Blocos do painel rápido.
+        val grade = android.widget.GridLayout(this).apply { columnCount = 3; clipChildren = false; clipToPadding = false }
+        for (id in PainelBlocos.linhas(visiveis).flatten()) noGrid(grade, porId.getValue(id).casca.also { blocosNaTela += it })
         botoesDePlugins(grade)
-        for ((i, id) in PainelBlocos.linhas(visiveis).flatten().withIndex())   // uma coluna: um bloco por linha
-            grade.addView(porId.getValue(id).casca.also { blocosNaTela += it },
-                LinearLayout.LayoutParams(-1, dp(TILE_DP)).apply { if (i > 0) topMargin = dp(Estilo.E1) })
         return grade
     }
 
@@ -665,7 +672,15 @@ class PainelRapidoActivity : Activity() {
      * Botões de outros apps (PluginTile, 24/11/2026): lidos fora da thread da tela e postos numa linha a mais no fim da
      * grade, só se houver algum ligado. O OK pede ao app a ação dele e redesenha com a resposta (ligado/desligado).
      */
-    private fun botoesDePlugins(grade: LinearLayout) {
+    /** Um cartão na grade de 3, a coluna esticada por igual (a grade se arruma sozinha linha a linha). */
+    private fun noGrid(grade: android.widget.GridLayout, v: View) {
+        grade.addView(v, android.widget.GridLayout.LayoutParams(android.widget.GridLayout.spec(android.widget.GridLayout.UNDEFINED),
+            android.widget.GridLayout.spec(android.widget.GridLayout.UNDEFINED, 1f)).apply {
+            width = 0; setMargins(dp(5), dp(4), dp(5), dp(6))
+        })
+    }
+
+    private fun botoesDePlugins(grade: android.widget.GridLayout) {
         val app = applicationContext
         fundo.execute {
             val lista = runCatching { PluginTilesTv.botoes(app) }.getOrDefault(emptyList())
@@ -688,7 +703,7 @@ class PainelRapidoActivity : Activity() {
                     }
                     aplicar(b)
                     blocosNaTela += t.casca
-                    grade.addView(t.casca, LinearLayout.LayoutParams(-1, dp(TILE_DP)).apply { topMargin = dp(Estilo.E1) })   // uma coluna
+                    noGrid(grade, t.casca)
                 }
             }
         }
@@ -704,31 +719,29 @@ class PainelRapidoActivity : Activity() {
             textSize = TILE_SP; maxLines = 1; ellipsize = TextUtils.TruncateAt.END; includeFontPadding = false
         }
         val det = Estilo.texto(this, Estilo.Papel.LEGENDA, "").apply {
-            textSize = DETALHE_SP; typeface = Estilo.fonte(500); maxLines = 1; ellipsize = TextUtils.TruncateAt.END
-            includeFontPadding = false; visibility = View.GONE
+            textSize = DETALHE_SP; maxLines = 1; ellipsize = TextUtils.TruncateAt.END
+            includeFontPadding = false; visibility = View.INVISIBLE
         }
-        val textos = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            addView(tit)
-            addView(det, LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(3) })
+        // O cartão das Fileiras (prévia aprovada 26/11/2026): caixa com o ícone no centro; nome e estado embaixo.
+        val caixa = FrameLayout(this).apply {
+            addView(icone, FrameLayout.LayoutParams(dp(22), dp(22), Gravity.CENTER))
         }
         val casca = LinearLayout(this).apply {
-            orientation = LinearLayout.HORIZONTAL
-            gravity = Gravity.CENTER_VERTICAL
+            orientation = LinearLayout.VERTICAL
+            clipChildren = false; clipToPadding = false
             isFocusable = true
             isClickable = true
-            // 18 dp antes do ícone: o Fio do foco (6 a 10 dp) fica com 8 dp de ar até o ícone (régua, Sala 22/11: colava)
-            setPaddingRelative(dp(18), 0, dp(6), 0)
-            addView(icone, LinearLayout.LayoutParams(dp(18), dp(18)).apply { marginEnd = dp(9) })
-            addView(textos, LinearLayout.LayoutParams(0, -2, 1f))
+            addView(caixa, LinearLayout.LayoutParams(-1, dp(TILE_DP)))
+            addView(tit, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(6) })
+            addView(det, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(2) })
             setOnClickListener { aoClicar() }
         }
-        val t = Tile(casca, icone, tit, det)
+        val t = Tile(casca, caixa, icone, tit, det)
         casca.setOnFocusChangeListener { v, foco ->
             t.pintar()
             // Passada na TV (12/11): o tile da última linha ganhava o foco cortado pela borda do painel. Rola até caber.
             if (foco) v.post { mostrarLinhaInteira(v) }
-            v.animate().scaleX(if (foco) 1.03f else 1f).scaleY(if (foco) 1.03f else 1f).setDuration(Estilo.FOCO_MS).start()
+            caixa.animate().scaleX(if (foco) Estilo.ESCALA_CARD else 1f).scaleY(if (foco) Estilo.ESCALA_CARD else 1f).setDuration(Estilo.FOCO_MS).start()
         }
         t.pintar()
         return t
@@ -885,14 +898,14 @@ class PainelRapidoActivity : Activity() {
             isClickable = true
             typeface = Estilo.fonte(500)
             setPaddingRelative(dp(Estilo.E2 - 4), dp(7), dp(Estilo.E2 - 4), dp(7))
-            background = Estilo.fundo(this@PainelRapidoActivity, Estilo.SUPERFICIE, Estilo.RAIO_PILULA)
+            background = Estilo.caixa(this@PainelRapidoActivity)
             setOnClickListener {
                 NotificacoesTv.atuais.forEach { OuvinteNotificacoes.dispensar(it.chave) }
                 AvisoTv.limparHistorico(this@PainelRapidoActivity)
             }
             setOnFocusChangeListener { v, foco ->
                 // Foco do padrão único (26/11/2026): o jeito escolhido (Anel por padrão), não um branco próprio.
-                v.background = if (foco) Estilo.fundoFocado(this@PainelRapidoActivity, Estilo.RAIO_PILULA, Estilo.fundo(this@PainelRapidoActivity, Estilo.SUPERFICIE, Estilo.RAIO_PILULA)) else Estilo.fundo(this@PainelRapidoActivity, Estilo.SUPERFICIE, Estilo.RAIO_PILULA)
+                v.background = if (foco) Estilo.fundoFocado(this@PainelRapidoActivity, Estilo.RAIO, Estilo.caixa(this@PainelRapidoActivity)) else Estilo.caixa(this@PainelRapidoActivity)
                 (v as TextView).setTextColor(when { !foco -> Estilo.TEXTO_2; Estilo.focoEscurece(this@PainelRapidoActivity) -> Estilo.TEXTO_NO_FOCO; else -> Estilo.TEXTO })
             }
         }
@@ -1044,8 +1057,7 @@ class PainelRapidoActivity : Activity() {
             setPaddingRelative(dp(Estilo.E2 - 4), dp(Estilo.E1 + 4), dp(Estilo.E2 - 4), dp(Estilo.E1 + 4))
             background = Estilo.superficie(this@PainelRapidoActivity, false)
             addView(texto)
-            addView(Estilo.texto(this@PainelRapidoActivity, Estilo.Papel.LEGENDA,
-                getString(if (lido) R.string.mu_ok_nao_lido else R.string.mu_ok_lido)))
+            if (lido) addView(Estilo.texto(this@PainelRapidoActivity, Estilo.Papel.LEGENDA, getString(R.string.mu_ok_nao_lido)))   // "Lido" (sem a dica do OK)
             contentDescription = getString(if (lido) R.string.mu_lido_desc else R.string.mu_nao_lido_desc, recado)
             setOnFocusChangeListener { v, foco ->
                 Estilo.focarLinha(v, foco)

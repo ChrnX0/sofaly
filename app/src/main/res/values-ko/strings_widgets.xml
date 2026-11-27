@@ -2,8 +2,8 @@
 <!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
 <resources>
     <string name="wdg_titulo">홈 위젯 편집</string>
-    <string name="wdg_det">홈 화면에 다른 앱의 실시간 위젯. 화살표로 이동, OK로 옵션 표시.</string>
-    <string name="wdg_vazio">홈 화면에 아직 위젯이 없습니다. OK로 추가합니다.</string>
+    <string name="wdg_det">홈 화면에 다른 앱의 실시간 위젯.</string>
+    <string name="wdg_vazio">홈 화면에 아직 위젯이 없습니다.</string>
     <string name="wdg_estado_mover">이동 중: %1$s</string>
     <string name="wdg_estado_tamanho">크기: %1$s · %2$d × %3$d</string>
     <string name="wdg_mover">이동</string>

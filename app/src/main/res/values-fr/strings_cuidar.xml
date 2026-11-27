@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Vous pouvez patienter.</string>
     <string name="cuidar_nao_avisado">Impossible d’alerter %1$s</string>
     <string name="cuidar_sem_aparelho">Aucun téléphone n’est configuré pour recevoir. Vérifiez Paramètres › Famille › Veiller à distance.</string>
-    <string name="cuidar_sem_internet">Vérifiez internet et réessayez (maintenez le bouton 3 secondes).</string>
+    <string name="cuidar_sem_internet">Vérifiez internet et réessayez.</string>
     <string name="cuidar_lembrete_sobre">Rappel · %1$s</string>
     <string name="cuidar_lembrete_explica">Appuyez sur OK quand c’est fait.</string>
     <string name="cuidar_lembrete_explica_aviso">Appuyez sur OK quand c’est fait. Sinon, dans %1$d minutes, %2$s reçoit une alerte.</string>

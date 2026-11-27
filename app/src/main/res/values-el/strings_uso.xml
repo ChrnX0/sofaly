@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Ανενεργό ως να συμφωνήσει στην τηλεόραση το άτομο που μένει εκεί.</string>
     <string name="uso_cartoes">Μεγάλες κάρτες στην αρχική οθόνη</string>
     <string name="uso_cartoes_det">Λίγες μεγάλες εφαρμογές, ονόματα που διαβάζονται φωναχτά και κουμπί \"Βοήθεια\". Η απενεργοποίηση ζητά το PIN.</string>
-    <string name="uso_trocar_det">Τώρα: %1$s. OK για νέα επιλογή.</string>
+    <string name="uso_trocar_det">Τώρα: %1$s.</string>
 </resources>

@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">Ajuste fino</string>
-    <string name="ft_dica">OK o ▶ ◀ cambia · ATRÁS cierra</string>
     <string name="ft_abrir">Ajustar viendo la pantalla de inicio</string>
     <string name="ft_abrir_det">Letra, hora, color de realce, esquinas, brillo y tamaño, en vivo</string>
     <string name="cs_destaque">Color de realce</string>

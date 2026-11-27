@@ -15,7 +15,7 @@
     <string name="anteriormente_titulo">Poprzednio w %1$s</string>
     <string name="anteriormente_assistir">Oglądaj %1$s</string>
     <string name="anteriormente_pular_sempre">Nigdy nie pokazuj</string>
-    <string name="anteriormente_desligado">Streszczenia wyłączone. Aby je włączyć: przytrzymaj OK na odcinku.</string>
+    <string name="anteriormente_desligado">Streszczenia wyłączone.</string>
     <string name="anteriormente_ligar">Pokazuj streszczenia „Poprzednio”</string>
     <string name="idade_titulo">Maksymalny wiek w trybie dziecięcym</string>
     <string name="idade_det">Filmy i seriale z kategorią wiekową do tego wieku pojawiają się z każdej kategorii (klasyfikacja TMDB). Bez klasyfikacji tylko w kategoriach dziecięcych.</string>
@@ -25,8 +25,8 @@
     <string name="onde_tambem_em">Także na: %1$s (JustWatch)</string>
     <string name="onde_fora">Nie ma na Twojej liście · na %1$s</string>
     <string name="onde_grupo">Gdzie indziej (JustWatch)</string>
-    <string name="legenda_auto_pronta">Napisy pobrane automatycznie (zrobione dla tego pliku) · ▼, by zmienić</string>
-    <string name="legenda_auto_pronta_nome">Napisy pobrane automatycznie · ▼, by zmienić lub dostosować opóźnienie</string>
+    <string name="legenda_auto_pronta">Napisy pobrane automatycznie (zrobione dla tego pliku)</string>
+    <string name="legenda_auto_pronta_nome">Napisy pobrane automatycznie</string>
     <string name="legenda_trad_rotulo">Tłumaczenie automatyczne</string>
     <string name="legenda_trad_traduzindo">Brak napisów w Twoim języku: tłumaczenie angielskich na telewizorze…</string>
     <string name="legenda_trad_parcial">Napisy przetłumaczone na telewizorze (tłumaczenie automatyczne). Reszta wciąż się tłumaczy.</string>

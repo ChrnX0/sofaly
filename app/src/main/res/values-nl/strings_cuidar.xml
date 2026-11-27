@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Je kunt wachten.</string>
     <string name="cuidar_nao_avisado">Kon %1$s geen bericht sturen</string>
     <string name="cuidar_sem_aparelho">Er is geen telefoon ingesteld om te ontvangen. Controleer Instellingen › Gezin › Zorgen op afstand.</string>
-    <string name="cuidar_sem_internet">Controleer het internet en probeer het opnieuw (houd de knop 3 seconden ingedrukt).</string>
+    <string name="cuidar_sem_internet">Controleer het internet en probeer het opnieuw.</string>
     <string name="cuidar_lembrete_sobre">Herinnering · %1$s</string>
     <string name="cuidar_lembrete_explica">Druk op OK als het gedaan is.</string>
     <string name="cuidar_lembrete_explica_aviso">Druk op OK als het gedaan is. Zonder dat krijgt %2$s over %1$d minuten een bericht.</string>

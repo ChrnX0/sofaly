@@ -43,7 +43,7 @@ object PluginCartao {
     /** Cor "#RRGGBB" (sem transparência: o cartão é sempre opaco e legível). Inválida = a cor padrão. */
     fun cor(t: String?): Int = Regex("^#([0-9a-fA-F]{6})$").find(t?.trim() ?: "")?.groupValues?.get(1)?.toLong(16)?.toInt()?.or(0xFF000000.toInt())
         ?: COR_PADRAO
-    val COR_PADRAO = 0xFF2B3A55.toInt()
+    val COR_PADRAO = 0xFF2E2C2A.toInt()   // grafite (era azulado)
 
     /**
      * A linha que o plugin devolveu -> o cartão, ou null se não serve (sem título e sem valor). A ação só é aceita se

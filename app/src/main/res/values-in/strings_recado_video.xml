@@ -6,9 +6,8 @@
     <string name="vid_onde">Untuk menonton: Setelan › Keluarga › Video keluarga.</string>
     <string name="vid_depois">Nanti</string>
     <string name="vid_assistir">Tonton</string>
-    <string name="vid_ok_para_assistir">Tekan OK untuk menonton.</string>
     <string name="vid_lista">Video keluarga</string>
-    <string name="vid_lista_det">Dikirim lewat tautan keluarga. Masing-masing disimpan 30 hari. Tahan OK untuk menghapus.</string>
+    <string name="vid_lista_det">Dikirim lewat tautan keluarga. Masing-masing disimpan 30 hari.</string>
     <string name="vid_nenhum">Belum ada video.</string>
     <string name="vid_apagar">Hapus video</string>
     <string name="vid_aceitar">Terima video</string>

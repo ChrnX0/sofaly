@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Marcați mai întâi începutul genericului</string>
     <string name="abertura_invalida">Nu pare un generic: trebuie să dureze între 10 s și 5 min și să înceapă în primele 15 min</string>
     <string name="abertura_apagada">Marcajul genericului șters</string>
-    <string name="abertura_pular">Sari peste generic · OK</string>
+    <string name="abertura_pular">Sari peste generic</string>
 </resources>

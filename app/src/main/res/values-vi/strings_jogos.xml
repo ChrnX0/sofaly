@@ -26,7 +26,7 @@
     <string name="jogos_parear_falhou">TV này không mở được cài đặt Bluetooth. Hãy mở Cài đặt, Điều khiển và phụ kiện.</string>
     <string name="jogos_baixar">Tải trò chơi</string>
     <string name="jogos_escolher">Chọn ứng dụng</string>
-    <string name="jogos_escolher_sub">Ứng dụng nào nằm trong Chơi. OK để chuyển giữa Chơi và Ứng dụng.</string>
+    <string name="jogos_escolher_sub">Ứng dụng nào nằm trong Chơi.</string>
     <string name="jogos_no_card">trong Chơi</string>
     <string name="jogos_na_linha">trong Ứng dụng</string>
     <string name="jogos_grupo_nuvem">Trên đám mây</string>

@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Anda bisa menunggu.</string>
     <string name="cuidar_nao_avisado">Tidak bisa memberi tahu %1$s</string>
     <string name="cuidar_sem_aparelho">Tidak ada ponsel yang diatur untuk menerima. Periksa Setelan › Keluarga › Peduli dari jauh.</string>
-    <string name="cuidar_sem_internet">Periksa internet dan coba lagi (tahan tombol selama 3 detik).</string>
+    <string name="cuidar_sem_internet">Periksa internet dan coba lagi.</string>
     <string name="cuidar_lembrete_sobre">Pengingat · %1$s</string>
     <string name="cuidar_lembrete_explica">Tekan OK jika sudah selesai.</string>
     <string name="cuidar_lembrete_explica_aviso">Tekan OK jika sudah selesai. Jika tidak, dalam %1$d menit %2$s menerima pemberitahuan.</string>

@@ -83,12 +83,6 @@ class BloqueioCanaisActivity : Activity() {
         colunas.addView(coluna(getString(R.string.bc_categorias), listaCats), LinearLayout.LayoutParams(0, -1, 0.38f))
         colunas.addView(coluna(if (modoInfantis) getString(R.string.infantil_coluna_itens) else getString(R.string.bc_canais), listaCanais), LinearLayout.LayoutParams(0, -1, 0.62f).apply { marginStart = dp(20) })
         raiz.addView(colunas, LinearLayout.LayoutParams(-1, 0, 1f).apply { topMargin = dp(16) })
-        // Dica fixa das teclas, no mesmo jeito da lista de canais do player (11sp, cor apagada).
-        raiz.addView(TextView(this).apply {
-            text = if (modoInfantis) getString(R.string.infantil_dica)
-                else getString(R.string.bc_dica)
-            textSize = Estilo.Papel.LEGENDA.sp; setTextColor(apagado); setPaddingRelative(0, dp(10), 0, 0)
-        })
         setContentView(raiz)
 
         listaCats.adapter = adaptadorCats

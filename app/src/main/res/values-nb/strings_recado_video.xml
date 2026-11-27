@@ -6,9 +6,8 @@
     <string name="vid_onde">For å se: Innstillinger › Familie › Familievideoer.</string>
     <string name="vid_depois">Senere</string>
     <string name="vid_assistir">Se</string>
-    <string name="vid_ok_para_assistir">Trykk OK for å se.</string>
     <string name="vid_lista">Familievideoer</string>
-    <string name="vid_lista_det">Sendt via familielenken. Hver blir i 30 dager. Hold OK for å slette.</string>
+    <string name="vid_lista_det">Sendt via familielenken. Hver blir i 30 dager.</string>
     <string name="vid_nenhum">Ingen videoer ennå.</string>
     <string name="vid_apagar">Slett video</string>
     <string name="vid_aceitar">Ta imot videoer</string>

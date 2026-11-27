@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">Voci più chiare attive</string>
     <string name="acess_voz_desligado">Voci più chiare disattive</string>
     <string name="acess_config_titulo">Audio e sottotitoli</string>
-    <string name="acess_config_texto">Per chi vede o sente meno bene. Anche nel menu ▼ del player.</string>
+    <string name="acess_config_texto">Per chi vede o sente meno bene.</string>
 </resources>

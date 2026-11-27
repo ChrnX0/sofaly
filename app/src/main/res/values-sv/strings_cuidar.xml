@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Du kan vänta.</string>
     <string name="cuidar_nao_avisado">Kunde inte meddela %1$s</string>
     <string name="cuidar_sem_aparelho">Ingen telefon är inställd att ta emot. Kontrollera Inställningar › Familj › Omsorg på distans.</string>
-    <string name="cuidar_sem_internet">Kontrollera internet och försök igen (håll knappen i 3 sekunder).</string>
+    <string name="cuidar_sem_internet">Kontrollera internet och försök igen.</string>
     <string name="cuidar_lembrete_sobre">Påminnelse · %1$s</string>
     <string name="cuidar_lembrete_explica">Tryck på OK när det är klart.</string>
     <string name="cuidar_lembrete_explica_aviso">Tryck på OK när det är klart. Utan det inom %1$d minuter får %2$s ett meddelande.</string>

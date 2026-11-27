@@ -15,7 +15,7 @@
     <string name="desf_barra">Muutettu: %1$s</string>
     <string name="desf_botao">Kumoa</string>
     <string name="desf_tela">Viimeisimmät muutokset</string>
-    <string name="desf_tela_det">Mitä muutettiin viimeisten 7 päivän aikana. OK kohteessa palauttaa sen ennalleen.</string>
+    <string name="desf_tela_det">Mitä muutettiin viimeisten 7 päivän aikana.</string>
     <string name="desf_tela_vazia">Ei muutoksia viimeisten 7 päivän aikana.</string>
     <string name="desf_ja_desfeita">kumottu</string>
     <string name="desf_rot_config">Asetukset</string>

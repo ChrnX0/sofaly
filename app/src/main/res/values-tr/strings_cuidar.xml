@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Bekleyebilirsiniz.</string>
     <string name="cuidar_nao_avisado">%1$s bilgilendirilemedi</string>
     <string name="cuidar_sem_aparelho">Almak için ayarlı telefon yok. Ayarlar › Aile › Uzaktan ilgilen bölümüne bakın.</string>
-    <string name="cuidar_sem_internet">İnterneti kontrol edip tekrar deneyin (tuşu 3 saniye basılı tutun).</string>
+    <string name="cuidar_sem_internet">İnterneti kontrol edip tekrar deneyin.</string>
     <string name="cuidar_lembrete_sobre">Hatırlatıcı · %1$s</string>
     <string name="cuidar_lembrete_explica">Yapıldığında OK’e basın.</string>
     <string name="cuidar_lembrete_explica_aviso">Yapıldığında OK’e basın. Basılmazsa %1$d dakika içinde %2$s bir bildirim alır.</string>

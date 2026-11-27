@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">خلفية شاشة التوقف</string>
-    <string name="pv2_fundo_det">خلفية السمة، أو صور حقيقية للأرض من الفضاء · OK يغيّر</string>
     <string name="pv2_fundo_tema">من السمة</string>
     <string name="pv2_fundo_terra">الأرض من الفضاء</string>
     <string name="pv2_relogio">ساعة شاشة التوقف</string>
-    <string name="pv2_relogio_det">ستة أنماط · OK يغيّر</string>
     <string name="pv2_rel_fino">رفيع</string>
     <string name="pv2_rel_editorial">تحريري</string>
     <string name="pv2_rel_monumental">ضخم</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">بالكلمات</string>
     <string name="pv2_rel_empilhado">متراكب</string>
     <string name="pv2_posicao">مكان الساعة</string>
-    <string name="pv2_posicao_det">OK يغيّر</string>
     <string name="pv2_pos_alto">أعلى اليسار</string>
     <string name="pv2_pos_baixo">أسفل اليسار</string>
     <string name="pv2_pos_centro">في المنتصف</string>
     <string name="pv2_tamanho">حجم الساعة</string>
-    <string name="pv2_tamanho_det">الأرقام الكبيرة أسهل في القراءة من بعيد · OK يغيّر</string>
     <string name="pv2_tam_normal">عادي</string>
     <string name="pv2_tam_grande">كبير</string>
     <string name="pv2_mostrar">ما تعرضه شاشة التوقف</string>
-    <string name="pv2_mostrar_det">\"الوقت فقط\": أي زر في جهاز التحكم يعرض الباقي لمدة 15 ث · OK يغيّر</string>
     <string name="pv2_mostrar_so">الوقت فقط</string>
     <string name="pv2_mostrar_vez">من حين لآخر</string>
     <string name="pv2_mostrar_sempre">كل شيء</string>
     <string name="pv2_elementos">على شاشة التوقف</string>
-    <string name="pv2_el_det">يظهر على شاشة التوقف · OK للتشغيل أو الإيقاف</string>
     <string name="pv2_el_saudacao">التحية</string>
     <string name="pv2_el_data">التاريخ</string>
     <string name="pv2_el_linha_dia">خط النهار</string>

@@ -16,7 +16,7 @@
     <string name="anteriormente_titulo">V minulých dílech %1$s</string>
     <string name="anteriormente_assistir">Přehrát %1$s</string>
     <string name="anteriormente_pular_sempre">Nikdy nezobrazovat</string>
-    <string name="anteriormente_desligado">Shrnutí vypnuta. Pro opětovné zapnutí: podržte OK na dílu.</string>
+    <string name="anteriormente_desligado">Shrnutí vypnuta.</string>
     <string name="anteriormente_ligar">Zobrazovat shrnutí „V minulých dílech“</string>
     <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
     <string name="idade_titulo">Maximální věk v dětském režimu</string>
@@ -29,8 +29,8 @@
     <string name="onde_fora">Není ve vašem seznamu · na %1$s</string>
     <string name="onde_grupo">Jinde (JustWatch)</string>
     <!-- Ideia 89: legenda automática -->
-    <string name="legenda_auto_pronta">Titulky staženy automaticky (vytvořené pro tento soubor) · ▼ pro změnu</string>
-    <string name="legenda_auto_pronta_nome">Titulky staženy automaticky · ▼ pro změnu nebo úpravu zpoždění</string>
+    <string name="legenda_auto_pronta">Titulky staženy automaticky (vytvořené pro tento soubor)</string>
+    <string name="legenda_auto_pronta_nome">Titulky staženy automaticky</string>
     <string name="legenda_trad_rotulo">Automatický překlad</string>
     <string name="legenda_trad_traduzindo">Žádné titulky ve vašem jazyce: anglické se překládají na televizoru…</string>
     <string name="legenda_trad_parcial">Titulky přeloženy na televizoru (automatický překlad). Zbytek se dál překládá.</string>

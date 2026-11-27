@@ -30,5 +30,4 @@
     <string name="bb_titulo">Forma de la pantalla de inicio</string>
     <string name="bb_cruz">Cruz</string>
     <string name="bb_barra">Barra abajo</string>
-    <string name="bb_det">Categorías en cruz, o fijas abajo con las apps encima (▲)</string>
 </resources>

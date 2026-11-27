@@ -549,7 +549,7 @@ class CasaActivity : Activity() {
                 ligado -> Estilo.ACENTO
                 foco -> 0x14121212
                 else -> Estilo.SUPERFICIE_ALTA
-            }, Estilo.RAIO_PILULA)
+            }, Estilo.RAIO)
             icone.definirCor(when {
                 ligado && foco -> Estilo.FOCO
                 ligado || foco -> Estilo.TEXTO_NO_FOCO
@@ -610,7 +610,7 @@ class CasaActivity : Activity() {
     }
 
     private fun rotuloEstadoAntigo(dominio: String, estado: String, brilho: Int?): String = when {
-        dominio == "scene" || dominio == "script" -> getString(R.string.casa_rodar)
+        dominio == "scene" || dominio == "script" -> ""
         dominio == "cover" -> getString(if (estado == "closed" || estado == "closing") R.string.casa_fechada else R.string.casa_aberta)
         estado == "on" && brilho != null -> getString(R.string.casa_ligado_pct, brilho)
         estado == "on" -> getString(R.string.casa_ligado)

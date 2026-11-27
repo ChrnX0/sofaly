@@ -18,7 +18,7 @@
     <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
     <string name="elv_cat_n_temporadas">Sezon: %d</string>
     <string name="elv_cat_procurando">Afiş aranıyor…</string>
-    <string name="elv_cat_nada">TMDB\'de bir şey bulunamadı. Doğru adı yazmak için OK\'a basılı tutun.</string>
+    <string name="elv_cat_nada">TMDB\'de bir şey bulunamadı.</string>
     <string name="elv_cat_corrigir_titulo">Düzelt: %s</string>
     <string name="elv_cat_corrigir_explica">Afiş ya da özet yanlış mı? Sonraki sonucu isteyin veya doğru adı ve yılı yazın. Boş ad otomatiğe döner.</string>
     <string name="elv_cat_nao_e">Bu değil</string>

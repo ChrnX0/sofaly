@@ -2,7 +2,6 @@
 <!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
 <resources>
     <string name="vpr_titulo">Tampilan siap pakai</string>
-    <string name="vpr_det">Setiap OK beralih ke tampilan berikutnya: tema, teks, dan warna latar sekaligus</string>
     <string name="vpr_meu">Pengaturan Anda</string>
     <string name="vpr_classico">Klasik</string>
     <string name="vpr_leitura">Mudah dibaca</string>

@@ -180,7 +180,7 @@ internal fun ConfigLauncherActivity.abaAparencia(c: LinearLayout) {
     // Visuais prontos (revisão dos degraus, 1b, 17/11/2026): cada OK aplica o próximo da lista (VisualCodigo.PRONTOS).
     // Na barra única quem faz este papel são os visuais prontos do topo (ConfigLooksRow): uma lista só, não duas.
     fun rotuloPronto() = VisualCodigo.prontoAtual(VisualCodigoTv.atual(this))?.let { nomePronto(it.id) } ?: getString(R.string.vpr_meu)
-    if (!br.paulo.tvlauncher.home.BottomBar.strip(this)) c.addView(linha(getString(R.string.vpr_titulo), getString(R.string.vpr_det), valor = rotuloPronto()) {
+    if (!br.paulo.tvlauncher.home.BottomBar.strip(this)) c.addView(linha(getString(R.string.vpr_titulo), "", valor = rotuloPronto()) {
         val p = VisualCodigo.proximoPronto(VisualCodigoTv.atual(this))
         VisualCodigoTv.aplicar(this, VisualCodigo.codificar(p.visual))
         recreate()   // tema e tamanho do texto mudam a própria tela de Configurações

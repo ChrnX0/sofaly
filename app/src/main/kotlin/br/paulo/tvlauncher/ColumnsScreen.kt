@@ -1,7 +1,6 @@
 package br.paulo.tvlauncher
 
 import android.app.Activity
-import android.graphics.drawable.ColorDrawable
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -73,7 +72,7 @@ class ColumnsScreen(private val a: Activity, titulo: String, subtitulo: String? 
     private val infoCard = LinearLayout(a).apply {
         orientation = LinearLayout.VERTICAL
         setPaddingRelative(dp(Estilo.E3), dp(Estilo.E3 - 4), dp(Estilo.E3), dp(Estilo.E3))
-        background = Estilo.fundo(a, Estilo.SUPERFICIE, Estilo.RAIO, Estilo.BORDA)
+        background = Estilo.caixa(a)
         addView(infoLabel); addView(infoHeadline); addView(infoBody)
         visibility = View.GONE
     }
@@ -81,8 +80,9 @@ class ColumnsScreen(private val a: Activity, titulo: String, subtitulo: String? 
     /** Raiz para o setContentView. */
     val root: LinearLayout = LinearLayout(a).apply {
         orientation = LinearLayout.VERTICAL
-        // Grafite liso (Paulo, 26/11/2026: o escuro nunca azulado). A foto da barra borrada puxava para o azul.
-        background = if (Estilo.altoContraste) ColorDrawable(android.graphics.Color.BLACK) else ColorDrawable(Estilo.FUNDO)
+        // A arte da HOME sob o véu grafite, como toda tela (Paulo, 26/11/2026: "véu sobre a arte" em tudo; o véu é
+        // neutro, nunca azulado). Alto contraste: preto chapado (o próprio fundoTela decide).
+        background = Estilo.fundoTela(a)
         clipChildren = true; clipToPadding = false
         setPaddingRelative(dp(Estilo.MARGEM_LATERAL), dp(Estilo.MARGEM_VERTICAL + 9), dp(Estilo.MARGEM_LATERAL), 0)
         addView(Estilo.tituloTela(a, titulo))
@@ -206,7 +206,7 @@ class ColumnsScreen(private val a: Activity, titulo: String, subtitulo: String? 
         infoCard.visibility = View.VISIBLE
     }
 
-    /** Item do trilho: sem caixa; o da seção aberta fica com o fundo um tom acima, o focado com o foco do sistema. */
+    /** Item do trilho: uma caixa; o da seção aberta fica com o fundo um tom acima, o focado com o foco do sistema. */
     private fun railItem(name: String): TextView = Estilo.texto(a, Estilo.Papel.CORPO, name).apply {
         isFocusable = true; isClickable = true
         maxLines = 2
@@ -227,7 +227,7 @@ class ColumnsScreen(private val a: Activity, titulo: String, subtitulo: String? 
             t.background = when {
                 t.isFocused -> Estilo.fundoFocado(a, Estilo.RAIO)
                 open -> Estilo.fundo(a, Estilo.SUPERFICIE_ALTA, Estilo.RAIO)
-                else -> null
+                else -> Estilo.caixa(a)   // caixa como toda linha do sistema (padrão único, 26/11/2026)
             }
             // Marcado = "você está dentro desta seção" (foco nas linhas dela). Diz isso à acessibilidade e deixa o
             // TodoBotaoFazAlgoTest ver que o OK no trilho levou o foco para as linhas (26/11/2026).

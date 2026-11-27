@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">पहले इंट्रो की शुरुआत चिह्नित करें</string>
     <string name="abertura_invalida">यह इंट्रो नहीं लगता: यह 10 s से 5 मिनट का हो और पहले 15 मिनट में शुरू हो</string>
     <string name="abertura_apagada">इंट्रो चिह्न हटाया</string>
-    <string name="abertura_pular">इंट्रो छोड़ें · OK</string>
+    <string name="abertura_pular">इंट्रो छोड़ें</string>
 </resources>

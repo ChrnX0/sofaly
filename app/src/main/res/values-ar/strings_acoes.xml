@@ -29,7 +29,7 @@
     <string name="lbl_cenas">المشاهد</string>
     <string name="pr_cenas">المشاهد</string>
     <string name="cenas_titulo">المشاهد</string>
-    <string name="cenas_det">OK يشغّل المشهد. أنشئها وعدّلها في لوحة الويب › المنزل والأتمتة › المشاهد.</string>
+    <string name="cenas_det">أنشئها وعدّلها في لوحة الويب › المنزل والأتمتة › المشاهد.</string>
     <string name="cenas_vazio">لا مشاهد بعد. أنشئ واحدًا في لوحة الويب › المنزل والأتمتة › المشاهد.</string>
     <string name="tec_titulo">أزرار جهاز التحكم</string>
     <string name="tec_det">Netflix وYouTube يعملان في أي شاشة؛ الأزرار الملونة والأرقام فقط في الشاشة الرئيسية.</string>

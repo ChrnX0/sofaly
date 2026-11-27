@@ -2,7 +2,6 @@
 <!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
 <resources>
     <string name="vpr_titulo">Fertige Looks</string>
-    <string name="vpr_det">Jedes OK wechselt zum nächsten Look: Design, Text und Hintergrundfarbe zusammen</string>
     <string name="vpr_meu">Eigene Einstellung</string>
     <string name="vpr_classico">Klassisch</string>
     <string name="vpr_leitura">Leicht lesbar</string>

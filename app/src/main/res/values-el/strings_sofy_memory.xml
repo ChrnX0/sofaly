@@ -2,7 +2,7 @@
 <!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
 <resources>
     <string name="smem_titulo">Τι ξέρει η Sofy</string>
-    <string name="smem_sub">Τι έμαθε για το σπίτι. Το OK ξεχνά ένα στοιχείο· το μαθαίνει ξανά.</string>
+    <string name="smem_sub">Τι έμαθε για το σπίτι.</string>
     <string name="smem_linha_det">Τι έμαθε, με Ξέχασε</string>
     <string name="smem_uso">Πότε χρησιμοποιείται η TV</string>
     <string name="smem_uso_det">Ώρες της μέρας που έμαθε: %1$d</string>

@@ -7,8 +7,8 @@
     <string name="bkn_desligado">متوقف</string>
     <string name="bkn_sem_senha">متوقف · عيّن كلمة مرور النسخة الاحتياطية أولًا</string>
     <string name="bkn_senha">كلمة مرور النسخة الاحتياطية</string>
-    <string name="bkn_senha_ok">معيّنة · OK يغيّر</string>
-    <string name="bkn_senha_falta">غير معيّنة · OK يعيّن</string>
+    <string name="bkn_senha_ok">معيّنة</string>
+    <string name="bkn_senha_falta">غير معيّنة</string>
     <string name="bkn_senha_nova">كلمة مرور النسخة الاحتياطية (8 أحرف أو أكثر)</string>
     <string name="bkn_senha_repetir">اكتب كلمة المرور مجددًا</string>
     <string name="bkn_senha_curta">يجب أن تكون كلمة المرور من 8 إلى 128 حرفًا.</string>

@@ -11,4 +11,5 @@
     <string name="cfg3_porta_3_det">Skärmsläckare, sömn, väckning</string>
     <string name="cfg3_porta_4_det">Hem, telefon och panel</string>
     <string name="cfg3_porta_5_det">Uppdateringar, säkerhetskopiering och hjälp</string>
+    <string name="cfg4_fila_portas">Inställningar</string>
 </resources>

@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">Klarere Stimmen an</string>
     <string name="acess_voz_desligado">Klarere Stimmen aus</string>
     <string name="acess_config_titulo">Ton und Untertitel</string>
-    <string name="acess_config_texto">Für alle, die schlechter sehen oder hören. Auch im Menü ▼ des Players.</string>
+    <string name="acess_config_texto">Für alle, die schlechter sehen oder hören.</string>
 </resources>

@@ -11,4 +11,5 @@
     <string name="cfg3_porta_3_det">Заставка, сон, пробудження</string>
     <string name="cfg3_porta_4_det">Дім, телефон і панель</string>
     <string name="cfg3_porta_5_det">Оновлення, резервна копія й довідка</string>
+    <string name="cfg4_fila_portas">Налаштування</string>
 </resources>

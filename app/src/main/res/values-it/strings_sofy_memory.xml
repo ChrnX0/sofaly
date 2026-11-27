@@ -2,7 +2,7 @@
 <!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
 <resources>
     <string name="smem_titulo">Cosa sa Sofy</string>
-    <string name="smem_sub">Cosa ha imparato di questa casa. OK dimentica una voce; ricomincia da zero.</string>
+    <string name="smem_sub">Cosa ha imparato di questa casa.</string>
     <string name="smem_linha_det">Cosa ha imparato, con Dimentica</string>
     <string name="smem_uso">Quando si usa la TV</string>
     <string name="smem_uso_det">Ore del giorno imparate: %1$d</string>

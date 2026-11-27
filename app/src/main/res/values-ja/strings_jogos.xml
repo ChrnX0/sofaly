@@ -17,7 +17,7 @@
     <string name="jogos_parear_falhou">この TV では Bluetooth の設定が開きませんでした。設定の「リモコンとアクセサリ」を開いてください。</string>
     <string name="jogos_baixar">ゲームを入手</string>
     <string name="jogos_escolher">アプリを選ぶ</string>
-    <string name="jogos_escolher_sub">「遊ぶ」に入れるアプリ。OK で「遊ぶ」と「アプリ」を切り替えます。</string>
+    <string name="jogos_escolher_sub">「遊ぶ」に入れるアプリ。</string>
     <string name="jogos_no_card">「遊ぶ」内</string>
     <string name="jogos_na_linha">「アプリ」内</string>
     <string name="jogos_grupo_nuvem">クラウド</string>

@@ -92,7 +92,6 @@
     <string name="lb_lembrete">Erinnerung</string>
     <string name="lb_quando_em">%1$s, auf %2$s.</string>
     <string name="ms_ola">Hallo!</string>
-    <string name="ms_ola_det">Wähle mit den Pfeilen und drücke OK.</string>
     <string name="ms_pedir_ajuda">Um Hilfe bitten</string>
     <string name="ms_pedido_ajuda">Hilferuf</string>
     <string name="ms_alguem_pediu">Jemand hat am Fernseher %1$s um Hilfe gebeten.</string>
@@ -148,7 +147,6 @@
     <string name="bc_categorias">KATEGORIEN</string>
     <string name="bc_canais">SENDER</string>
     <string name="bc_carregando">Sender werden geladen …</string>
-    <string name="bc_dica">OK sperrt oder entsperrt · OK auf einer Kategorie gilt für alles darin · ◀ ▶ Kategorien und Sender · ZURÜCK beendet (schon gespeichert)</string>
     <string name="bc_categoria_bloqueada">die ganze Kategorie „%1$s“ ist gesperrt: entsperre sie in der linken Spalte</string>
     <string name="bc_filme">Film · %1$s</string>
     <string name="bc_serie">Serie · %1$s</string>

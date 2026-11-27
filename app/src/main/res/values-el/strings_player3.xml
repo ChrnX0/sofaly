@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Σημειώστε πρώτα την αρχή της εισαγωγής</string>
     <string name="abertura_invalida">Αυτό δεν μοιάζει με εισαγωγή: πρέπει να διαρκεί 10 δ. ως 5 λεπ. και να αρχίζει στα πρώτα 15 λεπ.</string>
     <string name="abertura_apagada">Η σήμανση εισαγωγής διαγράφηκε</string>
-    <string name="abertura_pular">Παράλειψη εισαγωγής · OK</string>
+    <string name="abertura_pular">Παράλειψη εισαγωγής</string>
 </resources>

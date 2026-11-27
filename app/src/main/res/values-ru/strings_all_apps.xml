@@ -30,9 +30,6 @@
     <string name="aa_risk_care">По карточке: осторожно</string>
     <string name="aa_risk_essential">Важно для телевизора: не замораживайте</string>
     <string name="aa_tip_idle">Не открывалось %1$d дн. Заморозка освобождает память, её можно отменить.</string>
-    <string name="aa_hint_app">OK открывает · удерживайте OK, чтобы переместить, скрыть, заморозить или удалить</string>
-    <string name="aa_hint_frozen">OK размораживает и открывает</string>
-    <string name="aa_hint_lock">OK запрашивает PIN-код и показывает здесь скрытые приложения</string>
     <string name="aa_open">Открыть</string>
     <string name="aa_freeze">Заморозить</string>
     <string name="aa_freezing">Заморозка: %1$s…</string>

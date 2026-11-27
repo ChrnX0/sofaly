@@ -29,7 +29,7 @@
     <string name="lbl_cenas">장면</string>
     <string name="pr_cenas">장면</string>
     <string name="cenas_titulo">장면</string>
-    <string name="cenas_det">OK로 장면 실행. 웹 패널 › 홈 및 자동화 › 장면에서 만들고 편집하세요.</string>
+    <string name="cenas_det">웹 패널 › 홈 및 자동화 › 장면에서 만들고 편집하세요.</string>
     <string name="cenas_vazio">아직 장면이 없습니다. 웹 패널 › 홈 및 자동화 › 장면에서 만드세요.</string>
     <string name="tec_titulo">리모컨 버튼</string>
     <string name="tec_det">Netflix와 YouTube는 모든 화면에서 작동하고, 컬러 키와 숫자는 홈 화면에서만 작동합니다.</string>

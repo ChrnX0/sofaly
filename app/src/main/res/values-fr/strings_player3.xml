@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Marquez d’abord le début du générique</string>
     <string name="abertura_invalida">Ça ne ressemble pas à un générique : il doit durer de 10 s à 5 min et commencer dans les 15 premières minutes</string>
     <string name="abertura_apagada">Marque du générique supprimée</string>
-    <string name="abertura_pular">Passer le générique · OK</string>
+    <string name="abertura_pular">Passer le générique</string>
 </resources>

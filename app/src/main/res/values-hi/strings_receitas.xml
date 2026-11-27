@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">यह टीवी किसके लिए है?</string>
-    <string name="rec_subtitulo">एक OK से टीवी तैयार। जब चाहें वापस कर सकते हैं।</string>
+    <string name="rec_subtitulo">जब चाहें वापस कर सकते हैं।</string>
     <string name="rec_vo">दादी का टीवी</string>
     <string name="rec_vo_det">बड़े कार्ड जिनका नाम बोला जाता है, बड़े अक्षर और मदद माँगें बटन।</string>
     <string name="rec_criancas">बच्चों का टीवी</string>

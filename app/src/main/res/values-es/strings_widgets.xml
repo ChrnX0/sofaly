@@ -2,8 +2,8 @@
 <!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
 <resources>
     <string name="wdg_titulo">Editar widgets de inicio</string>
-    <string name="wdg_det">Widgets en vivo de otras apps en la pantalla de inicio. Las flechas los mueven, OK muestra opciones.</string>
-    <string name="wdg_vazio">Aún no hay widgets en inicio. OK añade uno.</string>
+    <string name="wdg_det">Widgets en vivo de otras apps en la pantalla de inicio.</string>
+    <string name="wdg_vazio">Aún no hay widgets en inicio.</string>
     <string name="wdg_estado_mover">Moviendo: %1$s</string>
     <string name="wdg_estado_tamanho">Tamaño: %1$s · %2$d × %3$d</string>
     <string name="wdg_mover">Mover</string>

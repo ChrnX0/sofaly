@@ -6,7 +6,6 @@
     <string name="pl_a_seguir">A seguire</string>
     <string name="pl_dormir">Timer di spegnimento</string>
     <string name="pl_dormir_min">Tra %1$d min</string>
-    <string name="pl_barra_dica">◀ ▶ spostano di 10 s · tieni premuto per andare più veloce</string>
     <string name="pl_abrir">Apri il player</string>
     <string name="pl_abrir_det">Schermo intero, con ciò che viene dopo</string>
 </resources>

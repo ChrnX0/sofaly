@@ -15,7 +15,7 @@
     <string name="desf_barra">Değişti: %1$s</string>
     <string name="desf_botao">Geri al</string>
     <string name="desf_tela">Son değişiklikler</string>
-    <string name="desf_tela_det">Son 7 günde değiştirilenler. Birinde OK, onu eski hâline getirir.</string>
+    <string name="desf_tela_det">Son 7 günde değiştirilenler.</string>
     <string name="desf_tela_vazia">Son 7 günde değişiklik yok.</string>
     <string name="desf_ja_desfeita">geri alındı</string>
     <string name="desf_rot_config">Ayarlar</string>

@@ -41,13 +41,12 @@
     <string name="casa_desligado">Pois</string>
     <string name="casa_aberta">Auki</string>
     <string name="casa_fechada">Kiinni</string>
-    <string name="casa_rodar">OK suorittaa</string>
     <string name="casa_indisponivel">Ei käytettävissä</string>
     <string name="casa_sem_config_titulo">Yhdistä kotisi</string>
     <string name="casa_dica_acionar">kytke päälle tai pois</string>
     <string name="casa_erro">Home Assistant ei vastannut: %1$s</string>
     <string name="casa_ligado_pct">Päällä · %1$d%%</string>
-    <string name="casa_brilho_ajuste">Kirkkaus %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">Kirkkaus %1$d%%</string>
     <string name="casa_dica_brilho">kirkkaus</string>
     <string name="casa_tecla_segurar_ok">PIDÄ OK</string>
     <string name="ca_liberado">Vapautettiin %1$s. Vapaana nyt: %2$s.</string>

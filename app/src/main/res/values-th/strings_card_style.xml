@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">ปรับแต่ง</string>
-    <string name="ft_dica">OK หรือ ▶ ◀ เพื่อเปลี่ยน · BACK เพื่อปิด</string>
     <string name="ft_abrir">ปรับขณะดูหน้าจอหลัก</string>
     <string name="ft_abrir_det">แบบอักษร นาฬิกา สีไฮไลต์ มุม แสงเรือง และขนาด แบบสด</string>
     <string name="cs_destaque">สีไฮไลต์</string>

@@ -29,7 +29,7 @@
     <string name="lbl_cenas">Scènes</string>
     <string name="pr_cenas">Scènes</string>
     <string name="cenas_titulo">Scènes</string>
-    <string name="cenas_det">OK lance la scène. Créez-les et modifiez-les dans le panneau web › Maison et automatisations › Scènes.</string>
+    <string name="cenas_det">Créez-les et modifiez-les dans le panneau web › Maison et automatisations › Scènes.</string>
     <string name="cenas_vazio">Pas encore de scènes. Créez-en une dans le panneau web › Maison et automatisations › Scènes.</string>
     <string name="tec_titulo">Boutons de la télécommande</string>
     <string name="tec_det">Netflix et YouTube fonctionnent sur tous les écrans ; touches de couleur et chiffres uniquement sur l’accueil.</string>

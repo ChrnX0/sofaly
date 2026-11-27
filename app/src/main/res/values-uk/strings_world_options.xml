@@ -30,5 +30,4 @@
     <string name="bb_titulo">Вигляд головного екрана</string>
     <string name="bb_cruz">Хрест</string>
     <string name="bb_barra">Нижня панель</string>
-    <string name="bb_det">Категорії хрестом або закріплені внизу з застосунками вище (▲)</string>
 </resources>

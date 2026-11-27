@@ -107,7 +107,6 @@
     <string name="lb_lembrete">Připomínka</string>
     <string name="lb_quando_em">%1$s, na %2$s.</string>
     <string name="ms_ola">Ahoj!</string>
-    <string name="ms_ola_det">Vyberte šipkami a stiskněte OK.</string>
     <string name="ms_pedir_ajuda">Požádat o pomoc</string>
     <string name="ms_pedido_ajuda">Žádost o pomoc</string>
     <string name="ms_alguem_pediu">Někdo požádal o pomoc u televizoru %1$s.</string>
@@ -178,7 +177,6 @@
     <string name="bc_categorias">KATEGORIE</string>
     <string name="bc_canais">KANÁLY</string>
     <string name="bc_carregando">načítají se kanály…</string>
-    <string name="bc_dica">OK blokuje nebo odblokuje · OK na kategorii platí pro celou · ◀ ▶ kategorie a kanály · ZPĚT odejde (už uloženo)</string>
     <string name="bc_categoria_bloqueada">celá kategorie \"%1$s\" je blokovaná: odblokujte ji v levém sloupci</string>
     <string name="bc_filme">Film · %1$s</string>
     <string name="bc_serie">Seriál · %1$s</string>

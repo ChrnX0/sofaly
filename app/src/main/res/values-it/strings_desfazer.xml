@@ -15,7 +15,7 @@
     <string name="desf_barra">Modificato: %1$s</string>
     <string name="desf_botao">Annulla</string>
     <string name="desf_tela">Modifiche recenti</string>
-    <string name="desf_tela_det">Ciò che è cambiato negli ultimi 7 giorni. OK su una la riporta com\'era.</string>
+    <string name="desf_tela_det">Ciò che è cambiato negli ultimi 7 giorni.</string>
     <string name="desf_tela_vazia">Nessuna modifica negli ultimi 7 giorni.</string>
     <string name="desf_ja_desfeita">annullata</string>
     <string name="desf_rot_config">Impostazioni</string>

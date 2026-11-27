@@ -2,7 +2,6 @@
 <!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
 <resources>
     <string name="vpr_titulo">Έτοιμες εμφανίσεις</string>
-    <string name="vpr_det">Κάθε OK αλλάζει στην επόμενη εμφάνιση: θέμα, κείμενο και χρώμα φόντου μαζί</string>
     <string name="vpr_meu">Η δική σας</string>
     <string name="vpr_classico">Κλασική</string>
     <string name="vpr_leitura">Εύκολη ανάγνωση</string>

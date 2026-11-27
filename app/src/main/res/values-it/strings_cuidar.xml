@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Puoi aspettare.</string>
     <string name="cuidar_nao_avisado">Impossibile avvisare %1$s</string>
     <string name="cuidar_sem_aparelho">Nessun telefono è impostato per ricevere. Controlla Impostazioni › Famiglia › Assistenza a distanza.</string>
-    <string name="cuidar_sem_internet">Controlla internet e riprova (tieni premuto il tasto 3 secondi).</string>
+    <string name="cuidar_sem_internet">Controlla internet e riprova.</string>
     <string name="cuidar_lembrete_sobre">Promemoria · %1$s</string>
     <string name="cuidar_lembrete_explica">Premi OK quando è fatto.</string>
     <string name="cuidar_lembrete_explica_aviso">Premi OK quando è fatto. Altrimenti, tra %1$d minuti %2$s riceve un avviso.</string>

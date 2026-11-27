@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Merkitse ensin alkutunnuksen alku</string>
     <string name="abertura_invalida">Se ei näytä alkutunnukselta: sen on kestettävä 10 s – 5 min ja alettava ensimmäisten 15 minuutin aikana</string>
     <string name="abertura_apagada">Alkutunnuksen merkintä poistettu</string>
-    <string name="abertura_pular">Ohita alkutunnus · OK</string>
+    <string name="abertura_pular">Ohita alkutunnus</string>
 </resources>

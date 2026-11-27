@@ -15,10 +15,10 @@
     <string name="cfg_rotinas">例行程序</string>
     <string name="cfg_sec_atualizacao">更新</string>
     <string name="cfg_atualizar">检查新版本</string>
-    <string name="cfg_atualizar_det">版本 %1$s · %2$s · 按 OK 立即检查</string>
+    <string name="cfg_atualizar_det">版本 %1$s · %2$s</string>
     <string name="cfg_procurando">正在检查 GitHub…</string>
     <string name="cfg_instalar">立即安装版本 %1$d</string>
-    <string name="cfg_instalar_det">启动器会关闭并在几秒后自动恢复 · 按 OK 安装</string>
+    <string name="cfg_instalar_det">启动器会关闭并在几秒后自动恢复</string>
     <string name="cfg_instalando">正在下载并校验…</string>
     <string name="cfg_sec_rede">网络</string>
     <string name="cfg_dns">私人 DNS</string>
@@ -30,7 +30,6 @@
     <string name="cfg_sec_ligado">已开启的功能 — %1$s</string>
     <string name="cfg_ligado">开</string>
     <string name="cfg_so_pc">" · 仅能用电脑（adb）"</string>
-    <string name="cfg_tenta_ligar">" · 按 OK 尝试开启"</string>
     <string name="cfg_perm_fixas">已授予固定权限</string>
     <string name="cfg_shell_estado">自有 Shell</string>
     <string name="cfg_shell_pareado">已配对：启动器会通过无线调试自动重新连接</string>
@@ -65,7 +64,7 @@
     <string name="rec_teclas">按键服务</string>
     <string name="rec_teclas_sem">没有它：按主屏幕键可能打开 Google 启动器，Netflix/YouTube 按键也不会被重新分配</string>
     <string name="rec_tudo">全部已开启</string>
-    <string name="rec_faltam">%2$d 项功能中有 %1$d 项未开启 · 在某项上按 OK 尝试开启</string>
+    <string name="rec_faltam">%2$d 项功能中有 %1$d 项未开启</string>
     <string name="bv_titulo">欢迎</string>
     <string name="bv_texto">主屏幕、时钟、天气、闹钟和屏保已经可以使用。如需其他功能，可在此开启（%1$s）。</string>
     <string name="bv_comecar">开始</string>
@@ -90,7 +89,6 @@
     <string name="rot_desligada_sufixo">" · 关"</string>
     <string name="rot_nova">新建例行程序</string>
     <string name="rot_editar">编辑例行程序</string>
-    <string name="rot_editor_det">按 OK 更改每一行 · 按返回键不保存退出</string>
     <string name="rot_hora">时间：%1$s</string>
     <string name="rot_dias">日期：%1$s</string>
     <string name="rot_acao">操作：%1$s</string>
@@ -99,12 +97,7 @@
     <string name="rot_ocioso">仅在无人操作达到此时长时：%1$s</string>
     <string name="rot_ligada">开</string>
     <string name="rot_desligada">关</string>
-    <string name="rot_hora_det">◀ ▶ 5 分钟 · OK +1 小时</string>
-    <string name="rot_dias_det">OK：每天、周一至周五、周末、仅一次</string>
-    <string name="rot_ok_muda">按 OK 更改</string>
-    <string name="rot_app_det">OK 或 ▶ 下一个 · ◀ 上一个</string>
     <string name="rot_ocioso_det">不会打扰正在观看的人</string>
-    <string name="rot_ativa_det">按 OK 开启/关闭此例行程序</string>
     <string name="rot_salvar">保存</string>
     <string name="rot_escolha_app">选择应用</string>
     <string name="rot_apagar">删除此例行程序</string>
@@ -167,7 +160,6 @@
     <string name="pp_carregando">加载中…</string>
     <string name="pp_conectar">连接</string>
     <string name="cal_sem_conta">无 Google 账号</string>
-    <string name="cal_dica">◀ ▶ 切换月份</string>
     <string name="cal_30">未来 30 天</string>
     <string name="cal_nenhuma_conta">电视上没有 Google 账号</string>
     <string name="cal_nada">没有日程（或日历仍在同步）</string>
@@ -256,7 +248,6 @@
     <string name="esc_botao">%1$s 按钮打开：</string>
     <string name="fd_nascer">日出 %1$s</string>
     <string name="fd_por">日落 %1$s</string>
-    <string name="dns_dica">OK：使用   ·   在你的服务器上长按 OK：删除   ·   返回：退出</string>
     <string name="dns_auto">自动</string>
     <string name="dns_auto_det">使用路由器 DNS，支持时加密（Android 默认）</string>
     <string name="dns_desl">关</string>
@@ -369,7 +360,7 @@
     <string name="atu_versao">发布 %1$d：APK 版本（%2$d）与标签不符</string>
     <string name="atu_chave">GitHub 上有版本 %1$d，但它使用了此电视不接受的其他密钥签名：此电视需通过电脑更新</string>
     <string name="atu_disponivel">版本 %1$d 可以安装（已安装 %2$d）</string>
-    <string name="atu_trocou">自上次检查后版本已变化 · 按 OK 重新检查</string>
+    <string name="atu_trocou">自上次检查后版本已变化</string>
     <string name="atu_instalando">正在安装 %1$d（已安装 %2$d）</string>
     <string name="atu_ok">已更新</string>
     <string name="atu_falhou">安装失败（%1$d）：%2$s</string>
@@ -380,7 +371,6 @@
     <string name="vig_pausada_tela">版本 %1$d 安装后立即崩溃了两次 · “%2$s”在下一个版本前保持关闭</string>
     <string name="vig_tela_bloqueada">此界面在下次更新前保持关闭（它导致启动器崩溃）</string>
     <string name="cfg_vig_liberar">安全模式</string>
-    <string name="cfg_vig_liberar_det">" · 按 OK 重新开启"</string>
     <string name="home_voz_indisponivel">此电视无法打开语音搜索</string>
     <string name="home_alarme_hoje">今天</string>
     <string name="home_alarme_amanha">明天</string>
@@ -389,12 +379,10 @@
     <string name="vod_carregando">正在加载视频…</string>
     <string name="player_sem_canais">尚未添加频道列表。</string>
     <string name="player_tentando">频道 %1$d 没有信号。正在重试…</string>
-    <string name="player_sem_sinal">频道 %1$d 无响应。请用 ▲ ▼ 或 OK 选择其他频道。</string>
+    <string name="player_sem_sinal">频道 %1$d 无响应。</string>
     <string name="player_canal_nao_existe">没有频道 %1$d。</string>
     <string name="player_ao_vivo">直播</string>
     <string name="player_a_seguir">接下来：%1$s</string>
-    <string name="player_teclas">▲ ▼ 频道 · OK 频道列表 · 长按 OK 2 秒：收藏 · ◀ 上一个频道 · ▶ ▶ 选项 · 返回 退出</string>
-    <string name="player_teclas_pausa">▶❙❙ 或 OK 继续 · ▶ 选项（回到直播） · ▲ ▼ 频道 · 返回 退出</string>
     <string name="player_cat_busca">搜索：%1$s</string>
     <string name="player_acao_buscar">搜索</string>
     <string name="player_acao_filtros">筛选</string>
@@ -418,7 +406,6 @@
     <string name="filmes_interesse_pos">★ 已将 %1$s 加入待看清单</string>
     <string name="filmes_interesse_tirou">已将 %1$s 移出待看清单</string>
     <string name="filmes_interesses_cheio">待看清单已有 500 部：请先删除一部。</string>
-    <string name="filmes_interesses_vazio">在海报上长按 OK 2 秒即可加入此处（再次长按可移除）。</string>
     <string name="filmes_assistido">已看过</string>
     <string name="filmes_selo_leg">字幕</string>
     <string name="vod_sem_conta">此视频的账号已不存在。</string>
@@ -427,7 +414,6 @@
     <string name="vod_audio">音频</string>
     <string name="vod_legenda">字幕</string>
     <string name="vod_faixas">音频和字幕</string>
-    <string name="vod_teclas">OK 暂停 · ◀ 10 秒 · ▶ 30 秒（长按加速）· ▼ 音频、字幕和画面 · ⏮ ⏭ 章节 · 返回 退出</string>
     <string name="series_titulo">剧集</string>
     <string name="series_carregando">正在加载剧集…</string>
     <string name="series_vazio">还没有剧集</string>
@@ -438,7 +424,6 @@
     <string name="series_temporada">第 %1$d 季</string>
     <string name="player_acao_guia">节目指南</string>
     <string name="player_sem_guia_curto">无节目指南</string>
-    <string name="player_grade_teclas">OK 观看 · ◀ ▶ 节目 · ▲ ▼ 频道</string>
     <string name="player_busca_dica">频道或节目名称</string>
     <string name="player_busca_nada">未找到“%1$s”。</string>
     <string name="player_filtro_qualquer">任意</string>
@@ -459,7 +444,6 @@
     <string name="infantil_titulo">儿童类别</string>
     <string name="infantil_carregando">正在加载类别…</string>
     <string name="infantil_coluna_itens">包含内容</string>
-    <string name="infantil_dica">按 OK 将类别标记/取消为儿童 · 适用于电视直播、电影和剧集 · 返回键退出（已保存）</string>
     <string name="infantil_so_categoria">请在左栏标记整个类别</string>
     <string name="infantil_vazio">没有类别：请在 设置 › 电视和电影 中添加账号并重新加载频道</string>
     <string name="infantil_limite">成人类别不能设为儿童类别</string>
@@ -477,11 +461,10 @@
     <string name="player_cat_favoritos">收藏</string>
     <string name="player_cat_recentes">最近</string>
     <string name="player_cat_outros">其他</string>
-    <string name="player_sem_favoritos">还没有收藏。在频道上长按 OK 2 秒即可加入此处。</string>
+    <string name="player_sem_favoritos">还没有收藏。</string>
     <string name="player_categoria_vazia">此类别中没有频道。</string>
     <string name="player_sem_guia">此频道没有节目指南。</string>
     <string name="player_depois">稍后</string>
-    <string name="player_lista_teclas">OK 观看 · 长按 OK 2 秒：收藏或移除 · 在类别上长按 OK：隐藏 · ◀ 类别</string>
     <string name="player_favorito_pos">★ 已将 %1$s 加入收藏</string>
     <string name="player_favorito_tirou">已将 %1$s 移出收藏</string>
     <string name="player_favoritos_cheio">已有 500 个收藏：请先删除一个。</string>
@@ -642,7 +625,6 @@ AS\\Movies）。</string>
     <string name="tvv_vazio">此频道还没有保存的节目。</string>
     <string name="tvv_voltou">已回到直播</string>
     <string name="tvv_selo">回看</string>
-    <string name="tvv_teclas">◀ ▶ 30 秒 · OK 选项 · 返回 直播</string>
     <string name="tvv_pausar">暂停</string>
     <string name="tvv_continuar">继续</string>
     <string name="tvv_ao_vivo">回到直播</string>
@@ -659,7 +641,7 @@ AS\\Movies）。</string>
     <string name="series_nao_visto">标记为未看</string>
     <string name="idioma_secao">电影和剧集</string>
     <string name="idioma_titulo">首选音频</string>
-    <string name="idioma_det">原声配电视语言字幕，或电视语言配音。每部电影和剧集会记住在播放器中（▼）所做的更改</string>
+    <string name="idioma_det">原声配电视语言字幕，或电视语言配音。每部电影和剧集会记住在播放器中所做的更改</string>
     <string name="idioma_original">原声带字幕</string>
     <string name="idioma_dublado">配音</string>
     <string name="idioma_legendado">字幕</string>
@@ -807,8 +789,8 @@ AS\\Movies）。</string>
     <string name="st_titulo">U 盘和存储</string>
     <string name="st_explica">选择电视如何使用 U 盘。空间不够？它可以变成电视存储，放大型应用。</string>
     <string name="st_linha_det">把 U 盘用作电视存储</string>
-    <string name="st_sem_shell">需要电视自带的 shell（设置 › 系统 › 高级）。按 OK 重试。</string>
-    <string name="st_sem_pen">没有插入 U 盘。插入后按 OK。</string>
+    <string name="st_sem_shell">需要电视自带的 shell（设置 › 系统 › 高级）。</string>
+    <string name="st_sem_pen">没有插入 U 盘。</string>
     <string name="st_tv_livre">电视存储：%2$s 中剩余 %1$s</string>
     <string name="st_pen">U 盘 · %1$s · %2$s</string>
     <string name="st_modo_comum">普通 U 盘</string>
@@ -822,14 +804,13 @@ AS\\Movies）。</string>
     <string name="st_motivo_grande">一半给应用，一半给录像和文件</string>
     <string name="st_motivo_apertada">电视快满了</string>
     <string name="st_medido">写入 %1$s MB/s</string>
-    <string name="st_medir_dica">按 OK 测速</string>
     <string name="st_usar_comum">用作普通 U 盘</string>
-    <string name="st_usar_misto">混合使用：普通 %1$d%%  ◀ ▶</string>
+    <string name="st_usar_misto">混合使用：普通 %1$d%%</string>
     <string name="st_usar_tv">用作电视存储</string>
     <string name="st_apps">U 盘上的应用</string>
     <string name="st_apps_det">选择要移动的应用（大的在前）</string>
     <string name="st_apps_nenhum">没有可以移动的应用。</string>
-    <string name="st_apps_rodape">OK 移动应用；✓ = 已在 U 盘上</string>
+    <string name="st_apps_rodape">✓ = 已在 U 盘上</string>
     <string name="st_compartilhado">照片和文件：%1$s</string>
     <string name="st_na_tv">在电视上</string>
     <string name="st_no_pen">在 U 盘上</string>
@@ -854,7 +835,7 @@ AS\\Movies）。</string>
     <string name="st_voltar_comum">恢复为普通 U 盘（应用回到电视）</string>
     <string name="st_trazendo">正在把 %1$s 移回电视…</string>
     <string name="st_sumiram">U 盘已拔出：%1$s 会隐藏，直到插回。</string>
-    <string name="st_sugestao">电视存储快满了。把 %1$s（%2$s）移到 U 盘：在应用上长按 OK。</string>
+    <string name="st_sugestao">电视存储快满了。把 %1$s（%2$s）移到 U 盘</string>
     <string name="st_medindo">正在测量U盘速度，以推荐最佳用法…</string>
     <string name="st_lento_titulo">U盘太慢</string>
     <string name="st_lento_bloqueado">此U盘写入速度为 %1$s MB/s。要作为电视存储，至少需要 %2$d MB/s：低于此值应用会卡顿，电视可能无法启动。请将它用作普通U盘。</string>
@@ -872,12 +853,12 @@ AS\\Movies）。</string>
     <string name="aviso_sync_texto">这台电视没有 %1$s 账号。请在 设置 › 电视和电影 中连接。</string>
     <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
     <string name="ver_novidades">新功能</string>
-    <string name="ver_novidades_det">版本 %2$s 有 %1$d 项更改 · 按 OK 阅读</string>
+    <string name="ver_novidades_det">版本 %2$s 有 %1$d 项更改</string>
     <string name="ver_novidades_sobre">版本 %1$s</string>
     <string name="ver_ok">确定</string>
     <string name="ver_conferir">在电视上检查</string>
-    <string name="ver_conferir_det">已用遥控器检查 %1$d / %2$d 项 · 按 OK 开始</string>
-    <string name="ver_conferir_sub">版本 %1$s · %2$d 项 · 在某项上按 OK 回答</string>
+    <string name="ver_conferir_det">已用遥控器检查 %1$d / %2$d 项</string>
+    <string name="ver_conferir_sub">版本 %1$s · %2$d 项</string>
     <string name="ver_conferido">已检查 %1$d / %2$d 项</string>
     <string name="ver_sim">是</string>
     <string name="ver_nao">否</string>

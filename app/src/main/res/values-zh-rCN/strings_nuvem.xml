@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">正在等待你在手机上确认…</string>
     <string name="rede_nuvem_salvando">正在登录…</string>
     <string name="rede_nuvem_recusado">服务拒绝了请求。请检查应用 ID 后重试。</string>
-    <string name="rede_erro_nuvem_login">此账号的授权已过期或被撤销。请移除账号（长按 OK）并重新登录。</string>
+    <string name="rede_erro_nuvem_login">此账号的授权已过期或被撤销。请移除账号并重新登录。</string>
     <string name="rede_od_titulo">OneDrive：你在 Microsoft 的应用</string>
     <string name="rede_od_explica">在电脑上操作一次：entra.microsoft.com › 应用注册 › 新注册。账户类型选择包含个人 Microsoft 账户的那一项。然后在“身份验证”下开启“允许公共客户端流”。复制“应用程序(客户端) ID”并在这里输入（可以在面板中用手机输入）。</string>
     <string name="rede_od_id">应用程序(客户端) ID</string>

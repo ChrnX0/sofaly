@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">Telefonunuzda onaylamanız bekleniyor…</string>
     <string name="rede_nuvem_salvando">Oturum açılıyor…</string>
     <string name="rede_nuvem_recusado">Hizmet reddetti. Uygulama kimliğini kontrol edin ve yeniden deneyin.</string>
-    <string name="rede_erro_nuvem_login">Bu hesabın izni sona erdi veya kaldırıldı. Hesabı kaldırın (OK basılı) ve yeniden oturum açın.</string>
+    <string name="rede_erro_nuvem_login">Bu hesabın izni sona erdi veya kaldırıldı. Hesabı kaldırın ve yeniden oturum açın.</string>
     <string name="rede_od_titulo">OneDrive: Microsoft’taki uygulamanız</string>
     <string name="rede_od_explica">Bir kez, bir bilgisayarda: entra.microsoft.com › Uygulama kayıtları › Yeni kayıt. Hesap türleri için kişisel Microsoft hesaplarını içereni seçin. Ardından Kimlik Doğrulama altında «Genel istemci akışlarına izin ver»i açın. «Uygulama (istemci) kimliği»ni kopyalayıp buraya yazın (telefonunuzdan, panelde yazabilirsiniz).</string>
     <string name="rede_od_id">Uygulama (istemci) kimliği</string>

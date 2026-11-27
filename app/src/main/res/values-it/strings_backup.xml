@@ -7,8 +7,8 @@
     <string name="bkn_desligado">disattivo</string>
     <string name="bkn_sem_senha">disattivo · imposta prima la password del backup</string>
     <string name="bkn_senha">Password del backup</string>
-    <string name="bkn_senha_ok">impostata · OK cambia</string>
-    <string name="bkn_senha_falta">non impostata · OK imposta</string>
+    <string name="bkn_senha_ok">impostata</string>
+    <string name="bkn_senha_falta">non impostata</string>
     <string name="bkn_senha_nova">Password del backup (8 o più caratteri)</string>
     <string name="bkn_senha_repetir">Digita di nuovo la password</string>
     <string name="bkn_senha_curta">La password deve avere da 8 a 128 caratteri.</string>

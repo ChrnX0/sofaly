@@ -6,9 +6,8 @@
     <string name="vid_onde">Щоб переглянути: Налаштування › Родина › Відео родини.</string>
     <string name="vid_depois">Пізніше</string>
     <string name="vid_assistir">Дивитися</string>
-    <string name="vid_ok_para_assistir">Натисніть OK, щоб переглянути.</string>
     <string name="vid_lista">Відео родини</string>
-    <string name="vid_lista_det">Надіслано через зв\'язок родини. Кожне зберігається 30 днів. Утримуйте OK, щоб видалити.</string>
+    <string name="vid_lista_det">Надіслано через зв\'язок родини. Кожне зберігається 30 днів.</string>
     <string name="vid_nenhum">Відео ще немає.</string>
     <string name="vid_apagar">Видалити відео</string>
     <string name="vid_aceitar">Приймати відео</string>

@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">Wachten tot je bevestigt op je telefoon…</string>
     <string name="rede_nuvem_salvando">Inloggen…</string>
     <string name="rede_nuvem_recusado">De dienst weigerde. Controleer de app-id en probeer het opnieuw.</string>
-    <string name="rede_erro_nuvem_login">De toestemming van dit account is verlopen of ingetrokken. Verwijder het account (OK ingedrukt houden) en log opnieuw in.</string>
+    <string name="rede_erro_nuvem_login">De toestemming van dit account is verlopen of ingetrokken. Verwijder het account en log opnieuw in.</string>
     <string name="rede_od_titulo">OneDrive: je app bij Microsoft</string>
     <string name="rede_od_explica">Eén keer, op een computer: entra.microsoft.com › App-registraties › Nieuwe registratie. Kies bij accounttypen het type dat persoonlijke Microsoft-accounts bevat. Zet daarna onder Verificatie “Openbare clientstromen toestaan” aan. Kopieer de “Toepassings-id (client)” en typ hem hier (je kunt vanaf je telefoon typen, in het paneel).</string>
     <string name="rede_od_id">Toepassings-id (client)</string>

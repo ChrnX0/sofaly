@@ -31,7 +31,7 @@
     <string name="lbl_cenas">ฉาก</string>
     <string name="pr_cenas">ฉาก</string>
     <string name="cenas_titulo">ฉาก</string>
-    <string name="cenas_det">OK เพื่อเรียกใช้ฉาก สร้างและแก้ไขได้ในแผงควบคุมเว็บ › บ้านและระบบอัตโนมัติ › ฉาก</string>
+    <string name="cenas_det">สร้างและแก้ไขได้ในแผงควบคุมเว็บ › บ้านและระบบอัตโนมัติ › ฉาก</string>
     <string name="cenas_vazio">ยังไม่มีฉาก สร้างได้ในแผงควบคุมเว็บ › บ้านและระบบอัตโนมัติ › ฉาก</string>
     <plurals name="cenas_acoes">
         <item quantity="one">%d การทำงาน</item>

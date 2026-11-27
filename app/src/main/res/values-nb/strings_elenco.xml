@@ -16,7 +16,7 @@
     <string name="anteriormente_titulo">Tidligere i %1$s</string>
     <string name="anteriormente_assistir">Se %1$s</string>
     <string name="anteriormente_pular_sempre">Vis aldri</string>
-    <string name="anteriormente_desligado">Oppsummeringer slått av. For å slå dem på igjen: hold OK på en episode.</string>
+    <string name="anteriormente_desligado">Oppsummeringer slått av.</string>
     <string name="anteriormente_ligar">Vis oppsummeringer «Tidligere i»</string>
     <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
     <string name="idade_titulo">Maksimal alder i barnemodus</string>
@@ -29,8 +29,8 @@
     <string name="onde_fora">Ikke i listen din · på %1$s</string>
     <string name="onde_grupo">Andre steder (JustWatch)</string>
     <!-- Ideia 89: legenda automática -->
-    <string name="legenda_auto_pronta">Undertekster lastet ned automatisk (laget for denne filen) · ▼ for å bytte</string>
-    <string name="legenda_auto_pronta_nome">Undertekster lastet ned automatisk · ▼ for å bytte eller justere forsinkelsen</string>
+    <string name="legenda_auto_pronta">Undertekster lastet ned automatisk (laget for denne filen)</string>
+    <string name="legenda_auto_pronta_nome">Undertekster lastet ned automatisk</string>
     <string name="legenda_trad_rotulo">Automatisk oversettelse</string>
     <string name="legenda_trad_traduzindo">Ingen undertekster på ditt språk: oversetter de engelske på TV-en…</string>
     <string name="legenda_trad_parcial">Undertekster oversatt på TV-en (automatisk oversettelse). Resten fortsetter å bli oversatt.</string>

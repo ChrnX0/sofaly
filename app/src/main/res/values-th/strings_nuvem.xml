@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">กำลังรอให้คุณยืนยันบนโทรศัพท์…</string>
     <string name="rede_nuvem_salvando">กำลังลงชื่อเข้าใช้…</string>
     <string name="rede_nuvem_recusado">บริการปฏิเสธ ตรวจสอบ app id แล้วลองอีกครั้ง</string>
-    <string name="rede_erro_nuvem_login">สิทธิ์ของบัญชีนี้หมดอายุหรือถูกนำออก นำบัญชีออก (กด OK ค้าง) แล้วลงชื่อเข้าใช้อีกครั้ง</string>
+    <string name="rede_erro_nuvem_login">สิทธิ์ของบัญชีนี้หมดอายุหรือถูกนำออก นำบัญชีออก แล้วลงชื่อเข้าใช้อีกครั้ง</string>
     <string name="rede_od_titulo">OneDrive: แอปของคุณที่ Microsoft</string>
     <string name="rede_od_explica">ทำครั้งเดียวบนคอมพิวเตอร์: entra.microsoft.com › App registrations › New registration สำหรับประเภทบัญชี เลือกแบบที่รวมบัญชี Microsoft ส่วนตัว จากนั้นใน Authentication เปิด “Allow public client flows” คัดลอก “Application (client) ID” แล้วพิมพ์ที่นี่ (พิมพ์จากโทรศัพท์ในแผงควบคุมได้)</string>
     <string name="rede_od_id">Application (client) ID</string>

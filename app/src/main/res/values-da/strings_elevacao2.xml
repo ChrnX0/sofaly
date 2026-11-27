@@ -22,7 +22,7 @@
     <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
     <string name="elv_cat_n_temporadas">Sæsoner: %d</string>
     <string name="elv_cat_procurando">Leder efter plakaten…</string>
-    <string name="elv_cat_nada">Intet fundet på TMDB. Hold OK for at skrive det rigtige navn.</string>
+    <string name="elv_cat_nada">Intet fundet på TMDB.</string>
     <string name="elv_cat_corrigir_titulo">Ret: %s</string>
     <string name="elv_cat_corrigir_explica">Forkert plakat eller handling? Bed om det næste resultat, eller skriv det rigtige navn og år. Et tomt navn går tilbage til automatisk.</string>
     <string name="elv_cat_nao_e">Ikke denne</string>

@@ -87,10 +87,7 @@ class DnsActivity : Activity() {
             addView(lista)
         }
         raiz.addView(rolagem, LinearLayout.LayoutParams(MATCH, 0, 1f))
-        raiz.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.dns_dica)).apply {
-            setTextColor(Estilo.TEXTO_3)
-            setPaddingRelative(0, dp(10), 0, 0)
-        })
+        // Sem a linha de teclas embaixo: Paulo, 26/11/2026: "essas dicas são absolutamente idiotas. remove de tudo" (as teclas ficam em Configurações > Ajuda)
         return raiz
     }
 

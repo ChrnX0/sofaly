@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">بانتظار تأكيدك على الهاتف…</string>
     <string name="rede_nuvem_salvando">جارٍ تسجيل الدخول…</string>
     <string name="rede_nuvem_recusado">رفضت الخدمة. تحقق من معرّف التطبيق وحاول مجددًا.</string>
-    <string name="rede_erro_nuvem_login">انتهى إذن هذا الحساب أو أُزيل. أزل الحساب (اضغط مطولًا على OK) وسجّل الدخول مجددًا.</string>
+    <string name="rede_erro_nuvem_login">انتهى إذن هذا الحساب أو أُزيل. أزل الحساب وسجّل الدخول مجددًا.</string>
     <string name="rede_od_titulo">OneDrive: تطبيقك في Microsoft</string>
     <string name="rede_od_explica">مرة واحدة، على كمبيوتر: entra.microsoft.com › App registrations › New registration. لأنواع الحسابات، اختر النوع الذي يشمل حسابات Microsoft الشخصية. ثم في Authentication، فعّل “Allow public client flows”. انسخ “Application (client) ID” واكتبه هنا (يمكنك الكتابة من هاتفك، في اللوحة).</string>
     <string name="rede_od_id">Application (client) ID</string>

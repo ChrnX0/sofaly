@@ -30,9 +30,6 @@
     <string name="aa_risk_care">Laut Steckbrief mit Vorsicht ändern</string>
     <string name="aa_risk_essential">Wichtig für den Fernseher: nicht einfrieren</string>
     <string name="aa_tip_idle">Seit %1$d Tagen nicht geöffnet. Einfrieren gibt Speicher frei und lässt sich rückgängig machen.</string>
-    <string name="aa_hint_app">OK öffnet · OK halten zum Verschieben, Ausblenden, Einfrieren oder Deinstallieren</string>
-    <string name="aa_hint_frozen">OK taut auf und öffnet</string>
-    <string name="aa_hint_lock">OK fragt nach der PIN und zeigt hier die ausgeblendeten Apps</string>
     <string name="aa_open">Öffnen</string>
     <string name="aa_freeze">Einfrieren</string>
     <string name="aa_freezing">%1$s wird eingefroren…</string>

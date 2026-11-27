@@ -30,9 +30,6 @@
     <string name="aa_risk_care">بحذر حسب بطاقته</string>
     <string name="aa_risk_essential">أساسي للتلفاز: لا تجمّده</string>
     <string name="aa_tip_idle">لم يُفتح منذ %1$d يوم. التجميد يحرّر الذاكرة ويمكن التراجع عنه.</string>
-    <string name="aa_hint_app">OK يفتح · اضغط مطولًا على OK للنقل أو الإخفاء أو التجميد أو الإزالة</string>
-    <string name="aa_hint_frozen">OK يلغي التجميد ويفتح</string>
-    <string name="aa_hint_lock">OK يطلب رمز PIN ويعرض التطبيقات المخفية هنا</string>
     <string name="aa_open">فتح</string>
     <string name="aa_freeze">تجميد</string>
     <string name="aa_freezing">جارٍ تجميد %1$s…</string>
