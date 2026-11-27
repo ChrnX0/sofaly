@@ -369,8 +369,12 @@ if (comPartes) {
                 "--ks-pass=env:ASSINATURA_SENHA",
                 "--ks-key-alias=" + (System.getenv("ASSINATURA_ALIAS")?.trim()?.takeIf { it.isNotBlank() } ?: "androiddebugkey"),
                 "--key-pass=env:" + (if (System.getenv("ASSINATURA_SENHA_CHAVE").isNullOrBlank()) "ASSINATURA_SENHA" else "ASSINATURA_SENHA_CHAVE"))
-            else listOf("--ks=${System.getProperty("user.home")}/.android/debug.keystore", "--ks-pass=pass:android",
-                "--ks-key-alias=androiddebugkey", "--key-pass=pass:android")
+            // Sem a chave real (PR): a mesma chave de debug com que o AGP acabou de assinar o .aab. O caminho vem da
+            // configuração "debug" do AGP (no runner do GitHub não é ~/.android, e o PR #639 caiu nisso).
+            else android.signingConfigs.getByName("debug").let { d ->
+                listOf("--ks=${d.storeFile!!.absolutePath}", "--ks-pass=pass:${d.storePassword}",
+                    "--ks-key-alias=${d.keyAlias}", "--key-pass=pass:${d.keyPassword}")
+            }
             // O jar do bundletool no Maven não traz o aapt2: usa o do SDK (a versão de build-tools que o AGP usa).
             val aapt2 = android.sdkDirectory.resolve("build-tools/${android.buildToolsVersion}/aapt2")
             args = listOf("build-apks", "--bundle=${aab.get().asFile}", "--output=${conjunto.get().asFile}", "--aapt2=$aapt2") + chave
