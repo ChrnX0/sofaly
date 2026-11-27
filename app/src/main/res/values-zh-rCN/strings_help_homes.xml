@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">帮助其他家庭</string>
+    <string name="hoh_question">一起帮助其他家庭吗？</string>
+    <string name="hoh_line">我在这里修好问题后，会告诉其他 Sofaly 结果如何。不会透露你是谁。</string>
+    <string name="hoh_yes">好，我愿意帮忙</string>
+    <string name="hoh_not_now">以后再说</string>
+    <string name="hoh_how">这是怎么运作的？</string>
+    <string name="hoh_how_title">运作方式</string>
+    <string name="hoh_how_line">如果别的家里坏了同样的东西，那里的 Sofaly 已经知道该怎么做。</string>
+    <string name="hoh_goes">会发送的内容</string>
+    <string-array name="hoh_goes_list">
+        <item>电视型号和 Sofaly 版本</item>
+        <item>坏了什么（按类别）</item>
+        <item>用什么修好，是否成功</item>
+        <item>内存和网络的大致情况（好或弱）</item>
+    </string-array>
+    <string name="hoh_never">永远不会发送的内容</string>
+    <string-array name="hoh_never_list">
+        <item>你的名字和网络名称</item>
+        <item>你看什么、什么时候看</item>
+        <item>你的应用和你输入的内容</item>
+        <item>照片、声音、地址和 IP</item>
+    </string-array>
+    <string name="hoh_back_here">其他 Sofaly 学到的东西会回到这里。随时可以在 设置 &gt; Sofy 知道什么 中更改。</string>
+    <string name="hoh_thanks">谢谢！你的 Sofaly 现在正在帮助其他家庭。</string>
+    <string name="hoh_state_on">开：这台电视每天分享一次修复结果</string>
+    <string name="hoh_state_off">关：这台电视不分享任何内容</string>
+    <string name="hoh_stop">停止帮助</string>
+    <string name="hoh_stop_det">这台电视停止分享，但仍会收到其他家庭学到的内容。</string>
+    <string name="hoh_start">开始帮助</string>
+    <string name="hoh_start_det">先看看会发送什么、永远不发送什么，再做选择</string>
+    <string name="hoh_today">查看今天会发送什么</string>
+    <string name="hoh_today_det">这台电视将发送的完整数据包，逐项列出</string>
+    <string name="hoh_today_sub">这就是发往服务器的全部内容。家庭代码每天都会更换。</string>
+    <string name="hoh_forget">忘掉已发送的内容</string>
+    <string name="hoh_forget_det">更换这台电视的代码。已发送的内容将无法再与它关联，并在 30 天内删除。</string>
+    <string name="hoh_forgot">完成。从现在起使用新代码；已发送的内容会在 30 天内删除。</string>
+    <string name="hoh_row_det">它与其他家庭分享什么，以及如何关闭</string>
+</resources>

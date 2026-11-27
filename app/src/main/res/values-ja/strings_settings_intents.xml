@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=文字 大きく|文字 大きい|文字 拡大|フォント 大きく;TEXT_SMALLER=文字 小さく|文字 小さい|文字 縮小|フォント 小さく;GOAL_READ=読み やすく|読み にくい|見え にくい;GOAL_CLEAN=画面 すっきり|画面 シンプル;GOAL_ENERGY=電気 節約|エネルギー 節約|省 エネ;LOOK_SOFALY=sofaly 見た目|標準 見た目;LOOK_NIGHT=夜 見た目|暗い 空;LOOK_MOUNTAIN=山 見た目;LOOK_MINIMAL=ミニマル 見た目</string>
+    <string name="si_fazer">今すぐ実行：%1$s</string>
+    <string name="si_desfazer">元に戻す：%1$s</string>
+    <string name="si_fazer_det">すぐに変わります。</string>
+    <string name="si_maior">文字を大きく</string>
+    <string name="si_menor">文字を小さく</string>
+</resources>
