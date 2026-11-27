@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goal_read">Καλύτερη ανάγνωση</string>
+    <string name="goal_clean">Καθαρότερη οθόνη</string>
+    <string name="goal_energy">Εξοικονόμηση ενέργειας</string>
+    <string name="goal_kids">Προστασία των παιδιών</string>
+    <string name="goal_desfazer">%1$s, ενεργό.</string>
+    <string name="goal_feito">%1$s: έγινε.</string>
+    <string name="goal_desfeito">%1$s: αναιρέθηκε</string>
+</resources>
