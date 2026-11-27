@@ -5,9 +5,13 @@
 name = "sofaly-api"
 main = "server/api/src/index.js"
 compatibility_date = "2026-11-01"
-workers_dev = false   # só pelo domínio próprio (rota abaixo)
+workers_dev = false   # só pelo domínio próprio (preso pelo deploy de server/api)
 
-routes = [{ pattern = "api.sofaly.tv", custom_domain = true }]
+# SEM rota aqui (27/11/2026): no Workers Builds (sem terminal) o wrangler move o domínio próprio para quem fizer o
+# deploy por último, sem perguntar. Um segundo Worker ligado a este repo (sofaly-cloudflere, sem segredos) tomou o
+# api.sofaly.tv duas vezes no mesmo dia e derrubou podcasts e clima. Sem `routes`, o wrangler não mexe em domínio
+# nenhum: o build de cada merge só sobe o código, e o api.sofaly.tv fica no sofaly-api, onde o `npm run deploy` de
+# server/api (que tem a rota) o pôs.
 
 [vars]
 DISABLED = "0"   # "1" desliga tudo (as TVs seguem funcionando em casa e avisam o que ficou indisponível)

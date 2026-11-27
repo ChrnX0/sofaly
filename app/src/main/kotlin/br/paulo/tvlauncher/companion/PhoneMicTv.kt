@@ -14,12 +14,15 @@ import android.media.AudioTrack
  * [MAX_QUEUE_MS] (Wi-Fi engasgou), o excesso é jogado fora: melhor perder um pedaço do que a voz ficar atrás da boca.
  * Um celular por vez. Nada é gravado; a Sofy recebe só "começou/terminou" e quanto durou.
  *
- * Atraso esperado (não medido ainda numa TV real): ~80 ms do celular + Wi-Fi + ~100 ms da fila. Dá para cantar junto,
- * mas não é o retorno instantâneo de um microfone com fio.
+ * Atraso esperado (não medido ainda numa TV real): ~60 ms do celular + Wi-Fi + 60 a 120 ms da fila + a TV. Serve para
+ * recado, leitura e cantar por cima; não é o retorno instantâneo de um microfone com fio.
  */
 object PhoneMicTv {
     const val RATE = 16_000
-    private const val MAX_QUEUE_MS = 180
+    /** Fila máxima: acima disso o pedaço é jogado fora (a voz não fica atrás da boca). */
+    private const val MAX_QUEUE_MS = 120
+    /** Reserva antes de tocar (e depois de cada engasgo): sem ela todo atraso do Wi-Fi vira um buraco na voz. */
+    private const val PRIME_MS = 60
     @Volatile private var track: AudioTrack? = null
     @Volatile private var escritos = 0L
     @Volatile private var desde = 0L
@@ -33,7 +36,11 @@ object PhoneMicTv {
             .setAudioFormat(AudioFormat.Builder().setSampleRate(RATE).setEncoding(AudioFormat.ENCODING_PCM_16BIT).setChannelMask(AudioFormat.CHANNEL_OUT_MONO).build())
             .setBufferSizeInBytes(maxOf(min, RATE * 2 * 300 / 1000)).setTransferMode(AudioTrack.MODE_STREAM)
             .apply { if (android.os.Build.VERSION.SDK_INT >= 26) setPerformanceMode(AudioTrack.PERFORMANCE_MODE_LOW_LATENCY) }
-            .build().also { it.play() }
+            .build().also {
+                // Android 12+: só começa (e recomeça depois de um engasgo) com [PRIME_MS] na fila.
+                if (android.os.Build.VERSION.SDK_INT >= 31) runCatching { it.setStartThresholdInFrames(RATE * PRIME_MS / 1000) }
+                it.play()
+            }
         escritos = 0; desde = System.currentTimeMillis()
         CompanionTv.sofy(ctx, "phone_mic", true, "start")
         return true
