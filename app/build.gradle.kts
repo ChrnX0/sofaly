@@ -1,5 +1,3 @@
-// "java.util.Properties" escrito por extenso não funciona aqui: no script do Gradle, "java" é a extensão do plugin Java.
-import java.util.Properties
 
 plugins {
     id("com.android.application")
@@ -10,29 +8,13 @@ plugins {
 // VPN própria (vpn.* ali dentro) iam em texto puro para o APK via BuildConfig; com a troca para o app AdGuard VPN
 // elas saíram do build. O local.properties do dono continua como está.
 
-// 05/11/2026: dados PESSOAIS (cidade, coordenadas, apps preferidos, eclipses da cidade) saíram do Config.kt, porque o
-// repositório é público. Eles vêm do arquivo pessoal.properties, na raiz do repo, que NÃO vai para o git (.gitignore).
-// Sem o arquivo (quem baixa do GitHub, ou o build do GitHub Actions), valem padrões neutros. Modelo comentado em
-// pessoal.properties.exemplo. Cada valor vira um campo da classe BuildConfig, que o Config.kt lê.
-val pessoal = Properties().apply {
-    val f = rootProject.file("pessoal.properties")
-    if (f.exists()) f.reader(Charsets.UTF_8).use { load(it) }   // UTF-8: acentos (ã, ç) saem certos
-}
-// Texto Java entre aspas, com \ e " escapados (senão um valor com aspas quebra a compilação do BuildConfig).
-fun textoJava(v: String) = "\"" + v.replace("\\", "\\\\").replace("\"", "\\\"") + "\""
-// Build da Play (-Pplay, 17/11/2026): sai do PC do dono, que tem o pessoal.properties; cidade, coordenadas, apps fixos,
-// METAR e eclipses dele NÃO podem ir para o app de todos os clientes. Na Play só as chaves de serviço (chaveApp) vêm de lá.
-val dadosPessoais = if (project.hasProperty("play")) Properties() else pessoal
-fun pessoalTexto(chave: String, padrao: String = "") = textoJava(dadosPessoais.getProperty(chave, padrao).trim())
-// Chaves dos APLICATIVOS de filmes e séries (ServicosFilmes.kt, 14/11/2026): uma por projeto, nunca no git. No PC vêm do
-// pessoal.properties; no GitHub Actions, das variáveis de ambiente que o release.yml preenche com os secrets de mesmo nome.
-// Sem a chave, o serviço some da tela do launcher.
-fun chaveApp(nome: String) = textoJava((System.getenv(nome) ?: pessoal.getProperty(nome.lowercase(), "")).trim())
+// Dados pessoais, chaves dos serviços e as outras constantes de build (PLAY, VERSION_CODE...) saíram daqui para o
+// resources/build.gradle.kts (refatoração G, 27/11/2026): a classe br.paulo.tvlauncher.BuildConfig é gerada lá, com o
+// mesmo nome e as mesmas constantes, para que os módulos de área também a enxerguem.
 // Refatoração G (27/11/2026): `-Psplits` monta o app como base + partes baixadas sob demanda (features/translate e
 // features/tunnel), num .aab (bundleRelease) que o bundletool parte em APKs. Sem a propriedade, o build é o de sempre:
 // um APK por arquitetura com tudo dentro (o que as TVs atuais e o site baixam).
 val comPartes = project.hasProperty("splits")
-fun pessoalNumero(chave: String, padrao: Double) = (dadosPessoais.getProperty(chave)?.trim()?.toDoubleOrNull() ?: padrao).toString()
 
 android {
     namespace = "br.paulo.tvlauncher"
@@ -57,46 +39,11 @@ android {
         // Cabe num Int por uns 4 mil anos.
         // `-PversionCode=N`: o Release monta a ponte e o app novo com o MESMO número (dois builds podem cair em minutos
         // diferentes, e a ponte reconhece o app novo do mesmo Release pela tag).
-        versionCode = (project.findProperty("versionCode") as String?)?.toInt()
-            ?: ((System.currentTimeMillis() - 1_767_225_600_000L) / 60_000L).toInt()
+        // Calculado uma vez só no build.gradle.kts da raiz: o BuildConfig (no :resources) usa o mesmo número.
+        versionCode = (project.findProperty("versionCode") as String?)?.toInt() ?: rootProject.extra["sofalyVersionCode"] as Int
         versionName = "1.0"
 
 
-        // Dados pessoais (ver pessoal.properties no topo). Padrões neutros entre aspas ou como número.
-        buildConfigField("String", "CIDADE", pessoalTexto("cidade"))
-        buildConfigField("double", "LATITUDE", pessoalNumero("latitude", 0.0))
-        buildConfigField("double", "LONGITUDE", pessoalNumero("longitude", 0.0))
-        buildConfigField("boolean", "USAR_FAHRENHEIT", (dadosPessoais.getProperty("fahrenheit")?.trim() == "true").toString())
-        buildConfigField("String", "ESTACAO_METAR", pessoalTexto("estacao_metar"))
-        // Quantas línguas o app traz (pastas values-* com strings.xml + o inglês padrão): o Placar diz o número certo
-        // sem ninguém lembrar de trocar o texto a cada língua nova (estava "14" com 26, 24/11/2026).
-        // Línguas distintas: values-pt e values-pt-rPT contam uma (português); + 1 = o inglês de values/.
-        buildConfigField("int", "IDIOMAS", (file("src/main/res").listFiles { d -> d.name.startsWith("values-") && d.resolve("strings.xml").exists() }!!
-            .map { it.name.removePrefix("values-").substringBefore("-r") }.toSet().size + 1).toString())
-        buildConfigField("String", "APPS_FIXOS", pessoalTexto("apps_fixos"))
-        buildConfigField("String", "APPS_ORDEM", pessoalTexto("apps_ordem",
-            "com.google.android.youtube.tv,com.google.android.youtube.tvmusic,com.netflix.ninja,com.android.vending"))
-        buildConfigField("String", "BOTAO_NETFLIX", pessoalTexto("botao_netflix", "com.netflix.ninja"))
-        buildConfigField("String", "ECLIPSES", pessoalTexto("eclipses"))
-        // Cuidar de longe (15/11/2026, decisão do Paulo): a Play proíbe app que avisa terceiros sobre um adulto, mesmo
-        // com consentimento (regra de stalkerware). Build da Play = `-Pplay`: só fica o pedido de ajuda (77); o aviso à
-        // família do lembrete (78) e da TV que não ligou (79) só existe no APK do site.
-        buildConfigField("boolean", "CUIDAR_FAMILIA", (!project.hasProperty("play")).toString())
-        // Build da Play (`-Pplay`, 16/11/2026): o produto Sofaly. PLAY liga a cobrança da Play e desliga o que a loja
-        // não aceita (atualizador do GitHub, instalar APK). A fonte do clima não depende mais do build (19/11/2026): é o
-        // plano e a licença que escolhem, em DataSources.kt (MET Norway no Básico).
-        buildConfigField("boolean", "PLAY", project.hasProperty("play").toString())
-        // Build da Play: sem TMDB (chave pessoal; uso comercial pede contrato) até haver contrato. O Simkl entra (19/11/2026)
-        // só no caminho grátis que eles aceitaram: a conta da própria pessoa e o convite "Conecte sua conta"; a nota sem
-        // login fica para o Pro com licença (DataSources.kt). Trakt (Standard) e OpenSubtitles (login da pessoa) ficam.
-        val semLicencaNaPlay = setOf("TMDB_CHAVE")
-        for (k in listOf("TMDB_CHAVE", "TRAKT_ID", "TRAKT_SEGREDO", "SIMKL_ID", "OPENSUBTITLES_CHAVE"))
-            buildConfigField("String", k, if (project.hasProperty("play") && k in semLicencaNaPlay) "\"\"" else chaveApp(k))
-        // Degrau 2a (17/11/2026): e-mail que recebe o "Relatar um problema" (quem não tem conta no GitHub). Fora do git:
-        // Padrão = o e-mail do produto (Paulo, 17/11/2026: contact@sofaly.tv). pessoal.properties "suporte_email" ou a
-        // variável SUPORTE_EMAIL do repo trocam; um valor inválido faz o QR voltar ao formulário do GitHub.
-        buildConfigField("String", "SUPORTE_EMAIL", textoJava((System.getenv("SUPORTE_EMAIL")?.takeIf { it.isNotBlank() }
-            ?: pessoal.getProperty("suporte_email")?.takeIf { it.isNotBlank() } ?: "contact@sofaly.tv").trim()))
     }
 
     // Um APK por arquitetura (12/11/2026, pedido do dono: versões de 32 e 64 bits no GitHub).
@@ -117,7 +64,7 @@ android {
     }
 
     buildFeatures {
-        buildConfig = true   // gera a classe BuildConfig (campos do pessoal.properties, ver defaultConfig)
+        buildConfig = false   // a classe BuildConfig vem do :resources (mesmo nome, mesmas constantes)
     }
 
     // Extrai as .so para a pasta lib/arm do app instalado: o túnel (libtsnet.so) é um executável que o TunelTailscale roda
