@@ -38,7 +38,9 @@ jobs:
           if [ "$ACAO" = "synchronize" ] && [ -n "$ANTES" ] && git cat-file -e "$ANTES^{commit}" 2>/dev/null; then
             scripts/no-ai-marks.sh "$CABECA" --not "$ANTES" origin/main
           else
-            scripts/no-ai-marks.sh "$CABECA" --not "$CABECA~1" origin/main   # PR aberto agora: o commit da ponta
+            # PR aberto agora: a cadeia de primeiro pai da ponta até a main (o que a branch trouxe). Um merge da branch
+            # antiga da thread entra como 2º pai e não traz de volta os commits velhos já mesclados por squash.
+            scripts/no-ai-marks.sh --first-parent "$CABECA" --not origin/main
           fi
       - name: Commits que entraram na main
         if: github.event_name == 'push'
