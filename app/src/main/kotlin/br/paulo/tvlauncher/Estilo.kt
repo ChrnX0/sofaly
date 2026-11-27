@@ -282,6 +282,8 @@ object Estilo {
         return (0xFF shl 24) or (c(16) shl 16) or (c(8) shl 8) or c(0)
     }
     private const val GRAFITE_CAPA = 0xFF2E2C2A.toInt()
+    /** O quadro da capa sem foto nas Fileiras do Ouvir (a CapaOuvir escurece 72% por cima): grafite quente. */
+    const val GRAFITE_QUADRO = 0xFF77736D.toInt()
     private const val TONS_CAPA = 5
 
     /** O cartão em foco no padrão das Fileiras (Paulo aprovou a prévia, 26/11/2026): caixa mais clara e quase opaca. */

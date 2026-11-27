@@ -72,7 +72,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         private const val FIL_LADO = 124
         private const val FIL_VAO = 20
         private const val FIL_INFO_L = 430
-        private const val NEUTRO = 0xFF77736D.toInt()   // grafite quente: o quadro da capa sem foto
+        private const val NEUTRO = Estilo.GRAFITE_QUADRO   // grafite quente: o quadro da capa sem foto
         // Geometria da HomeCruz (dp numa tela de 960 x 540): o mesmo lugar da linha, da coluna e das prateleiras.
         private val LINHA get() = HomeCruz.LINHA
         private val COLUNA get() = HomeCruz.COLUNA
