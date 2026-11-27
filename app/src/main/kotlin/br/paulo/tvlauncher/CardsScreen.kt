@@ -1,7 +1,6 @@
 package br.paulo.tvlauncher
 
 import android.app.Activity
-import android.graphics.drawable.ColorDrawable
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.ScrollView
@@ -31,7 +30,7 @@ class CardsScreen(private val a: Activity, titulo: String, subtitulo: String? = 
 
     val root: LinearLayout = LinearLayout(a).apply {
         orientation = LinearLayout.VERTICAL
-        background = if (Estilo.altoContraste) ColorDrawable(android.graphics.Color.BLACK) else ColorDrawable(Estilo.FUNDO)
+        background = Estilo.fundoTela(a)   // arte com véu como as outras telas (auditoria 27/11/2026: era o grafite chapado)
         clipChildren = true; clipToPadding = false
         setPaddingRelative(dp(Estilo.MARGEM_LATERAL), dp(Estilo.MARGEM_VERTICAL + 9), dp(Estilo.MARGEM_LATERAL), 0)
         addView(Estilo.tituloTela(a, titulo))

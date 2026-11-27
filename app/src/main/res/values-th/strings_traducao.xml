@@ -268,7 +268,7 @@
     <string name="bn_sem_senha">ไม่มีรหัสผ่านสำรองข้อมูล (ตั้งในการตั้งค่า)</string>
     <string name="bn_montar">สร้างข้อมูลสำรองไม่ได้ (%1$s)</string>
     <string name="bn_gravar">บันทึกบนทีวีไม่ได้ (%1$s)</string>
-    <string name="cal_sem_permissao">ไม่มีสิทธิ์เข้าถึงปฏิทิน (pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">ไม่มีสิทธิ์เข้าถึงปฏิทินของทีวีนี้</string>
     <string name="bv_claude">ใช้กับ Claude (ไม่บังคับ)</string>
     <string name="bv_claude_det">Claude, ChatGPT หรือ Codex ตรวจสอบทีวีและขอให้ทำงานได้จากทุกที่ ทีละขั้นตอนด้วยคิวอาร์โค้ด</string>
     <string name="cb_cinza">ขั้นสีเทา</string>

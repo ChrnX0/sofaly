@@ -240,7 +240,7 @@
     <string name="bn_sem_senha">tidak ada kata sandi cadangan (atur di Setelan)</string>
     <string name="bn_montar">tidak bisa membuat cadangan (%1$s)</string>
     <string name="bn_gravar">tidak bisa menyimpan di TV (%1$s)</string>
-    <string name="cal_sem_permissao">Tidak ada izin kalender (pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">Tidak ada akses ke kalender TV ini.</string>
     <string name="bv_claude">Gunakan dengan Claude (opsional)</string>
     <string name="bv_claude_det">Claude, ChatGPT, atau Codex memeriksa TV dan meminta tindakan, dari mana saja. Langkah demi langkah dengan kode QR.</string>
     <string name="cb_cinza">Tingkatan abu-abu</string>

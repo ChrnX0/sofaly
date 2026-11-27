@@ -268,7 +268,7 @@
     <string name="bn_sem_senha">ingen adgangskode til sikkerhedskopi (angiv den i Indstillinger)</string>
     <string name="bn_montar">kunne ikke lave sikkerhedskopien (%1$s)</string>
     <string name="bn_gravar">kunne ikke gemme på tv\'et (%1$s)</string>
-    <string name="cal_sem_permissao">Ingen kalendertilladelse (pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">Ingen adgang til kalenderen på dette tv.</string>
     <string name="bv_claude">Brug med Claude (valgfrit)</string>
     <string name="bv_claude_det">Claude, ChatGPT eller Codex tjekker tv\'et og beder om handlinger, hvor som helst fra. Trin for trin med en QR-kode.</string>
     <string name="cb_cinza">Grå trin</string>

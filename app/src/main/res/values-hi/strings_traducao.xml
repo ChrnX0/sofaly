@@ -240,7 +240,7 @@
     <string name="bn_sem_senha">बैकअप पासवर्ड नहीं (सेटिंग्स में सेट करें)</string>
     <string name="bn_montar">बैकअप नहीं बन सका (%1$s)</string>
     <string name="bn_gravar">TV पर सेव नहीं हो सका (%1$s)</string>
-    <string name="cal_sem_permissao">कैलेंडर अनुमति नहीं (pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">इस टीवी के कैलेंडर तक पहुँच नहीं है।</string>
     <string name="bv_claude">Claude के साथ इस्तेमाल करें (वैकल्पिक)</string>
     <string name="bv_claude_det">Claude, ChatGPT या Codex कहीं से भी TV जाँचते हैं और काम माँगते हैं। QR कोड से चरण दर चरण।</string>
     <string name="cb_cinza">ग्रे चरण</string>

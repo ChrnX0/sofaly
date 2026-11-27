@@ -313,12 +313,12 @@ class DiagnosticoActivity : Activity() {
         }
         val ini0 = sb.length
         sb.append(titulo)
-        sb.setSpan(AbsoluteSizeSpan(dp(18), false), ini0, sb.length, 0)
+        sb.setSpan(AbsoluteSizeSpan(dp(20), false), ini0, sb.length, 0)
         sb.setSpan(ForegroundColorSpan(claro), ini0, sb.length, 0)
         sb.setSpan(TypefaceSpan(fonteMedia), ini0, sb.length, 0)
         val ini = sb.length
         sb.append("\n").append(detalhe)
-        sb.setSpan(AbsoluteSizeSpan(dp(14), false), ini, sb.length, 0)
+        sb.setSpan(AbsoluteSizeSpan(dp(18), false), ini, sb.length, 0)
         sb.setSpan(ForegroundColorSpan(suave), ini, sb.length, 0)
         text = sb
         maxLines = if (this in longas) 8 else 3
