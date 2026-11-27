@@ -324,8 +324,9 @@ object ComandosExtras {
         "sofy_ai_test" -> { val c = ctx.applicationContext; val slot = if (i.getBooleanExtra("backup", false)) br.paulo.tvlauncher.observer.SofyAi.BACKUP else ""
             br.paulo.tvlauncher.Fundo.rodar("sofy-ia-teste") { android.util.Log.i("TvLauncher.SofyAi", "teste${if (slot.isEmpty()) "" else " (reserva)"}: " + br.paulo.tvlauncher.observer.SofyAi.test(c, slot)) }; "testando (veja o logcat TvLauncher.SofyAi)" }
         "community" -> {
-            if (i.hasExtra("on")) br.paulo.tvlauncher.observer.SofyCommunityTv.setSharing(ctx, i.getBooleanExtra("on", false))
-            "ajudar outras casas=${br.paulo.tvlauncher.observer.SofyCommunityTv.sharing(ctx)}"
+            // --ez fleet true = também o consentimento da rede de Sofys (#541), como o "Sim" da tela do sofáTV.
+            if (i.hasExtra("on")) br.paulo.tvlauncher.observer.SofyCommunityTv.setSharing(ctx, i.getBooleanExtra("on", false), i.getBooleanExtra("fleet", false))
+            "ajudar outras casas=${br.paulo.tvlauncher.observer.SofyCommunityTv.sharing(ctx)} rede de Sofys=${br.paulo.tvlauncher.observer.SofyCommunityTv.fleetConsent(ctx)}"
         }
         "energy" -> {
             val w = i.getIntExtra("watts", -1); val c = i.getIntExtra("centavos", -1)

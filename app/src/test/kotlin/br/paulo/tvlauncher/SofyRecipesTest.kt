@@ -10,7 +10,7 @@ import org.junit.Test
 
 /** Receitas da rede de Sofys: só dado da lista fechada, e começam em sombra (Paulo, 27/11/2026). */
 class SofyRecipesTest {
-    private fun receita(type: String = "CRASH", area: String = "app", target: String = "com.app.x", cause: String = "update",
+    private fun receita(type: String = "CRASH", area: String = "app", target: String = "", cause: String = "update",
                         tools: List<String> = listOf("CLEAR_APP_CACHE")) = JSONObject()
         .put("id", "$type|$area|$target|$cause")
         .put("match", JSONObject().put("type", type).put("area", area).put("target", target).put("cause", cause))
