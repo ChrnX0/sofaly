@@ -63,7 +63,6 @@ object Parts {
             .put("translateJni", File(agora.nativeLibraryDir, "libtranslate_jni.so").isFile)
             .put("carregadorTemTranslate", carregador.contains("split_translate"))
             .put("motorTraducao", runCatching { Class.forName(SubtitleEngines.CLASS); "carrega" }
-                .getOrElse { it.javaClass.simpleName })
-            .put("motorEmUso", SubtitleEngines.provider != null)
+                .getOrElse { it.javaClass.simpleName })   // sem SubtitleEngines.provider: ele pediria a parte
     }
 }
