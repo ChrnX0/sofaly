@@ -15,7 +15,6 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import com.google.zxing.client.android.Intents
 import com.journeyapps.barcodescanner.ScanOptions
-import com.journeyapps.barcodescanner.CaptureActivity
 import java.net.Inet4Address
 
 /**
@@ -179,7 +178,8 @@ class TvsActivity : Activity() {
     private fun lerQr() {
         val op = ScanOptions().setDesiredBarcodeFormats(ScanOptions.QR_CODE).setBeepEnabled(false)
             .setPrompt(getString(R.string.cel_aponte)).setOrientationLocked(true)
-        startActivityForResult(op.createScanIntent(this).setClass(this, CaptureActivity::class.java), PEDIDO_QR)
+        // QrScannerActivity: em pé e com janela quadrada (a CaptureActivity do ZXing abre deitada, cara de leitor de barras).
+        startActivityForResult(op.createScanIntent(this).setClass(this, QrScannerActivity::class.java), PEDIDO_QR)
     }
 
     @Deprecated("Activity simples, sem AndroidX")
