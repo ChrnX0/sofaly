@@ -116,11 +116,26 @@ object RelayTv {
     }
 
     private fun guardar(ctx: Context, lista: List<Pareado>) {
+        val antes = pareados(ctx).map { it.id }.toSet()
         prefs(ctx).edit().putString("pareados", JSONArray().apply {
             for (q in lista) put(JSONObject().put("id", q.id).put("x", RelayCrypto.b64(q.xPub)).put("nome", q.nome)
                 .apply { q.aparelho?.let { put("aparelho", it) }; if (q.tv) put("tv", true) })
         }.toString()).apply()
+        if (lista.map { it.id }.toSet() != antes) {
+            val app = ctx.applicationContext
+            br.paulo.tvlauncher.Fundo.rodar("relay-conhecidos") { declararConhecidos(app) }
+        }
     }
+
+    /**
+     * #607: diz ao api.sofaly.tv quem esta TV conhece (os pareados). O id da TV é público (nome do certificado); sem a
+     * lista, qualquer chave nova lotava a caixa com a TV desligada e o celular de verdade ficava de fora. Com ela, quem
+     * não está na lista ocupa no máximo 10 lugares. Rede: fora da thread da tela. Falhou = tenta de novo ao reconectar.
+     */
+    fun declararConhecidos(ctx: Context): Boolean = runCatching {
+        val corpo = JSONObject().put("ids", JSONArray(pareados(ctx).map { it.id })).toString().toByteArray()
+        pedir(ctx, "PUT", "/v1/inbox/allow", corpo).codigo == 200
+    }.onFailure { Log.w(TAG, "conhecidos: ${it.javaClass.simpleName}") }.getOrDefault(false)
 
     @Synchronized fun parear(ctx: Context, p: Pareado) = guardar(ctx, pareados(ctx).filterNot { it.id == p.id } + p)
 
@@ -276,6 +291,7 @@ object RelayTv {
                 val ws = RelaySocket.conectar(SERVIDOR.removePrefix("https://"), eu.ed, Http.USER_AGENT, System.currentTimeMillis() / 1000)
                 conectado = true; espera = 5_000L
                 Log.i(TAG, "escuta ligada (${eu.id})")
+                declararConhecidos(app)   // #607: a cada conexão (a lista pode ter mudado com a TV fora do ar)
                 ws.tempoDeLeitura(50_000)   // sem nada em 50 s: manda ping (o Cloudflare derruba conexão parada em ~100 s)
                 try {
                     while (true) {

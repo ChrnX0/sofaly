@@ -9,7 +9,22 @@ export const LIMITS = {
   clockSkewSec: 300,                 // assinatura vale se o relógio do aparelho estiver até 5 min fora
   pairingTtlSec: 600,                // código de pareamento (TV ↔ celular) vale 10 min e uma vez só
   txtTtlSec: 3600,                   // desafio do Let's Encrypt (DNS-01) some em 1 h
+  allowedPerInbox: 500,              // remetentes conhecidos que o dono declara (PUT /v1/inbox/allow)
+  strangerPending: 10,               // #607: envelopes esperando de quem o dono não declarou (só a apresentação cabe)
 };
+
+// #607: lista de remetentes conhecidos de uma caixa (corpo de PUT /v1/inbox/allow). null = pedido inválido.
+export function allowList(body) {
+  const ids = body?.ids;
+  if (!Array.isArray(ids) || ids.length > LIMITS.allowedPerInbox) return null;
+  if (!ids.every((id) => typeof id === 'string' && ID_RE.test(id))) return null;
+  return [...new Set(ids)];
+}
+
+// #607: a caixa aceita mais um envelope deste remetente? Sem lista declarada (aparelho antigo) vale o jeito de antes.
+export function acceptsSender({ listSet, known, strangerPending }) {
+  return !listSet || known || strangerPending < LIMITS.strangerPending;
+}
 
 // Id de um aparelho = 20 letras base32 do SHA-256 da chave pública Ed25519 (100 bits).
 // Base32 minúsculo cabe num nome de DNS, então o mesmo id vira <id>.lan.sofaly.tv no certificado.

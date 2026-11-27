@@ -4,6 +4,7 @@
 //   GET    /v1/inbox               WebSocket: recebe envelopes na hora (o aparelho confirma com {"ack":[ids]})
 //   GET    /v1/inbox/pending       o mesmo, sem WebSocket
 //   POST   /v1/inbox/ack           {"ids":[...]} apaga o que já foi recebido
+//   PUT    /v1/inbox/allow         {"ids":[...]} quem o dono conhece; os outros ocupam no máximo 10 lugares (#607)
 //   POST   /v1/pairing             (TV) pede um código de pareamento
 //   POST   /v1/pairing/<code>      (celular) usa o código; corpo = envelope de apresentação para a TV
 //   PUT    /v1/dns/txt             (TV) {"value": "..."} desafio DNS-01 do certificado dela
@@ -28,7 +29,7 @@
 //   POST   /v1/report              assinada: relato de problema, guardado em particular (src/reports.js)
 //   GET    /v1/reports             só com o REPORTS_TOKEN: a fila de relatos, para a Sofy virar issue sem dado pessoal
 // As rotas públicas aceitam a assinatura sem exigir: com ela, a cota do dia é por aparelho (src/quota.js).
-import { verifySignature, ID_RE, CODE_RE, newCode, parseJson } from './rules.js';
+import { verifySignature, ID_RE, CODE_RE, newCode, parseJson, allowList } from './rules.js';
 import { recommendedBody } from './addons.js';
 import { pluginsBody } from './plugins.js';
 import { handlePodcasts } from './podcasts.js';
@@ -163,6 +164,13 @@ export default {
       return json({ ok: true });
     }
 
+    if (path === '/v1/inbox/allow' && req.method === 'PUT') {
+      const ids = allowList(parseJson(body));
+      if (!ids) return json({ error: 'ids' }, 400);
+      await mailbox(env, who.id).setAllowed(ids);
+      return json({ ok: true, n: ids.length });
+    }
+
     if (path === '/v1/pairing' && req.method === 'POST') {
       for (let attempt = 0; attempt < 3; attempt++) {
         const code = newCode();
@@ -175,7 +183,9 @@ export default {
     if (use && req.method === 'POST' && CODE_RE.test(use[1])) {
       const r = await pairing(env, use[1]).use();
       if (r.error) return fail(r);
-      const delivery = await mailbox(env, r.tv).deliver(who.id, body.buffer);
+      const tvBox = mailbox(env, r.tv);
+      await tvBox.allow(who.id);   // #607: quem tinha o código vira conhecido da caixa da TV
+      const delivery = await tvBox.deliver(who.id, body.buffer);
       return delivery.error ? fail(delivery) : json({ tv: r.tv });
     }
 
