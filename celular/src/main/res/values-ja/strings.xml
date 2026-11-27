@@ -23,7 +23,6 @@
     <string name="cel_baixado">ダウンロードに保存しました: %1$s</string>
     <string name="cel_baixar_falhou">ファイルを保存できませんでした。もう一度お試しください。</string>
     <string name="cel_painel_completo">パネル全体</string>
-    <string name="cel_ctrl_dica">スワイプで移動、タップで決定</string>
     <string name="cel_ctrl_area">ここをスワイプまたはタップ</string>
     <string name="cel_ctrl_digite">ここに入力してテレビへ送信</string>
     <string name="cel_ctrl_voltar">戻る</string>

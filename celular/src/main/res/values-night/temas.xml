@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Avisos no celular escuro: grafite neutro (nunca azulado) e texto creme, como os cartões do painel. -->
+    <style name="Dialogo" parent="@android:style/Theme.Material.Dialog.Alert">
+        <item name="android:colorBackground">#FF1E1E1E</item>
+        <item name="android:colorAccent">#FFFFF3E6</item>
+        <item name="android:textColorPrimary">#FFFFF3E6</item>
+        <item name="android:textColorSecondary">#FFB8B0A7</item>
+        <item name="android:buttonBarButtonStyle">@style/DialogoBotao</item>
+    </style>
+</resources>

@@ -23,7 +23,6 @@
     <string name="cel_baixado">已保存到“下载”：%1$s</string>
     <string name="cel_baixar_falhou">无法保存文件，请重试。</string>
     <string name="cel_painel_completo">完整面板</string>
-    <string name="cel_ctrl_dica">滑动移动，轻触确定</string>
     <string name="cel_ctrl_area">在这里滑动或轻触</string>
     <string name="cel_ctrl_digite">在此输入并发送到电视</string>
     <string name="cel_ctrl_voltar">返回</string>

@@ -181,11 +181,12 @@ internal object FundoEscuroPronto {
  * separar, na leitura, "o fundo fixo" da linha do sol/lua, que a classe FundoEscuro desenha por cima.
  */
 internal fun desenharFundoEscuro(c: Canvas, w: Float, h: Float, p: Paint, brilho: Int = World.NEUTRAL.glow) {
+    // Grafite neutro (eram 0A0D10/07090B, azulados).
     p.shader = LinearGradient(0f, 0f, 0f, h,
-        intArrayOf(0xFF121212.toInt(), 0xFF0A0D10.toInt(), 0xFF07090B.toInt()), floatArrayOf(0f, 0.55f, 1f), Shader.TileMode.CLAMP)
+        intArrayOf(0xFF121212.toInt(), 0xFF0D0D0D.toInt(), 0xFF090909.toInt()), floatArrayOf(0f, 0.55f, 1f), Shader.TileMode.CLAMP)
     c.drawRect(0f, 0f, w, h, p)
-    // brilho frio, atrás da hora e do clima
-    // (o mundo da tela, World: Assistir quente, Ouvir turquesa, Jogar violeta; o neutro é o azul frio de sempre)
+    // brilho suave, atrás da hora e do clima
+    // (o mundo da tela, World: Ouvir turquesa, Jogar violeta; o neutro é grafite, nunca azul)
     val rgb = brilho and 0xFFFFFF
     p.shader = RadialGradient(w * 0.24f, h * 0.14f, w * 0.58f, 0x5A000000 or rgb, rgb, Shader.TileMode.CLAMP)
     c.drawRect(0f, 0f, w, h, p)

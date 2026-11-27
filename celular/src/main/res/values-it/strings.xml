@@ -23,7 +23,6 @@
     <string name="cel_baixado">Salvato in Download: %1$s</string>
     <string name="cel_baixar_falhou">Impossibile salvare il file. Riprova.</string>
     <string name="cel_painel_completo">Pannello completo</string>
-    <string name="cel_ctrl_dica">Scorri per muoverti, tocca per OK</string>
     <string name="cel_ctrl_area">Scorri o tocca qui</string>
     <string name="cel_ctrl_digite">Scrivi qui e invia alla TV</string>
     <string name="cel_ctrl_voltar">Indietro</string>
