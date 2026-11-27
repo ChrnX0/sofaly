@@ -30,4 +30,6 @@
     <string name="bb_titulo">Вид главного экрана</string>
     <string name="bb_cruz">Крест</string>
     <string name="bb_barra">Панель внизу</string>
+    <string name="wo_ultimos">Сначала недавние</string>
+    <string name="wo_aleatorio">Случайно (меняется каждый день)</string>
 </resources>
