@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Coluna esquerda e filtro único do player (TV, Filmes, Séries), 14/11/2026. -->
 <resources>
-    <string name="coluna_listas">LISTAT</string>
+    <string name="coluna_listas">Listat</string>
     <string name="coluna_novos">+%1$s</string>
     <string name="coluna_filtro">Suodata</string>
     <string name="coluna_esportes">Urheilu</string>

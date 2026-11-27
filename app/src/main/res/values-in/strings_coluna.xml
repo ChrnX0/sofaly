@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Tradução (in) de values/strings_coluna.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
-    <string name="coluna_listas">DAFTAR</string>
+    <string name="coluna_listas">Daftar</string>
     <string name="coluna_novos">+%1$s</string>
     <string name="coluna_filtro">Filter</string>
     <string name="coluna_esportes">Olahraga</string>

@@ -507,7 +507,7 @@
     <string name="player_pin_espere">Liian monta väärää PIN-koodia. Yritä uudelleen %d min kuluttua.</string>
     <string name="infantil_titulo">Lasten luokat</string>
     <string name="infantil_carregando">ladataan luokkia…</string>
-    <string name="infantil_coluna_itens">MITÄ SIINÄ ON</string>
+    <string name="infantil_coluna_itens">Mitä siinä on</string>
     <string name="infantil_so_categoria">merkitse koko luokka vasemmassa sarakkeessa</string>
     <string name="infantil_vazio">ei luokkia: lisää tili kohdassa Asetukset › TV ja elokuvat ja lataa kanavat uudelleen</string>
     <string name="infantil_limite">aikuisten luokka ei voi olla lasten luokka</string>
@@ -528,7 +528,7 @@
     <string name="player_sem_favoritos">Ei vielä suosikkeja.</string>
     <string name="player_categoria_vazia">Tässä luokassa ei ole kanavia.</string>
     <string name="player_sem_guia">Tälle kanavalle ei ole ohjelmaopasta.</string>
-    <string name="player_depois">MYÖHEMMIN</string>
+    <string name="player_depois">Myöhemmin</string>
     <string name="player_favorito_pos">★ %1$s lisätty suosikkeihin</string>
     <string name="player_favorito_tirou">%1$s poistettu suosikeista</string>
     <string name="player_favoritos_cheio">Suosikkeja on jo 500: poista yksi ensin.</string>

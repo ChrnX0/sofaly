@@ -443,7 +443,7 @@
     <string name="player_pin_espere">Terlalu banyak PIN salah. Coba lagi dalam %d mnt.</string>
     <string name="infantil_titulo">Kategori anak</string>
     <string name="infantil_carregando">memuat kategori…</string>
-    <string name="infantil_coluna_itens">ISINYA</string>
+    <string name="infantil_coluna_itens">Isinya</string>
     <string name="infantil_so_categoria">tandai seluruh kategori di kolom kiri</string>
     <string name="infantil_vazio">tidak ada kategori: tambahkan akun di Setelan › TV dan film dan muat ulang saluran</string>
     <string name="infantil_limite">kategori dewasa tidak bisa menjadi kategori anak</string>
@@ -464,7 +464,7 @@
     <string name="player_sem_favoritos">Belum ada favorit.</string>
     <string name="player_categoria_vazia">Tidak ada saluran di kategori ini.</string>
     <string name="player_sem_guia">Tidak ada panduan acara untuk saluran ini.</string>
-    <string name="player_depois">NANTI</string>
+    <string name="player_depois">Nanti</string>
     <string name="player_favorito_pos">★ %1$s ditambahkan ke favorit</string>
     <string name="player_favorito_tirou">%1$s dihapus dari favorit</string>
     <string name="player_favoritos_cheio">Sudah ada 500 favorit: hapus satu dulu.</string>

@@ -507,7 +507,7 @@
     <string name="player_pin_espere">För många felaktiga PIN-koder. Försök igen om %d min.</string>
     <string name="infantil_titulo">Barnkategorier</string>
     <string name="infantil_carregando">laddar kategorier…</string>
-    <string name="infantil_coluna_itens">VAD SOM FINNS I DEN</string>
+    <string name="infantil_coluna_itens">Vad som finns i den</string>
     <string name="infantil_so_categoria">markera hela kategorin i vänstra kolumnen</string>
     <string name="infantil_vazio">inga kategorier: lägg till ett konto i Inställningar › Tv och filmer och ladda om kanalerna</string>
     <string name="infantil_limite">en vuxenkategori kan inte vara en barnkategori</string>
@@ -528,7 +528,7 @@
     <string name="player_sem_favoritos">Inga favoriter än.</string>
     <string name="player_categoria_vazia">Inga kanaler i den här kategorin.</string>
     <string name="player_sem_guia">Ingen programguide för den här kanalen.</string>
-    <string name="player_depois">SENARE</string>
+    <string name="player_depois">Senare</string>
     <string name="player_favorito_pos">★ %1$s lades till i favoriter</string>
     <string name="player_favorito_tirou">%1$s togs bort från favoriter</string>
     <string name="player_favoritos_cheio">Det finns redan 500 favoriter: ta bort en först.</string>

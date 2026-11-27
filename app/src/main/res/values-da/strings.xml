@@ -507,7 +507,7 @@
     <string name="player_pin_espere">For mange forkerte PIN-koder. Prøv igen om %d min.</string>
     <string name="infantil_titulo">Børnekategorier</string>
     <string name="infantil_carregando">indlæser kategorier…</string>
-    <string name="infantil_coluna_itens">HVAD DER ER I DEN</string>
+    <string name="infantil_coluna_itens">Hvad der er i den</string>
     <string name="infantil_so_categoria">marker hele kategorien i venstre kolonne</string>
     <string name="infantil_vazio">ingen kategorier: tilføj en konto i Indstillinger › Tv og film, og genindlæs kanalerne</string>
     <string name="infantil_limite">en voksenkategori kan ikke være en børnekategori</string>
@@ -528,7 +528,7 @@
     <string name="player_sem_favoritos">Ingen favoritter endnu.</string>
     <string name="player_categoria_vazia">Ingen kanaler i denne kategori.</string>
     <string name="player_sem_guia">Ingen programoversigt for denne kanal.</string>
-    <string name="player_depois">SENERE</string>
+    <string name="player_depois">Senere</string>
     <string name="player_favorito_pos">★ %1$s tilføjet til favoritter</string>
     <string name="player_favorito_tirou">%1$s fjernet fra favoritter</string>
     <string name="player_favoritos_cheio">Der er allerede 500 favoritter: fjern en først.</string>

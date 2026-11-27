@@ -507,7 +507,7 @@
     <string name="player_pin_espere">Sai PIN quá nhiều lần. Thử lại sau %d phút.</string>
     <string name="infantil_titulo">Danh mục trẻ em</string>
     <string name="infantil_carregando">đang tải danh mục…</string>
-    <string name="infantil_coluna_itens">BÊN TRONG CÓ GÌ</string>
+    <string name="infantil_coluna_itens">Bên trong có gì</string>
     <string name="infantil_so_categoria">đánh dấu cả danh mục ở cột bên trái</string>
     <string name="infantil_vazio">không có danh mục: thêm tài khoản trong Cài đặt › TV và phim rồi tải lại kênh</string>
     <string name="infantil_limite">danh mục người lớn không thể là danh mục trẻ em</string>
@@ -528,7 +528,7 @@
     <string name="player_sem_favoritos">Chưa có mục yêu thích.</string>
     <string name="player_categoria_vazia">Không có kênh trong danh mục này.</string>
     <string name="player_sem_guia">Không có lịch phát sóng cho kênh này.</string>
-    <string name="player_depois">SAU ĐÓ</string>
+    <string name="player_depois">Sau đó</string>
     <string name="player_favorito_pos">★ Đã thêm %1$s vào yêu thích</string>
     <string name="player_favorito_tirou">Đã xóa %1$s khỏi yêu thích</string>
     <string name="player_favoritos_cheio">Đã có 500 mục yêu thích: hãy xóa bớt một mục trước.</string>

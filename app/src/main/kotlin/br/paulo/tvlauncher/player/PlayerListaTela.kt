@@ -527,7 +527,7 @@ class PlayerListaTela(
     }
 
     private fun rotulo() = TextView(act).apply {
-        textSize = Estilo.Leitura.ROTULO; typeface = Fontes.nunito(600); letterSpacing = 0.06f; setTextColor(Estilo.TEXTO_3)
+        textSize = Estilo.Leitura.ROTULO; typeface = Fontes.nunito(600); setTextColor(Estilo.TEXTO_3)
         setPaddingRelative(dp(10), dp(4), dp(10), dp(8)); maxLines = 1; ellipsize = TextUtils.TruncateAt.END
     }
 

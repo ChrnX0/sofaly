@@ -285,7 +285,7 @@ abstract class CatalogActivity<T>(protected val kind: String, protected val isSe
     }
 
     protected fun rotulo(t: String) = TextView(this).apply {
-        text = t; textSize = Estilo.Leitura.ROTULO; typeface = Fontes.nunito(600); letterSpacing = 0.06f; setTextColor(Estilo.TEXTO_3)
+        text = t; textSize = Estilo.Leitura.ROTULO; typeface = Fontes.nunito(600); setTextColor(Estilo.TEXTO_3)
         setPaddingRelative(dp(10), dp(4), dp(10), dp(8)); maxLines = 1; ellipsize = TextUtils.TruncateAt.END
     }
 

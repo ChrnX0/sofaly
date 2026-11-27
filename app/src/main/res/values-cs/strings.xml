@@ -508,7 +508,7 @@
     <string name="player_pin_espere">Příliš mnoho nesprávných PINů. Zkuste to znovu za %d min.</string>
     <string name="infantil_titulo">Dětské kategorie</string>
     <string name="infantil_carregando">načítají se kategorie…</string>
-    <string name="infantil_coluna_itens">CO OBSAHUJE</string>
+    <string name="infantil_coluna_itens">Co obsahuje</string>
     <string name="infantil_so_categoria">označte celou kategorii v levém sloupci</string>
     <string name="infantil_vazio">žádné kategorie: přidejte účet v Nastavení › TV a filmy a znovu načtěte kanály</string>
     <string name="infantil_limite">kategorie pro dospělé nemůže být dětská</string>
@@ -529,7 +529,7 @@
     <string name="player_sem_favoritos">Zatím žádné oblíbené.</string>
     <string name="player_categoria_vazia">V této kategorii nejsou žádné kanály.</string>
     <string name="player_sem_guia">Pro tento kanál není programový průvodce.</string>
-    <string name="player_depois">POZDĚJI</string>
+    <string name="player_depois">Později</string>
     <string name="player_favorito_pos">★ %1$s přidán do oblíbených</string>
     <string name="player_favorito_tirou">%1$s odebrán z oblíbených</string>
     <string name="player_favoritos_cheio">Oblíbených je už 500: nejprve jeden odeberte.</string>

@@ -443,7 +443,7 @@
     <string name="player_pin_espere">Слишком много неверных PIN. Повторите через %d мин.</string>
     <string name="infantil_titulo">Детские категории</string>
     <string name="infantil_carregando">загрузка категорий…</string>
-    <string name="infantil_coluna_itens">ЧТО ВНУТРИ</string>
+    <string name="infantil_coluna_itens">Что внутри</string>
     <string name="infantil_so_categoria">отмечайте всю категорию в левой колонке</string>
     <string name="infantil_vazio">нет категорий: добавьте аккаунт в Настройки › ТВ и фильмы и перезагрузите каналы</string>
     <string name="infantil_limite">взрослая категория не может быть детской</string>
@@ -464,7 +464,7 @@
     <string name="player_sem_favoritos">Избранного пока нет.</string>
     <string name="player_categoria_vazia">В этой категории нет каналов.</string>
     <string name="player_sem_guia">Для этого канала нет телепрограммы.</string>
-    <string name="player_depois">ДАЛЕЕ</string>
+    <string name="player_depois">Далее</string>
     <string name="player_favorito_pos">★ %1$s добавлен в избранное</string>
     <string name="player_favorito_tirou">%1$s убран из избранного</string>
     <string name="player_favoritos_cheio">В избранном уже 500 каналов: сначала уберите один.</string>

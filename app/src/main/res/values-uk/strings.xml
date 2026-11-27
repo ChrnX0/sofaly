@@ -509,7 +509,7 @@
     <string name="player_pin_espere">Забагато неправильних PIN. Спробуйте ще раз через %d хв.</string>
     <string name="infantil_titulo">Дитячі категорії</string>
     <string name="infantil_carregando">завантаження категорій…</string>
-    <string name="infantil_coluna_itens">ЩО ВСЕРЕДИНІ</string>
+    <string name="infantil_coluna_itens">Що всередині</string>
     <string name="infantil_so_categoria">позначте всю категорію в лівій колонці</string>
     <string name="infantil_vazio">немає категорій: додайте обліковий запис у Налаштування › ТБ і фільми й перезавантажте канали</string>
     <string name="infantil_limite">категорія для дорослих не може бути дитячою</string>
@@ -530,7 +530,7 @@
     <string name="player_sem_favoritos">Улюблених ще немає.</string>
     <string name="player_categoria_vazia">У цій категорії немає каналів.</string>
     <string name="player_sem_guia">Немає телепрограми для цього каналу.</string>
-    <string name="player_depois">ПІЗНІШЕ</string>
+    <string name="player_depois">Пізніше</string>
     <string name="player_favorito_pos">★ %1$s додано до улюблених</string>
     <string name="player_favorito_tirou">%1$s вилучено з улюблених</string>
     <string name="player_favoritos_cheio">Уже є 500 улюблених: спершу вилучіть один.</string>

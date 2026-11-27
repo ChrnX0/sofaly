@@ -507,7 +507,7 @@
     <string name="player_pin_espere">Te vaak een verkeerde pincode. Probeer het over %d min opnieuw.</string>
     <string name="infantil_titulo">Kindercategorieën</string>
     <string name="infantil_carregando">categorieën laden…</string>
-    <string name="infantil_coluna_itens">WAT ERIN ZIT</string>
+    <string name="infantil_coluna_itens">Wat erin zit</string>
     <string name="infantil_so_categoria">markeer de hele categorie in de linkerkolom</string>
     <string name="infantil_vazio">geen categorieën: voeg een account toe in Instellingen › Tv en films en laad de zenders opnieuw</string>
     <string name="infantil_limite">een volwassenencategorie kan geen kindercategorie zijn</string>
@@ -528,7 +528,7 @@
     <string name="player_sem_favoritos">Nog geen favorieten.</string>
     <string name="player_categoria_vazia">Geen zenders in deze categorie.</string>
     <string name="player_sem_guia">Geen tv-gids voor deze zender.</string>
-    <string name="player_depois">LATER</string>
+    <string name="player_depois">Later</string>
     <string name="player_favorito_pos">★ %1$s toegevoegd aan favorieten</string>
     <string name="player_favorito_tirou">%1$s verwijderd uit favorieten</string>
     <string name="player_favoritos_cheio">Er zijn al 500 favorieten: verwijder er eerst een.</string>

@@ -443,7 +443,7 @@
     <string name="player_pin_espere">PIN errado demais. Tente de novo em %d min.</string>
     <string name="infantil_titulo">Categorias infantis</string>
     <string name="infantil_carregando">a carregar as categorias…</string>
-    <string name="infantil_coluna_itens">O QUE TEM NELA</string>
+    <string name="infantil_coluna_itens">O que tem nela</string>
     <string name="infantil_so_categoria">marque a categoria inteira na coluna da esquerda</string>
     <string name="infantil_vazio">nenhuma categoria: registe uma conta em Definições › TV e filmes e recarregue os canais</string>
     <string name="infantil_limite">categoria adulta não pode ser infantil</string>
@@ -464,7 +464,7 @@
     <string name="player_sem_favoritos">Nenhum favorito ainda.</string>
     <string name="player_categoria_vazia">Nenhum canal nesta categoria.</string>
     <string name="player_sem_guia">Sem guia de programação para este canal.</string>
-    <string name="player_depois">DEPOIS</string>
+    <string name="player_depois">Depois</string>
     <string name="player_favorito_pos">★ %1$s nos favoritos</string>
     <string name="player_favorito_tirou">%1$s saiu dos favoritos</string>
     <string name="player_favoritos_cheio">Já há 500 favoritos: tire um antes.</string>

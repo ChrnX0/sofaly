@@ -168,8 +168,8 @@
     <string name="bu_motivo_time">Η ομάδα μου</string>
     <string name="bu_motivo_favorito">Αγαπημένο κανάλι</string>
     <string name="bu_motivo_assistiu">Είδατε</string>
-    <string name="bc_categorias">ΚΑΤΗΓΟΡΙΕΣ</string>
-    <string name="bc_canais">ΚΑΝΑΛΙΑ</string>
+    <string name="bc_categorias">Κατηγορίες</string>
+    <string name="bc_canais">Κανάλια</string>
     <string name="bc_carregando">φόρτωση καναλιών…</string>
     <string name="bc_categoria_bloqueada">όλη η κατηγορία \"%1$s\" είναι αποκλεισμένη: ξεκλειδώστε τη στην αριστερή στήλη</string>
     <string name="bc_filme">Ταινία · %1$s</string>
@@ -281,8 +281,8 @@
     <string name="ad_vai_desligar">Η τηλεόραση θα κλείσει σε %1$d δ.</string>
     <string name="home_busca_voz">Φωνητική αναζήτηση</string>
     <string name="pg_aviso_as">Υπενθύμιση στις %1$s: %2$s</string>
-    <string name="at_timer">ΧΡΟΝΟΜΕΤΡΟ</string>
-    <string name="at_despertador">ΞΥΠΝΗΤΗΡΙ</string>
+    <string name="at_timer">Χρονόμετρο</string>
+    <string name="at_despertador">Ξυπνητήρι</string>
     <string name="vod_vazio_texto">Οι ταινίες και οι σειρές προέρχονται από τη λίστα TV σας. Προσθέστε μία στις Ρυθμίσεις, Λογαριασμός.</string>
     <string name="vod_adicionar_lista">Προσθήκη λίστας</string>
     <string name="uso_recomendado">Προτείνεται</string>

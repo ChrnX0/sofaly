@@ -443,7 +443,7 @@
     <string name="player_pin_espere">Çok fazla yanlış PIN. %d dk sonra yeniden deneyin.</string>
     <string name="infantil_titulo">Çocuk kategorileri</string>
     <string name="infantil_carregando">kategoriler yükleniyor…</string>
-    <string name="infantil_coluna_itens">İÇİNDEKİLER</string>
+    <string name="infantil_coluna_itens">İçindekiler</string>
     <string name="infantil_so_categoria">sol sütunda tüm kategoriyi işaretleyin</string>
     <string name="infantil_vazio">kategori yok: Ayarlar › TV ve filmler içinde hesap ekleyin ve kanalları yeniden yükleyin</string>
     <string name="infantil_limite">yetişkin kategorisi çocuk kategorisi olamaz</string>
@@ -464,7 +464,7 @@
     <string name="player_sem_favoritos">Henüz favori yok.</string>
     <string name="player_categoria_vazia">Bu kategoride kanal yok.</string>
     <string name="player_sem_guia">Bu kanal için yayın akışı yok.</string>
-    <string name="player_depois">SONRA</string>
+    <string name="player_depois">Sonra</string>
     <string name="player_favorito_pos">★ %1$s favorilere eklendi</string>
     <string name="player_favorito_tirou">%1$s favorilerden çıkarıldı</string>
     <string name="player_favoritos_cheio">Zaten 500 favori var: önce birini çıkarın.</string>

@@ -507,7 +507,7 @@
     <string name="player_pin_espere">Túl sok hibás PIN. Próbálja újra %d perc múlva.</string>
     <string name="infantil_titulo">Gyerekkategóriák</string>
     <string name="infantil_carregando">kategóriák betöltése…</string>
-    <string name="infantil_coluna_itens">MI VAN BENNE</string>
+    <string name="infantil_coluna_itens">Mi van benne</string>
     <string name="infantil_so_categoria">a teljes kategória jelölése a bal oszlopban</string>
     <string name="infantil_vazio">nincsenek kategóriák: adjon hozzá fiókot a Beállítások › TV és filmek menüben, és töltse be újra a csatornákat</string>
     <string name="infantil_limite">felnőtt kategória nem lehet gyerekkategória</string>
@@ -528,7 +528,7 @@
     <string name="player_sem_favoritos">Még nincsenek kedvencek.</string>
     <string name="player_categoria_vazia">Ebben a kategóriában nincsenek csatornák.</string>
     <string name="player_sem_guia">Ehhez a csatornához nincs műsorújság.</string>
-    <string name="player_depois">KÉSŐBB</string>
+    <string name="player_depois">Később</string>
     <string name="player_favorito_pos">★ %1$s hozzáadva a kedvencekhez</string>
     <string name="player_favorito_tirou">%1$s eltávolítva a kedvencek közül</string>
     <string name="player_favoritos_cheio">Már 500 kedvenc van: előbb távolítson el egyet.</string>

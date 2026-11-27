@@ -144,8 +144,8 @@
     <string name="bu_motivo_time">Tim saya</string>
     <string name="bu_motivo_favorito">Saluran favorit</string>
     <string name="bu_motivo_assistiu">Anda menonton</string>
-    <string name="bc_categorias">KATEGORI</string>
-    <string name="bc_canais">SALURAN</string>
+    <string name="bc_categorias">Kategori</string>
+    <string name="bc_canais">Saluran</string>
     <string name="bc_carregando">memuat saluran…</string>
     <string name="bc_categoria_bloqueada">seluruh kategori \"%1$s\" diblokir: buka blokirnya di kolom kiri</string>
     <string name="bc_filme">Film · %1$s</string>
@@ -253,8 +253,8 @@
     <string name="ad_vai_desligar">TV akan mati dalam %1$d dtk</string>
     <string name="home_busca_voz">Pencarian suara</string>
     <string name="pg_aviso_as">Pengingat pukul %1$s: %2$s</string>
-    <string name="at_timer">TIMER</string>
-    <string name="at_despertador">ALARM</string>
+    <string name="at_timer">Timer</string>
+    <string name="at_despertador">Alarm</string>
     <plurals name="dur_horas">
         <item quantity="other">%d jam</item>
     </plurals>
