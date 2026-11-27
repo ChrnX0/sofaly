@@ -203,11 +203,20 @@ class StorageActivity : Activity() {
         val app = applicationContext
         ocupado = true
         Fundo.rodar("Storage") {
-            val (bytes, n) = runCatching { StorageBackup.medir(comum) }.getOrDefault(0L to 0)
+            // #556: sem "acesso a todos os arquivos" o Android esconde os arquivos que não são mídia, e a cópia sairia
+            // pela metade. O launcher se concede pelo próprio shell (como o painel e o backup noturno).
+            val acesso = br.paulo.tvlauncher.panel.PainelArquivos.garantirAcesso(app)
+            // Medida que falha NÃO é "vazio": é "não deu para ler tudo", e aí não se formata por aqui.
+            val medida = if (acesso) runCatching { StorageBackup.medir(comum) } else null
             val contas = runCatching { StorageBackup.destinos(app) }.getOrDefault(emptyList())
             runOnUiThread {
                 ocupado = false
                 if (isDestroyed) return@runOnUiThread
+                val (bytes, n) = medida?.getOrNull() ?: run {
+                    val pastas = (medida?.exceptionOrNull() as? StorageBackup.PastaIlegivel)?.pastas
+                    naoDaParaLer(pastas?.take(5)?.joinToString("\n"))
+                    return@runOnUiThread
+                }
                 if (n == 0) { avisoApagar(pen, modo); return@runOnUiThread }
                 val itens = contas.map { getString(R.string.st_copiar_para, it.nome) } +
                     getString(R.string.st_copiar_pc) + getString(R.string.st_nao_copiar)
@@ -221,6 +230,16 @@ class StorageActivity : Activity() {
                 }
             }
         }
+    }
+
+    /**
+     * #556: não deu para ler tudo do pen drive (sem acesso a arquivos, ou pastas que não abrem). Formatar apagaria o
+     * que ficou de fora sem cópia, então a formatação para aqui; o caminho é copiar pelo PC antes.
+     */
+    private fun naoDaParaLer(pastas: String?) {
+        val texto = getString(R.string.st_ilegivel) + (pastas?.let { "\n\n$it" } ?: "")
+        CaixaTv(this).setTitle(getString(R.string.st_ilegivel_titulo)).setMessage(texto)
+            .setPositiveButton("OK", null).show()
     }
 
     private fun copiarEDepois(raiz: java.io.File, conta: ContaMidia, pen: StorageMode.Pen, modo: StorageModeRules.Modo) {

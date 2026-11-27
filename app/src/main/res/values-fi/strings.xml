@@ -881,6 +881,8 @@
     <string name="st_lento_titulo">Asema liian hidas</string>
     <string name="st_lento_bloqueado">Tämä asema kirjoittaa %1$s Mt/s. Tullakseen TV:n tallennustilaksi se tarvitsee vähintään %2$d Mt/s: sitä hitaammalla sovellukset jumiutuvat eikä TV ehkä käynnisty. Käytä sitä tavallisena asemana.</string>
     <string name="st_aviso_boot">Pidä se liitettynä pysyvästi: jos se vikaantuu tai irrotetaan, TV ei ehkä käynnisty ennen kuin irrotat sen.</string>
+    <string name="st_ilegivel_titulo">USB-asemaa ei voi lukea kokonaan</string>
+    <string name="st_ilegivel">Joitakin kansioita ei voitu avata, joten kopiosta jäisi tiedostoja pois. Alustus on estetty tässä, jotta niitä ei menetetä. Kopioi asema ensin tietokoneella.</string>
     <string name="home_grande_titulo">Siirretäänkö %1$s?</string>
     <string name="home_grande_aviso">%1$s vie %2$s. Hitaalla asemalla siirto voi kestää yli 10 minuuttia ja on kaatanut TV:n kesken. Jatka vain, kun kukaan ei katso.</string>
     <string name="home_liberar_arquivos">Anna sen avata USB-asemia ja tiedostoja</string>

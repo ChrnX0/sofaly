@@ -884,6 +884,8 @@
     <string name="st_lento_titulo">Disk je příliš pomalý</string>
     <string name="st_lento_bloqueado">Tento disk zapisuje %1$s MB/s. Aby se stal úložištěm televizoru, potřebuje alespoň %2$d MB/s: pod tím aplikace zamrzají a televizor se nemusí spustit. Použijte ho jako běžný disk.</string>
     <string name="st_aviso_boot">Nechte ho připojený natrvalo: pokud selže nebo bude odebrán, televizor se nemusí spustit, dokud ho neodpojíte.</string>
+    <string name="st_ilegivel_titulo">Nelze přečíst celý USB disk</string>
+    <string name="st_ilegivel">Některé složky nešly otevřít, kopie by tedy vynechala soubory. Formátování je tu zablokované, aby se neztratily. Nejprve disk zkopírujte přes počítač.</string>
     <string name="home_grande_titulo">Přesunout %1$s?</string>
     <string name="home_grande_aviso">%1$s zabírá %2$s. Na pomalém disku může přesun trvat déle než 10 minut a už jednou shodil televizor uprostřed. Pokračujte, jen když se nikdo nedívá.</string>
     <string name="home_liberar_arquivos">Povolit otevírat USB disky a soubory</string>

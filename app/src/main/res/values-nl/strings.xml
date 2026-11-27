@@ -881,6 +881,8 @@
     <string name="st_lento_titulo">Stick te traag</string>
     <string name="st_lento_bloqueado">Deze stick schrijft met %1$s MB/s. Om tv-opslag te worden is minstens %2$d MB/s nodig: daaronder bevriezen apps en start de tv misschien niet. Gebruik hem als gewone stick.</string>
     <string name="st_aviso_boot">Laat hem voorgoed aangesloten: als hij defect raakt of eruit gaat, start de tv misschien niet tot je hem loskoppelt.</string>
+    <string name="st_ilegivel_titulo">Niet alles op de USB-stick is leesbaar</string>
+    <string name="st_ilegivel">Sommige mappen gingen niet open, dus een kopie zou bestanden missen. Formatteren is hier geblokkeerd om ze te beschermen. Kopieer de stick eerst via de pc.</string>
     <string name="home_grande_titulo">%1$s verplaatsen?</string>
     <string name="home_grande_aviso">%1$s neemt %2$s in beslag. Op een trage stick kan het verplaatsen meer dan 10 minuten duren en heeft het al eens een tv halverwege laten vastlopen. Ga alleen door als niemand kijkt.</string>
     <string name="home_liberar_arquivos">Laten openen van usb-sticks en bestanden</string>

@@ -32,10 +32,26 @@ object StorageBackup {
     /** Contas SMB do Na rede (as que aceitam gravar). */
     fun destinos(ctx: Context): List<ContaMidia> = MidiaArmazem.contas(ctx).filter { it.tipo == ContaMidia.SMB }
 
-    /** Bytes e arquivos da parte comum (para a tela dizer o tamanho antes de copiar). */
+    /**
+     * Pastas que não deu para ler (#556). Sem isto, walkTopDown pulava a pasta calado e a cópia dizia "deu certo":
+     * formatar depois apagava o que ficou de fora. Quem recebe esta exceção NÃO pode oferecer a formatação.
+     */
+    class PastaIlegivel(val pastas: List<String>) : Exception("sem ler: " + pastas.take(3).joinToString())
+
+    /** Percorre [raiz] e junta em [ruins] (caminho relativo) toda pasta cujo conteúdo não deu para listar. */
+    private fun percorrer(raiz: File, ruins: MutableList<String>): Sequence<File> =
+        raiz.walkTopDown().onEnter { !it.name.startsWith(".android_secure") }
+            .onFail { f, _ -> ruins += f.relativeTo(raiz).invariantSeparatorsPath.ifEmpty { "/" } }
+
+    /**
+     * Bytes e arquivos da parte comum (para a tela dizer o tamanho antes de copiar). Lança [PastaIlegivel] se alguma
+     * pasta não abriu: aí o tamanho não vale e "vazio" seria mentira.
+     */
     fun medir(raiz: File): Pair<Long, Int> {
         var bytes = 0L; var n = 0
-        raiz.walkTopDown().onEnter { !it.name.startsWith(".android_secure") }.filter { it.isFile }.forEach { bytes += it.length(); n++ }
+        val ruins = mutableListOf<String>()
+        percorrer(raiz, ruins).filter { it.isFile }.forEach { bytes += it.length(); n++ }
+        if (ruins.isNotEmpty()) throw PastaIlegivel(ruins)
         return bytes to n
     }
 
@@ -44,7 +60,7 @@ object StorageBackup {
      * motivo. Arquivo que falha para a cópia toda: backup pela metade não pode liberar a formatação.
      */
     fun copiar(ctx: Context, raiz: File, conta: ContaMidia, progresso: (Long, Long) -> Unit): String? {
-        val total = medir(raiz).first
+        val total = try { medir(raiz).first } catch (e: PastaIlegivel) { return e.message ?: "sem ler" }
         val dia = SimpleDateFormat("yyyy-MM-dd HH-mm", Locale.ROOT).format(Date())
         val base = MidiaContas.juntar(MidiaContas.juntar(Smb.inicio(conta), PASTA), dia)
         var feito = 0L
@@ -60,7 +76,8 @@ object StorageBackup {
                 }
                 mkdirs(base)
                 val buf = ByteArray(256 * 1024)
-                for (f in raiz.walkTopDown().onEnter { !it.name.startsWith(".android_secure") }) {
+                val ruins = mutableListOf<String>()
+                for (f in percorrer(raiz, ruins)) {
                     val rel = f.relativeTo(raiz).invariantSeparatorsPath
                     if (rel.isEmpty()) continue
                     val destino = MidiaContas.juntar(base, rel)
@@ -78,6 +95,8 @@ object StorageBackup {
                     }
                 }
             }
+            // Uma pasta que sumiu de leitura no meio da cópia também segura a formatação.
+            if (ruins.isNotEmpty()) throw PastaIlegivel(ruins)
             Log.i(TAG, "backup: ${feito} bytes -> ${conta.nome}/$base")
             null
         } catch (e: Exception) {

@@ -843,6 +843,8 @@ AS\\Movies)।</string>
     <string name="st_lento_titulo">पेन ड्राइव बहुत धीमी है</string>
     <string name="st_lento_bloqueado">यह पेन ड्राइव %1$s MB/s पर लिखती है। TV मेमोरी बनने के लिए कम से कम %2$d MB/s चाहिए: इससे कम पर ऐप अटकते हैं और TV चालू नहीं भी हो सकता। इसे सामान्य पेन ड्राइव की तरह इस्तेमाल करें।</string>
     <string name="st_aviso_boot">इसे हमेशा लगा रहने दें: अगर यह खराब हो या निकाली जाए, तो इसे हटाने तक TV चालू नहीं भी हो सकता।</string>
+    <string name="st_ilegivel_titulo">USB ड्राइव का सब कुछ पढ़ा नहीं जा सका</string>
+    <string name="st_ilegivel">कुछ फ़ोल्डर नहीं खुले, इसलिए कॉपी में कुछ फ़ाइलें छूट जाएँगी। उन्हें बचाने के लिए यहाँ फ़ॉर्मैट रोक दिया गया है। पहले PC से ड्राइव कॉपी करें।</string>
     <string name="home_grande_titulo">%1$s ले जाएँ?</string>
     <string name="home_grande_aviso">%1$s %2$s लेता है। धीमी पेन ड्राइव पर यह 10 मिनट से ज़्यादा ले सकता है और एक TV को बीच में अटका चुका है। तभी जारी रखें जब कोई देख न रहा हो।</string>
     <string name="home_liberar_arquivos">पेन ड्राइव और फ़ाइलें खोलने दें</string>

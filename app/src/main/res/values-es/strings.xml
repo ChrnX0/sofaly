@@ -846,6 +846,8 @@ AS\\Peliculas).</string>
     <string name="st_lento_titulo">Memoria USB demasiado lenta</string>
     <string name="st_lento_bloqueado">Esta memoria USB escribe a %1$s MB/s. Para ser memoria de la TV necesita al menos %2$d MB/s: por debajo las apps se traban y la TV puede no encender. Úsala como memoria USB normal.</string>
     <string name="st_aviso_boot">Déjala siempre conectada: si falla o se retira, la TV puede no encender hasta que la desconectes.</string>
+    <string name="st_ilegivel_titulo">No se pudo leer todo el pendrive</string>
+    <string name="st_ilegivel">Algunas carpetas no se abrieron, así que la copia dejaría archivos fuera. El formateo queda bloqueado aquí para no perderlos. Copia el pendrive con el PC primero.</string>
     <string name="home_grande_titulo">¿Mover %1$s?</string>
     <string name="home_grande_aviso">%1$s ocupa %2$s. En una memoria lenta el traslado puede pasar de 10 minutos y ya colgó una TV a mitad. Continúa solo si nadie está mirando.</string>
     <string name="home_liberar_arquivos">Permitir abrir memorias USB y archivos</string>
