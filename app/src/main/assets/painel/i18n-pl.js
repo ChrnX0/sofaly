@@ -532,7 +532,7 @@ traduzirPainelCom({T:{
 "Depois desse tempo sem ninguém apertar o controle, a TV mostra um aviso por 60 s e desliga. Qualquer botão cancela. Assistir um filme sem tocar no controle também conta como \"sem uso\".":"Po tym czasie bez naciśnięcia pilota telewizor pokazuje komunikat przez 60 s i się wyłącza. Każdy przycisk anuluje. Oglądanie filmu bez dotykania pilota też liczy się jako „bez używania”.",
 "Desenho da HOME nesta versão:":"Rysowanie HOME w tej wersji:",
 "Desinstalar":"Odinstaluj",
-"Desligado: a TV só publica o MCP. Ligado: http://onetv-<nome da TV>:8080, ou com cadeado https://onetv-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Wyłączone: telewizor publikuje tylko MCP. Włączone: http://onetv-<nazwa telewizora>:8080, albo z kłódką https://onetv-<nazwa telewizora>.<twoja sieć>.ts.net:8443, otwiera ten panel z każdego urządzenia konta Tailscale, z tym samym PIN-em, nigdy przez otwarty internet.",
+"Desligado: a TV só publica o MCP. Ligado: http://sofaly-<nome da TV>:8080, ou com cadeado https://sofaly-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Wyłączone: telewizor publikuje tylko MCP. Włączone: http://sofaly-<nazwa telewizora>:8080, albo z kłódką https://sofaly-<nazwa telewizora>.<twoja sieć>.ts.net:8443, otwiera ten panel z każdego urządzenia konta Tailscale, z tym samym PIN-em, nigdy przez otwarty internet.",
 "Desligado: defina a senha primeiro.":"Wyłączone: najpierw ustaw hasło.",
 "Desligado: o login usa o PIN do painel.":"Wyłączone: logowanie używa PIN-u panelu.",
 "Desligar":"Wyłącz",

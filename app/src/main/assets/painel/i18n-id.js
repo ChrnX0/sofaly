@@ -532,7 +532,7 @@ traduzirPainelCom({T:{
 "Depois desse tempo sem ninguém apertar o controle, a TV mostra um aviso por 60 s e desliga. Qualquer botão cancela. Assistir um filme sem tocar no controle também conta como \"sem uso\".":"Setelah waktu ini tanpa ada yang menekan remote, TV menampilkan peringatan 60 dtk lalu mati. Tombol apa pun membatalkan. Menonton film tanpa menyentuh remote juga dihitung \"tidak dipakai\".",
 "Desenho da HOME nesta versão:":"Gambar HOME di versi ini:",
 "Desinstalar":"Copot pemasangan",
-"Desligado: a TV só publica o MCP. Ligado: http://onetv-<nome da TV>:8080, ou com cadeado https://onetv-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Mati: TV hanya menerbitkan MCP. Aktif: http://onetv-<nama TV>:8080, atau dengan gembok https://onetv-<nama TV>.<jaringan Anda>.ts.net:8443, membuka panel ini dari perangkat mana pun di akun Tailscale, dengan PIN yang sama, tidak pernah lewat internet terbuka.",
+"Desligado: a TV só publica o MCP. Ligado: http://sofaly-<nome da TV>:8080, ou com cadeado https://sofaly-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Mati: TV hanya menerbitkan MCP. Aktif: http://sofaly-<nama TV>:8080, atau dengan gembok https://sofaly-<nama TV>.<jaringan Anda>.ts.net:8443, membuka panel ini dari perangkat mana pun di akun Tailscale, dengan PIN yang sama, tidak pernah lewat internet terbuka.",
 "Desligado: defina a senha primeiro.":"Mati: atur kata sandi dulu.",
 "Desligado: o login usa o PIN do painel.":"Mati: login memakai PIN panel.",
 "Desligar":"Matikan",

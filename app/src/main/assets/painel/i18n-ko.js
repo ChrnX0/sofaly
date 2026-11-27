@@ -532,7 +532,7 @@ traduzirPainelCom({T:{
 "Depois desse tempo sem ninguém apertar o controle, a TV mostra um aviso por 60 s e desliga. Qualquer botão cancela. Assistir um filme sem tocar no controle também conta como \"sem uso\".":"이 시간 동안 아무도 리모컨을 누르지 않으면 TV가 60초간 경고를 보여 준 뒤 꺼집니다. 아무 버튼이나 누르면 취소됩니다. 리모컨을 만지지 않고 영화를 보는 것도 \"사용 안 함\"으로 칩니다.",
 "Desenho da HOME nesta versão:":"이 버전의 HOME 그리기:",
 "Desinstalar":"제거",
-"Desligado: a TV só publica o MCP. Ligado: http://onetv-<nome da TV>:8080, ou com cadeado https://onetv-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"꺼짐: TV는 MCP만 공개합니다. 켜짐: http://onetv-<TV 이름>:8080 또는 자물쇠가 있는 https://onetv-<TV 이름>.<내 네트워크>.ts.net:8443 으로 Tailscale 계정의 어느 기기에서나 같은 PIN으로 이 패널을 엽니다. 공개 인터넷에서는 절대 열리지 않습니다.",
+"Desligado: a TV só publica o MCP. Ligado: http://sofaly-<nome da TV>:8080, ou com cadeado https://sofaly-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"꺼짐: TV는 MCP만 공개합니다. 켜짐: http://sofaly-<TV 이름>:8080 또는 자물쇠가 있는 https://sofaly-<TV 이름>.<내 네트워크>.ts.net:8443 으로 Tailscale 계정의 어느 기기에서나 같은 PIN으로 이 패널을 엽니다. 공개 인터넷에서는 절대 열리지 않습니다.",
 "Desligado: defina a senha primeiro.":"꺼짐: 먼저 비밀번호를 정하세요.",
 "Desligado: o login usa o PIN do painel.":"꺼짐: 로그인은 패널 PIN을 사용합니다.",
 "Desligar":"끄기",

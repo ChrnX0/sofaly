@@ -532,7 +532,7 @@ traduzirPainelCom({T:{
 "Depois desse tempo sem ninguém apertar o controle, a TV mostra um aviso por 60 s e desliga. Qualquer botão cancela. Assistir um filme sem tocar no controle também conta como \"sem uso\".":"Після такого часу без натискань пульта телевізор показує сповіщення на 60 с і вимикається. Будь-яка кнопка скасовує. Перегляд фільму без дотику до пульта теж вважається «не використовується».",
 "Desenho da HOME nesta versão:":"Малювання HOME у цій версії:",
 "Desinstalar":"Видалити",
-"Desligado: a TV só publica o MCP. Ligado: http://onetv-<nome da TV>:8080, ou com cadeado https://onetv-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Вимкнено: телевізор публікує лише MCP. Увімкнено: http://onetv-<назва ТВ>:8080 або із замком https://onetv-<назва ТВ>.<ваша мережа>.ts.net:8443 відкриває цю панель із будь-якого пристрою облікового запису Tailscale, з тим самим PIN, ніколи через відкритий інтернет.",
+"Desligado: a TV só publica o MCP. Ligado: http://sofaly-<nome da TV>:8080, ou com cadeado https://sofaly-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Вимкнено: телевізор публікує лише MCP. Увімкнено: http://sofaly-<назва ТВ>:8080 або із замком https://sofaly-<назва ТВ>.<ваша мережа>.ts.net:8443 відкриває цю панель із будь-якого пристрою облікового запису Tailscale, з тим самим PIN, ніколи через відкритий інтернет.",
 "Desligado: defina a senha primeiro.":"Вимкнено: спершу задайте пароль.",
 "Desligado: o login usa o PIN do painel.":"Вимкнено: вхід використовує PIN панелі.",
 "Desligar":"Вимкнути",

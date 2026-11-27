@@ -11,7 +11,7 @@
 // Variáveis de ambiente (vindas do launcher):
 //
 //	TUNEL_DIR      pasta do estado (chave do nó; fica nos dados do launcher)
-//	TUNEL_NOME     nome do aparelho na rede Tailscale (ex.: onetv-sala)
+//	TUNEL_NOME     nome do aparelho na rede Tailscale (ex.: sofaly-sala)
 //	TUNEL_ALVO     para onde repassar (ex.: 127.0.0.1:8091)
 //	TUNEL_DNS      servidor DNS para resolver o Tailscale (o Android não tem /etc/resolv.conf)
 //	TS_AUTHKEY     chave de autenticação (opcional; sem ela o login é pelo QR code: linha LOGIN)

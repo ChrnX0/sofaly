@@ -18,7 +18,7 @@ import org.json.JSONObject
  * Família conectada. Ligado, o servidor do túnel sobe (McpServidor.precisaServidor) e o túnel publica a lista de
  * aparelhos da conta (TUNEL_PARES), sem abrir o painel na rede Tailscale.
  *
- * Cada TV fala com a outra pelo endereço PÚBLICO dela (https://onetv-<nome>.<rede>.ts.net, o mesmo do link da
+ * Cada TV fala com a outra pelo endereço PÚBLICO dela (https://sofaly-<nome>.<rede>.ts.net, ou onetv- nas TVs de antes, o mesmo do link da
  * família), com TLS verificado normalmente. Quem recebe um convite confere de volta, na TV que diz ter mandado, que o
  * convite existe (ninguém se passa por outra TV da conta). Só vão comandos e posições; nenhum vídeo.
  */

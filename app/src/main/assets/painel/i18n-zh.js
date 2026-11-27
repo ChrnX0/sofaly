@@ -532,7 +532,7 @@ traduzirPainelCom({T:{
 "Depois desse tempo sem ninguém apertar o controle, a TV mostra um aviso por 60 s e desliga. Qualquer botão cancela. Assistir um filme sem tocar no controle também conta como \"sem uso\".":"在这段时间内没人按遥控器,电视会显示 60 秒提示后关机。按任意键取消。不碰遥控器看电影也算作“未使用”。",
 "Desenho da HOME nesta versão:":"此版本的 HOME 绘制:",
 "Desinstalar":"卸载",
-"Desligado: a TV só publica o MCP. Ligado: http://onetv-<nome da TV>:8080, ou com cadeado https://onetv-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"关闭:电视只发布 MCP。开启:http://onetv-<电视名称>:8080,或带锁的 https://onetv-<电视名称>.<你的网络>.ts.net:8443,可从 Tailscale 账户的任何设备用同一个 PIN 打开此面板,绝不经由公共互联网。",
+"Desligado: a TV só publica o MCP. Ligado: http://sofaly-<nome da TV>:8080, ou com cadeado https://sofaly-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"关闭:电视只发布 MCP。开启:http://sofaly-<电视名称>:8080,或带锁的 https://sofaly-<电视名称>.<你的网络>.ts.net:8443,可从 Tailscale 账户的任何设备用同一个 PIN 打开此面板,绝不经由公共互联网。",
 "Desligado: defina a senha primeiro.":"关闭:请先设置密码。",
 "Desligado: o login usa o PIN do painel.":"关闭:登录使用面板 PIN。",
 "Desligar":"关闭",

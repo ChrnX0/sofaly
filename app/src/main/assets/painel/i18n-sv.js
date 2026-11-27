@@ -532,7 +532,7 @@ traduzirPainelCom({T:{
 "Depois desse tempo sem ninguém apertar o controle, a TV mostra um aviso por 60 s e desliga. Qualquer botão cancela. Assistir um filme sem tocar no controle também conta como \"sem uso\".":"Efter så här lång tid utan att någon trycker på fjärrkontrollen visar tv:n ett meddelande i 60 s och stängs av. Valfri knapp avbryter. Att titta på film utan att röra fjärrkontrollen räknas också som \"inte i bruk\".",
 "Desenho da HOME nesta versão:":"HOME-ritning i den här versionen:",
 "Desinstalar":"Avinstallera",
-"Desligado: a TV só publica o MCP. Ligado: http://onetv-<nome da TV>:8080, ou com cadeado https://onetv-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Av: tv:n publicerar bara MCP. På: http://onetv-<tv-namn>:8080, eller med hänglås https://onetv-<tv-namn>.<ditt nätverk>.ts.net:8443, öppnar den här panelen från valfri enhet i Tailscale-kontot, med samma PIN-kod, aldrig via det öppna internet.",
+"Desligado: a TV só publica o MCP. Ligado: http://sofaly-<nome da TV>:8080, ou com cadeado https://sofaly-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Av: tv:n publicerar bara MCP. På: http://sofaly-<tv-namn>:8080, eller med hänglås https://sofaly-<tv-namn>.<ditt nätverk>.ts.net:8443, öppnar den här panelen från valfri enhet i Tailscale-kontot, med samma PIN-kod, aldrig via det öppna internet.",
 "Desligado: defina a senha primeiro.":"Av: ställ in lösenordet först.",
 "Desligado: o login usa o PIN do painel.":"Av: inloggningen använder panelens PIN-kod.",
 "Desligar":"Stäng av",

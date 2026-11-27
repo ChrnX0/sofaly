@@ -532,7 +532,7 @@ traduzirPainelCom({T:{
 "Depois desse tempo sem ninguém apertar o controle, a TV mostra um aviso por 60 s e desliga. Qualquer botão cancela. Assistir um filme sem tocar no controle também conta como \"sem uso\".":"Sau khoảng thời gian này không ai nhấn điều khiển, TV hiện thông báo trong 60 giây rồi tắt. Nhấn nút bất kỳ để hủy. Xem phim mà không chạm vào điều khiển cũng tính là \"không dùng\".",
 "Desenho da HOME nesta versão:":"Vẽ HOME trong phiên bản này:",
 "Desinstalar":"Gỡ cài đặt",
-"Desligado: a TV só publica o MCP. Ligado: http://onetv-<nome da TV>:8080, ou com cadeado https://onetv-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Tắt: TV chỉ công khai MCP. Bật: http://onetv-<TV name>:8080, hoặc có ổ khóa https://onetv-<TV name>.<your network>.ts.net:8443, mở bảng điều khiển này từ bất kỳ thiết bị nào trong tài khoản Tailscale, với cùng PIN, không bao giờ qua internet công khai.",
+"Desligado: a TV só publica o MCP. Ligado: http://sofaly-<nome da TV>:8080, ou com cadeado https://sofaly-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Tắt: TV chỉ công khai MCP. Bật: http://sofaly-<TV name>:8080, hoặc có ổ khóa https://sofaly-<TV name>.<your network>.ts.net:8443, mở bảng điều khiển này từ bất kỳ thiết bị nào trong tài khoản Tailscale, với cùng PIN, không bao giờ qua internet công khai.",
 "Desligado: defina a senha primeiro.":"Đang tắt: hãy đặt mật khẩu trước.",
 "Desligado: o login usa o PIN do painel.":"Đang tắt: đăng nhập dùng PIN của bảng điều khiển.",
 "Desligar":"Tắt",

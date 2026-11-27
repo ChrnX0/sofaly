@@ -532,7 +532,7 @@ traduzirPainelCom({T:{
 "Depois desse tempo sem ninguém apertar o controle, a TV mostra um aviso por 60 s e desliga. Qualquer botão cancela. Assistir um filme sem tocar no controle também conta como \"sem uso\".":"Ennyi idő után, ha senki nem nyomja meg a távirányítót, a TV 60 mp-ig értesítést mutat, majd kikapcsol. Bármely gomb megszakítja. A távirányító érintése nélküli filmnézés is „nincs használatban” állapotnak számít.",
 "Desenho da HOME nesta versão:":"HOME rajzolás ebben a verzióban:",
 "Desinstalar":"Eltávolítás",
-"Desligado: a TV só publica o MCP. Ligado: http://onetv-<nome da TV>:8080, ou com cadeado https://onetv-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Ki: a TV csak az MCP-t teszi közzé. Be: a http://onetv-<TV neve>:8080, illetve lakattal a https://onetv-<TV neve>.<az Ön hálózata>.ts.net:8443 megnyitja ezt a panelt a Tailscale-fiók bármely eszközéről, ugyanazzal a PIN-nel, soha nem a nyílt interneten.",
+"Desligado: a TV só publica o MCP. Ligado: http://sofaly-<nome da TV>:8080, ou com cadeado https://sofaly-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Ki: a TV csak az MCP-t teszi közzé. Be: a http://sofaly-<TV neve>:8080, illetve lakattal a https://sofaly-<TV neve>.<az Ön hálózata>.ts.net:8443 megnyitja ezt a panelt a Tailscale-fiók bármely eszközéről, ugyanazzal a PIN-nel, soha nem a nyílt interneten.",
 "Desligado: defina a senha primeiro.":"Ki: előbb állítsa be a jelszót.",
 "Desligado: o login usa o PIN do painel.":"Ki: a bejelentkezés a panel PIN-jét használja.",
 "Desligar":"Kikapcsolás",

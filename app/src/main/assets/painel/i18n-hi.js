@@ -532,7 +532,7 @@ traduzirPainelCom({T:{
 "Depois desse tempo sem ninguém apertar o controle, a TV mostra um aviso por 60 s e desliga. Qualquer botão cancela. Assistir um filme sem tocar no controle também conta como \"sem uso\".":"इतने समय तक कोई रिमोट न दबाए तो TV 60 सेकंड सूचना दिखाकर बंद हो जाता है। कोई भी बटन रद्द करता है। रिमोट छुए बिना फ़िल्म देखना भी \"इस्तेमाल नहीं\" माना जाता है।",
 "Desenho da HOME nesta versão:":"इस वर्ज़न में HOME का चित्र:",
 "Desinstalar":"अनइंस्टॉल करें",
-"Desligado: a TV só publica o MCP. Ligado: http://onetv-<nome da TV>:8080, ou com cadeado https://onetv-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"बंद: TV सिर्फ़ MCP प्रकाशित करता है। चालू: http://onetv-<TV का नाम>:8080, या ताले के साथ https://onetv-<TV का नाम>.<आपका नेटवर्क>.ts.net:8443, Tailscale खाते के किसी भी डिवाइस से यही पैनल उसी PIN से खोलता है, कभी खुले इंटरनेट से नहीं।",
+"Desligado: a TV só publica o MCP. Ligado: http://sofaly-<nome da TV>:8080, ou com cadeado https://sofaly-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"बंद: TV सिर्फ़ MCP प्रकाशित करता है। चालू: http://sofaly-<TV का नाम>:8080, या ताले के साथ https://sofaly-<TV का नाम>.<आपका नेटवर्क>.ts.net:8443, Tailscale खाते के किसी भी डिवाइस से यही पैनल उसी PIN से खोलता है, कभी खुले इंटरनेट से नहीं।",
 "Desligado: defina a senha primeiro.":"बंद: पहले पासवर्ड तय करें।",
 "Desligado: o login usa o PIN do painel.":"बंद: साइन इन पैनल का PIN इस्तेमाल करता है।",
 "Desligar":"बंद करें",

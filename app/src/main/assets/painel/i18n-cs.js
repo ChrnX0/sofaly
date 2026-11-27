@@ -532,7 +532,7 @@ traduzirPainelCom({T:{
 "Depois desse tempo sem ninguém apertar o controle, a TV mostra um aviso por 60 s e desliga. Qualquer botão cancela. Assistir um filme sem tocar no controle também conta como \"sem uso\".":"Když po tuto dobu nikdo nestiskne ovladač, TV na 60 s zobrazí upozornění a vypne se. Jakékoli tlačítko to zruší. Sledování filmu bez dotyku ovladače se také počítá jako „nepoužívá se“.",
 "Desenho da HOME nesta versão:":"Vykreslení HOME v této verzi:",
 "Desinstalar":"Odinstalovat",
-"Desligado: a TV só publica o MCP. Ligado: http://onetv-<nome da TV>:8080, ou com cadeado https://onetv-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Vypnuto: TV zveřejňuje jen MCP. Zapnuto: http://onetv-<název TV>:8080, nebo se zámkem https://onetv-<název TV>.<vaše síť>.ts.net:8443, otevře tento panel z libovolného zařízení na účtu Tailscale se stejným PIN, nikdy přes otevřený internet.",
+"Desligado: a TV só publica o MCP. Ligado: http://sofaly-<nome da TV>:8080, ou com cadeado https://sofaly-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Vypnuto: TV zveřejňuje jen MCP. Zapnuto: http://sofaly-<název TV>:8080, nebo se zámkem https://sofaly-<název TV>.<vaše síť>.ts.net:8443, otevře tento panel z libovolného zařízení na účtu Tailscale se stejným PIN, nikdy přes otevřený internet.",
 "Desligado: defina a senha primeiro.":"Vypnuto: nejprve nastavte heslo.",
 "Desligado: o login usa o PIN do painel.":"Vypnuto: přihlášení používá PIN panelu.",
 "Desligar":"Vypnout",
