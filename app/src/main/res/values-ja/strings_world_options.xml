@@ -30,4 +30,6 @@
     <string name="bb_titulo">ホーム画面の形</string>
     <string name="bb_cruz">クロス</string>
     <string name="bb_barra">下のバー</string>
+    <string name="wo_ultimos">最近使ったものを先に</string>
+    <string name="wo_aleatorio">ランダム（毎日変わる）</string>
 </resources>

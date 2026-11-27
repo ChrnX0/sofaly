@@ -59,4 +59,7 @@
     <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
     <string name="sv_simkl_convite">Simkl 评分</string>
     <string name="sv_simkl_convite_det">连接你的账号</string>
+    <string name="legenda_muitas">现在字幕搜索太多。请一分钟后再试。</string>
+    <string name="legenda_conta_recusada">OpenSubtitles 拒绝了该账号。请在设置中检查。</string>
+    <string name="legenda_fora">字幕服务暂时不可用。请稍后再试。</string>
 </resources>

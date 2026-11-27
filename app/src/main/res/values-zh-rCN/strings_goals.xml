@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goal_read">看得更清楚</string>
+    <string name="goal_clean">更简洁的屏幕</string>
+    <string name="goal_energy">节省电能</string>
+    <string name="goal_kids">保护孩子</string>
+    <string name="goal_desfazer">%1$s，已开启。</string>
+    <string name="goal_feito">%1$s：完成。</string>
+    <string name="goal_desfeito">%1$s：已撤销</string>
+</resources>

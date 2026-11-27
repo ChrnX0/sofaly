@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">ほかの家を手伝う</string>
+    <string name="hoh_question">ほかの家を手伝いませんか？</string>
+    <string name="hoh_line">ここで何かを直したら、ほかのSofalyに結果を伝えます。あなたが誰かは伝えません。</string>
+    <string name="hoh_yes">はい、手伝います</string>
+    <string name="hoh_not_now">今はしない</string>
+    <string name="hoh_how">どういう仕組み？</string>
+    <string name="hoh_how_title">仕組み</string>
+    <string name="hoh_how_line">ほかの家で同じことが起きても、そこのSofalyはもう直し方を知っています。</string>
+    <string name="hoh_goes">送られるもの</string>
+    <string-array name="hoh_goes_list">
+        <item>テレビの機種とSofalyのバージョン</item>
+        <item>壊れたもの（カテゴリー別）</item>
+        <item>何で直したか、うまくいったか</item>
+        <item>メモリとネットワークの目安（良い・弱い）</item>
+    </string-array>
+    <string name="hoh_never">決して送られないもの</string>
+    <string-array name="hoh_never_list">
+        <item>あなたの名前とネットワーク名</item>
+        <item>何をいつ見ているか</item>
+        <item>あなたのアプリと入力した内容</item>
+        <item>写真、声、住所、IP</item>
+    </string-array>
+    <string name="hoh_back_here">ほかのSofalyが学んだことはここに戻ってきます。設定の「Sofyが知っていること」でいつでも変えられます。</string>
+    <string name="hoh_thanks">ありがとう！あなたのSofalyがほかの家を手伝い始めました。</string>
+    <string name="hoh_state_on">オン：1日1回、このテレビが修理の結果を共有します</string>
+    <string name="hoh_state_off">オフ：このテレビからは何も共有されません</string>
+    <string name="hoh_stop">手伝うのをやめる</string>
+    <string name="hoh_stop_det">このテレビは共有をやめます。ほかの家が学んだことは引き続き受け取ります。</string>
+    <string name="hoh_start">手伝い始める</string>
+    <string name="hoh_start_det">送られるものと送られないものを見てから選んでください</string>
+    <string name="hoh_today">今日送られるものを見る</string>
+    <string name="hoh_today_det">このテレビが送るパッケージそのものを項目ごとに</string>
+    <string name="hoh_today_sub">サーバーに送られる内容そのままです。家のコードは毎日変わります。</string>
+    <string name="hoh_forget">送ったものを忘れる</string>
+    <string name="hoh_forget_det">このテレビのコードを変えます。送ったものはこのテレビと結び付けられなくなり、30日以内に削除されます。</string>
+    <string name="hoh_forgot">完了。これからは新しいコードです。送ったものは30日以内に削除されます。</string>
+    <string name="hoh_row_det">ほかの家と共有するものと、オフにする方法</string>
+</resources>
