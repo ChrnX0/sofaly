@@ -500,6 +500,8 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
         }
         if (Vod.deveRetomar(pos)) opcoes += getString(R.string.coluna_menu_tirar_continuar) to {
             mudarPosicoes(f, { Vod.esquecer(it, f.chave) }, R.string.coluna_tirado_continuar)
+            val chaveF = f.chave
+            Fundo.rodar { PlayerArmazem.tirarCapaHome(this, serie = false, chave = chaveF) }
         }
         if (Vod.finalizado(pos)) opcoes += getString(R.string.coluna_menu_nao_assistido) to {
             mudarPosicoes(f, { Vod.esquecer(it, f.chave) }, R.string.coluna_marcado_nao_assistido)
@@ -789,6 +791,9 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
             // 28/11/2026: o "Tirar do Continuar" também na ficha, não só no OK segurado no pôster (que pouca gente descobre).
             FichaAcoes.adicionar(acoes, FichaAcoes.acao(this, getString(R.string.coluna_menu_tirar_continuar), marca = "tirarcontinuar") {
                 mudarPosicoes(f, { Vod.esquecer(it, f.chave) }, R.string.coluna_tirado_continuar)
+                // Saiu do Continuar: o destaque da HOME (último filme aberto) também deixa de mostrar este filme.
+                val chaveF = f.chave
+                Fundo.rodar { PlayerArmazem.tirarCapaHome(this, serie = false, chave = chaveF) }
                 desenharFicha(f, fichaInfo, manterFoco = false)
             })
         } else {
