@@ -147,6 +147,20 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         aplicarTopo()
     }
 
+    /**
+     * O degradê da sombra pintado UMA vez numa imagem pequena (256 px no sentido dele, 1 px no outro) e esticado na tela.
+     * Medido na Sala (28/11/2026, v477533, chave fileiras_pecas): as duas sombras de tela cheia como GradientDrawable
+     * custavam ~36 ms em CADA quadro no Chromecast (Fileiras 61 ms por quadro; sem elas, 25 ms). Uma imagem esticada é
+     * só uma textura, como a foto do fundo.
+     */
+    private fun degradeBarato(direcao: GradientDrawable.Orientation, cores: IntArray): android.graphics.drawable.Drawable {
+        val deitado = direcao == GradientDrawable.Orientation.LEFT_RIGHT || direcao == GradientDrawable.Orientation.RIGHT_LEFT
+        val n = 256
+        val b = Images.create("home/RowsLayer", if (deitado) n else 1, if (deitado) 1 else n, Bitmap.Config.ARGB_8888)
+        GradientDrawable(direcao, cores).apply { setBounds(0, 0, b.width, b.height) }.draw(Canvas(b))
+        return android.graphics.drawable.BitmapDrawable(resources, b).apply { isFilterBitmap = true }
+    }
+
     /** Pílula, hora e sombra seguem as opções. */
     private fun aplicarTopo() {
         if (!::topoView.isInitialized) return
@@ -157,8 +171,8 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         // cor e comprimento da sombra (bloco 5): a cor sem o alfa, o alfa da opacidade escolhida
         val rgb = (if (opcoes.shadowTint == RowsHome.ShadowTint.GRAPHITE) DesignTokens.NIGHT else DesignTokens.NIGHT_DEEP) and 0xFFFFFF
         fun cor(alfa: Int) = (alfa shl 24) or rgb
-        sombraEsq.background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(cor(a), cor((a * 0.45f).toInt()), cor(0)))
-        sombraBaixo.background = GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, intArrayOf(cor(a), cor((a * 0.35f).toInt()), cor(0)))
+        sombraEsq.background = degradeBarato(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(cor(a), cor((a * 0.45f).toInt()), cor(0)))
+        sombraBaixo.background = degradeBarato(GradientDrawable.Orientation.BOTTOM_TOP, intArrayOf(cor(a), cor((a * 0.35f).toInt()), cor(0)))
         (sombraEsq.layoutParams as? LayoutParams)?.let { it.width = if (opcoes.shadowW == RowsHome.ShadowLength.FULL) LayoutParams.MATCH_PARENT else (width * opcoes.shadowW.pct).toInt().coerceAtLeast(1); sombraEsq.layoutParams = it }
         (sombraBaixo.layoutParams as? LayoutParams)?.let { it.height = if (opcoes.shadowH == RowsHome.ShadowLength.FULL) LayoutParams.MATCH_PARENT else (height * opcoes.shadowH.pct).toInt().coerceAtLeast(1); it.gravity = Gravity.BOTTOM; sombraBaixo.layoutParams = it }
         sombraEsq.visibility = if (a > 0) View.VISIBLE else View.GONE
