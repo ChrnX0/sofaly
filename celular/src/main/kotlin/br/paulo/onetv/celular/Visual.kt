@@ -46,6 +46,8 @@ object Visual {
     val FUNDO: Int get() = if (claro) DesignTokens.PAPER else DesignTokens.NIGHT
     /** Cartão: um degrau acima do fundo, como os cartões translúcidos do painel. */
     val SUPERFICIE: Int get() = when {
+        claro && look == "cozy" -> 0xFFFFEFDF.toInt()  // claro: creme quente, o "aconchego" de dia
+        claro && look == "tiles" -> 0xFFF1F0ED.toInt() // claro: azulejo cinza-claro
         claro -> 0xFFFFFFFF.toInt()
         look == "cozy" -> 0xFF292826.toInt()    // grafite com um toque quente (o mesmo do painel)
         look == "tiles" -> 0xFF282826.toInt()
@@ -67,6 +69,15 @@ object Visual {
         else -> DesignTokens.ORANGE
     }
 
+    /** Canto dos botões: Azulejos = quadrado de azulejo; os outros temas = pílula (igual à TV). */
+    fun raioBotao(ctx: Context) = dp(ctx, if (look == "tiles") DesignTokens.RADIUS_SMALL + 4 else 28).toFloat()
+    /** Canto dos cartões: Azulejos mais reto, Aconchego mais redondo. */
+    fun raioCartao(ctx: Context) = dp(ctx, when (look) {
+        "tiles" -> DesignTokens.RADIUS_SMALL
+        "cozy" -> DesignTokens.RADIUS_MEDIUM + 8
+        else -> DesignTokens.RADIUS_MEDIUM
+    }).toFloat()
+
     private var titulo: Typeface? = null
     /** Nunito 700 (res/font), a família dos títulos na TV, no painel e no site. */
     fun fonteTitulo(ctx: Context): Typeface =
@@ -85,7 +96,7 @@ object Visual {
         setTextColor(if (primario) TEXTO_PRINCIPAL else TEXTO)
         minHeight = dp(ctx, 56); setPadding(dp(ctx, 20), 0, dp(ctx, 20), 0)
         background = GradientDrawable().apply {
-            cornerRadius = dp(ctx, 28).toFloat(); setColor(if (primario) PRINCIPAL else SUPERFICIE)
+            cornerRadius = raioBotao(ctx); setColor(if (primario) PRINCIPAL else SUPERFICIE)
             if (altoContraste && !primario) setStroke(dp(ctx, 2), TEXTO)
         }
         isClickable = true; isFocusable = true
@@ -93,7 +104,7 @@ object Visual {
     }
 
     fun cartao(ctx: Context) = GradientDrawable().apply {
-        cornerRadius = dp(ctx, DesignTokens.RADIUS_MEDIUM).toFloat(); setColor(SUPERFICIE)
+        cornerRadius = raioCartao(ctx); setColor(SUPERFICIE)
         if (altoContraste) setStroke(dp(ctx, 2), TEXTO_2)
     }
 }
