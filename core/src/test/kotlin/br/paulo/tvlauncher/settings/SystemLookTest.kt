@@ -8,7 +8,7 @@ import org.junit.Test
 /** O tema do sistema (28/11/2026) e a cor exclusiva de cada ícone. */
 class SystemLookTest {
     @Test fun aconchegoVemDeFabrica() {
-        assertEquals(SystemLook.COZY, SystemLook.PADRAO)
+        assertEquals(SystemLook.GLASS_COLOR, SystemLook.PADRAO)
         assertEquals(SystemLook.COZY, SystemLook.deNumero(-1))
         assertEquals(SystemLook.COZY, SystemLook.deNumero(7))
         assertEquals(SystemLook.GLASS, SystemLook.deNumero(0))

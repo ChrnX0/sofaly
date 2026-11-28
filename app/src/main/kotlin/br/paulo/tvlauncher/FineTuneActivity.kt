@@ -198,7 +198,7 @@ class FineTuneActivity : Activity() {
             getString(if (BackgroundStyle.doorbell(this)) R.string.bg_ligado else R.string.cs_sem)
         },
     ) else emptyList()) + listOf(
-        // Tema do sistema inteiro (Paulo, 28/11/2026): Aconchego de fábrica, Azulejos e Vidro. Trocar volta o foco ao do tema.
+        // Tema do sistema inteiro (Paulo, 28/11/2026): Vidro colorido de fábrica, Aconchego, Azulejos e Vidro. Trocar volta o foco ao do tema.
         Ajuste(R.string.ft_tema, { nomeTema(br.paulo.tvlauncher.settings.SystemLook.ler(this)) }) { passo ->
             val t = br.paulo.tvlauncher.settings.SystemLook.entries
             nomeTema(t[Math.floorMod(br.paulo.tvlauncher.settings.SystemLook.ler(this).ordinal + passo, t.size)]

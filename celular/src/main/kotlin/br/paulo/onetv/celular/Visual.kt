@@ -23,10 +23,10 @@ object Visual {
     var altoContraste = false
 
     /**
-     * Tema do sistema escolhido na TV (28/11/2026: Aconchego, Azulejos ou Vidro valem também no celular). Vem do
+     * Tema do sistema escolhido na TV (28/11/2026: Vidro colorido de fábrica, Aconchego, Azulejos ou Vidro valem também no celular). Vem do
      * /api/estado ("visual") e fica guardado para a próxima abertura; o painel (WebView) já segue sozinho.
      */
-    var look: String = "cozy"
+    var look: String = "glass_color"
         private set
 
     fun guardarLook(ctx: Context, nome: String?) {

@@ -6,7 +6,7 @@ import android.content.Context
  * O tema do sistema inteiro (Paulo, 28/11/2026: escolheu 3 das 5 propostas, https://claude.ai/artifact/XkMACepiukLeNbxjoruycF).
  * Porquê: cada tela tinha a sua regra de caixa, foco e ícone, e o sistema não "falava a mesma língua".
  * Para quê: um só lugar decide caixa, foco, cantos e ícones; trocar o tema em Configurações muda TODAS as telas, o painel
- * web e o celular. O padrão de fábrica é [COZY] (Aconchego), escolha do Paulo (28/11/2026 02:58Z).
+ * web e o celular. O padrão de fábrica é [GLASS_COLOR] (Vidro colorido), escolha do Paulo (28/11/2026 11:14Z; antes era o Aconchego).
  * Como: o Estilo lê [atual] a cada caixa e foco que pinta; [FocusStyle] usa [focoPadrao] enquanto ninguém escolheu outro foco.
  * Não confundir com o enum `Tema` do app, que é o tipo de FUNDO (escuro, galeria, céu...).
  */
@@ -39,7 +39,7 @@ enum class SystemLook(
 
     companion object {
         const val KEY = "system_look"
-        val PADRAO = COZY
+        val PADRAO = GLASS_COLOR
 
         /** Puro sobre o número gravado: fora da faixa (ou nunca escolhido) volta ao [PADRAO]. */
         fun deNumero(n: Int): SystemLook = entries.getOrElse(n) { PADRAO }
