@@ -594,6 +594,12 @@ object Estilo {
      * Ícone solto (sem azulejo atrás: lista de menu, linha de ajuste) no tema atual: Aconchego e Azulejos = a cor
      * exclusiva do ícone; Vidro = o creme de sempre (TEXTO_2); alto contraste = TEXTO.
      */
+    /** Ícone em repouso de um botão/tile (painel rápido, Casa): no Aconchego e nos Azulejos a cor dele; nos outros, [base]. */
+    fun corEmRepouso(tipo: String, base: Int): Int {
+        val tema = br.paulo.tvlauncher.settings.SystemLook.atual
+        return if (!altoContraste && (tema.iconeColorido || tema.iconeEmAzulejo)) br.paulo.tvlauncher.settings.IconPalette.cor(tipo) else base
+    }
+
     fun corDoIconeSolto(tipo: String): Int {
         val tema = br.paulo.tvlauncher.settings.SystemLook.atual
         return when {
