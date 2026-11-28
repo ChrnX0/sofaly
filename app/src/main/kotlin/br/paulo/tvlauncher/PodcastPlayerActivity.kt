@@ -400,7 +400,7 @@ class PodcastPlayerActivity : Activity() {
         fila.removeAllViews()
         val e = ep
         for (x in l.take(SEGUIR_N)) fila.addView(cartaoSeguir(x, e), LinearLayout.LayoutParams(dpi(SEGUIR_L), -2).apply { marginEnd = dpi(16) })
-        dica.text = l.firstOrNull()?.let { caber("▼  " + getString(R.string.pl_a_seguir) + ": " + it.titulo, dica, dpi(960 - 2 * MARGEM), 1) }.orEmpty()
+        dica.text = l.firstOrNull()?.let { caber(getString(R.string.pl_a_seguir) + ": " + it.titulo, dica, dpi(960 - 2 * MARGEM), 1) }.orEmpty()
         if (l.isEmpty() && andar == ANDAR_SEGUIR) andar = ANDAR_BOTOES
         desenharFoco(animar = false)
     }

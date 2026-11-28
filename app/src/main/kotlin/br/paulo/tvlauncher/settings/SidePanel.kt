@@ -108,7 +108,9 @@ internal object SidePanel {
      */
     fun degrade(rtl: Boolean, @Suppress("UNUSED_PARAMETER") borrao: Boolean = false): GradientDrawable {
         // Mais firme onde está o texto (Sala, 26/11/2026: os cartões da HOME apareciam atrás das linhas).
-        val cores = intArrayOf(0x00121212, 0xB3121212.toInt(), 0xEB121212.toInt(), 0xF7121212.toInt())
+        // Sala, 28/11/2026: no player de podcast o título grande e os botões ainda apareciam atrás das linhas do menu Som;
+        // o texto começa perto de 1/3 da janela, então dali para a direita o véu fica quase opaco (era B3, EB, F7).
+        val cores = intArrayOf(0x00121212, 0xF0121212.toInt(), 0xFA121212.toInt(), 0xFA121212.toInt())
         return GradientDrawable(if (rtl) GradientDrawable.Orientation.RIGHT_LEFT else GradientDrawable.Orientation.LEFT_RIGHT, cores)
     }
 
