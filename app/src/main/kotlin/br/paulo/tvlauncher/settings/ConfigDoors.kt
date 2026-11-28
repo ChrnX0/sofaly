@@ -300,7 +300,7 @@ private fun ConfigLauncherActivity.linhaDaPorta(p: Int): View {
         addView(tSeta, LinearLayout.LayoutParams(WRAP, WRAP).apply { marginStart = dp(Estilo.E1) })
         setOnFocusChangeListener { v, f ->
             v.background = if (f) Estilo.fundoFocado(context, Estilo.RAIO) else null   // o foco de todo o sistema, também na tela guiada
-            val escura = f && !guiado && Estilo.focoEscurece(context)
+            val escura = f && Estilo.focoEscurece(context)   // também no guiado: o fundo do foco é o mesmo (Sala v477422, 28/11/2026)
             tNome.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
             tFrase.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2)
             tSeta.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_3)
