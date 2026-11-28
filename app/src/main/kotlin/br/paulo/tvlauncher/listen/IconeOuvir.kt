@@ -36,11 +36,20 @@ class IconeOuvir(val tipo: Tipo) : Drawable() {
 
     companion object {
         /**
-         * A cor do traço: creme em todos (27/11/2026, padrão único: as cores de "mundo", turquesa, violeta, azul, verde,
+         * A cor do traço: a do tema (veja [corEmRepouso]); antes era creme em todos (27/11/2026, padrão único: as cores de "mundo", turquesa, violeta, azul, verde,
          * saíram de todos os modos). O laranja fica para o foco ([Estilo.corIconeNoFoco]), a marca e o progresso.
          */
-        @Suppress("UNUSED_PARAMETER")
-        fun cor(t: Tipo): Int = Estilo.TEXTO
+        fun cor(t: Tipo): Int = corEmRepouso(t, Estilo.TEXTO)
+
+        /**
+         * Tema do sistema (28/11/2026): nos temas de ícone colorido (Vidro colorido, Aconchego, Azulejos) cada ícone tem a
+         * cor exclusiva dele ([br.paulo.tvlauncher.settings.IconPalette]); no Vidro e no alto contraste fica [base].
+         */
+        fun corEmRepouso(t: Tipo, base: Int): Int {
+            val tema = br.paulo.tvlauncher.settings.SystemLook.atual
+            return if (!Estilo.altoContraste && (tema.iconeColorido || tema.iconeEmAzulejo))
+                br.paulo.tvlauncher.settings.IconPalette.cor(t.name) else base
+        }
 
         const val TRACO = IconeCruz.TRACO_FINO
         const val DURACAO_MS = 1500L
