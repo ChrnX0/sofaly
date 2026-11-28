@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher.alarm
 
+import br.paulo.tvlauncher.TvNotice
 import android.content.Context
 import android.content.Intent
 import android.media.AudioManager
@@ -7,7 +8,6 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import br.paulo.tvlauncher.AlarmeTocandoActivity
-import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.Avisos
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.Prefs
@@ -157,15 +157,15 @@ object AlarmeGarantia {
     }
 
     private fun tentarAviso(app: Context, texto: String, tentativa: Int) {
-        val r = try { AvisoTv.mostrar(app, app.getString(R.string.al_titulo), texto, 60, som = true, guardarSeApagada = true, fica = AvisoRegras.Fica.ATENCAO,
-            prioridade = NaoPerturbe.Tipo.ALARME) }
-            catch (e: Exception) { Log.w(TAG, "aviso de alarme perdido: $e"); AvisoTv.Resultado.SEM_ACESSIBILIDADE }
-        if (r == AvisoTv.Resultado.SEM_ACESSIBILIDADE && tentativa < 12) {
+        val r = try { TvNotice.show(app, app.getString(R.string.al_titulo), texto, 60, sound = true, keepIfScreenOff = true, stay = AvisoRegras.Fica.ATENCAO,
+            priority = NaoPerturbe.Tipo.ALARME) }
+            catch (e: Exception) { Log.w(TAG, "aviso de alarme perdido: $e"); TvNotice.Result.NO_ACCESSIBILITY }
+        if (r == TvNotice.Result.NO_ACCESSIBILITY && tentativa < 12) {
             principal.postDelayed({ tentarAviso(app, texto, tentativa + 1) }, 15_000)
             return
         }
         avisando = false
-        if (r != AvisoTv.Resultado.SEM_ACESSIBILIDADE) {
+        if (r != TvNotice.Result.NO_ACCESSIBILITY) {
             val p = app.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
             // Só apaga se ninguém guardou um aviso mais novo enquanto este tentava.
             if (p.getString("aviso_pendente", null) == texto) p.edit().remove("aviso_pendente").remove("aviso_em").apply()

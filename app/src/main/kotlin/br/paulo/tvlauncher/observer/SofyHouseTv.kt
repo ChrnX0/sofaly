@@ -1,8 +1,8 @@
 package br.paulo.tvlauncher.observer
 
+import br.paulo.tvlauncher.TvNotice
 import android.content.Context
 import android.util.Log
-import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.family.Diario
 import br.paulo.tvlauncher.network.UnifiArmazem
@@ -42,7 +42,7 @@ object SofyHouseTv {
         ObserverTv.logShadow(app, "game_lag", "jogo na nuvem com a internet a $lat ms (normal da casa: $normal ms)")
         // Modo jogo ligado = avisos esperam: fica só a nota na Ilha para depois.
         if (!Extras.ligado(app, Extras.Chave.MODO_JOGO)) runCatching {
-            AvisoTv.rapido(app, app.getString(R.string.observer_game_lag_title), app.getString(R.string.observer_game_lag_text, lat.toString()), 8)
+            TvNotice.quick(app, app.getString(R.string.observer_game_lag_title), app.getString(R.string.observer_game_lag_text, lat.toString()), 8)
         }
         ObserverTv.enqueueNote(app, ObserverCore.sofyNote(ObserverCore.Kind.GAME_LAG, now, ObserverCore.Step.SUGGESTS, listOf(lat.toString())))
     }

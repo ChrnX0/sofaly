@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher.network
 
+import br.paulo.tvlauncher.TvNotice
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Network
@@ -7,7 +8,6 @@ import android.net.NetworkCapabilities
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.ConfirmarRoteadorActivity
 import br.paulo.tvlauncher.home.abrir
 import br.paulo.tvlauncher.panel.ChecagensPainel
@@ -440,7 +440,7 @@ object UnifiCliente {
         if (!semeado) return "primeira leitura: ${leitura.aparelhos.size} aparelho(s) anotados, sem aviso"
         if (novos.isEmpty()) return "nenhum aparelho novo (${leitura.aparelhos.size} conectados)"
         val titulo = if (novos.size == 1) "📶  Aparelho novo na rede" else "📶  ${novos.size} aparelhos novos na rede"
-        val r = AvisoTv.mostrar(app, titulo, Unifi.textoNovos(novos), 30, som = false, guardarSeApagada = true, fica = AvisoRegras.Fica.ATENCAO)
+        val r = TvNotice.show(app, titulo, Unifi.textoNovos(novos), 30, sound = false, keepIfScreenOff = true, stay = AvisoRegras.Fica.ATENCAO)
         Log.i(TAG, "${novos.size} aparelho(s) novo(s): $r")
         return "avisou ${novos.size} aparelho(s) novo(s) (${r.name.lowercase()})"
     }
