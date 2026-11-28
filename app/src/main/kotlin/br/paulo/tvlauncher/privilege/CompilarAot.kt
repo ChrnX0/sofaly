@@ -26,6 +26,13 @@ import br.paulo.tvlauncher.Fundo
  * 13/11/2026: também compila quando o PROTETOR começa (medido na Sala: a tela nunca apaga, o protetor fica a tarde toda,
  * e a versão nova passou 70 min em `verify`). No protetor só compila: reiniciar mataria o protetor, que roda neste mesmo
  * processo. O reinício fica pendente e acontece no próximo apagar da tela ([reiniciarSePendente]).
+ *
+ * 28/11/2026 (SLOW_HOME na Sala, 99% dos quadros da HOME lentos às 09:17): a v477122 foi instalada às 05:27 e o processo
+ * dela viveu 228 min sem reiniciar. A noite foi de protetor, não de tela apagada: compilar no protetor deixa o reinício
+ * pendente, e o "apagar" só veio às 09:47 (desligar automático). Quem ligou a TV às 08:35 usou a HOME no código antigo
+ * (interpretado/JIT) por mais de uma hora. Agora o reinício pendente também acontece quando o protetor SAI com a tela
+ * acesa ([reiniciarAoSairDoProtetor]): a pessoa vê a HOME abrir do zero uma vez (~2 s), já no código compilado.
+ * Cada compilação e reinício vira evento do observador (update.aot_*): o logcat da TV some em minutos.
  */
 object CompilarAot {
     private const val TAG = "TvLauncher.Aot"
@@ -55,7 +62,7 @@ object CompilarAot {
             override fun onReceive(c: Context, i: Intent) {
                 when (i.action) {
                     Intent.ACTION_DREAMING_STARTED -> { noProtetor = true; talvezCompilar(app) }
-                    Intent.ACTION_DREAMING_STOPPED -> noProtetor = false
+                    Intent.ACTION_DREAMING_STOPPED -> { noProtetor = false; reiniciarAoSairDoProtetor(app) }
                     Intent.ACTION_SCREEN_OFF -> { noProtetor = false; if (!reiniciarSePendente(app)) talvezCompilar(app) }
                 }
             }
@@ -67,6 +74,44 @@ object CompilarAot {
         // até a tela apagar de novo (visto na Sala: v465338 instalada às 00:46 com a TV dormindo). Nasceu com a tela
         // apagada: segue o mesmo caminho do apagar (espera 1 min, confere de novo, compila, reinicia sem ninguém vendo).
         if (!telaAcesa(app)) talvezCompilar(app)
+    }
+
+    /**
+     * O protetor saiu com a tela acesa (alguém apertou uma tecla) e esta versão foi compilada mas o processo é anterior:
+     * reinicia JÁ, antes da HOME aparecer, em vez de deixar a pessoa usar o código antigo até a tela apagar.
+     * Só com a NOSSA HOME na frente (o protetor também sai para o despertador tocar, ou de volta para um app que estava
+     * aberto: aí não), sem som e fora da conferência de telas da madrugada (ela fecha o protetor de propósito). Espera
+     * [ESPERA_SAIR_MS] para a tela de baixo aparecer na acessibilidade antes de decidir.
+     */
+    private fun reiniciarAoSairDoProtetor(app: Context) {
+        val p = app.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val versao = BuildConfig.VERSION_CODE
+        if (!deveReiniciar(versao, p.getInt("versao_feita", 0), p.getInt("reiniciou_em", 0))) return
+        Fundo.rodar("aot-acordou") {
+            SystemClock.sleep(ESPERA_SAIR_MS)
+            val somTocando = app.getSystemService(AudioManager::class.java)?.isMusicActive == true
+            if (!deveReiniciarAoAcordar(versao, p.getInt("versao_feita", 0), p.getInt("reiniciou_em", 0),
+                    rodando, telaAcesa(app), somTocando, JanelaNaFrente.homeNaFrente(app),
+                    br.paulo.tvlauncher.observer.SofyScreenCheckTv.ocupado())) return@rodar
+            p.edit().putInt("reiniciou_em", versao).commit()   // commit: o processo morre logo abaixo
+            evento(app, "aot_restart", true, "v$versao ao sair do protetor")
+            Log.i(TAG, "reiniciando ao sair do protetor para valer o código compilado")
+            SystemClock.sleep(300)
+            android.os.Process.killProcess(android.os.Process.myPid())
+        }
+    }
+
+    private const val ESPERA_SAIR_MS = 800L
+
+    /** Decisão pura (teste JVM) do reinício ao sair do protetor. */
+    fun deveReiniciarAoAcordar(versaoAtual: Int, versaoFeita: Int, reiniciouEm: Int, compilando: Boolean,
+                               telaAcesa: Boolean, somTocando: Boolean, homeNaFrente: Boolean, conferindoTelas: Boolean): Boolean =
+        deveReiniciar(versaoAtual, versaoFeita, reiniciouEm) && !compilando && telaAcesa && !somTocando &&
+            homeNaFrente && !conferindoTelas
+
+    /** Guarda no observador (eventos da Sofy) o que aconteceu: compilou, falhou, reiniciou. */
+    private fun evento(app: Context, tipo: String, ok: Boolean, detalhe: String) = runCatching {
+        br.paulo.tvlauncher.observer.SofyBusTv.emit(app, br.paulo.tvlauncher.observer.SofyBus.Source.UPDATE, tipo, ok, detalhe)
     }
 
     /** Compilada no protetor e ainda não reiniciada: reinicia agora que a tela apagou. Devolve true se cuidou disso. */
@@ -89,6 +134,7 @@ object CompilarAot {
         val somTocando = app.getSystemService(AudioManager::class.java)?.isMusicActive == true
         if (telaAcesa(app) || somTocando) return
         p.edit().putInt("reiniciou_em", versao).commit()   // commit: o processo morre logo abaixo
+        evento(app, "aot_restart", true, "v$versao com a tela apagada")
         Log.i(TAG, "reiniciando para valer o código compilado")
         SystemClock.sleep(500)
         android.os.Process.killProcess(android.os.Process.myPid())
@@ -110,6 +156,8 @@ object CompilarAot {
                 runCatching { androidx.profileinstaller.ProfileInstaller.writeProfile(app) }
                 val saida = GuardiaoShizuku.comando(app, "cmd package compile -m speed-profile -f ${app.packageName}", 180_000)
                 Log.i(TAG, "compilar v$versao: ${saida?.trim()?.take(200)}")
+                evento(app, "aot_compile", deuCerto(saida),
+                    "v$versao tentativa ${tentativas + 1}${if (noProtetor) " no protetor" else ""}: ${saida?.trim()?.take(80) ?: "sem shell"}")
                 if (!deuCerto(saida)) return@rodar
                 p.edit().putInt("versao_feita", versao).commit()
                 // O código compilado só vale num processo novo. Reinicia só com a tela apagada e sem som (o player roda em

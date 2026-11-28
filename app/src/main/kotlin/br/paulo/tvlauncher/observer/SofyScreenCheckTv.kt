@@ -101,6 +101,9 @@ object SofyScreenCheckTv {
     /** Uma rodada por vez: a da noite e a do adb não podem abrir telas ao mesmo tempo. */
     private val emRodada = java.util.concurrent.atomic.AtomicBoolean(false)
 
+    /** Há uma conferência de telas rodando agora (CompilarAot não reinicia o processo no meio dela). */
+    fun ocupado() = emRodada.get()
+
     private fun rodada(app: Context, s: AutorizaShizukuService, lista: List<Pair<String, Class<*>>>, capture: Boolean = false) {
         if (!emRodada.compareAndSet(false, true)) { Log.w(TAG, "outra conferência já está rodando: pulei"); return }
         try { rodada0(app, s, lista, capture) } finally { emRodada.set(false) }
