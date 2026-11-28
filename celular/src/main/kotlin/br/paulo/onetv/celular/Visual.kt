@@ -22,7 +22,21 @@ object Visual {
     /** Alto contraste: "Texto em alto contraste" do Android ligado, ou a chave da TV (vem do painel). */
     var altoContraste = false
 
+    /**
+     * Tema do sistema escolhido na TV (28/11/2026: Aconchego, Azulejos ou Vidro valem também no celular). Vem do
+     * /api/estado ("visual") e fica guardado para a próxima abertura; o painel (WebView) já segue sozinho.
+     */
+    var look: String = "cozy"
+        private set
+
+    fun guardarLook(ctx: Context, nome: String?) {
+        val n = nome?.takeIf { it in setOf("cozy", "tiles", "glass") } ?: return
+        look = n
+        runCatching { ctx.getSharedPreferences("visual", Context.MODE_PRIVATE).edit().putString("look", n).apply() }
+    }
+
     fun atualizar(ctx: Context) {
+        look = runCatching { ctx.getSharedPreferences("visual", Context.MODE_PRIVATE).getString("look", null) }.getOrNull() ?: look
         claro = (ctx.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_NO
         altoContraste = altoContraste || runCatching {
             Settings.Secure.getInt(ctx.contentResolver, "high_text_contrast_enabled", 0) == 1
@@ -31,7 +45,12 @@ object Visual {
 
     val FUNDO: Int get() = if (claro) DesignTokens.PAPER else DesignTokens.NIGHT
     /** Cartão: um degrau acima do fundo, como os cartões translúcidos do painel. */
-    val SUPERFICIE: Int get() = if (claro) 0xFFFFFFFF.toInt() else 0xFF1F1F1D.toInt()
+    val SUPERFICIE: Int get() = when {
+        claro -> 0xFFFFFFFF.toInt()
+        look == "cozy" -> 0xFF292826.toInt()    // grafite com um toque quente (o mesmo do painel)
+        look == "tiles" -> 0xFF282826.toInt()
+        else -> 0xFF1F1F1D.toInt()               // vidro: o cartão de sempre, translúcido no painel
+    }
     val TEXTO: Int get() = if (claro) DesignTokens.NIGHT else DesignTokens.CREAM
     val TEXTO_2: Int get() = when {
         altoContraste -> TEXTO
