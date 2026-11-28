@@ -148,7 +148,31 @@ object SofyRepair {
     private fun <T> List<T>.mapLast(f: (T) -> T): List<T> = if (isEmpty()) this else dropLast(1) + f(last())
 
     /** Limpeza: casos parados há [STALE_MS] saem (inclusive os desistidos: se voltar, começa de novo). */
-    fun prune(cases: List<Case>, now: Long) = cases.filter { now - it.lastAt < STALE_MS && !nowNotDefect(it) }
+    fun prune(cases: List<Case>, now: Long) = cases.filter {
+        now - it.lastAt < (if (isTest(it)) TEST_STALE_MS else STALE_MS) && !nowNotDefect(it) && !phantom(it)
+    }
+
+    /** Caso de teste ([TEST_MARK]) vive pouco: serve para ver o caminho rodar, não para ficar noites gastando a IA. */
+    const val TEST_STALE_MS = 2 * HOUR
+
+    /**
+     * Casos falsos que entraram por um teste antigo sem a marca de teste (Sala, 26/11/2026 03:59Z a 04:47Z: 48 casos
+     * "norm:c_13", "norm:d_19"..., um por minuto). Nenhum padrão da casa tem esse nome (os de verdade são "norm:count.x.y.ok"
+     * ou o nome da medida). Toda noite eles pediam plano à IA do dono, liberavam memória e reiniciavam o túnel à toa.
+     */
+    private val FALSO = Regex("""^norm:[a-z]_\d+$""")
+    fun phantom(c: Case) = c.type == Type.INCOHERENT && FALSO.matches(c.subject)
+    fun phantomKey(key: String) = key.startsWith("${Type.INCOHERENT.name}:") && FALSO.matches(key.removePrefix("${Type.INCOHERENT.name}:"))
+
+    /**
+     * Limpeza dos casos falsos: saem da lista, e o aprendizado das famílias deles (todo feito em cima de "consertos" que não
+     * consertaram nada) é apagado. Sem caso falso, nada muda.
+     */
+    fun cleanPhantoms(cases: List<Case>, learned: SofyLearned): Pair<List<Case>, SofyLearned> {
+        val falsos = cases.filter(::phantom)
+        if (falsos.isEmpty()) return cases to learned
+        return cases.filterNot(::phantom) to (learned - falsos.map(::family).toSet())
+    }
 
     /** Caso aberto por uma versão antiga a partir de um evento que hoje não é mais defeito: sai da fila. */
     private fun nowNotDefect(c: Case): Boolean {
@@ -217,6 +241,7 @@ object SofyRepair {
 
     fun learn(l: SofyLearned, c: Case, tool: Tool, fixed: Boolean): SofyLearned {
         if (tool == Tool.ASK_AI || tool == Tool.REPORT) return l
+        if (isTest(c) || phantom(c)) return l   // teste não ensina: o "conserto" de um caso inventado não prova nada
         val f = family(c)
         val m = l[f].orEmpty()
         val s = m[tool] ?: Score()
