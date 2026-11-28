@@ -19,7 +19,9 @@ api.sofaly.tv request signing from `RelaySign.sign(c)`, all in `:core`); its set
 `WeatherConfig` (`Config` keeps the old names pointing there). Second: `:media` (`modules/media`: the player's data, i.e. Xtream/M3U/Plex/
 Jellyfin catalogs, cache loading, guide, external info and subtitles, service accounts, parental rules; no screens and
 no media3), with `MediaHost` for what lives in the app (TMDB/Simkl plan gates, "Meu time" guide words, Simkl library). Third: `:listen` (`modules/listen`: radios,
-podcast feeds/search/topics, "Meu jornal", transcription; players, the media3 radio delay and the screens stay in `:app`). Don't make module classes `internal` if `:app` or its
+podcast feeds/search/topics, "Meu jornal", transcription; players, the media3 radio delay and the screens stay in `:app`). Typed JSON (G, 27/11/2026): new parsers of external APIs use
+`@Serializable` models with kotlinx.serialization (first: `MetModels.kt`/`MetJson` for MET Norway in `:weather`); convert an
+old `JSONObject` parser only with a golden test that proves the same output (`ClimaMetTest.mesmaSaidaDoConversorAntigo`). Don't make module classes `internal` if `:app` or its
 tests use them. Tests
 that read sources find files with `CodeSource.file(name)`. Background work goes through `Fundo.rodar`/`Fundo.juntos`
 (coroutines); only endless loops (servers, watchers) keep their own Thread.
@@ -169,6 +171,8 @@ which references shaped the result.
   graphics, 960x540 dp TV, en + pt) into `app/build/telas/` and fails if text shrank, got cut, overlaps other text or
   focus vanished, compared with `app/src/test/telas/referencia.json`. Changed a screen on purpose (or fixed one)? Rerun
   with `-PtelasAtualizar` and commit the new reference. Workflow `telas.yml` runs it on PRs that touch screens.
+  Screens that only open with data (dialogs, requests, cast, VOD, simple mode...): `-Ptelas -PcomDados` runs
+  `TelasComDadosTest`, which fills fake data (fixtures) and saves photos to `app/build/telas/com-dados/<lang>/` plus a report (never fails).
 - Android 14 forces the HOME app to `speed-profile`; `app/src/main/baseline-prof.txt` + `androidx.profileinstaller`
   provide the profile. Debug builds run in `verify` mode: don't measure performance with them.
 - Measuring: `dumpsys gfxinfo tv.sofaly.launcher reset`, return to HOME by component name 10×, `dumpsys gfxinfo`,

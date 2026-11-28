@@ -251,6 +251,7 @@ tasks.withType<Test>().configureEach {
     systemProperty("telas.auditoria", project.hasProperty("auditoria").toString())
     systemProperty("telas.submenus", project.hasProperty("submenus").toString())   // fotos dos submenus (SubmenusTelasTest)
     systemProperty("telas.submenus.so", (project.findProperty("submenusSo") ?: "").toString())
+    systemProperty("telas.comdados", project.hasProperty("comDados").toString())   // telas que só abrem com dados (TelasComDadosTest)
 }
 
 // Túnel para a internet (opção E, 05/11/2026): o programa Go em tunel/ (Tailscale embutido, tsnet) compilado para ARM

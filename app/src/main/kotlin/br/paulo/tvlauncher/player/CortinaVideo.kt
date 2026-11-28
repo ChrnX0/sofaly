@@ -25,6 +25,7 @@ import br.paulo.tvlauncher.settings.Fontes
  */
 object CortinaVideo {
     private const val SUMIR_MS = 260L
+    private const val TAG_AVISO = "cortina-aviso"
 
     /** [linha] = o que vai em cima do título (ex.: "T1 E2"); [titulo] = nome do episódio ou do filme. */
     fun montar(ctx: Context, imagem: String?, linha: String?, titulo: String): View {
@@ -61,6 +62,9 @@ object CortinaVideo {
         val corre = View(ctx).apply { background = GradientDrawable().apply { cornerRadius = dp(2).toFloat(); setColor(Estilo.ACENTO) } }
         trilho.addView(corre, FrameLayout.LayoutParams(dp(72), -1))
         bloco.addView(trilho, LinearLayout.LayoutParams(dp(280), dp(4)).apply { topMargin = dp(20) })
+        // Aviso do player enquanto a cortina está na frente ("A conexão caiu. Tentando de novo…"). Antes ele aparecia no
+        // meio da tela, por cima do título grande (foto do teste com dados, 27/11/2026); agora fica embaixo da linha que corre.
+        bloco.addView(Estilo.texto(ctx, Estilo.Papel.LEGENDA, "").apply { tag = TAG_AVISO; visibility = View.GONE; maxLines = 2 }, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(16) })
         raiz.addView(bloco, FrameLayout.LayoutParams(-1, -2, Gravity.BOTTOM or Gravity.START).apply {
             // Acima da barra do player (que aparece junto ao abrir e ocupa ~170 dp embaixo): conferido na Sala 20/11.
             setMargins(dp(Estilo.MARGEM_LATERAL), 0, dp(Estilo.MARGEM_LATERAL), dp(210))
@@ -71,6 +75,13 @@ object CortinaVideo {
             start()
         }
         return raiz
+    }
+
+    /** Mostra [texto] (ou esconde, com null) no lugar de avisos da cortina, embaixo do título. */
+    fun aviso(v: View, texto: String?) {
+        val t = v.findViewWithTag<TextView>(TAG_AVISO) ?: return
+        t.text = texto.orEmpty()
+        t.visibility = if (texto.isNullOrEmpty()) View.GONE else View.VISIBLE
     }
 
     /** Esmaece e tira a cortina da tela (o primeiro quadro chegou, ou não vai chegar: música, erro). */
