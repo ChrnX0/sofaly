@@ -51,6 +51,13 @@ class IdeiasPesquisaTest {
         assertFalse("início = fim é desligado", FiltroNoturno.dentro(100, 100, 100))
     }
 
+    @Test fun filtroSaiComTelaApagada() {
+        assertTrue(FiltroNoturno.mostrar(ligar = true, telaAcesa = true, modoJogo = false))
+        assertFalse("tela apagada: película fora (GPU livre)", FiltroNoturno.mostrar(ligar = true, telaAcesa = false, modoJogo = false))
+        assertFalse("modo jogo", FiltroNoturno.mostrar(ligar = true, telaAcesa = true, modoJogo = true))
+        assertFalse("desligado", FiltroNoturno.mostrar(ligar = false, telaAcesa = true, modoJogo = false))
+    }
+
     // ---- PIN da HOME
     @Test fun pinDaHome() {
         assertTrue(TravaHome.precisaPin(true, true, 1000, 0))
