@@ -7,7 +7,7 @@ TV and sofaly.tv show. How: the README feature list comes from the website's own
 the order, website/content/en.json for the words, plus the EXTRA list in website/home/build_home.py), and the
 "What changed" list comes from res/values/strings_versoes.xml, the same text the TV shows in Settings > System.
 
-    python3 scripts/readme.py           rewrite README.md, .github/release-notes.md and CHANGELOG.md
+    python3 scripts/readme.py           rewrite docs/launch/README.md, .github/release-notes.md and docs/launch/CHANGELOG.md
     python3 scripts/readme.py --check   exit 1 if any of them is out of date (the "Build e Release" workflow runs this)
 
 Only the blocks between <!-- auto:NAME --> and <!-- /auto:NAME --> are touched; everything else is written by hand.
@@ -23,9 +23,11 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-README = ROOT / "README.md"
+# Low profile until launch (Paulo, 28/11/2026): the full presentation lives in docs/launch/; the root README.md is a
+# short neutral notice. At launch: git mv docs/launch/README.md README.md (and CHANGELOG.md), then point these back.
+README = ROOT / "docs/launch/README.md"
 NOTES = ROOT / ".github/release-notes.md"
-CHANGELOG = ROOT / "CHANGELOG.md"
+CHANGELOG = ROOT / "docs/launch/CHANGELOG.md"
 FEATURES = ROOT / "website/features.json"
 WORDS = ROOT / "website/content/en.json"
 HOME_WORDS = ROOT / "website/content/home/en.json"

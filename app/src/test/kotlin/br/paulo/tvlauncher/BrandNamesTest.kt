@@ -29,7 +29,7 @@ class BrandNamesTest {
             arquivos("app/src/main/assets/painel", ".html", ".js", ".css") +
             arquivos("site", ".html", ".json", ".js") +
             arquivos("website", ".html", ".json") +
-            sequenceOf(File(raiz, ".github/release-notes.md"), File(raiz, "README.md")).filter { it.isFile }
+            sequenceOf(File(raiz, ".github/release-notes.md"), File(raiz, "README.md"), File(raiz, "docs/launch/README.md")).filter { it.isFile }
 
     @Test fun nomeAntigoNaoAparece() {
         val achados = visiveis().flatMap { f ->

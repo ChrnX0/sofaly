@@ -50,8 +50,8 @@ on:
       - '!comunidade/**'
       - '!.claude/**'
       # ...mas o passo "Página do GitHub em dia" (readme.py --check) lê estes: voltam a contar.
-      - 'README.md'
-      - 'CHANGELOG.md'
+      - 'docs/launch/README.md'         # apresentação completa guardada até o lançamento
+      - 'docs/launch/CHANGELOG.md'
       - '.github/release-notes.md'
       - 'website/features.json'
       - 'website/content/en.json'
@@ -68,8 +68,8 @@ on:
       - '!website/**'                    # site publica pelo Workers Builds
       - '!comunidade/**'
       - '!.claude/**'
-      - 'README.md'
-      - 'CHANGELOG.md'
+      - 'docs/launch/README.md'
+      - 'docs/launch/CHANGELOG.md'
       - '.github/release-notes.md'
       - 'website/features.json'
       - 'website/content/en.json'
