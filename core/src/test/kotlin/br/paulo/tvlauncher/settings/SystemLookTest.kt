@@ -63,4 +63,11 @@ class SystemLookTest {
         assertEquals(IconPalette.cor("um-icone-novo"), IconPalette.cor("UM-ICONE-NOVO"))
         assertTrue(IconPalette.cor("um-icone-novo") in IconPalette.TODAS)
     }
+
+    /** Painel web: na coluna da navegação (17 primeiros) duas vizinhas nunca repetem; os do mesmo papel da TV, a mesma cor. */
+    @Test fun painelComCorPorIcone() {
+        val nav = IconPalette.ICONES_PAINEL.take(17).map { IconPalette.corDoPainel(it) }
+        nav.zipWithNext().forEachIndexed { i, (a, b) -> assertTrue("vizinhas $i iguais", a != b) }
+        for (id in listOf("tv", "config", "rede", "familia", "energia", "casa")) assertEquals(id, IconPalette.cor(id), IconPalette.corDoPainel(id))
+    }
 }

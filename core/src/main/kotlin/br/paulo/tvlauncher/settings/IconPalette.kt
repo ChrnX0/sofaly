@@ -52,4 +52,21 @@ object IconPalette {
         val t = tipo.trim().lowercase()
         return POR_ICONE[t] ?: TODAS[Math.floorMod(t.hashCode(), TODAS.size)]
     }
+
+    /**
+     * Os ícones do painel web (sprite `#i-<nome>` do index.html), 28/11/2026: o tema vale também no painel. Na ordem da
+     * coluna da esquerda do painel (as 17 primeiras): duas vizinhas nunca têm a mesma cor, e quem faz o mesmo papel de
+     * um ícone da TV usa a cor dele (tv, config, família, energia, casa, rede).
+     */
+    private val PAINEL = linkedMapOf(
+        "inicio" to LIMA, "controle" to AMBAR, "sofy" to TURQUESA, "tv" to VIOLETA, "apps" to CEU, "loja" to VERDE,
+        "arquivos" to AREIA, "config" to ACO, "paleta" to INDIGO, "filme" to AMARELO, "familia" to AREIA, "energia" to VERMELHO,
+        "celular" to AZUL, "casa" to LIMA, "acessos" to OLIVA, "saude" to MENTA, "extras" to VERDE,
+        "tudo" to ACO, "rede" to TURQUESA, "roteador" to AZUL, "claude" to OLIVA, "ia" to INDIGO, "backup" to VERMELHO,
+        "estrela" to AMARELO, "mais" to ACO, "fotos" to AMARELO,
+    )
+    /** Na ordem da coluna do painel; os 17 primeiros são a navegação. */
+    val ICONES_PAINEL: List<String> get() = PAINEL.keys.toList()
+
+    fun corDoPainel(id: String): Int = PAINEL[id] ?: cor(id)
 }
