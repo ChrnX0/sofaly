@@ -50,7 +50,11 @@ object VodTv {
     fun tirarDoContinuar(app: Context, alvo: VodBusca.NoContinuar?): String? {
         if (alvo == null) return "título não conferido"
         if (alvo.serie) PlayerArmazem.definirUltimosEpisodios(app, PlayerArmazem.ultimosEpisodios(app) - alvo.chave)
-        else PlayerArmazem.definirPosicao(app, alvo.chave, null)
+        else {
+            PlayerArmazem.definirPosicao(app, alvo.chave, null)
+            // O destaque da HOME (último filme aberto) também deixa de mostrar este filme; se for outro, nada muda.
+            PlayerArmazem.tirarCapaHome(app, serie = false, chave = alvo.chave)
+        }
         return null
     }
 
