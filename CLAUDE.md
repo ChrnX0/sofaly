@@ -173,6 +173,8 @@ which references shaped the result.
   with `-PtelasAtualizar` and commit the new reference. Workflow `telas.yml` runs it on PRs that touch screens.
   Screens that only open with data (dialogs, requests, cast, VOD, simple mode...): `-Ptelas -PcomDados` runs
   `TelasComDadosTest`, which fills fake data (fixtures) and saves photos to `app/build/telas/com-dados/<lang>/` plus a report (never fails).
+  The fixtures live in `DadosDeTeste` (per screen; fake AndroidKeyStore `ChaveiroDeTeste`, fake HTTP answers `RedeDeTeste`);
+  `-Psubmenus -PcomDados` walks every focusable of those screens with data into `app/build/telas/submenus-com-dados/`.
 - Android 14 forces the HOME app to `speed-profile`; `app/src/main/baseline-prof.txt` + `androidx.profileinstaller`
   provide the profile. Debug builds run in `verify` mode: don't measure performance with them.
 - Measuring: `dumpsys gfxinfo tv.sofaly.launcher reset`, return to HOME by component name 10×, `dumpsys gfxinfo`,
