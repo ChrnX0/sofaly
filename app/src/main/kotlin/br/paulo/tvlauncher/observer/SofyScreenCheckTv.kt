@@ -114,6 +114,10 @@ object SofyScreenCheckTv {
         // acessibilidade sem foco: a tela de baixo continua ativa e a árvore dela é lida normalmente.
         val veu = cobrir(s)
         if (acendi && !acender(app, pm)) { descobrir(veu); Log.w(TAG, "não consegui acender a tela: telas não conferidas"); return }
+        // Com o protetor na frente, a tela aberta nasce POR BAIXO dele e a leitura pegava a janela do protetor (Sala,
+        // 28/11/2026 03:05Z: o protetor abriu 13 s antes da rodada e "podcasts" deu SEM_FOCO lendo "FrameLayout Relógio").
+        // Fecha antes de abrir a primeira tela.
+        if (!tirarProtetor()) Log.w(TAG, "o protetor não fechou: sigo, e a tela coberta fica como não lida")
         // Só tecla do controle conta como "alguém chegou": abrir a nossa tela por cima do protetor já o fecha.
         fun mexeram() = br.paulo.tvlauncher.Rotinas.teclaEm() > inicio
         // Segura a TV acesa até o fim (Paulo, 26/11/2026): nem o protetor por cima, nem o "desligar sem uso" no meio.
@@ -190,6 +194,18 @@ object SofyScreenCheckTv {
         return pm?.isInteractive == true
     }
 
+    /** Fecha o nosso protetor, se aberto, e espera ele sair (até 5 s). true = não há protetor na frente. */
+    private fun tirarProtetor(): Boolean {
+        if (!ProtetorTela.aberto()) return true
+        ProtetorTela.fecharSeAberto()
+        val fim = android.os.SystemClock.elapsedRealtime() + 5_000L
+        while (android.os.SystemClock.elapsedRealtime() < fim) {
+            if (!ProtetorTela.aberto()) { Thread.sleep(1_000); return true }   // a janela dele some logo depois do sinal
+            Thread.sleep(200)
+        }
+        return !ProtetorTela.aberto()
+    }
+
     /** Tela apagada ou o nosso protetor na frente: ninguém está vendo. */
     private fun paradaDeVerdade(app: Context): Boolean {
         val pm = app.getSystemService(android.os.PowerManager::class.java)
@@ -225,6 +241,13 @@ object SofyScreenCheckTv {
 
     private fun lerAgora(app: Context, s: AutorizaShizukuService, nome: String, classe: Class<*>,
                          motivos: MutableList<String>): SofyScreenCheck.Tela? {
+        // O protetor por cima (abriu no meio da rodada): a árvore seria a dele, não a da tela. Não é defeito da tela.
+        if (ProtetorTela.aberto()) {
+            Log.w(TAG, "$nome: o protetor está por cima")
+            motivos += "$nome: protetor por cima"
+            tirarProtetor()
+            return null
+        }
         val frente = br.paulo.tvlauncher.privilege.JanelaNaFrente.classe
         val raiz = raizDoApp(s, app.packageName)
         if (raiz == null || raiz.packageName?.toString() != app.packageName || frente != classe.name) {
