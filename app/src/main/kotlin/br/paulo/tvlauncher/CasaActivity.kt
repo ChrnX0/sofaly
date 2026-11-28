@@ -375,7 +375,7 @@ class CasaActivity : Activity() {
     private var ajusteTemp = 24.0
 
     private fun formatarGraus(g: Double): String =
-        java.text.NumberFormat.getNumberInstance().apply { maximumFractionDigits = 1 }.format(g) + " °"
+        java.text.NumberFormat.getNumberInstance().apply { maximumFractionDigits = 1 }.format(g) + "°"   // como no clima: "23°", sem espaço
 
     private val mandarTemp = Runnable {
         val c = ajuste ?: return@Runnable
@@ -634,7 +634,7 @@ class CasaActivity : Activity() {
 
     companion object {
         private const val COLUNAS = 4
-        private const val ALTURA_DP = 104
+        private const val ALTURA_DP = 124   // 104 cortava o estado do cartão de nome em 2 linhas ("Living room temperature", 28/11/2026)
         private const val ESPACO_DP = 12
         /** Folga em volta da grade para o cartão focado (até 8% maior no ajuste de brilho) não ser cortado pela rolagem. */
         private const val FOLGA_DP = 12
