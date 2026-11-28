@@ -16,9 +16,27 @@ What changed*; when it is rewritten for a new Release, the previous one moves do
 - Automations: each event shows its value under the name, and the settings tabs fade at the edge
 - Phone app: a TV that is offline shows a clear notice in the app instead of a browser error page
 - Assistant: when an action is blocked, it points to System › Advanced › Confirmations
+- Movies: the movie page now has “Remove from Continue watching”, and the assistant can also remove a title from it by name
+- Settings open straight on the requested tab; the tabs, Home and Games no longer cut text
+- Names no longer break a word in the middle; character and details in Cast show in full
+- Home screen: the row that scrolls up no longer seems to slide under the summary
+- Games and Listen use the same graphite as the other screens
 <!-- /auto:current -->
 
 <!-- history -->
+
+## Until 2026-11-28
+
+- Phone app: it asks for the camera before opening the QR reader; if you say no, it offers Try again or the phone's settings, in the phone's language
+- Help other homes: “See what goes today” shows each server address as it reads, without backslashes
+- Panel: turning the phone microphone or camera off also clears the “Microphone on” or “Live on the TV” notice
+- Air quality: “Hazardous” is shown in alert red
+- Test channel: updates come in parts, so the TV downloads less, and the home screen frees graphics memory while another app is open or the screen is off
+- AdGuard DNS: in the panel (Router), paste your AdGuard key and the TV gets its own server “Sofaly · TV name”, private DNS and parental controls (bedtime, blocked services, safe YouTube and search); the last 24 hours show in the panel and in Diagnostics
+- Automations: each event shows its value under the name, and the settings tabs fade at the edge
+- Phone app: a TV that is offline shows a clear notice in the app instead of a browser error page
+- Assistant: when an action is blocked, it points to System › Advanced › Confirmations
+
 
 ## Until 2026-11-27
 
