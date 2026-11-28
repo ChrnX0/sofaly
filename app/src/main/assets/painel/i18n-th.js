@@ -2295,7 +2295,6 @@ traduzirPainelCom({T:{
 "criada no AdGuard DNS, em Configurações → Chaves de API":"สร้างใน AdGuard DNS ที่ การตั้งค่า → คีย์ API",
 "Ligar a TV ao AdGuard":"เชื่อมทีวีกับ AdGuard",
 "Controle dos pais no DNS":"การควบคุมโดยผู้ปกครองใน DNS",
-"Hora de dormir da Família também no DNS":"เวลานอนของครอบครัวใช้กับ DNS ด้วย",
 "YouTube seguro":"YouTube แบบปลอดภัย",
 "Busca segura":"การค้นหาแบบปลอดภัย",
 "Bloquear sites adultos":"บล็อกเว็บไซต์สำหรับผู้ใหญ่",

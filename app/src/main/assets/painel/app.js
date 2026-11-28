@@ -2120,7 +2120,6 @@ function desenharAdGuard(r) {
     : 'Ligada à conta, mas o DNS da TV não está no AdGuard agora.';
   const f = r.familia;
   $('chkAdgFamilia').checked = f.ligada;
-  $('chkAdgDormir').checked = f.dormir;
   $('chkAdgYoutube').checked = f.youtubeSeguro;
   $('chkAdgBusca').checked = f.buscaSegura;
   $('chkAdgAdulto').checked = f.adulto;
@@ -2189,7 +2188,7 @@ $('btnServicosAdGuard').addEventListener('click', async () => {
 
 $('btnSalvarFamiliaAdGuard').addEventListener('click', () => confirmar('Salvar o controle dos pais', '', 'Salvar', async () => {
   const r = await chamar('POST', '/api/adguard/family', {
-    ligada: $('chkAdgFamilia').checked, dormir: $('chkAdgDormir').checked, youtubeSeguro: $('chkAdgYoutube').checked,
+    ligada: $('chkAdgFamilia').checked, youtubeSeguro: $('chkAdgYoutube').checked,
     buscaSegura: $('chkAdgBusca').checked, adulto: $('chkAdgAdulto').checked, servicos: [...adgServicos],
   });
   desenharAdGuard(r);

@@ -2295,7 +2295,6 @@ traduzirPainelCom({T:{
 "criada no AdGuard DNS, em Configurações → Chaves de API":"dibuat di AdGuard DNS, di Pengaturan → Kunci API",
 "Ligar a TV ao AdGuard":"Hubungkan TV ke AdGuard",
 "Controle dos pais no DNS":"Kontrol orang tua di DNS",
-"Hora de dormir da Família também no DNS":"Jam tidur Keluarga juga di DNS",
 "YouTube seguro":"YouTube aman",
 "Busca segura":"Pencarian aman",
 "Bloquear sites adultos":"Blokir situs dewasa",
