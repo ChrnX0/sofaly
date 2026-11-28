@@ -1,9 +1,9 @@
 package br.paulo.tvlauncher.family
 
+import br.paulo.tvlauncher.TvNotice
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.weather.AvisoRegras
 import br.paulo.tvlauncher.image.Images
@@ -51,9 +51,9 @@ object RecadoImagem {
     }
 
     /** Mostra o recado com foto. [texto] passa pela mesma limpeza do recado comum. */
-    fun mostrar(ctx: Context, texto: String?, bytes: ByteArray, segundos: Int?): AvisoTv.Resultado? {
+    fun mostrar(ctx: Context, texto: String?, bytes: ByteArray, segundos: Int?): TvNotice.Result? {
         val t = Recado.limpar(texto ?: "📷") ?: return null
         val bmp = decodificar(bytes) ?: return null
-        return AvisoTv.mostrar(ctx, ctx.getString(R.string.pg_recado), t, Recado.duracao(segundos), som = true, guardarSeApagada = false, imagem = bmp, fica = AvisoRegras.Fica.ATENCAO)
+        return TvNotice.show(ctx, ctx.getString(R.string.pg_recado), t, Recado.duracao(segundos), sound = true, keepIfScreenOff = false, image = bmp, stay = AvisoRegras.Fica.ATENCAO)
     }
 }

@@ -1,11 +1,11 @@
 package br.paulo.tvlauncher.observer
 
+import br.paulo.tvlauncher.TvNotice
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.provider.Settings
 import android.util.Log
-import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.BackupNoturno
 import br.paulo.tvlauncher.BackupNoturnoActivity
 import br.paulo.tvlauncher.CaixaTv
@@ -85,7 +85,7 @@ object FalhasTv {
                 Falhas.Conserto.LIBERAR_ESPACO -> a.startActivity(Intent(Settings.ACTION_INTERNAL_STORAGE_SETTINGS))
                 Falhas.Conserto.RELIGAR_SHELL -> {
                     GuardiaoShizuku.garantir(a, "falha 2.3", mesmoSemFalta = true)
-                    AvisoTv.rapido(a.applicationContext, botao(a, t), a.getString(R.string.elv_f_religando))
+                    TvNotice.quick(a.applicationContext, botao(a, t), a.getString(R.string.elv_f_religando))
                 }
                 Falhas.Conserto.ENTRAR_TUNEL -> a.startActivity(Intent(a, ConfigLauncherActivity::class.java)
                     .putExtra(ConfigLauncherActivity.EXTRA_ABA, ConfigLauncherActivity.ABA_REMOTO))

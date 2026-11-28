@@ -1,11 +1,11 @@
 package br.paulo.tvlauncher.alarm
 
+import br.paulo.tvlauncher.TvNotice
 import android.accessibilityservice.AccessibilityService
 import android.content.Context
 import android.media.AudioManager
 import android.os.SystemClock
 import android.view.KeyEvent
-import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.network.LgNetcast
@@ -55,8 +55,8 @@ object HoraDormirTv {
         val agora = SystemClock.elapsedRealtime()
         if (agora - ultimoAviso > 10_000) {
             ultimoAviso = agora
-            AvisoTv.mostrar(servico, servico.getString(R.string.dormir_titulo), servico.getString(R.string.dormir_texto), 8,
-                som = false, guardarSeApagada = false, prioridade = NaoPerturbe.Tipo.REGRA)
+            TvNotice.show(servico, servico.getString(R.string.dormir_titulo), servico.getString(R.string.dormir_texto), 8,
+                sound = false, keepIfScreenOff = false, priority = NaoPerturbe.Tipo.REGRA)
         }
     }
 

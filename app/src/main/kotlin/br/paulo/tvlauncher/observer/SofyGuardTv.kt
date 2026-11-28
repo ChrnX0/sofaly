@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher.observer
 
+import br.paulo.tvlauncher.TvNotice
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
@@ -7,7 +8,6 @@ import android.content.pm.PackageManager
 import android.os.SystemClock
 import android.util.Log
 import android.view.KeyEvent
-import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.family.Diario
@@ -45,7 +45,7 @@ object SofyGuardTv {
 
     /** 42: a dica de como voltar, uma vez a cada meia hora, e o barramento fica sabendo. */
     private fun lostHelp(app: Context) {
-        runCatching { AvisoTv.rapido(app, app.getString(R.string.sofy_lost_title), app.getString(R.string.sofy_lost_text), 10) }
+        runCatching { TvNotice.quick(app, app.getString(R.string.sofy_lost_title), app.getString(R.string.sofy_lost_text), 10) }
         // Disco e travas do ObserverTv fora da thread principal: aqui estamos no funil das teclas (revisor, 25/11/2026).
         Fundo.rodar("sofy-perdido") {
             SofyBusTv.emit(app, SofyBus.Source.SOFY, "lost_help")

@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher.family
 
+import br.paulo.tvlauncher.TvNotice
 import android.accessibilityservice.AccessibilityService
 import android.content.Context
 import android.os.Handler
@@ -7,7 +8,6 @@ import android.os.Looper
 import android.os.PowerManager
 import android.os.SystemClock
 import br.paulo.tvlauncher.AutorizaShizukuService
-import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.alarm.HoraDormirTv
 import br.paulo.tvlauncher.alarm.NaoPerturbe
@@ -56,8 +56,8 @@ object TempoTelaTv {
         val agora = SystemClock.elapsedRealtime()
         if (agora - ultimoAviso > 10_000) {
             ultimoAviso = agora
-            AvisoTv.mostrar(servico, servico.getString(R.string.tela_titulo), servico.getString(R.string.tela_acabou), 8,
-                som = false, guardarSeApagada = false, prioridade = NaoPerturbe.Tipo.REGRA)
+            TvNotice.show(servico, servico.getString(R.string.tela_titulo), servico.getString(R.string.tela_acabou), 8,
+                sound = false, keepIfScreenOff = false, priority = NaoPerturbe.Tipo.REGRA)
         }
     }
 
@@ -88,8 +88,8 @@ object TempoTelaTv {
         gravar(app, depois)
         val restDepois = TempoTela.restanteMs(depois, hoje(), cota(app))
         if (TempoTela.cruzouAviso(restAntes, restDepois))
-            AvisoTv.mostrar(app, app.getString(R.string.tela_titulo), app.getString(R.string.tela_5min), 8, som = false, guardarSeApagada = false,
-                prioridade = NaoPerturbe.Tipo.REGRA)
+            TvNotice.show(app, app.getString(R.string.tela_titulo), app.getString(R.string.tela_5min), 8, sound = false, keepIfScreenOff = false,
+                priority = NaoPerturbe.Tipo.REGRA)
         if (restDepois == 0L) AutorizaShizukuService.instancia?.let { fecharSeAcabou(it, pacote) }
     }
 }

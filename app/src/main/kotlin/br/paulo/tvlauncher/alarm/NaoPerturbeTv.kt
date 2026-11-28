@@ -1,8 +1,8 @@
 package br.paulo.tvlauncher.alarm
 
+import br.paulo.tvlauncher.TvNotice
 import android.content.Context
 import android.util.Log
-import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.VodActivity
 import br.paulo.tvlauncher.family.ModoVisita
@@ -63,7 +63,7 @@ object NaoPerturbeTv {
         val texto = if (fila.size == 1) "${fila[0].titulo}: ${fila[0].texto}"
             else NaoPerturbe.textoResumo(fila) { app.getString(R.string.elv_np_mais, it) }
         // Os avisos já estão um a um na central de avisos (painel rápido): o resumo não entra de novo no histórico.
-        AvisoTv.mostrar(app, titulo, texto, 20, som = false, guardarSeApagada = true, fica = AvisoRegras.Fica.ATENCAO,
-            historico = false, prioridade = NaoPerturbe.Tipo.REGRA)
+        TvNotice.show(app, titulo, texto, 20, sound = false, keepIfScreenOff = true, stay = AvisoRegras.Fica.ATENCAO,
+            history = false, priority = NaoPerturbe.Tipo.REGRA)
     }
 }
