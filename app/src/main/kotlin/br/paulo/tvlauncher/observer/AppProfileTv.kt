@@ -131,7 +131,7 @@ object AppProfileTv {
         val minuto = cal.get(java.util.Calendar.HOUR_OF_DAY) * 60 + cal.get(java.util.Calendar.MINUTE)
         val dia = now / 86_400_000L
         val tip = tips(ctx, s, now).firstOrNull { t -> t.advice == AppProfile.Advice.PREWARM && t.hour != null && t.pkg != s.front &&
-            s.cards[t.pkg]?.let { AppProfile.prewarmNow(it, t.hour, minuto, dia) } == true } ?: return null
+            s.cards[t.pkg]?.let { AppProfile.prewarmNow(it, t.hour!!, minuto, dia) } == true } ?: return null
         val n = freeOthers(ctx, tip.pkg, s.front, s.cards.values)
         SofyBusTv.emit(ctx, SofyBus.Source.SOFY, "prewarm", detail = "$n apps")
         // Placar (ideia 34): acertou se o app abrir até 1 h depois da hora firme.
