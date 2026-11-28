@@ -27,6 +27,9 @@
     <string name="hoh_thanks">Kiitos! Sofalysi auttaa nyt muita koteja.</string>
     <string name="hoh_state_on">Päällä: kerran päivässä tämä televisio kertoo, miten korjaukset onnistuivat</string>
     <string name="hoh_state_off">Pois: tästä televisiosta ei jaeta mitään</string>
+    <string name="hoh_state_lessons">Päällä paneelista: vain kaatuneet tai hidastuneet sovellukset ja näyttöjen tarkistussäännöt</string>
+    <string name="hoh_line_changed">Se, mitä jaan muille Sofalyille, on muuttunut kyllä-vastauksesi jälkeen. Ennen kuin vastaat uudelleen, mitään ei lähde täältä.</string>
+    <string name="hoh_today_off">Ei lähetetä: pois päältä tässä televisiossa</string>
     <string name="hoh_stop">Lopeta auttaminen</string>
     <string name="hoh_stop_det">Tämä televisio lopettaa jakamisen. Mitä muut kodit ovat oppineet, tulee edelleen tänne.</string>
     <string name="hoh_start">Aloita auttaminen</string>

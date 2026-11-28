@@ -28,6 +28,9 @@
     <string name="hoh_thanks">Thank you! Your Sofaly is now helping other homes.</string>
     <string name="hoh_state_on">On: once a day this TV shares how its fixes went</string>
     <string name="hoh_state_off">Off: nothing from this TV is shared</string>
+    <string name="hoh_state_lessons">On from the panel: only the apps that crashed or got slow and the screen-check rules</string>
+    <string name="hoh_line_changed">What I share with other Sofalys changed since you said yes. Until you answer again, nothing leaves this TV.</string>
+    <string name="hoh_today_off">Not sent: off on this TV</string>
     <string name="hoh_stop">Stop helping</string>
     <string name="hoh_stop_det">This TV stops sharing. It keeps receiving what other homes learned.</string>
     <string name="hoh_start">Start helping</string>

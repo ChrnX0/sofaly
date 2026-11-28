@@ -27,6 +27,9 @@
     <string name="hoh_thanks">Ευχαριστούμε! Το Sofaly σας βοηθά πλέον άλλα σπίτια.</string>
     <string name="hoh_state_on">Ενεργό: μία φορά την ημέρα αυτή η τηλεόραση λέει πώς πήγαν οι διορθώσεις</string>
     <string name="hoh_state_off">Ανενεργό: τίποτα δεν μοιράζεται από αυτή την τηλεόραση</string>
+    <string name="hoh_state_lessons">Ενεργό από τον πίνακα: μόνο εφαρμογές που κόλλησαν ή αργοποίησαν και οι κανόνες ελέγχου οθονών</string>
+    <string name="hoh_line_changed">Αυτό που μοιράζομαι με τα άλλα Sofaly άλλαξε από το Ναι σας. Μέχρι να απαντήσετε ξανά, τίποτα δεν φεύγει από εδώ.</string>
+    <string name="hoh_today_off">Δεν στέλνεται: απενεργοποιημένο σε αυτή την τηλεόραση</string>
     <string name="hoh_stop">Διακοπή βοήθειας</string>
     <string name="hoh_stop_det">Αυτή η τηλεόραση σταματά να μοιράζεται. Ό,τι έμαθαν άλλα σπίτια συνεχίζει να φτάνει εδώ.</string>
     <string name="hoh_start">Έναρξη βοήθειας</string>

@@ -438,6 +438,9 @@ class MainActivity : Activity() {
         // "Abrir ao ligar" (menu do card, bloco 4 do clone): na 1ª HOME depois de a TV ligar do zero, abre o app escolhido.
         // Só se a HOME ainda estiver na frente depois da espera (revisor 26/11: a pessoa já podia estar em outro app).
         br.paulo.tvlauncher.home.CardMenu.takeBootApp(this)?.let { p -> ui.postDelayed({ if (!isDestroyed && homeNaFrente) abrir(p) }, br.paulo.tvlauncher.home.CardMenu.delayMs(this)) }
+        // #541: "Ajudar outras casas" aceito sob um texto mais velho já parou de mandar; pergunta de novo, uma vez, só com a
+        // HOME na frente (nunca por cima de quem está assistindo).
+        ui.postDelayed({ if (!isDestroyed && homeNaFrente) HelpOtherHomesActivity.reaskIfChanged(this) }, 2_000)
         // O host guarda UMA view por widget: só depois da tela de edição (que cria as dela) a HOME recria as suas.
         br.paulo.tvlauncher.home.PluginWidgetsTv.ouvir(this)
         camadaWidgets?.let { if (br.paulo.tvlauncher.home.PluginWidgetsTv.editou) { br.paulo.tvlauncher.home.PluginWidgetsTv.editou = false; it.recriar() } else it.atualizar() }

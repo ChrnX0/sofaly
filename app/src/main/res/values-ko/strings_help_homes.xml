@@ -27,6 +27,9 @@
     <string name="hoh_thanks">고마워요! 이제 Sofaly가 다른 집을 돕고 있습니다.</string>
     <string name="hoh_state_on">켜짐: 하루 한 번 이 TV가 수리 결과를 공유합니다</string>
     <string name="hoh_state_off">꺼짐: 이 TV는 아무것도 공유하지 않습니다</string>
+    <string name="hoh_state_lessons">패널에서 켜짐: 멈추거나 느려진 앱과 화면 점검 규칙만</string>
+    <string name="hoh_line_changed">다른 Sofaly와 나누는 내용이 예라고 답한 뒤에 바뀌었어요. 다시 답할 때까지 여기서는 아무것도 나가지 않아요.</string>
+    <string name="hoh_today_off">보내지 않음: 이 TV에서 꺼짐</string>
     <string name="hoh_stop">돕기 중지</string>
     <string name="hoh_stop_det">이 TV는 공유를 멈춥니다. 다른 집이 배운 것은 계속 받습니다.</string>
     <string name="hoh_start">돕기 시작</string>

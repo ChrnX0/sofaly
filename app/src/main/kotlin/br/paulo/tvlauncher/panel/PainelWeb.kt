@@ -998,15 +998,19 @@ object PainelWeb {
             // Sofy (20/11/2026): os movimentos (mesma fonte da TV, SofyMotion) e a chave "Sofy fala". O POST só liga/desliga a voz.
             "/api/sofy" -> when (req.metodo) {
                 "GET" -> return json(200, SofyMotion.toJson().put("voice_on", SofyVoice.voiceOn(app)).put("screen_reader", SofyVoice.screenReaderOn(app))
-                    .put("community_share", br.paulo.tvlauncher.observer.SofyCommunityTv.sharing(app)))
+                    .put("community_share", br.paulo.tvlauncher.observer.SofyCommunityTv.sharing(app))
+                    // #541: o "Sim" da tela da TV também manda o relato dos consertos; o painel avisa quando está ligado.
+                    .put("fleet_consent", br.paulo.tvlauncher.observer.SofyCommunityTv.fleetConsent(app)))
                 "POST" -> {
                     val o = try { JSONObject(req.corpoTexto()) } catch (e: Exception) { return erro(400, "JSON") }
-                    // Ideia 41: "Ajudar outras casas" (manda só pacote, versão e tipo das lições desta TV).
+                    // Ideia 41: "Ajudar outras casas" (manda só pacote, versão e tipo das lições desta TV). Desligar desliga também o
+                    // relato dos consertos e esquece o que foi (#541); ligar por aqui liga só as fichas.
                     if (o.has("community_share")) {
                         val sim = o.optBoolean("community_share")
                         br.paulo.tvlauncher.observer.SofyCommunityTv.setSharing(app, sim)
                         PainelArmazem.registrar(app, ip, "Ajudar outras casas", if (sim) "ligado" else "desligado")
-                        return json(200, JSONObject().put("ok", true).put("community_share", sim))
+                        return json(200, JSONObject().put("ok", true).put("community_share", br.paulo.tvlauncher.observer.SofyCommunityTv.sharing(app))
+                            .put("fleet_consent", br.paulo.tvlauncher.observer.SofyCommunityTv.fleetConsent(app)))
                     }
                     val ligar = try { o.getBoolean("voice") } catch (e: Exception) { return erro(400, "falta voice") }
                     SofyVoice.setVoiceOn(app, ligar)

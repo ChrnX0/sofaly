@@ -27,6 +27,9 @@
     <string name="hoh_thanks">Дякуємо! Ваш Sofaly тепер допомагає іншим домівкам.</string>
     <string name="hoh_state_on">Увімкнено: раз на день цей телевізор розповідає, як пройшли виправлення</string>
     <string name="hoh_state_off">Вимкнено: з цього телевізора нічого не надсилається</string>
+    <string name="hoh_state_lessons">Увімкнено з панелі: лише застосунки, що зависали або гальмували, і правила перевірки екранів</string>
+    <string name="hoh_line_changed">Те, чим я ділюся з іншими Sofaly, змінилося після вашого «Так». Поки ви не відповісте знову, звідси нічого не виходить.</string>
+    <string name="hoh_today_off">Не надсилається: вимкнено на цьому телевізорі</string>
     <string name="hoh_stop">Припинити допомагати</string>
     <string name="hoh_stop_det">Цей телевізор перестає ділитися. Те, чого навчилися інші домівки, і далі надходить сюди.</string>
     <string name="hoh_start">Почати допомагати</string>

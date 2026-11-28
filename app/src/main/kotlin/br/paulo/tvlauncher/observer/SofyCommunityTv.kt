@@ -16,7 +16,7 @@ import java.net.URL
  */
 object SofyCommunityTv {
     const val URL_LESSONS = "https://api.sofaly.tv/v1/community/lessons"
-    /** "Ajudar outras casas" (Extras, vai no backup): 1 = manda as lições desta TV. 0 = só recebe. */
+    /** "Ajudar outras casas" (Extras, vai no backup): [SofyConsent.SHARE_VERSION] = manda as lições desta TV. 0 = só recebe. */
     const val KEY_SHARE = "sofy_community_share"
     private const val GAP_MS = 20 * 3_600_000L
 
@@ -27,11 +27,23 @@ object SofyCommunityTv {
      */
     const val KEY_FLEET = "sofy_fleet_consent"
 
-    fun sharing(ctx: Context) = Extras.numero(ctx, KEY_SHARE, 0) == 1
-    fun fleetConsent(ctx: Context) = sharing(ctx) && Extras.numero(ctx, KEY_FLEET, 0) == 1
+    // As chaves guardam a VERSÃO do texto aceito ([SofyConsent], 28/11/2026): um "Sim" a um texto velho vale desligado.
+    private fun share(ctx: Context) = Extras.numero(ctx, KEY_SHARE, 0)
+    private fun fleet(ctx: Context) = Extras.numero(ctx, KEY_FLEET, 0)
+    fun sharing(ctx: Context) = SofyConsent.shareOn(share(ctx))
+    fun fleetConsent(ctx: Context) = SofyConsent.fleetOn(share(ctx), fleet(ctx))
+    /** Disse "Sim" a um texto mais velho do que o de agora: a TV pergunta de novo, uma vez. */
+    fun needsReask(ctx: Context) = SofyConsent.reask(share(ctx), fleet(ctx))
+
+    /**
+     * Ligar ou desligar. [fleet] = o "Sim" da tela do sofáTV, que vale para as duas metades. Desligar, por qualquer lado,
+     * desliga as duas e já esquece o que foi ([SofyFleetTv.forget]: código novo, o que foi não se liga mais a esta TV).
+     */
     fun setSharing(ctx: Context, on: Boolean, fleet: Boolean = false) {
-        Extras.definirNumero(ctx, KEY_SHARE, if (on) 1 else 0)
-        if (!on || fleet) Extras.definirNumero(ctx, KEY_FLEET, if (on && fleet) 1 else 0)
+        val (s, f) = SofyConsent.values(on, fleet, fleet(ctx))
+        Extras.definirNumero(ctx, KEY_SHARE, s)
+        Extras.definirNumero(ctx, KEY_FLEET, f)
+        if (!on) SofyFleetTv.forget(ctx)
     }
 
     private fun prefs(ctx: Context) = ctx.getSharedPreferences(ObserverTv.PREFS, Context.MODE_PRIVATE)

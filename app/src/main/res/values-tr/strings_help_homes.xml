@@ -27,6 +27,9 @@
     <string name="hoh_thanks">Teşekkürler! Sofaly\'niz artık diğer evlere yardım ediyor.</string>
     <string name="hoh_state_on">Açık: bu TV günde bir kez onarımların nasıl gittiğini paylaşır</string>
     <string name="hoh_state_off">Kapalı: bu TV\'den hiçbir şey paylaşılmaz</string>
+    <string name="hoh_state_lessons">Panelden açık: yalnızca çöken veya yavaşlayan uygulamalar ve ekran denetim kuralları</string>
+    <string name="hoh_line_changed">Diğer Sofaly\'lerle paylaştığım şey Evet demenizden beri değişti. Yeniden yanıt verene kadar buradan hiçbir şey çıkmaz.</string>
+    <string name="hoh_today_off">Gönderilmiyor: bu TV\'de kapalı</string>
     <string name="hoh_stop">Yardımı durdur</string>
     <string name="hoh_stop_det">Bu TV paylaşmayı bırakır. Diğer evlerin öğrendiklerini almaya devam eder.</string>
     <string name="hoh_start">Yardıma başla</string>

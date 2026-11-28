@@ -27,6 +27,9 @@
     <string name="hoh_thanks">Danke! Dein Sofaly hilft jetzt anderen Zuhause.</string>
     <string name="hoh_state_on">An: einmal am Tag teilt dieser Fernseher, wie seine Reparaturen liefen</string>
     <string name="hoh_state_off">Aus: von diesem Fernseher wird nichts geteilt</string>
+    <string name="hoh_state_lessons">Über das Panel an: nur Apps, die abgestürzt oder langsam waren, und die Regeln zum Prüfen der Bildschirme</string>
+    <string name="hoh_line_changed">Was ich mit den anderen Sofalys teile, hat sich seit deinem Ja geändert. Bis du neu antwortest, geht nichts von hier raus.</string>
+    <string name="hoh_today_off">Wird nicht gesendet: an diesem Fernseher aus</string>
     <string name="hoh_stop">Nicht mehr helfen</string>
     <string name="hoh_stop_det">Dieser Fernseher teilt nichts mehr. Er bekommt weiterhin, was andere Zuhause gelernt haben.</string>
     <string name="hoh_start">Mit dem Helfen beginnen</string>

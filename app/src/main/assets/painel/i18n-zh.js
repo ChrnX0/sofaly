@@ -1548,6 +1548,7 @@ traduzirPainelCom({T:{
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"她会朗读电视上显示的内容。开启 TalkBack 时由 TalkBack 朗读。",
 "Ajudar outras casas":"帮助其他家庭",
 "Uma vez por dia, só o nome e a versão dos apps que travaram ou ficaram lentos aqui e as regras que o Sofaly usa para conferir as telas, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"每天一次，只发送在这里崩溃或变慢的应用的名称和版本，以及 Sofaly 用来检查画面的规则，不说明来自哪个家庭。接收其他家庭看到的信息始终开启。",
+"Na própria TV, também foi aceito contar como foram os consertos: o modelo da TV, o que quebrou e o que consertou, sem dizer de qual casa. Tudo o que vai hoje aparece na TV, em Configurações › Sistema › O que a Sofy sabe › Ajudar outras casas.":"在电视上还同意了分享修复的情况：电视型号、坏了什么以及用什么修好，不说是哪一家。今天发送的全部内容都显示在电视的 设置 › 系统 › Sofy 知道什么 › 帮助其他家庭 中。",
 "IA da Sofy":"Sofy 的 AI",
 "Quando a Sofy não consegue consertar algo sozinha, ela pergunta a uma IA que você escolhe. A IA recebe só a ficha do problema, sem nada pessoal, e só pode escolher entre os consertos que a Sofy já sabe fazer.":"当 Sofy 无法独自修复某个问题时，她会询问您选择的 AI。AI 只收到问题记录，不含任何个人信息，并且只能从 Sofy 已经会做的修复中选择。",
 "Provedor":"提供商",

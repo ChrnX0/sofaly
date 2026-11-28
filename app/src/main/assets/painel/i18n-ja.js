@@ -1548,6 +1548,7 @@ traduzirPainelCom({T:{
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"テレビに表示した内容を読み上げます。TalkBack がオンなら TalkBack が読み上げます。",
 "Ajudar outras casas":"ほかの家を手伝う",
 "Uma vez por dia, só o nome e a versão dos apps que travaram ou ficaram lentos aqui e as regras que o Sofaly usa para conferir as telas, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"1日1回、ここで落ちたり遅くなったりしたアプリの名前とバージョン、そして Sofaly が画面の確認に使うルールだけを、どの家かは伝えずに送ります。ほかの家の情報を受け取る機能は常にオンです。",
+"Na própria TV, também foi aceito contar como foram os consertos: o modelo da TV, o que quebrou e o que consertou, sem dizer de qual casa. Tudo o que vai hoje aparece na TV, em Configurações › Sistema › O que a Sofy sabe › Ajudar outras casas.":"テレビ本体で、修理の結果を伝えることにも同意しています: テレビの機種、何が壊れて何で直ったか。どの家かは伝えません。今日送る内容はすべてテレビの 設定 › システム › Sofy が知っていること › ほかの家を手伝う で見られます。",
 "IA da Sofy":"SofyのAI",
 "Quando a Sofy não consegue consertar algo sozinha, ela pergunta a uma IA que você escolhe. A IA recebe só a ficha do problema, sem nada pessoal, e só pode escolher entre os consertos que a Sofy já sabe fazer.":"Sofyが自分で直せないときは、あなたが選んだAIに尋ねます。AIが受け取るのは問題の記録だけで、個人的な情報は含まれません。選べるのはSofyがすでにできる修復だけです。",
 "Provedor":"プロバイダー",

@@ -1548,6 +1548,7 @@ traduzirPainelCom({T:{
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"Cô ấy đọc những gì hiển thị trên TV. Khi bật TalkBack, TalkBack sẽ đọc.",
 "Ajudar outras casas":"Giúp các nhà khác",
 "Uma vez por dia, só o nome e a versão dos apps que travaram ou ficaram lentos aqui e as regras que o Sofaly usa para conferir as telas, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Mỗi ngày một lần, chỉ tên và phiên bản các ứng dụng bị treo hoặc chậm đi ở đây, cùng các quy tắc Sofaly dùng để kiểm tra màn hình, không cho biết là nhà nào. Việc nhận những gì các nhà khác thấy luôn bật.",
+"Na própria TV, também foi aceito contar como foram os consertos: o modelo da TV, o que quebrou e o que consertou, sem dizer de qual casa. Tudo o que vai hoje aparece na TV, em Configurações › Sistema › O que a Sofy sabe › Ajudar outras casas.":"Trên chính TV, việc chia sẻ kết quả sửa lỗi cũng đã được chấp nhận: mẫu TV, cái gì hỏng và cái gì đã sửa nó, không nói là nhà nào. Mọi thứ gửi đi hôm nay đều hiện trên TV, tại Cài đặt › Hệ thống › Sofy biết gì › Giúp các nhà khác.",
 "IA da Sofy":"AI của Sofy",
 "Quando a Sofy não consegue consertar algo sozinha, ela pergunta a uma IA que você escolhe. A IA recebe só a ficha do problema, sem nada pessoal, e só pode escolher entre os consertos que a Sofy já sabe fazer.":"Khi Sofy không tự sửa được điều gì, cô ấy hỏi một AI do bạn chọn. AI chỉ nhận phiếu sự cố, không có gì cá nhân, và chỉ được chọn trong các cách sửa mà Sofy đã biết làm.",
 "Provedor":"Nhà cung cấp",

@@ -27,6 +27,9 @@
     <string name="hoh_thanks">ありがとう！あなたのSofalyがほかの家を手伝い始めました。</string>
     <string name="hoh_state_on">オン：1日1回、このテレビが修理の結果を共有します</string>
     <string name="hoh_state_off">オフ：このテレビからは何も共有されません</string>
+    <string name="hoh_state_lessons">パネルからオン: 止まった・遅くなったアプリと画面チェックのルールだけ</string>
+    <string name="hoh_line_changed">ほかの Sofaly に伝える内容が、あなたの「はい」のあとで変わりました。もう一度答えるまで、ここからは何も送りません。</string>
+    <string name="hoh_today_off">送りません: このテレビではオフ</string>
     <string name="hoh_stop">手伝うのをやめる</string>
     <string name="hoh_stop_det">このテレビは共有をやめます。ほかの家が学んだことは引き続き受け取ります。</string>
     <string name="hoh_start">手伝い始める</string>

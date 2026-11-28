@@ -27,6 +27,9 @@
     <string name="hoh_thanks">¡Gracias! Tu Sofaly ya está ayudando a otras casas.</string>
     <string name="hoh_state_on">Activado: una vez al día esta TV comparte cómo salieron sus arreglos</string>
     <string name="hoh_state_off">Desactivado: esta TV no comparte nada</string>
+    <string name="hoh_state_lessons">Activado desde el panel: solo las apps que se colgaron o fueron lentas y las reglas para revisar pantallas</string>
+    <string name="hoh_line_changed">Lo que cuento a los otros Sofalys cambió desde tu Sí. Hasta que respondas de nuevo, nada sale de aquí.</string>
+    <string name="hoh_today_off">No se envía: desactivado en esta TV</string>
     <string name="hoh_stop">Dejar de ayudar</string>
     <string name="hoh_stop_det">Esta TV deja de compartir. Sigue recibiendo lo que aprendieron otras casas.</string>
     <string name="hoh_start">Empezar a ayudar</string>

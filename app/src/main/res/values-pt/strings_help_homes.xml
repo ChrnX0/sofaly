@@ -28,6 +28,9 @@
     <string name="hoh_thanks">Obrigado! Seu Sofaly agora ajuda outras casas.</string>
     <string name="hoh_state_on">Ligado: uma vez por dia esta TV conta como foram os consertos</string>
     <string name="hoh_state_off">Desligado: nada desta TV é compartilhado</string>
+    <string name="hoh_state_lessons">Ligado pelo painel: só os apps que travaram ou ficaram lentos e as regras de conferir telas</string>
+    <string name="hoh_line_changed">O que eu conto para os outros Sofalys mudou desde o seu Sim. Até você responder de novo, nada sai daqui.</string>
+    <string name="hoh_today_off">Não vai: desligado nesta TV</string>
     <string name="hoh_stop">Parar de ajudar</string>
     <string name="hoh_stop_det">Esta TV para de contar. Ela continua recebendo o que as outras casas aprenderam.</string>
     <string name="hoh_start">Começar a ajudar</string>

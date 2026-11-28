@@ -27,6 +27,9 @@
     <string name="hoh_thanks">Köszönjük! A Sofalyd most már más otthonoknak is segít.</string>
     <string name="hoh_state_on">Be: ez a tévé naponta egyszer elmondja, hogyan sikerültek a javítások</string>
     <string name="hoh_state_off">Ki: erről a tévéről semmi sincs megosztva</string>
+    <string name="hoh_state_lessons">A panelről bekapcsolva: csak a lefagyott vagy lelassult appok és a képernyő-ellenőrzés szabályai</string>
+    <string name="hoh_line_changed">Amit a többi Sofalyval megosztok, megváltozott az Igen óta. Amíg újra nem válaszolsz, semmi sem megy ki innen.</string>
+    <string name="hoh_today_off">Nem megy ki: ezen a tévén kikapcsolva</string>
     <string name="hoh_stop">Segítség leállítása</string>
     <string name="hoh_stop_det">Ez a tévé abbahagyja a megosztást. Amit más otthonok tanultak, továbbra is ideér.</string>
     <string name="hoh_start">Segítség indítása</string>

@@ -27,6 +27,9 @@
     <string name="hoh_thanks">شكرًا! Sofaly لديك يساعد الآن بيوتًا أخرى.</string>
     <string name="hoh_state_on">مفعّل: مرة يوميًا يشارك هذا التلفاز نتائج إصلاحاته</string>
     <string name="hoh_state_off">متوقف: لا يُشارك شيء من هذا التلفاز</string>
+    <string name="hoh_state_lessons">مفعّل من اللوحة: فقط التطبيقات التي تعطلت أو أصبحت بطيئة وقواعد فحص الشاشات</string>
+    <string name="hoh_line_changed">ما أشاركه مع أجهزة Sofaly الأخرى تغيّر منذ موافقتك. حتى تجيب من جديد، لا يخرج شيء من هنا.</string>
+    <string name="hoh_today_off">لا يُرسل: متوقف على هذا التلفاز</string>
     <string name="hoh_stop">التوقف عن المساعدة</string>
     <string name="hoh_stop_det">يتوقف هذا التلفاز عن المشاركة. ويظل يتلقّى ما تعلّمته البيوت الأخرى.</string>
     <string name="hoh_start">بدء المساعدة</string>

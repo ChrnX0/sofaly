@@ -39,6 +39,7 @@ class PainelCaminhosNaTvTest {
             "foto" to c("cfg_titulo", "cl_aba_conta", "fp_linha"),
             "confirmacoes" to c("cfg_titulo", "cl_aba_sistema", "cfg2_aba_avancado", "cl_sec_confirmacoes"),
             "shell" to c("cfg_titulo", "cl_aba_sistema", "cfg2_aba_avancado") + " › " + shell,
+            "ajudar" to c("cfg_titulo", "cl_aba_sistema", "smem_titulo", "hoh_title_short"),
         )
     }
 
@@ -53,6 +54,8 @@ class PainelCaminhosNaTvTest {
             "PIN errado demais: o painel foi desligado. Religue na TV, em ${pt["remoto"]}." to "remoto",
             "bloqueado na TV (${pt["confirmacoes"]})" to "confirmacoes",
             "o shell do launcher não está ligado (${pt["shell"]})" to "shell",
+            "Na própria TV, também foi aceito contar como foram os consertos: o modelo da TV, o que quebrou e o que consertou, " +
+                "sem dizer de qual casa. Tudo o que vai hoje aparece na TV, em ${pt["ajudar"]}." to "ajudar",
         )
     }
 
