@@ -2295,7 +2295,6 @@ traduzirPainelCom({T:{
 "criada no AdGuard DNS, em Configurações → Chaves de API":"created in AdGuard DNS, under Settings → API keys",
 "Ligar a TV ao AdGuard":"Connect the TV to AdGuard",
 "Controle dos pais no DNS":"Parental controls in DNS",
-"Hora de dormir da Família também no DNS":"Family bedtime in DNS too",
 "YouTube seguro":"Safe YouTube",
 "Busca segura":"Safe search",
 "Bloquear sites adultos":"Block adult sites",
