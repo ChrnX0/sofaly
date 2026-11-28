@@ -97,6 +97,7 @@ class PainelActivity : Activity() {
             if (r.codigo == 200 && r.json?.optBoolean("logado") == false) ApiTv.reentrar(tv)
             // Caça 27/11: logado, a TV diz o próprio nome ("aparelho"); a lista deixa de mostrar "TV".
             if (r.codigo == 200) r.json?.optString("aparelho")?.let { Tvs.renomear(applicationContext, tv, it) }
+            if (r.codigo == 200) Visual.guardarLook(applicationContext, r.json?.optString("visual"))   // tema da TV (28/11/2026)
             runOnUiThread { if (!isDestroyed) web.loadUrl(endereco) }
         } else web.loadUrl(endereco)
     }

@@ -19,7 +19,20 @@ import kotlin.math.sin
  * A lua é desenhada na fase de verdade ([fracaoLua]: 0 = nova, 0,5 = cheia), espelhada no hemisfério sul.
  */
 class IconeLinha(private val tipo: Tipo, private val fracaoLua: Double = 0.0, private val sul: Boolean = false,
-                 private val cor: Int = 0xFFFFFFFF.toInt()) : Drawable() {
+                 corDada: Int? = null) : Drawable() {
+    /** Sem cor dada: a do tema (Aconchego = a cor exclusiva do ícone; os outros, branco). */
+    private val cor: Int = corDada ?: corDoTema(tipo, 0xFFFFFFFF.toInt())
+
+    companion object {
+        /**
+         * Tema do sistema (28/11/2026, Paulo: cada ícone com a sua cor exclusiva, em todo o sistema): no Aconchego o
+         * traço fica na cor do ícone (IconPalette); nos outros temas e no alto contraste, [base].
+         */
+        fun corDoTema(tipo: Tipo, base: Int): Int =
+            if (br.paulo.tvlauncher.settings.SystemLook.atual.iconeColorido && !br.paulo.tvlauncher.Estilo.altoContraste)
+                br.paulo.tvlauncher.settings.IconPalette.cor(tipo.name) else base
+    }
+
     enum class Tipo { HORIZONTE, LUA, GOTA, CHUVA, CALENDARIO, DESPERTADOR, RECADO,
         /** Protetor que reage ao tempo (17/11/2026): sol (UV), folha (ar). O céu da noite usa [NightSkyGlyph] (24/11/2026). */
         SOL, FOLHA,

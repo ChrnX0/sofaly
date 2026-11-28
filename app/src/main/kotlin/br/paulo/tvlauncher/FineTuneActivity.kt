@@ -198,6 +198,12 @@ class FineTuneActivity : Activity() {
             getString(if (BackgroundStyle.doorbell(this)) R.string.bg_ligado else R.string.cs_sem)
         },
     ) else emptyList()) + listOf(
+        // Tema do sistema inteiro (Paulo, 28/11/2026): Vidro colorido de fábrica, Aconchego, Azulejos e Vidro. Trocar volta o foco ao do tema.
+        Ajuste(R.string.ft_tema, { nomeTema(br.paulo.tvlauncher.settings.SystemLook.ler(this)) }) { passo ->
+            val t = br.paulo.tvlauncher.settings.SystemLook.entries
+            nomeTema(t[Math.floorMod(br.paulo.tvlauncher.settings.SystemLook.ler(this).ordinal + passo, t.size)]
+                .also { br.paulo.tvlauncher.settings.SystemLook.gravar(this, it) })
+        },
         // Foco (régua de estilo, 22/11/2026): Fio é o padrão (Paulo); Véu e Quadro para quem quer o foco mais visível.
         Ajuste(R.string.ft_foco, { nomeFoco(br.paulo.tvlauncher.settings.FocusStyle.ler(this)) }) { passo ->
             val f = br.paulo.tvlauncher.settings.FocusStyle.entries
@@ -408,6 +414,12 @@ class FineTuneActivity : Activity() {
         BackgroundStyle.Blur.OFF -> R.string.cs_sem
         BackgroundStyle.Blur.SOFT -> R.string.cs_suave
         BackgroundStyle.Blur.STRONG -> R.string.cs_forte
+    })
+    private fun nomeTema(k: br.paulo.tvlauncher.settings.SystemLook) = getString(when (k) {
+        br.paulo.tvlauncher.settings.SystemLook.GLASS -> R.string.ft_tema_vidro
+        br.paulo.tvlauncher.settings.SystemLook.TILES -> R.string.ft_tema_azulejos
+        br.paulo.tvlauncher.settings.SystemLook.COZY -> R.string.ft_tema_aconchego
+        br.paulo.tvlauncher.settings.SystemLook.GLASS_COLOR -> R.string.ft_tema_vidro_cor
     })
     private fun nomeFoco(k: br.paulo.tvlauncher.settings.FocusStyle) = getString(when (k) {
         br.paulo.tvlauncher.settings.FocusStyle.LINE -> R.string.ft_foco_fio

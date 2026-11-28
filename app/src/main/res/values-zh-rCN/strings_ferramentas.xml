@@ -17,6 +17,11 @@
     <string name="rt_a">A · 紧凑</string>
     <string name="rt_b">B · 边框</string>
     <string name="rt_c">C · 宽松</string>
+    <string name="ft_tema">主题</string>
+    <string name="ft_tema_vidro">玻璃</string>
+    <string name="ft_tema_vidro_cor">彩色玻璃</string>
+    <string name="ft_tema_azulejos">瓷砖</string>
+    <string name="ft_tema_aconchego">温馨</string>
     <string name="ft_foco">焦点</string>
     <string name="ft_foco_fio">线条</string>
     <string name="ft_foco_veu">薄纱</string>

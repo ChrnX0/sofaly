@@ -17,6 +17,11 @@
     <string name="rt_a">A · Rapat</string>
     <string name="rt_b">B · Bingkai</string>
     <string name="rt_c">C · Lapang</string>
+    <string name="ft_tema">Tema</string>
+    <string name="ft_tema_vidro">Kaca</string>
+    <string name="ft_tema_vidro_cor">Kaca berwarna</string>
+    <string name="ft_tema_azulejos">Ubin</string>
+    <string name="ft_tema_aconchego">Nyaman</string>
     <string name="ft_foco">Fokus</string>
     <string name="ft_foco_fio">Garis</string>
     <string name="ft_foco_veu">Selubung</string>

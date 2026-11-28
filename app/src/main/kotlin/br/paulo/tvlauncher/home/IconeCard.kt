@@ -13,7 +13,7 @@ import android.view.View
  * por [tipo] ("bluetooth", "sistema", "audio", "launcher", "protetor", "timer", "acessibilidade", "fechar"). Traço fino.
  * [cor] muda com o foco (card branco = ícone escuro), pelo [definirCor].
  */
-class IconeCard(ctx: Context, private val tipo: String) : View(ctx) {
+class IconeCard(ctx: Context, val tipo: String) : View(ctx) {
     private val d = ctx.resources.displayMetrics.density
     private val tinta = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE

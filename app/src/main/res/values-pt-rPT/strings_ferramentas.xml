@@ -17,6 +17,11 @@
     <string name="rt_a">A · Ajustado</string>
     <string name="rt_b">B · Quadros</string>
     <string name="rt_c">C · Ar</string>
+    <string name="ft_tema">Tema</string>
+    <string name="ft_tema_vidro">Vidro</string>
+    <string name="ft_tema_vidro_cor">Vidro colorido</string>
+    <string name="ft_tema_azulejos">Azulejos</string>
+    <string name="ft_tema_aconchego">Aconchego</string>
     <string name="ft_foco">Foco</string>
     <string name="ft_foco_fio">Fio</string>
     <string name="ft_foco_veu">Véu</string>

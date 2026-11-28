@@ -194,6 +194,7 @@ async function atualizarEstado() {
   if (!e.logado) { mostrarEntrar(); return; }
   ultimoEstado = e;
   aplicarContraste(e.altoContraste);
+  aplicarVisual(e.visual, e.coresIcones);
   aplicarPapel(e);
   $('nomeAparelho').textContent = e.aparelho;
   document.title = e.aparelho;
@@ -3090,6 +3091,24 @@ $('btnClimaAuto').addEventListener('click', async () => {
 // ---------- Alto contraste (estudo global 20/11/2026, ideia 3) ----------
 // Por quê: só a TV tinha. Para quê: quem enxerga pouco liga uma vez (na TV ou aqui) e vale em tudo. Como: a chave
 // da TV vem no /api/estado; o "mais contraste" do aparelho (prefers-contrast) também liga, pelo CSS.
+/**
+ * Tema do sistema da TV (28/11/2026: Aconchego, Azulejos ou Vidro valem também no painel). O <html> ganha data-look e
+ * cada ícone do sprite ganha a cor exclusiva dele em --cor-icone (a mesma da TV); o CSS decide onde ela aparece.
+ */
+function aplicarVisual(visual, cores) {
+  const raiz = document.documentElement;
+  if (visual) raiz.dataset.look = visual; else delete raiz.dataset.look;
+  if (!cores) return;
+  document.querySelectorAll('svg.i use').forEach((u) => {
+    const id = (u.getAttribute('href') || '').replace('#i-', '');
+    const svg = u.closest('svg');
+    if (!svg || !cores[id]) return;
+    svg.style.setProperty('--cor-icone', cores[id]);
+    const ic = svg.parentElement && svg.parentElement.closest('.ic');
+    if (ic) ic.style.setProperty('--cor-azulejo', cores[id]);
+  });
+}
+
 function aplicarContraste(ligado) {
   if (ligado) document.documentElement.dataset.contraste = 'alto';
   else delete document.documentElement.dataset.contraste;
