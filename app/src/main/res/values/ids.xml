@@ -4,6 +4,8 @@
     <item name="estilo_cor_normal" type="id" />
     <!-- MainActivity: tipo do card de Assistir, para trocar a capa quando ela fica pronta (CapaAtalho) -->
     <item name="tag_capa_atalho" type="id" />
+    <!-- Fileiras: o ícone guarda a cor dele no foco (tema do sistema, 28/11/2026) -->
+    <item name="tag_manter_cor" type="id" />
     <!-- Abertura com a logo (SplashOverlay): marca a camada que já está saindo. -->
     <item name="brand_splash_leaving" type="id" />
     <!-- VozFoco.kt: o ouvinte de foco fica preso na própria tela, não numa lista global (que segurava a tela fechada). -->

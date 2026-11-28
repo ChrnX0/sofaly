@@ -37,6 +37,11 @@ object IconPalette {
         // ícones de linha (protetor, clima, Ilha)
         "horizonte" to AMBAR, "gota" to CEU, "chuva" to AZUL, "calendario" to VERMELHO, "recado" to AMARELO,
         "sol" to AMARELO, "folha" to VERDE, "fone" to VIOLETA, "pessoa" to AREIA, "gravar" to VERMELHO,
+        // itens da tela inicial (IconeCruz.Tipo em minúsculas; tv, dormir, despertador e casa já estão acima)
+        "continuar" to AMBAR, "assistir" to VIOLETA, "ouvir" to VERDE, "jogar" to VERMELHO, "aplicativos" to CEU,
+        "series" to AZUL, "filmes" to VERMELHO, "rede" to TURQUESA, "addons" to LIMA, "radio" to AMARELO,
+        "podcasts" to MENTA, "jogos" to VERDE, "sofa" to AREIA, "todos_apps" to CEU, "plugin" to OLIVA, "central" to ACO,
+        "ferramentas" to ACO, "clima" to CEU, "ajuste" to TURQUESA, "config" to ACO, "painel" to VIOLETA, "ajuda" to VERDE,
     )
 
     /** Os tipos com cor fixa (para o teste e para a foto da paleta). */

@@ -120,4 +120,23 @@ class RowsHomeTest {
         assertTrue(RowsHome.passou(xs[1], o))
         assertTrue(!RowsHome.passou(xs[2], o) && !RowsHome.passou(xs[3], o))
     }
+
+    /** Tema do sistema nos itens nossos (28/11/2026): cada tema pinta de um jeito; ajuste próprio das Fileiras vence. */
+    @Test fun temaDoSistemaNosItensNossos() {
+        val L = br.paulo.tvlauncher.settings.SystemLook.COZY
+        val cozy = RowsHome.ownLook(L, "SERIES", RowsHome.DEFAULT)
+        assertEquals(br.paulo.tvlauncher.settings.IconPalette.cor("series"), cozy.tinta)
+        assertEquals(null, cozy.placa); assertTrue(cozy.manterNoFoco)
+        val tiles = RowsHome.ownLook(br.paulo.tvlauncher.settings.SystemLook.TILES, "SERIES", RowsHome.DEFAULT)
+        assertEquals(br.paulo.tvlauncher.settings.IconPalette.cor("series"), tiles.placa)
+        assertEquals(DesignTokens.NIGHT, tiles.tinta)
+        val glass = RowsHome.ownLook(br.paulo.tvlauncher.settings.SystemLook.GLASS, "SERIES", RowsHome.DEFAULT)
+        assertEquals(br.paulo.tvlauncher.settings.SystemLook.GLASS.caixa, glass.placa)
+        assertEquals(null, glass.tinta); assertTrue(!glass.manterNoFoco)
+        val proprio = RowsHome.ownLook(L, "SERIES", RowsHome.DEFAULT.copy(cardBg = RowsHome.CardBg.BLACK))
+        assertEquals(RowsHome.OwnLook(null, null, false), proprio)
+        // itens diferentes da mesma fileira ganham cores diferentes
+        val tipos = listOf("TV", "SERIES", "FILMES", "RADIO", "PODCASTS", "JOGOS")
+        assertEquals(tipos.size, tipos.map { RowsHome.ownLook(L, it, RowsHome.DEFAULT).tinta }.toSet().size)
+    }
 }
