@@ -55,7 +55,8 @@ Every bitmap is created through `br.paulo.tvlauncher.image.Images` (in `:core`; 
   `commit=<hash on main>` rebuilds an older commit with a newer versionCode (the way back from a bad version).
   Before each Release, rewrite `res/values*/strings_versoes.xml`: `novidades` ("What changed", Settings > System) and
   the `roteiro_*` checklist ("Check on the TV"; answers via `EXTRAS --es o roteiro`), in both languages. Then run
-  `python3 scripts/readme.py`: the README feature list, "What changed", the Release notes and the CHANGELOG come from
+  `python3 scripts/readme.py`: the README feature list (low profile until launch, 28/11/2026: the full README and CHANGELOG
+  live in `docs/launch/`; the root `README.md` is a short neutral notice, don't put features back there), "What changed", the Release notes and the CHANGELOG come from
   that file and from the website's feature list (`website/features.json` + `content/en.json`); the workflow refuses to
   publish when they are stale. README pictures: `node scripts/readme-images.js` (source `docs/readme/art.html`).
   Pull requests compile + test (and cost CI minutes), but once the repo is PRIVATE (paid Actions) a DRAFT PR runs nothing (26/11/2026; while public, Actions are free and every PR runs, no limits — Paulo): CI runs
