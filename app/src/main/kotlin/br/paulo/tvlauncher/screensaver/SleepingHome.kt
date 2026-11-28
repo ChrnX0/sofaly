@@ -454,7 +454,7 @@ class SleepingHome(private val ctx: Context) {
             background = if (tema.vidro) Estilo.fundo(ctx, placa, 12, br.paulo.tvlauncher.home.RowsHome.VIDRO_FIO)
                 else Estilo.fundo(ctx, placa, 12)
             setImageDrawable(br.paulo.tvlauncher.home.IconeLinha(tipo, corDada = traco))
-            val m = dp(9); setPadding(m, m, m, m)
+            val m = dp(9); setPaddingRelative(m, m, m, m)
         }, LinearLayout.LayoutParams(dp(46), dp(46)).apply { marginEnd = dp(18) })
         addView(conteudo, LinearLayout.LayoutParams(0, -2, 1f))
     }
