@@ -36,8 +36,8 @@ enum class FocusStyle {
          * A última escolha lida, para as cores "no foco" do Estilo (TEXTO_NO_FOCO...), que não recebem Context.
          * Porquê: na Sala (22/11) o painel rápido pintava o título focado de escuro sobre o Fio (fundo escuro) e ele sumia.
          */
-        // LINE = o foco do tema de fábrica (Aconchego). Não ler SystemLook aqui: os dois enums se citam e o início em ciclo dá NPE.
-        @Volatile var atual: FocusStyle = LINE
+        // BOX = o foco do tema de fábrica (Vidro colorido, 28/11/2026). Não ler SystemLook aqui: os dois enums se citam e o início em ciclo dá NPE.
+        @Volatile var atual: FocusStyle = BOX
 
         fun ler(ctx: Context): FocusStyle = deNumero(Extras.numero(ctx, KEY, -1), SystemLook.ler(ctx)).also { atual = it }
 
