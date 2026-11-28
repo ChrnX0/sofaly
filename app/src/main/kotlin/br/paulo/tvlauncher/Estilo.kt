@@ -441,6 +441,14 @@ object Estilo {
             val pares = mutableListOf(t to Papel.CORPO)
             if (e != null) pares += e to Papel.LEGENDA
             if (direita is TextView) pares += direita to Papel.CORPO
+            // Valor comprido ("aprendendo (0 de 5 dias)") não espreme o título a uma palavra por linha (auditoria de
+            // 27/11/2026, Cuidar de longe): o valor fica com no máximo 45% da linha e quebra ele mesmo.
+            if (direita is TextView) addOnLayoutChangeListener { v, l, _, r, _, ol, _, or_, _ ->
+                if (r - l != or_ - ol) {
+                    val max = ((r - l - v.paddingStart - v.paddingEnd) * 0.45f).toInt()
+                    if (max > 0 && direita.maxWidth != max) { direita.maxWidth = max; v.post { v.requestLayout() } }
+                }
+            }
             focoLinha(this, *pares.toTypedArray())
         }
     }

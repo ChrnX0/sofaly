@@ -249,6 +249,8 @@ tasks.withType<Test>().configureEach {
     systemProperty("telas.atualizar", project.hasProperty("telasAtualizar").toString())
     systemProperty("telas.todas", project.hasProperty("telasTodas").toString())   // as 26 línguas (24/11/2026)
     systemProperty("telas.auditoria", project.hasProperty("auditoria").toString())
+    systemProperty("telas.submenus", project.hasProperty("submenus").toString())   // fotos dos submenus (SubmenusTelasTest)
+    systemProperty("telas.submenus.so", (project.findProperty("submenusSo") ?: "").toString())
     systemProperty("telas.comdados", project.hasProperty("comDados").toString())   // telas que só abrem com dados (TelasComDadosTest)
 }
 

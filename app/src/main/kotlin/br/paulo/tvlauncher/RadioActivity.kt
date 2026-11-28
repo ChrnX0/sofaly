@@ -289,8 +289,8 @@ class RadioActivity : Activity() {
                     CruzLogica.linhas(r.nome, s.musica, detalhe(r)), if (s.pausado) IconeOuvir.Tipo.CONTINUAR else IconeOuvir.Tipo.PAUSAR,
                     abrir = { OuvirServico.instancia?.alternar() }),
                 CruzOuvir.Item("favoritar", getString(if (fav) R.string.ouv_desfavoritar else R.string.ouv_favoritar),
-                    if (fav) getString(R.string.ouv_tecla, favoritas.indexOfFirst { it.id == r.id } + 1).takeIf { favoritas.indexOfFirst { it.id == r.id } < 9 }.orEmpty()
-                    else getString(R.string.ouv_favoritar_det),
+                    // Sem "Tecla 2 do controle": dica de tecla saiu de tudo (Paulo, 26/11/2026); as teclas de número seguem funcionando.
+                    if (fav) "" else getString(R.string.ouv_favoritar_det),
                     IconeOuvir.Tipo.FAVORITAS, abrir = { favoritar(r) }),
                 // Voltar 30 s / Ao vivo (21/11/2026, [AtrasoRadio]): só quando a gravação paralela está de pé.
                 *listOfNotNull(
@@ -403,7 +403,7 @@ class RadioActivity : Activity() {
         val estado = when {
             tocandoEsta && s?.pausado == true -> getString(R.string.ouv_pausado)
             tocandoEsta -> "● " + getString(R.string.ouv_tocando_agora)
-            numero != null -> getString(R.string.ouv_tecla, numero)
+            numero != null -> null   // já está na fileira das Favoritas (era "Tecla 2 do controle": sem dica de tecla)
             favoritas.any { it.id == r.id } -> "★ " + getString(R.string.ra_favoritas)
             else -> null
         }
