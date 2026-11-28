@@ -125,6 +125,7 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 - Names no longer break a word in the middle; character and details in Cast show in full
 - Home screen: the row that scrolls up no longer seems to slide under the summary
 - Games and Listen use the same graphite as the other screens
+- Night filter: while the TV is off the amber layer goes away and frees memory; it comes back as soon as the screen turns on
 <!-- /auto:changes -->
 
 ## Every feature
