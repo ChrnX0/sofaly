@@ -27,6 +27,9 @@
     <string name="hoh_thanks">Grazie! Il tuo Sofaly ora aiuta altre case.</string>
     <string name="hoh_state_on">Attivo: una volta al giorno questa TV condivide com\'è andata con le riparazioni</string>
     <string name="hoh_state_off">Disattivo: questa TV non condivide nulla</string>
+    <string name="hoh_state_lessons">Attivo dal pannello: solo le app che si sono bloccate o rallentate e le regole per controllare le schermate</string>
+    <string name="hoh_line_changed">Quello che condivido con gli altri Sofaly è cambiato dal tuo Sì. Finché non rispondi di nuovo, niente esce da qui.</string>
+    <string name="hoh_today_off">Non inviato: disattivato su questa TV</string>
     <string name="hoh_stop">Smetti di aiutare</string>
     <string name="hoh_stop_det">Questa TV smette di condividere. Continua a ricevere ciò che hanno imparato le altre case.</string>
     <string name="hoh_start">Inizia ad aiutare</string>

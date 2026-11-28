@@ -27,6 +27,9 @@
     <string name="hoh_thanks">धन्यवाद! आपका Sofaly अब दूसरे घरों की मदद कर रहा है।</string>
     <string name="hoh_state_on">चालू: दिन में एक बार यह टीवी बताता है कि सुधार कैसे रहे</string>
     <string name="hoh_state_off">बंद: इस टीवी से कुछ भी साझा नहीं होता</string>
+    <string name="hoh_state_lessons">पैनल से चालू: सिर्फ़ वे ऐप जो क्रैश हुए या धीमे हुए और स्क्रीन जाँचने के नियम</string>
+    <string name="hoh_line_changed">मैं दूसरे Sofaly के साथ जो साझा करता हूँ, वह आपकी हाँ के बाद बदल गया है। जब तक आप फिर से जवाब नहीं देते, यहाँ से कुछ नहीं जाता।</string>
+    <string name="hoh_today_off">नहीं भेजा जाता: इस टीवी पर बंद</string>
     <string name="hoh_stop">मदद बंद करें</string>
     <string name="hoh_stop_det">यह टीवी साझा करना बंद करता है। दूसरे घरों ने जो सीखा, वह मिलता रहेगा।</string>
     <string name="hoh_start">मदद शुरू करें</string>

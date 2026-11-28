@@ -27,6 +27,9 @@
     <string name="hoh_thanks">Děkujeme! Vaše Sofaly teď pomáhá jiným domácnostem.</string>
     <string name="hoh_state_on">Zapnuto: jednou denně tato televize řekne, jak dopadly opravy</string>
     <string name="hoh_state_off">Vypnuto: z této televize se nic nesdílí</string>
+    <string name="hoh_state_lessons">Zapnuto z panelu: jen aplikace, které spadly nebo zpomalily, a pravidla kontroly obrazovek</string>
+    <string name="hoh_line_changed">To, co sdílím s ostatními Sofaly, se od vašeho Ano změnilo. Dokud znovu neodpovíte, nic odsud neodchází.</string>
+    <string name="hoh_today_off">Neodesílá se: na této televizi vypnuto</string>
     <string name="hoh_stop">Přestat pomáhat</string>
     <string name="hoh_stop_det">Tato televize přestane sdílet. Co se naučily jiné domácnosti, sem dál přichází.</string>
     <string name="hoh_start">Začít pomáhat</string>

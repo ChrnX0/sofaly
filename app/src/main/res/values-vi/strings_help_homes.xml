@@ -27,6 +27,9 @@
     <string name="hoh_thanks">Cảm ơn! Sofaly của bạn giờ đang giúp các nhà khác.</string>
     <string name="hoh_state_on">Bật: mỗi ngày một lần, TV này cho biết các lần sửa ra sao</string>
     <string name="hoh_state_off">Tắt: không có gì được chia sẻ từ TV này</string>
+    <string name="hoh_state_lessons">Bật từ bảng điều khiển: chỉ các ứng dụng bị treo hoặc chậm và các quy tắc kiểm tra màn hình</string>
+    <string name="hoh_line_changed">Những gì tôi chia sẻ với các Sofaly khác đã thay đổi kể từ khi bạn đồng ý. Cho đến khi bạn trả lời lại, không có gì rời khỏi đây.</string>
+    <string name="hoh_today_off">Không gửi: đã tắt trên TV này</string>
     <string name="hoh_stop">Ngừng giúp</string>
     <string name="hoh_stop_det">TV này ngừng chia sẻ. Những gì các nhà khác học được vẫn đến đây.</string>
     <string name="hoh_start">Bắt đầu giúp</string>

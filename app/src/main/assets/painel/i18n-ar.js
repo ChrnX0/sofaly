@@ -1548,6 +1548,7 @@ traduzirPainelCom({T:{
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"تقرأ ما تعرضه على التلفاز. عند تشغيل TalkBack، يقرأ TalkBack.",
 "Ajudar outras casas":"ساعد منازل أخرى",
 "Uma vez por dia, só o nome e a versão dos apps que travaram ou ficaram lentos aqui e as regras que o Sofaly usa para conferir as telas, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"مرة يوميًا، فقط اسم وإصدار التطبيقات التي تعطلت أو أصبحت بطيئة هنا، والقواعد التي يستخدمها Sofaly لفحص الشاشات، دون ذكر أي منزل. استقبال ما رأته المنازل الأخرى مفعّل دائمًا.",
+"Na própria TV, também foi aceito contar como foram os consertos: o modelo da TV, o que quebrou e o que consertou, sem dizer de qual casa. Tudo o que vai hoje aparece na TV, em Configurações › Sistema › O que a Sofy sabe › Ajudar outras casas.":"على التلفاز نفسه، تمت الموافقة أيضًا على مشاركة كيف جرت الإصلاحات: طراز التلفاز وما تعطل وما أصلحه، دون ذكر أي منزل. كل ما يُرسل اليوم يظهر على التلفاز في الإعدادات › النظام › ما تعرفه Sofy › مساعدة بيوت أخرى.",
 "IA da Sofy":"ذكاء Sofy الاصطناعي",
 "Quando a Sofy não consegue consertar algo sozinha, ela pergunta a uma IA que você escolhe. A IA recebe só a ficha do problema, sem nada pessoal, e só pode escolher entre os consertos que a Sofy já sabe fazer.":"عندما لا تستطيع Sofy إصلاح شيء وحدها، تسأل ذكاءً اصطناعيًا تختاره أنت. يتلقى الذكاء الاصطناعي بطاقة المشكلة فقط، دون أي شيء شخصي، ولا يمكنه الاختيار إلا من الإصلاحات التي تعرف Sofy القيام بها.",
 "Provedor":"المزوّد",

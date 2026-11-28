@@ -13,6 +13,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import br.paulo.tvlauncher.family.PinTv
 import br.paulo.tvlauncher.observer.SofyCommunityTv
+import br.paulo.tvlauncher.observer.SofyConsent
 import br.paulo.tvlauncher.observer.SofyDrawable
 import br.paulo.tvlauncher.observer.SofyMotion
 import br.paulo.tvlauncher.observer.SofyPolicy
@@ -42,7 +43,10 @@ class HelpOtherHomesActivity : Activity() {
         /** Vindo das Configurações: mostra o estado (ligado/desligado) e as ações em vez da pergunta. */
         const val EXTRA_MODE = "mode"
         const val MODE_SETTINGS = "settings"
+        /** A pergunta de novo, porque o que vai mudou desde o "Sim" ([SofyCommunityTv.needsReask]). */
+        const val EXTRA_REASK = "reask"
         private const val KEY_ASKED = "help_homes_asked"
+        private const val KEY_REASKED = "help_homes_reasked"
 
         /** Na configuração inicial: pergunta uma vez só (quem já respondeu ou já ligou não vê de novo). */
         fun askOnce(ctx: Context) {
@@ -50,6 +54,20 @@ class HelpOtherHomesActivity : Activity() {
             if (p.getBoolean(KEY_ASKED, false) || SofyCommunityTv.sharing(ctx)) return
             p.edit().putBoolean(KEY_ASKED, true).apply()
             ctx.startActivity(Intent(ctx, HelpOtherHomesActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+        }
+
+        /**
+         * #541 (28/11/2026): quem disse "Sim" a um texto mais velho para de mandar na hora ([SofyConsent]) e, na volta à
+         * HOME, vê a pergunta de novo, uma vez por versão do texto, com "O que vai mudou". Sem resposta, segue desligado.
+         */
+        fun reaskIfChanged(ctx: Context) {
+            if (!SofyCommunityTv.needsReask(ctx)) return
+            val p = ctx.getSharedPreferences(Prefs.LAUNCHER, Context.MODE_PRIVATE)
+            val v = "${SofyConsent.SHARE_VERSION}.${SofyConsent.FLEET_VERSION}"
+            if (p.getString(KEY_REASKED, "") == v) return
+            p.edit().putString(KEY_REASKED, v).putBoolean(KEY_ASKED, true).apply()
+            ctx.startActivity(Intent(ctx, HelpOtherHomesActivity::class.java).putExtra(EXTRA_REASK, true)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
         }
     }
 
@@ -141,7 +159,8 @@ class HelpOtherHomesActivity : Activity() {
         val r = raiz(central = true)
         r.addView(mascote(150, pular))
         r.addView(titulo(getString(R.string.hoh_question)), LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(Estilo.E3) })
-        r.addView(frase(getString(R.string.hoh_line)), LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(Estilo.E1); gravity = Gravity.CENTER_HORIZONTAL })
+        val linha = if (intent.getBooleanExtra(EXTRA_REASK, false)) R.string.hoh_line_changed else R.string.hoh_line
+        r.addView(frase(getString(linha)), LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(Estilo.E1); gravity = Gravity.CENTER_HORIZONTAL })
         val nao = agoraNao()
         r.addView(botoes(sim(), nao, botao(R.string.hoh_how) { tela = View0.HOW; montar() }),
             LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(Estilo.E3 + 8) })
@@ -181,9 +200,12 @@ class HelpOtherHomesActivity : Activity() {
 
     private fun settings() {
         val on = SofyCommunityTv.sharing(this)
+        val fleet = SofyCommunityTv.fleetConsent(this)
         // Molde das telas de ajuste (ColumnsScreen; passada da Sala 27/11/2026: esta ainda era a coluna única esticada).
-        // O estado fica no subtítulo, à vista; o que cada ação faz vai para a coluna da direita.
-        val t = ColumnsScreen(this, getString(R.string.hoh_title_short), getString(if (on) R.string.hoh_state_on else R.string.hoh_state_off))
+        // O estado fica no subtítulo, à vista; o que cada ação faz vai para a coluna da direita. Três estados (#541):
+        // tudo (o "Sim" daqui), só as fichas (ligado pelo painel, que promete menos) ou nada.
+        val estado = when { fleet -> R.string.hoh_state_on; on -> R.string.hoh_state_lessons; else -> R.string.hoh_state_off }
+        val t = ColumnsScreen(this, getString(R.string.hoh_title_short), getString(estado))
         val lista = t.section(getString(R.string.hoh_title_short))
         var primeira: View? = null
         fun linha(tit: Int, d: Int, aoClicar: () -> Unit) {
@@ -192,8 +214,8 @@ class HelpOtherHomesActivity : Activity() {
             lista.addView(l, t.lpRow())
             if (primeira == null) primeira = l
         }
+        if (!fleet) linha(R.string.hoh_start, R.string.hoh_start_det) { tela = View0.HOW; montar() }
         if (on) linha(R.string.hoh_stop, R.string.hoh_stop_det) { comPin { SofyCommunityTv.setSharing(this, false); montar() } }
-        else linha(R.string.hoh_start, R.string.hoh_start_det) { tela = View0.HOW; montar() }
         linha(R.string.hoh_today, R.string.hoh_today_det) { tela = View0.TODAY; montar() }
         linha(R.string.hoh_forget, R.string.hoh_forget_det) {
             comPin {
@@ -215,10 +237,12 @@ class HelpOtherHomesActivity : Activity() {
     private fun today() {
         val (raiz, lista) = Estilo.telaLista(this, getString(R.string.hoh_today), getString(R.string.hoh_today_sub))
         // As duas coisas que o switch manda, cada uma com o endereço para onde vai (a tela promete "exatamente o que vai").
+        // #541: só o que vai DE FATO; a metade sem consentimento aparece como "não vai", nunca como se fosse.
+        val naoVai = getString(R.string.hoh_today_off)
         val texto = runCatching {
             org.json.JSONObject()
-                .put(SofyFleetTv.URL_CASES, SofyFleetTv.today(this))
-                .put(SofyCommunityTv.URL_LESSONS, SofyCommunityTv.todayBody(this) ?: org.json.JSONObject())
+                .put(SofyFleetTv.URL_CASES, if (SofyCommunityTv.fleetConsent(this)) SofyFleetTv.today(this) else naoVai)
+                .put(SofyCommunityTv.URL_LESSONS, if (SofyCommunityTv.sharing(this)) SofyCommunityTv.todayBody(this) ?: org.json.JSONObject() else naoVai)
                 .toString(2)
                 .replace("\\/", "/")   // o JSONObject do Android escreve "https:\/\/api..."; na tela fica o endereço como se lê
         }.getOrDefault("{}")

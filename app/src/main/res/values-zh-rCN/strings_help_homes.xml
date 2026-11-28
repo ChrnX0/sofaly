@@ -27,6 +27,9 @@
     <string name="hoh_thanks">谢谢！你的 Sofaly 现在正在帮助其他家庭。</string>
     <string name="hoh_state_on">开：这台电视每天分享一次修复结果</string>
     <string name="hoh_state_off">关：这台电视不分享任何内容</string>
+    <string name="hoh_state_lessons">通过面板开启：仅崩溃或变慢的应用以及检查屏幕的规则</string>
+    <string name="hoh_line_changed">自你同意以来，我与其他 Sofaly 分享的内容已经变了。在你重新回答之前，这里什么都不会发出。</string>
+    <string name="hoh_today_off">不发送：此电视上已关闭</string>
     <string name="hoh_stop">停止帮助</string>
     <string name="hoh_stop_det">这台电视停止分享，但仍会收到其他家庭学到的内容。</string>
     <string name="hoh_start">开始帮助</string>

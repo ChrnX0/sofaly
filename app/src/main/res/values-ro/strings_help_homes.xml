@@ -27,6 +27,9 @@
     <string name="hoh_thanks">Mulțumim! Sofaly al tău ajută acum alte case.</string>
     <string name="hoh_state_on">Activat: o dată pe zi acest televizor spune cum au mers reparațiile</string>
     <string name="hoh_state_off">Dezactivat: nimic nu este partajat de pe acest televizor</string>
+    <string name="hoh_state_lessons">Pornit din panou: doar aplicațiile care s-au blocat sau au încetinit și regulile de verificare a ecranelor</string>
+    <string name="hoh_line_changed">Ce împărtășesc cu ceilalți Sofaly s-a schimbat de la Da-ul tău. Până răspunzi din nou, nimic nu pleacă de aici.</string>
+    <string name="hoh_today_off">Nu se trimite: oprit pe acest televizor</string>
     <string name="hoh_stop">Oprește ajutorul</string>
     <string name="hoh_stop_det">Acest televizor nu mai partajează. Ce au învățat alte case ajunge în continuare aici.</string>
     <string name="hoh_start">Începe să ajuți</string>

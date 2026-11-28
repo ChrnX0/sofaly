@@ -27,6 +27,9 @@
     <string name="hoh_thanks">ขอบคุณ! ตอนนี้ Sofaly ของคุณช่วยบ้านอื่นๆ แล้ว</string>
     <string name="hoh_state_on">เปิด: วันละครั้ง ทีวีเครื่องนี้จะบอกว่าการแก้ไขเป็นอย่างไร</string>
     <string name="hoh_state_off">ปิด: ไม่มีการแชร์อะไรจากทีวีเครื่องนี้</string>
+    <string name="hoh_state_lessons">เปิดจากแผงควบคุม: เฉพาะแอปที่ค้างหรือช้าลงและกฎตรวจหน้าจอ</string>
+    <string name="hoh_line_changed">สิ่งที่ฉันแบ่งปันกับ Sofaly เครื่องอื่นเปลี่ยนไปตั้งแต่คุณตอบตกลง จนกว่าคุณจะตอบอีกครั้ง จะไม่มีอะไรออกไปจากที่นี่</string>
+    <string name="hoh_today_off">ไม่ส่ง: ปิดอยู่บนทีวีเครื่องนี้</string>
     <string name="hoh_stop">หยุดช่วย</string>
     <string name="hoh_stop_det">ทีวีเครื่องนี้จะหยุดแชร์ สิ่งที่บ้านอื่นๆ เรียนรู้ยังคงมาถึงที่นี่</string>
     <string name="hoh_start">เริ่มช่วย</string>

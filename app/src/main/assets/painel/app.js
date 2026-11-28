@@ -1814,11 +1814,14 @@ async function desenharSofy(agora) {
   // Ideia 41: "Ajudar outras casas" (fichas comunitárias), desligado de fábrica.
   const ajudar = $('sofyAjudarCasas');
   if (ajudar) {
-    try { ajudar.checked = !!(await chamar('GET', '/api/sofy')).community_share; } catch (e) { /* fica como está */ }
+    // #541: quando o "Sim" foi dado na tela da TV, vai também o relato dos consertos; o aviso de baixo diz isso.
+    const rede = $('sofyAjudarRede');
+    const mostrar = (r) => { ajudar.checked = !!r.community_share; if (rede) rede.hidden = !r.fleet_consent; };
+    try { mostrar(await chamar('GET', '/api/sofy')); } catch (e) { /* fica como está */ }
     if (!ajudar.dataset.ligada) {
       ajudar.dataset.ligada = '1';
       ajudar.addEventListener('change', async () => {
-        try { ajudar.checked = !!(await chamar('POST', '/api/sofy', { community_share: ajudar.checked })).community_share; }
+        try { mostrar(await chamar('POST', '/api/sofy', { community_share: ajudar.checked })); }
         catch (e) { ajudar.checked = !ajudar.checked; }
       });
     }

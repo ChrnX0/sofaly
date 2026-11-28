@@ -336,7 +336,7 @@ object ComandosExtras {
         "community" -> {
             // --ez fleet true = também o consentimento da rede de Sofys (#541), como o "Sim" da tela do sofáTV.
             if (i.hasExtra("on")) br.paulo.tvlauncher.observer.SofyCommunityTv.setSharing(ctx, i.getBooleanExtra("on", false), i.getBooleanExtra("fleet", false))
-            "ajudar outras casas=${br.paulo.tvlauncher.observer.SofyCommunityTv.sharing(ctx)} rede de Sofys=${br.paulo.tvlauncher.observer.SofyCommunityTv.fleetConsent(ctx)}"
+            "ajudar outras casas=${br.paulo.tvlauncher.observer.SofyCommunityTv.sharing(ctx)} rede de Sofys=${br.paulo.tvlauncher.observer.SofyCommunityTv.fleetConsent(ctx)} perguntar de novo=${br.paulo.tvlauncher.observer.SofyCommunityTv.needsReask(ctx)}"
         }
         "energy" -> {
             val w = i.getIntExtra("watts", -1); val c = i.getIntExtra("centavos", -1)

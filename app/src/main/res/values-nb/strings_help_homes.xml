@@ -27,6 +27,9 @@
     <string name="hoh_thanks">Takk! Sofaly-en din hjelper nå andre hjem.</string>
     <string name="hoh_state_on">På: én gang om dagen forteller denne TV-en hvordan rettelsene gikk</string>
     <string name="hoh_state_off">Av: ingenting deles fra denne TV-en</string>
+    <string name="hoh_state_lessons">På fra panelet: bare apper som krasjet eller ble trege, og reglene for å sjekke skjermer</string>
+    <string name="hoh_line_changed">Det jeg deler med andre Sofalys, er endret siden du sa ja. Til du svarer igjen, forlater ingenting denne TV-en.</string>
+    <string name="hoh_today_off">Sendes ikke: av på denne TV-en</string>
     <string name="hoh_stop">Slutt å hjelpe</string>
     <string name="hoh_stop_det">Denne TV-en slutter å dele. Det andre hjem har lært, kommer fortsatt hit.</string>
     <string name="hoh_start">Begynn å hjelpe</string>

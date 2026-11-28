@@ -27,6 +27,9 @@
     <string name="hoh_thanks">Terima kasih! Sofaly Anda kini membantu rumah lain.</string>
     <string name="hoh_state_on">Aktif: sekali sehari TV ini memberi tahu hasil perbaikan</string>
     <string name="hoh_state_off">Nonaktif: tidak ada yang dibagikan dari TV ini</string>
+    <string name="hoh_state_lessons">Aktif dari panel: hanya aplikasi yang macet atau melambat dan aturan pemeriksaan layar</string>
+    <string name="hoh_line_changed">Yang saya bagikan ke Sofaly lain sudah berubah sejak Anda bilang Ya. Sampai Anda menjawab lagi, tidak ada yang keluar dari sini.</string>
+    <string name="hoh_today_off">Tidak dikirim: nonaktif di TV ini</string>
     <string name="hoh_stop">Berhenti membantu</string>
     <string name="hoh_stop_det">TV ini berhenti berbagi. Yang dipelajari rumah lain tetap sampai ke sini.</string>
     <string name="hoh_start">Mulai membantu</string>
