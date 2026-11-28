@@ -169,7 +169,8 @@ object Estilo {
     /** Cantos do Ajuste fino (CardStyle.Corners): multiplica os raios abaixo. A pílula continua pílula. */
     @Volatile var escalaRaio = 1f
     val RAIO_PEQUENO: Int get() = br.paulo.tvlauncher.settings.CardStyle.raio(DesignTokens.RADIUS_SMALL, escalaRaio)
-    val RAIO: Int get() = br.paulo.tvlauncher.settings.CardStyle.raio(DesignTokens.RADIUS_MEDIUM, escalaRaio)
+    // Os cantos do cartão vêm do tema do sistema (SystemLook, 28/11/2026); antes DesignTokens.RADIUS_MEDIUM.
+    val RAIO: Int get() = br.paulo.tvlauncher.settings.CardStyle.raio(br.paulo.tvlauncher.settings.SystemLook.atual.raio, escalaRaio)
     const val RAIO_PILULA = DesignTokens.RADIUS_PILL
 
     /** Grade de 8 dp. */
@@ -267,7 +268,8 @@ object Estilo {
      * saíram): todo item de lista, botão e pílula é uma caixa cheia de vidro, sem contorno, como os cartões das Fileiras.
      * No alto contraste a caixa ganha o fio claro, para a borda não depender só do tom.
      */
-    const val CAIXA = 0x61464644
+    // Desde 28/11/2026 a cor vem do tema do sistema (SystemLook): vidro, azulejo ou grafite quente. Era 0x61464644.
+    val CAIXA: Int get() = br.paulo.tvlauncher.settings.SystemLook.atual.caixa
     fun caixa(ctx: Context, raioDp: Int = RAIO): GradientDrawable = fundo(ctx, CAIXA, raioDp, if (altoContraste) BORDA else 0)
 
     /**
@@ -359,7 +361,15 @@ object Estilo {
 
     /** Vidro sem desfoque (o desfoque de verdade só existe em janela; ver [AvisoTv]): tinta escura + fio claro. */
     /** Vidro escuro, sem contorno (padrão único, 26/11/2026: caixa cheia, sem fio); o fio só no alto contraste. */
-    fun vidro(ctx: Context, raioDp: Int = RAIO): GradientDrawable = fundo(ctx, VIDRO_TINTA, raioDp, if (altoContraste) VIDRO_BORDA else 0)
+    fun vidro(ctx: Context, raioDp: Int = RAIO): GradientDrawable = fundo(ctx, vidroTinta(), raioDp, if (altoContraste) VIDRO_BORDA else 0)
+
+    /**
+     * Caixa sobre foto (descanso, barra da HOME) no tema do sistema (28/11/2026): Vidro = o vidro escuro de sempre;
+     * Azulejos e Aconchego = a cor da caixa do tema, com no máximo 70% de opacidade para a foto ainda aparecer.
+     */
+    fun vidroTinta(tema: br.paulo.tvlauncher.settings.SystemLook = br.paulo.tvlauncher.settings.SystemLook.atual): Int =
+        if (tema.vidro) VIDRO_TINTA
+        else (minOf(tema.caixa ushr 24, 0xB3) shl 24) or (tema.caixa and 0xFFFFFF)
 
     // ------------------------------------------------------------------ foco (UMA regra no app inteiro)
 
@@ -529,10 +539,17 @@ object Estilo {
      */
     fun cartao(ctx: Context, icone: String, nome: CharSequence, detalhe: CharSequence? = null, alturaDp: Int = CARTAO_ALTURA,
                aoClicar: (() -> Unit)? = null): LinearLayout {
-        val desenho = br.paulo.tvlauncher.home.IconeCard(ctx, icone).apply { definirCor(TEXTO_2) }
+        val desenho = br.paulo.tvlauncher.home.IconeCard(ctx, icone).apply { definirCor(corDoIcone(icone)) }
         val caixaV = FrameLayout(ctx).apply {
             background = caixa(ctx)
-            addView(desenho, FrameLayout.LayoutParams(dp(ctx, 28), dp(ctx, 28), Gravity.CENTER))
+            if (br.paulo.tvlauncher.settings.SystemLook.atual.iconeEmAzulejo) {
+                // Azulejos: o desenho escuro dentro de um quadrado cheio na cor exclusiva do ícone.
+                val azulejo = FrameLayout(ctx).apply {
+                    background = fundo(ctx, br.paulo.tvlauncher.settings.IconPalette.cor(icone), 12)
+                    addView(desenho, FrameLayout.LayoutParams(dp(ctx, 26), dp(ctx, 26), Gravity.CENTER))
+                }
+                addView(azulejo, FrameLayout.LayoutParams(dp(ctx, 44), dp(ctx, 44), Gravity.CENTER))
+            } else addView(desenho, FrameLayout.LayoutParams(dp(ctx, 28), dp(ctx, 28), Gravity.CENTER))
         }
         val tNome = texto(ctx, Papel.CORPO, nome).apply { maxLines = 3; ellipsize = TextUtils.TruncateAt.END; setTextColor(TEXTO_2) }   // até 3 linhas (6 por fileira): "Casa e acesso remoto" não cabe em 2 (teste de telas, 27/11/2026)
         semPartirPalavra(tNome)
@@ -548,7 +565,9 @@ object Estilo {
             if (aoClicar != null) setOnClickListener { aoClicar() }
             setOnFocusChangeListener { _, foco ->
                 focarCartao(caixaV, tNome, foco)
-                desenho.definirCor(if (foco) corIconeNoFoco(ctx) else TEXTO_2)
+                // Aconchego e Azulejos: o ícone fica sempre na cor dele (o foco é o fio ou o anel); no Vidro segue o foco.
+                val proprio = br.paulo.tvlauncher.settings.SystemLook.atual.let { it.iconeColorido || it.iconeEmAzulejo }
+                desenho.definirCor(if (foco && !proprio) corIconeNoFoco(ctx) else corDoIcone(icone))
                 tDet?.visibility = if (foco) View.VISIBLE else View.INVISIBLE
             }
         }
@@ -565,6 +584,56 @@ object Estilo {
         nome?.setTextColor(if (foco) TEXTO else TEXTO_2)
         caixaV.animate().scaleX(if (foco) ESCALA_CARD else 1f).scaleY(if (foco) ESCALA_CARD else 1f)
             .setDuration(FOCO_MS).setInterpolator(desacelera).start()
+    }
+
+    /**
+     * A cor do desenho de um ícone no tema atual (28/11/2026): no Aconchego, a cor exclusiva do ícone (IconPalette);
+     * nos Azulejos, grafite escuro (o desenho fica sobre o azulejo colorido); no Vidro, o creme do texto secundário.
+     */
+    /**
+     * Ícone solto (sem azulejo atrás: lista de menu, linha de ajuste) no tema atual: Aconchego e Azulejos = a cor
+     * exclusiva do ícone; Vidro = o creme de sempre (TEXTO_2); alto contraste = TEXTO.
+     */
+    /** Ícone em repouso de um botão/tile (painel rápido, Casa): no Aconchego e nos Azulejos a cor dele; nos outros, [base]. */
+    fun corEmRepouso(tipo: String, base: Int): Int {
+        val tema = br.paulo.tvlauncher.settings.SystemLook.atual
+        return if (!altoContraste && (tema.iconeColorido || tema.iconeEmAzulejo)) br.paulo.tvlauncher.settings.IconPalette.cor(tipo) else base
+    }
+
+    fun corDoIconeSolto(tipo: String): Int {
+        val tema = br.paulo.tvlauncher.settings.SystemLook.atual
+        return when {
+            altoContraste -> TEXTO
+            tema.iconeColorido || tema.iconeEmAzulejo -> br.paulo.tvlauncher.settings.IconPalette.cor(tipo)
+            else -> TEXTO_2
+        }
+    }
+
+    /**
+     * O azulejo grande de um ícone (coluna da esquerda das Configurações, telas guiadas) no tema atual: (fundo, traço).
+     * Aconchego = caixa do tema com o traço na cor do ícone; Azulejos = a cor do ícone com traço escuro; Vidro = vidro
+     * com traço creme; alto contraste = o laranja com traço escuro (o de antes).
+     */
+    fun azulejoDoIcone(tipo: String): Pair<Int, Int> {
+        val tema = br.paulo.tvlauncher.settings.SystemLook.atual
+        val cor = br.paulo.tvlauncher.settings.IconPalette.cor(tipo)
+        return when {
+            altoContraste -> ACENTO to DesignTokens.NIGHT
+            tema.iconeEmAzulejo -> cor to DesignTokens.NIGHT
+            tema.iconeColorido && tema.vidro -> vidroTinta(tema) to cor
+            tema.iconeColorido -> (tema.caixa or (0xFF shl 24)) to cor
+            else -> vidroTinta(tema) to TEXTO
+        }
+    }
+
+    fun corDoIcone(tipo: String): Int {
+        val tema = br.paulo.tvlauncher.settings.SystemLook.atual
+        return when {
+            altoContraste -> TEXTO
+            tema.iconeEmAzulejo -> DesignTokens.NIGHT
+            tema.iconeColorido -> br.paulo.tvlauncher.settings.IconPalette.cor(tipo)
+            else -> TEXTO_2
+        }
     }
 
     /** Altura da caixa do [cartao] (dp): a dos cartões das Fileiras no tamanho médio. */

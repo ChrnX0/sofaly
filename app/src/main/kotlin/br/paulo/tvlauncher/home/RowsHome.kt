@@ -159,6 +159,28 @@ object RowsHome {
 
     val DEFAULT = Options()
 
+    /**
+     * Tema do sistema (28/11/2026, Paulo: o tema vale em TODO o sistema) nos itens nossos (TV, Séries, Ferramentas...).
+     * Só vale com o fundo e a tinta de fábrica (CardBg.AUTO + IconTint.CREAM): quem escolheu outra cor nas Fileiras fica com ela.
+     * Aconchego: placa grafite e o traço na cor exclusiva do ícone. Azulejos: a placa na cor do ícone e o traço escuro.
+     * Vidro: placa de vidro e o traço creme. [manterNoFoco] = o ícone não vira laranja no foco (a cor é dele).
+     */
+    data class OwnLook(val placa: Int?, val tinta: Int?, val manterNoFoco: Boolean, val borda: Int = 0)
+
+    /** Fio claro em volta da placa de vidro: sem ele o vidro some sobre a foto (fotos de 28/11/2026). */
+    const val VIDRO_FIO = 0x33FFFFFF
+
+    fun ownLook(look: br.paulo.tvlauncher.settings.SystemLook, tipo: String, o: Options): OwnLook {
+        if (o.cardBg != CardBg.AUTO || o.iconTint != IconTint.CREAM) return OwnLook(null, null, false)
+        val cor = br.paulo.tvlauncher.settings.IconPalette.cor(tipo)
+        return when {
+            look.iconeEmAzulejo -> OwnLook(cor, br.paulo.tvlauncher.DesignTokens.NIGHT, true)
+            look.iconeColorido && look.vidro -> OwnLook(look.caixa, cor, true, VIDRO_FIO)
+            look.iconeColorido -> OwnLook(null, cor, true)
+            else -> OwnLook(look.caixa, null, false, VIDRO_FIO)
+        }
+    }
+
     fun options(ctx: Context): Options {
         fun <E : Enum<E>> ler(key: String, todos: List<E>, padrao: E): E = todos.getOrNull(Extras.numero(ctx, key, padrao.ordinal)) ?: padrao
         fun sim(key: String, padrao: Boolean) = Extras.numero(ctx, key, if (padrao) 1 else 0) == 1

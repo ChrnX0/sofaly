@@ -218,6 +218,7 @@ class ControleActivity : Activity() {
                 val semSessao = r.codigo == 200 && r.json?.optBoolean("logado") == false
                 val voltou = semSessao && ApiTv.reentrar(tv)
                 if (r.codigo == 200) r.json?.optString("aparelho")?.let { Tvs.renomear(applicationContext, tv, it) }   // caça 27/11
+                if (r.codigo == 200) Visual.guardarLook(applicationContext, r.json?.optString("visual"))   // tema da TV (28/11/2026)
                 ui.post {
                     if (isFinishing || !ativo) return@post
                     if (semSessao && !voltou) { entrarPrimeiro(); return@post }

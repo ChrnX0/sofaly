@@ -22,7 +22,8 @@ class HomeLooksTest {
         assertEquals(if (d.glass) 1 else 0, v[StripHome.KEY_GLASS]); assertEquals(if (d.name) 1 else 0, v[StripHome.KEY_NAME])
         assertEquals(d.own.ordinal, v[StripHome.KEY_OWN]); assertEquals(d.mood.ordinal, v[StripHome.KEY_MOOD])
         assertEquals(d.worldAnim.ordinal, v[StripHome.KEY_WORLD_ANIM])
-        assertEquals(FocusStyle.deNumero(-1).ordinal, v[FocusStyle.KEY])
+        // O foco sem escolha agora vem do tema do sistema (SystemLook, 28/11/2026); o visual Sofaly da cruz segue com o anel.
+        assertEquals(FocusStyle.RING.ordinal, v[FocusStyle.KEY])
     }
 
     @Test fun cadaVisualMexeNasMesmasChavesEEhDiferente() {

@@ -86,6 +86,17 @@ class RowsScreenTest {
                 effect = RowsHome.Effect.SHADOW, fixed = false, dim = RowsHome.Dim.HALF)
             esperar()
             foto(a.window.decorView, "fileiras-opcoes-$idioma")
+            // tema do sistema (28/11/2026): a mesma HOME em cada tema, para comparar (não falha por cor)
+            cruz.opcoesFileiras = RowsHome.DEFAULT; esperar()
+            val antesTema = br.paulo.tvlauncher.settings.SystemLook.atual
+            try {
+                for (l in br.paulo.tvlauncher.settings.SystemLook.entries) {
+                    br.paulo.tvlauncher.settings.SystemLook.atual = l
+                    cruz.opcoesFileiras = RowsHome.DEFAULT.copy(dim = RowsHome.Dim.HALF); esperar()
+                    cruz.opcoesFileiras = RowsHome.DEFAULT; esperar()
+                    foto(a.window.decorView, "fileiras-tema-${l.name.lowercase()}-$idioma")
+                }
+            } finally { br.paulo.tvlauncher.settings.SystemLook.atual = antesTema }
         } finally {
             System.clearProperty("https.proxyHost"); System.clearProperty("https.proxyPort")
             a.finish()

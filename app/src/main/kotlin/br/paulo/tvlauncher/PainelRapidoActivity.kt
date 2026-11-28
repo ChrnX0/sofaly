@@ -162,7 +162,7 @@ class PainelRapidoActivity : Activity() {
                 foco && Estilo.focoEscurece(ctx) -> Estilo.TEXTO_NO_FOCO
                 foco -> Estilo.corIconeNoFoco(ctx)
                 ligado -> Estilo.ACENTO
-                else -> ICONE_APAGADO
+                else -> Estilo.corEmRepouso(icone.tipo, ICONE_APAGADO)   // tema do sistema (28/11/2026)
             })
             detalhe.setTextColor(if (ligado) Estilo.ACENTO else Estilo.TEXTO_3)
         }
@@ -418,7 +418,7 @@ class PainelRapidoActivity : Activity() {
         setOnClickListener { aoClicar() }
         setOnFocusChangeListener { v, foco ->
             v.background = if (dentro is ImageView && !foco) null else anel(foco)
-            (dentro as? IconeCard)?.definirCor(if (foco) Estilo.corIconeNoFoco(this@PainelRapidoActivity) else Estilo.TEXTO)
+            (dentro as? IconeCard)?.let { it.definirCor(if (foco) Estilo.corIconeNoFoco(this@PainelRapidoActivity) else Estilo.corEmRepouso(it.tipo, Estilo.TEXTO)) }
             v.animate().scaleX(if (foco) 1.1f else 1f).scaleY(if (foco) 1.1f else 1f).setDuration(Estilo.FOCO_MS).start()
         }
     }

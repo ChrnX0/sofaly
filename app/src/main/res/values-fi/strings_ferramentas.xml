@@ -17,6 +17,11 @@
     <string name="rt_a">A · Tiiviimpi</string>
     <string name="rt_b">B · Kehykset</string>
     <string name="rt_c">C · Ilmava</string>
+    <string name="ft_tema">Teema</string>
+    <string name="ft_tema_vidro">Lasi</string>
+    <string name="ft_tema_vidro_cor">Värilasi</string>
+    <string name="ft_tema_azulejos">Laatat</string>
+    <string name="ft_tema_aconchego">Kodikas</string>
     <string name="ft_foco">Kohdistus</string>
     <string name="ft_foco_fio">Viiva</string>
     <string name="ft_foco_veu">Huntu</string>

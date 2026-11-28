@@ -1380,6 +1380,10 @@ object PainelWeb {
             o.put("elevada", sessoes.elevada(token))
             // Alto contraste da TV vale também no painel (e no app do celular, que mostra o painel): estudo global, ideia 3.
             o.put("altoContraste", AltoContraste.ligado(app))
+            // Tema do sistema (28/11/2026: vale também no painel) e a cor exclusiva de cada ícone do painel.
+            o.put("visual", br.paulo.tvlauncher.settings.SystemLook.ler(app).name.lowercase())
+            o.put("coresIcones", JSONObject().also { c -> br.paulo.tvlauncher.settings.IconPalette.ICONES_PAINEL.forEach { id ->
+                c.put(id, String.format("#%06X", br.paulo.tvlauncher.settings.IconPalette.corDoPainel(id) and 0xFFFFFF)) } })
             // Ideia 15 (estudo global 20/11): o teclado da TV está aberto? O controle do celular (app) pergunta isto a cada
             // poucos segundos e, quando é true, abre o próprio teclado: digitar senha e busca no celular, não com a cruz.
             o.put("pedeTexto", TecladoCelular.tecladoNaTela())

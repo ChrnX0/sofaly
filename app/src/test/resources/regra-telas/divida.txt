@@ -57,6 +57,8 @@ CuidarTelaActivity.kt letra 1
 CuidarTelaActivity.kt titulo 1
 DesenhoHome.kt cor 1
 DesignTokens.kt cor 20
+# IconPalette: a paleta das cores exclusivas de cada ícone (tema do sistema, 28/11/2026); é a fonte das cores, como DesignTokens
+IconPalette.kt cor 14
 DiagnosticoActivity.kt letra 1
 DnsActivity.kt letra 1
 EscolherAppActivity.kt titulo 1

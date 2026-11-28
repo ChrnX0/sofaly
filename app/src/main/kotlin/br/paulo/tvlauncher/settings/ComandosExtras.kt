@@ -250,6 +250,11 @@ object ComandosExtras {
             J.firstOrNull { it.name.equals(n, true) }?.let { br.paulo.tvlauncher.home.ScreenStyle.set(ctx, it); "telas=${it.name}" }
                 ?: "telas=${br.paulo.tvlauncher.home.ScreenStyle.of(ctx)}; opções: ${J.joinToString { it.name.lowercase() }}"
         }
+        // Tema do sistema (28/11/2026): `EXTRAS --es o visual --es nome cozy|tiles|glass` (ou aconchego|azulejos|vidro).
+        "visual" -> (i.getStringExtra("nome") ?: "").let { n ->
+            SystemLook.deNome(n)?.let { SystemLook.gravar(ctx, it); "visual=${it.name}" }
+                ?: "visual=${SystemLook.ler(ctx)}; opções: ${SystemLook.entries.joinToString { it.name.lowercase() }}"
+        }
         "foco" -> (i.getStringExtra("nome") ?: "").let { n ->
             val F = FocusStyle.entries
             F.firstOrNull { it.name.equals(n, true) }?.let { FocusStyle.gravar(ctx, it); "foco=${it.name}" }
