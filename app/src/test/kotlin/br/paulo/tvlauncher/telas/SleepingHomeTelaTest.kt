@@ -47,6 +47,8 @@ class SleepingHomeTelaTest {
                 Forecast.dadosDeTeste = ClimaTelaTest().previsao()
                 val a = Robolectric.buildActivity(Activity::class.java).setup().get()
                 android.provider.Settings.Global.putFloat(a.contentResolver, android.provider.Settings.Global.ANIMATOR_DURATION_SCALE, 0f)
+                // gravado, não só em memória: quem monta a tela relê o tema das preferências
+                br.paulo.tvlauncher.settings.SystemLook.gravar(a, l)
                 val s = SleepingHome(a)
                 a.setContentView(s.montar(), FrameLayout.LayoutParams(-1, -1))
                 fun linhas(): Int = (a.window.decorView as ViewGroup).findViewById<ViewGroup>(android.R.id.content)?.let { contar(it) } ?: 0

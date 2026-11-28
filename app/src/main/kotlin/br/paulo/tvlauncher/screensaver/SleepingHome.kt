@@ -382,9 +382,9 @@ class SleepingHome(private val ctx: Context) {
                 ui.postDelayed(viradaDoCeu, (e.start - br.paulo.tvlauncher.weather.NightSky.DESCANSO_ANTES_MS - agoraMs).coerceAtLeast(1_000L))
             }
         }
-        if (recados.isNotEmpty()) l += Linha(ctx.getString(R.string.mur_descanso), linhaItens(recados.map { r ->
+        if (recados.isNotEmpty()) l += Linha(ctx.getString(R.string.mur_descanso), comSelo(br.paulo.tvlauncher.home.IconeLinha.Tipo.RECADO, linhaItens(recados.map { r ->
             br.paulo.tvlauncher.family.Mural.partes(r).let { (quem, texto) -> Triple("", quem, texto) }
-        }))
+        })))
         if (fr != null) l += Linha("resumo", linhaResumo(ForecastText.frase(ctx, fr), when {
             chovendo || fr.tipo in setOf(DicasClima.TipoFrase.CHUVA_AS, DicasClima.TipoFrase.CHUVA_AGORA) -> SofyPolicy.Expression.WORRIED
             fr.tipo == DicasClima.TipoFrase.CALOR || fr.tipo == DicasClima.TipoFrase.FRIO -> SofyPolicy.Expression.SURPRISED
@@ -392,17 +392,17 @@ class SleepingHome(private val ctx: Context) {
             else -> SofyPolicy.Expression.HAPPY
         }))
         if (f != null && tempAgora != null && entrada != null) {
-            l += Linha(ctx.getString(R.string.sh_horas), linhaHoras(f, tempAgora))
-            l += Linha(ctx.getString(R.string.sh_dias), linhaDias(f, tempAgora))
-            l += Linha(ctx.getString(R.string.sh_dicas), linhaDicas(entrada))
-            l += Linha(ctx.getString(R.string.pv_agora), linhaAgora(f, tempAgora))
-            l += Linha(ctx.getString(R.string.sh_ar), linhaAr(f))
+            l += Linha(ctx.getString(R.string.sh_horas), comSelo(br.paulo.tvlauncher.home.IconeLinha.Tipo.DESPERTADOR, linhaHoras(f, tempAgora)))
+            l += Linha(ctx.getString(R.string.sh_dias), comSelo(br.paulo.tvlauncher.home.IconeLinha.Tipo.CALENDARIO, linhaDias(f, tempAgora)))
+            l += Linha(ctx.getString(R.string.sh_dicas), comSelo(br.paulo.tvlauncher.home.IconeLinha.Tipo.CHUVA, linhaDicas(entrada)))
+            l += Linha(ctx.getString(R.string.pv_agora), comSelo(br.paulo.tvlauncher.home.IconeLinha.Tipo.SOL, linhaAgora(f, tempAgora)))
+            l += Linha(ctx.getString(R.string.sh_ar), comSelo(br.paulo.tvlauncher.home.IconeLinha.Tipo.FOLHA, linhaAr(f)))
         }
-        linhaSol(agoraMs, lat, lon)?.let { l += Linha(ctx.getString(R.string.pt_sol), it) }
+        linhaSol(agoraMs, lat, lon)?.let { l += Linha(ctx.getString(R.string.pt_sol), comSelo(br.paulo.tvlauncher.home.IconeLinha.Tipo.HORIZONTE, it)) }
         // A chave "Fase da lua" (CARTAO_LUA) vale aqui também, não só na Previsão (Brainstorm item 20).
         if (br.paulo.tvlauncher.settings.Extras.ligado(ctx, br.paulo.tvlauncher.settings.Extras.Chave.CARTAO_LUA))
-            l += Linha(ctx.getString(R.string.pt_lua), linhaLua(agoraMs, lat))
-        if (agenda.isNotEmpty()) l += Linha(ctx.getString(R.string.lbl_agenda), linhaItens(agenda))
+            l += Linha(ctx.getString(R.string.pt_lua), comSelo(br.paulo.tvlauncher.home.IconeLinha.Tipo.LUA, linhaLua(agoraMs, lat)))
+        if (agenda.isNotEmpty()) l += Linha(ctx.getString(R.string.lbl_agenda), comSelo(br.paulo.tvlauncher.home.IconeLinha.Tipo.CALENDARIO, linhaItens(agenda)))
         for ((titulo, a, b) in resumos) l += Linha(titulo, linhaBase().apply { addView(celula(titulo, a, b.ifEmpty { null }), LinearLayout.LayoutParams(0, -2, 1f)) })
         val nomeAntes = linhas.getOrNull(atual)?.nome
         linhas = l
@@ -438,6 +438,26 @@ class SleepingHome(private val ctx: Context) {
     // ------------------------------------------------------------------ linhas
 
     private fun linhaBase() = LinearLayout(ctx).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL }
+
+    /**
+     * O selo do tema no começo de cada linha da faixa (Paulo, 28/11/2026: o tema vale também no descanso, "de um jeito
+     * que se perceba"). É o mesmo azulejo dos ícones das Configurações ([Estilo.azulejoDoIcone]): vidro com desenho
+     * creme no Vidro, vidro com o desenho na cor do ícone no Vidro colorido, caixa quente com desenho colorido no
+     * Aconchego e azulejo cheio na cor do ícone, desenho escuro, nos Azulejos.
+     */
+    @androidx.annotation.VisibleForTesting
+    internal fun comSelo(tipo: br.paulo.tvlauncher.home.IconeLinha.Tipo, conteudo: View): View = linhaBase().apply {
+        val (placa, traco) = Estilo.azulejoDoIcone(tipo.name)
+        val tema = br.paulo.tvlauncher.settings.SystemLook.atual
+        addView(ImageView(ctx).apply {
+            importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
+            background = if (tema.vidro) Estilo.fundo(ctx, placa, 12, br.paulo.tvlauncher.home.RowsHome.VIDRO_FIO)
+                else Estilo.fundo(ctx, placa, 12)
+            setImageDrawable(br.paulo.tvlauncher.home.IconeLinha(tipo, corDada = traco))
+            val m = dp(9); setPaddingRelative(m, m, m, m)
+        }, LinearLayout.LayoutParams(dp(46), dp(46)).apply { marginEnd = dp(18) })
+        addView(conteudo, LinearLayout.LayoutParams(0, -2, 1f))
+    }
 
     /** Uma célula de 3 andares: rótulo pequeno, valor grande, nota pequena (a nota pode ter cor de alerta/chuva). */
     private fun celula(rot: String, valor: String, nota: String?, corNota: Int = suave, centro: Boolean = false, gota: Boolean = false) = LinearLayout(ctx).apply {

@@ -198,7 +198,7 @@ class ColunaCategorias(
         else -> IconeMidia(t as IconeMidia.Tipo, cor)
     }
 
-    private fun corBotao(l: Linha) = if (l.destaque || l.chave == escolhida) ambar else COR_ICONE
+    private fun corBotao(l: Linha) = if (l.destaque || l.chave == escolhida) ambar else corIcone(l.icone)
 
     /** Recolore o ícone de um botão (a escolhida mudou, ou o filtro ligou) sem refazer o botão. */
     private fun pintarBotao(v: FrameLayout, l: Linha) {
@@ -345,7 +345,7 @@ class ColunaCategorias(
         p.nome.text = l.nome
         p.nome.setTextColor(cor)
         if (l.icone == null) p.icone.visibility = View.GONE else {
-            p.icone.visibility = View.VISIBLE; p.icone.setImageDrawable(icone(l.icone, if (l.chave == escolhida || l.destaque) ambar else COR_ICONE))
+            p.icone.visibility = View.VISIBLE; p.icone.setImageDrawable(icone(l.icone, if (l.chave == escolhida || l.destaque) ambar else corIcone(l.icone)))
         }
         p.etiqueta.visibility = if (l.etiqueta.isEmpty()) View.GONE else View.VISIBLE
         p.etiqueta.text = l.etiqueta
@@ -443,6 +443,17 @@ class ColunaCategorias(
         const val COR_ETIQUETA = 0xFFCFD6E0.toInt()   // selo das listas de fora: cinza claro (cores de marca ficam fora)
         // Ícones em repouso no tom do texto secundário (era verde-água): a cor fica só para a escolhida, como na cruz.
         const val COR_ICONE = 0xB3FFF3E6.toInt()
+        /**
+         * A cor do ícone em repouso (28/11/2026, tema em todo o sistema): nos temas com ícone colorido (Vidro colorido,
+         * Aconchego, Azulejos) cada ícone da coluna tem a cor própria dele, como nas Configurações; no Vidro e no alto
+         * contraste continua o creme de sempre. A escolhida e o destaque seguem âmbar (é estado, não ícone).
+         */
+        fun corIcone(tipo: Any?): Int {
+            val tema = br.paulo.tvlauncher.settings.SystemLook.atual
+            val nome = (tipo as? Enum<*>)?.name ?: return COR_ICONE
+            return if (!Estilo.altoContraste && (tema.iconeColorido || tema.iconeEmAzulejo))
+                br.paulo.tvlauncher.settings.IconPalette.cor(nome) else COR_ICONE
+        }
         // Os trechos da coluna, de cima para baixo (▲▼ anda nesta ordem).
         const val PARADA_TITULO = 0
         const val PARADA_LISTAS = 2
