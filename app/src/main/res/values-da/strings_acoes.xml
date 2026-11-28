@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">Find og afspil „%1$s“</string>
     <string name="acao_tocar">Afspil %1$s</string>
     <string name="acao_continuar">Genoptag det, der blev afspillet</string>
+    <string name="acao_tirar_continuar">Fjern %1$s fra Fortsæt med at se</string>
     <string name="acao_proximo">Afspil næste afsnit</string>
     <string name="acao_proximo_de">Næste afsnit af %1$s</string>
     <string name="acao_o_que_via">Se, hvad der blev afspillet</string>

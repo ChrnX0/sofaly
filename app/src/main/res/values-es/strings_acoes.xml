@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">Buscar y reproducir “%1$s”</string>
     <string name="acao_tocar">Reproducir %1$s</string>
     <string name="acao_continuar">Seguir con lo que se estaba reproduciendo</string>
+    <string name="acao_tirar_continuar">Quitar %1$s de Seguir viendo</string>
     <string name="acao_proximo">Reproducir el siguiente episodio</string>
     <string name="acao_proximo_de">Siguiente episodio de %1$s</string>
     <string name="acao_o_que_via">Ver qué se estaba reproduciendo</string>

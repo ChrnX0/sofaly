@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">“%1$s” खोजें और चलाएँ</string>
     <string name="acao_tocar">%1$s चलाएँ</string>
     <string name="acao_continuar">जो चल रहा था उसे जारी रखें</string>
+    <string name="acao_tirar_continuar">%1$s को जारी रखें से हटाएँ</string>
     <string name="acao_proximo">अगला एपिसोड चलाएँ</string>
     <string name="acao_proximo_de">%1$s का अगला एपिसोड</string>
     <string name="acao_o_que_via">देखें क्या चल रहा था</string>

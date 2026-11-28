@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">Знайти й відтворити «%1$s»</string>
     <string name="acao_tocar">Відтворити %1$s</string>
     <string name="acao_continuar">Продовжити те, що відтворювалося</string>
+    <string name="acao_tirar_continuar">Вилучити %1$s з «Продовжити перегляд»</string>
     <string name="acao_proximo">Відтворити наступну серію</string>
     <string name="acao_proximo_de">Наступна серія %1$s</string>
     <string name="acao_o_que_via">Переглянути, що відтворювалося</string>

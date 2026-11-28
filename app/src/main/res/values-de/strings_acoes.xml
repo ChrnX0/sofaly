@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">„%1$s“ suchen und abspielen</string>
     <string name="acao_tocar">%1$s abspielen</string>
     <string name="acao_continuar">Fortsetzen, was lief</string>
+    <string name="acao_tirar_continuar">%1$s aus Weiterschauen entfernen</string>
     <string name="acao_proximo">Nächste Folge abspielen</string>
     <string name="acao_proximo_de">Nächste Folge von %1$s</string>
     <string name="acao_o_que_via">Anzeigen, was lief</string>

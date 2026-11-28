@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">ค้นหาและเล่น “%1$s”</string>
     <string name="acao_tocar">เล่น %1$s</string>
     <string name="acao_continuar">เล่นต่อจากที่กำลังเล่นอยู่</string>
+    <string name="acao_tirar_continuar">นำ %1$s ออกจากดูต่อ</string>
     <string name="acao_proximo">เล่นตอนถัดไป</string>
     <string name="acao_proximo_de">ตอนถัดไปของ %1$s</string>
     <string name="acao_o_que_via">ดูสิ่งที่กำลังเล่นอยู่</string>

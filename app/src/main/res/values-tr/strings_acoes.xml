@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">«%1$s» bul ve oynat</string>
     <string name="acao_tocar">%1$s oynat</string>
     <string name="acao_continuar">Oynatılanı sürdür</string>
+    <string name="acao_tirar_continuar">%1$s öğesini İzlemeye devam et’ten çıkar</string>
     <string name="acao_proximo">Sonraki bölümü oynat</string>
     <string name="acao_proximo_de">%1$s sonraki bölüm</string>
     <string name="acao_o_que_via">Ne oynatıldığını gör</string>

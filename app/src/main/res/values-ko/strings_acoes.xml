@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">“%1$s” 찾아서 재생</string>
     <string name="acao_tocar">%1$s 재생</string>
     <string name="acao_continuar">재생 중이던 항목 계속</string>
+    <string name="acao_tirar_continuar">%1$s을(를) 이어서 보기에서 삭제</string>
     <string name="acao_proximo">다음 에피소드 재생</string>
     <string name="acao_proximo_de">%1$s 다음 에피소드</string>
     <string name="acao_o_que_via">재생 중이던 항목 보기</string>

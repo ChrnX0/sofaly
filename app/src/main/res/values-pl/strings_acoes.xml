@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">Znajdź i odtwórz „%1$s”</string>
     <string name="acao_tocar">Odtwórz %1$s</string>
     <string name="acao_continuar">Wznów to, co było odtwarzane</string>
+    <string name="acao_tirar_continuar">Usuń %1$s z Kontynuuj oglądanie</string>
     <string name="acao_proximo">Odtwórz następny odcinek</string>
     <string name="acao_proximo_de">Następny odcinek: %1$s</string>
     <string name="acao_o_que_via">Zobacz, co było odtwarzane</string>

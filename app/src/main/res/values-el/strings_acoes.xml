@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">Εύρεση και αναπαραγωγή «%1$s»</string>
     <string name="acao_tocar">Αναπαραγωγή %1$s</string>
     <string name="acao_continuar">Συνέχεια αυτού που έπαιζε</string>
+    <string name="acao_tirar_continuar">Αφαίρεση του %1$s από τη Συνέχεια προβολής</string>
     <string name="acao_proximo">Αναπαραγωγή του επόμενου επεισοδίου</string>
     <string name="acao_proximo_de">Επόμενο επεισόδιο του %1$s</string>
     <string name="acao_o_que_via">Δείτε τι έπαιζε</string>
