@@ -52,7 +52,7 @@ class CrossColumn(ctx: Context) : FrameLayout(ctx) {
         fun dicas(ctx: Context, vararg pares: Pair<String, String>): android.view.ViewGroup = Estilo.barraDicas(ctx, *pares)
     }
 
-    private class Linha(val raiz: LinearLayout, val ponto: View, val nome: TextView)
+    private class Linha(val raiz: LinearLayout, val ponto: View, val nome: TextView) { var apagado = false }
 
     private val mola = MolaViews(this)
     private val linhas = ArrayList<Linha>()
@@ -143,6 +143,7 @@ class CrossColumn(ctx: Context) : FrameLayout(ctx) {
     private fun preencher(l: Linha, it: Item) {
         l.nome.text = it.nome
         l.nome.setTextSize(TypedValue.COMPLEX_UNIT_SP, it.fonte)
+        l.apagado = it.apagado
         l.nome.setTextColor(if (it.apagado) COR_APAGADO else Estilo.TEXTO)
         // ponto na altura do meio da 1ª linha do nome
         (l.ponto.layoutParams as LinearLayout.LayoutParams).topMargin =
@@ -188,6 +189,8 @@ class CrossColumn(ctx: Context) : FrameLayout(ctx) {
                 l.raiz.tag = foco
                 l.raiz.background = if (foco) Estilo.fundoFocado(context, Estilo.RAIO, Estilo.caixa(context)) else Estilo.caixa(context)
             }
+            // No foco Quadro a placa é clara: a letra vira a escura do foco (TEXTO_NO_FOCO), senão some (creme sobre branco).
+            if (!l.apagado) l.nome.setTextColor(if (foco) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
         }
     }
 
