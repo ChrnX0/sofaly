@@ -71,6 +71,8 @@ class JogosActivity : Activity() {
     private var esperandoPc = false
     private var abrirNoSofa = false   // veio do item "Sofá" da tela em cruz: começa na turma
     private var focoPacote: String? = null   // voltou de mudar o grupo: o foco volta no mesmo jogo
+    /** Alguém já apertou uma tecla nesta tela? Antes disso o foco é da tela (ver o 1º carregamento em [carregar]). */
+    private var teclou = false
     /** O jogo escolhido por último na 1ª prateleira: Chamar a turma e Jogar no PC usam ele. */
     private var escolhido: JogosTv.App? = null
 
@@ -160,7 +162,10 @@ class JogosActivity : Activity() {
                 if (isDestroyed || carregou) return@runOnUiThread
                 uso = u; jogos = ordenada; carregou = true
                 if (escolhido == null) escolhido = ordenada.firstOrNull()
-                montar()
+                // "Carregando…" não pega foco, então a tela abria com o foco na fileira de baixo ("No sofá") e ficava lá
+                // com a lista já pronta (fotos com dados, 28/11/2026). Ninguém mexeu ainda: o foco volta à 1ª fileira.
+                if (!teclou && !abrirNoSofa) montar(P_JOGOS to (ordenada.firstOrNull()?.pacote))
+                else montar()
             }
             val tempos = Uso.tempoNaFrente(ctx).filterKeys { it in porPacote }
             val sem = Semana(tempos.values.sum(), tempos.maxByOrNull { it.value }?.key?.let { porPacote[it]?.nome })
@@ -193,10 +198,10 @@ class JogosActivity : Activity() {
     // ================================================================ a cruz
 
     /** Refaz as prateleiras e o cartão (a cruz guarda o item escolhido de cada uma e só redesenha o que mudou). */
-    private fun montar() {
+    private fun montar(focar: Pair<String, String?>? = null) {
         if (!::cruz.isInitialized || isDestroyed) return
         val prats = listOf(prateleiraJogos()) + prateleirasRetro() + listOf(prateleiraSofa(), prateleiraTurma(), prateleiraOpcoes())
-        val foco = focoPacote?.let { P_JOGOS to it }
+        val foco = focoPacote?.let { P_JOGOS to it } ?: focar
         focoPacote = null
         cruz.definir(prats, foco)
         cruz.tocando(cartaoSemana())
@@ -703,6 +708,7 @@ class JogosActivity : Activity() {
     }
 
     override fun dispatchKeyEvent(event: KeyEvent): Boolean {
+        if (event.action == KeyEvent.ACTION_DOWN) teclou = true
         // Botão Y/△ do controle de videogame em cima de um jogo = o mesmo que segurar OK (escolher o grupo).
         if (event.keyCode == KeyEvent.KEYCODE_BUTTON_Y && event.action == KeyEvent.ACTION_UP) {
             val p = cruz.itemAtual()?.id

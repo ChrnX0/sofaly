@@ -246,9 +246,15 @@ class ConfigLauncherActivity : Activity() {
         // Mesmo padrão de [recarregarAba]: quem mudou uma opção que refaz a tela continua na MESMA linha (pela posição),
         // não volta para a aba (visto na Sala 20/11/2026 ao ligar o alto contraste).
         val linha = linhaSalva.also { linhaSalva = -1 }
-        itensMenu[abaAtual].post {
+        // A aba pedida fica guardada aqui: ao ganhar a janela, o Android dá o foco inicial ao 1º item visível do menu
+        // (a 1ª aba da porta), e o ouvinte do item trocava abaAtual para ela. Aberta na aba 5 mostrava a Casa; na 7, o
+        // Sistema (fotos com dados, 28/11/2026). Aqui a aba pedida volta, se o foco inicial a trocou.
+        val pedida = abaAtual
+        itensMenu[pedida].post {
+            if (abaAtual != pedida) { ui.removeCallbacks(trocarAba); abaAtual = pedida; mostrarAba(pedida); mostrarAbasDoUso() }
             val alvo = if (linha >= 0) focaveis(conteudo).getOrNull(linha) else null
-            (alvo ?: itensMenu[abaAtual]).requestFocus()
+            (alvo ?: itensMenu[pedida]).requestFocus()
+            itensMenu.forEachIndexed { j, t -> pintarItemMenu(t, foco = t.hasFocus(), escolhido = j == abaAtual) }
         }
     }
 
@@ -1621,7 +1627,23 @@ internal class AbasQueCabem(ctx: android.content.Context) : LinearLayout(ctx) {
         // Não cabe: cada aba fica com a fatia proporcional ao que queria. Partes iguais quebravam a aba de nome
         // longo no meio da palavra ("auto/mações"), enquanto a curta sobrava.
         val desejo = IntArray(childCount) { getChildAt(it).measuredWidth }
-        for (i in 0 until childCount) (getChildAt(i).layoutParams as LayoutParams).apply { width = 0; weight = desejo[i].toFloat() }
+        // 28/11/2026 (fotos com dados, inglês): só a proporção deixava "Help" sem lugar para o nome ("H e…") e partia
+        // "Syst/em", porque o ícone e as margens internas, iguais em todas, entravam na conta. Agora cada aba tem antes o
+        // seu mínimo (ícone + margens + a palavra mais longa) e só o que sobra é dividido na proporção.
+        val visivel = { i: Int -> getChildAt(i).visibility != android.view.View.GONE }   // abas de outras portas ficam GONE
+        val minimo = IntArray(childCount) { if (visivel(it)) minimoSemPartir(getChildAt(it)).coerceAtMost(desejo[it]) else 0 }
+        val margens = (0 until childCount).filter(visivel).sumOf { (getChildAt(it).layoutParams as LayoutParams).let { lp -> lp.marginStart + lp.marginEnd } }
+        val cabeMinimo = minimo.sum() + margens + paddingStart + paddingEnd <= limite
+        for (i in 0 until childCount) (getChildAt(i).layoutParams as LayoutParams).apply {
+            if (cabeMinimo) { width = minimo[i]; weight = (desejo[i] - minimo[i]).toFloat() } else { width = 0; weight = desejo[i].toFloat() }
+        }
         super.onMeasure(MeasureSpec.makeMeasureSpec(limite, MeasureSpec.EXACTLY), alturaSpec)
+    }
+
+    /** Largura em que o nome da aba cabe sem partir palavra: ícone, margens internas e a palavra mais longa. */
+    private fun minimoSemPartir(v: android.view.View): Int {
+        val t = v as? android.widget.TextView ?: return v.measuredWidth
+        val palavra = t.text?.toString().orEmpty().replace("\u200B", "").split(' ', '\n').maxOfOrNull { t.paint.measureText(it) } ?: 0f
+        return t.compoundPaddingLeft + t.compoundPaddingRight + kotlin.math.ceil(palavra).toInt() + 1
     }
 }
