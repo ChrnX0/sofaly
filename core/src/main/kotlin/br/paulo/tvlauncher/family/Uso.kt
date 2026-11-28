@@ -4,7 +4,6 @@ import android.app.usage.UsageEvents
 import android.app.usage.UsageStatsManager
 import android.content.Context
 import android.util.Log
-import br.paulo.tvlauncher.panel.eventos
 
 /**
  * Quando cada app foi usado pela última vez (últimos 14 dias).

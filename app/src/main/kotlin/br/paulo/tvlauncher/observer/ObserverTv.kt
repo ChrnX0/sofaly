@@ -802,7 +802,7 @@ object ObserverTv {
         appendLine("agora: " + if (f.isEmpty()) "tudo normal" else f.joinToString("; ") { "${it.kind} [${it.severity}] ${it.why}" })
         val m = morning(ctx)
         appendLine("manhã: " + if (m.night == null) "sem sonda nas últimas 20 h" else
-            "noite de ${java.text.SimpleDateFormat("dd/MM HH:mm", java.util.Locale.ROOT).format(m.night.at)} contra ${m.compared} anteriores; " +
+            "noite de ${java.text.SimpleDateFormat("dd/MM HH:mm", java.util.Locale.ROOT).format(m.night!!.at)} contra ${m.compared} anteriores; " +
             m.items.joinToString("; ") { "${it.signal.name} ${it.tonight} (normal ${it.usual}) ${it.change}" } +
             "; achados 24 h: ${m.events24h.ifEmpty { null } ?: "nenhum"}")
         runCatching { packages(ctx) }.getOrNull()?.let { inv ->

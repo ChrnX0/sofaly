@@ -1,6 +1,5 @@
 package br.paulo.tvlauncher.observer
 
-import br.paulo.tvlauncher.panel.eventos
 import org.json.JSONArray
 import org.json.JSONObject
 
