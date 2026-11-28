@@ -129,6 +129,9 @@ class ProtetorTela : DreamService() {
         /** O protetor está na tela agora? */
         fun aberto(): Boolean = atual?.get() != null
 
+        /** O pacote do protetor aberto (o nosso), ou null se não há protetor. */
+        fun pacote(): String? = atual?.get()?.packageName
+
         fun fecharSeAberto() {
             val p = atual?.get() ?: return
             manterAcordada(p.applicationContext)

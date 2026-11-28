@@ -22,9 +22,14 @@ object JanelaNaFrente {
         val p = pacote?.toString() ?: return
         if (p == "android" || p == "com.android.systemui") return   // diálogos e barras: não mudam quem está na frente
         // O nosso protetor de tela (sonho) por cima de um jogo não muda quem está "na frente": sem isto o modo jogo
-        // (JogosTv) se perdia quando o protetor abria e fechava. Não verifiquei se o sonho gera este evento.
+        // (JogosTv) se perdia quando o protetor abria e fechava. O evento do sonho vem com a classe da raiz dele
+        // (FrameLayout), não com ProtetorTela (Sala, 28/11/2026: a conferência de telas viu "na frente FrameLayout"):
+        // por isso também vale "evento nosso, que não é uma tela nossa, com o protetor aberto". Outro app, ou uma tela
+        // nossa (o despertador tocando), abrindo por cima dele ainda conta.
         val c = classe?.toString() ?: ""
-        if (c.contains("ProtetorTela") || c.contains("DreamService")) return
+        if (c.contains("ProtetorTela") || c.contains("Dream")) return
+        if (br.paulo.tvlauncher.ProtetorTela.aberto() && p == br.paulo.tvlauncher.ProtetorTela.pacote() &&
+            !c.startsWith(br.paulo.tvlauncher.AppIdentity.NAMESPACE + ".")) return
         this.pacote = p
         this.classe = classe?.toString()
         val agora = System.currentTimeMillis()
