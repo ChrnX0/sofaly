@@ -1517,8 +1517,10 @@ class ConfigLauncherActivity : Activity() {
 
         /** Foco = linha branca: os textos escurecem (o valor também; laranja ficou só para marca, foco e progresso). */
         private fun pintarTextos() {
-            val escura = focada && !guiado && Estilo.focoEscurece(context)   // só o Quadro (fundo branco) escurece o texto
-            tValorBaixo.setTextColor(if (guiado) Estilo.ACENTO else Estilo.TEXTO_2)
+            // Só o Quadro (fundo branco) escurece o texto. Vale também no guiado (28/11/2026, Sala v477422: no Vidro
+            // colorido, que vem de fábrica com o Quadro, a linha focada do guiado ficava branca com o texto creme).
+            val escura = focada && Estilo.focoEscurece(context)
+            tValorBaixo.setTextColor(when { escura -> Estilo.ACENTO_NO_FOCO; guiado -> Estilo.ACENTO; else -> Estilo.TEXTO_2 })
             tTitulo.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
             tDetalhe.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2)
             tValor?.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2)   // valor sem laranja (crítica de design 19/11/2026)
