@@ -1,11 +1,15 @@
 package br.paulo.tvlauncher.settings
 
 import android.accessibilityservice.AccessibilityService
+import android.content.BroadcastReceiver
 import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.Color
 import android.graphics.PixelFormat
 import android.os.Handler
 import android.os.Looper
+import android.os.PowerManager
 import android.view.View
 import android.view.WindowManager
 import br.paulo.tvlauncher.resources.R
@@ -40,6 +44,7 @@ object FiltroNoturno {
     private val ui by lazy { Handler(Looper.getMainLooper()) }   // lazy: os testes JVM usam só as regras puras
     private var pelicula: View? = null
     private var servico: AccessibilityService? = null
+    private var vigiaTela: BroadcastReceiver? = null
 
     /** Regra pura (FiltroNoturnoTest): [minuto] (0..1439) está dentro da janela? A janela pode atravessar a meia-noite. */
     fun dentro(minuto: Int, inicio: Int, fim: Int): Boolean = when {
@@ -61,6 +66,9 @@ object FiltroNoturno {
     /** Regra pura: o estado forçado vale enquanto [agoraMs] < [ateMs]; fora disso, o do horário ([agendado]). */
     fun deveLigar(agendado: Boolean, forcado: Boolean?, ateMs: Long, agoraMs: Long): Boolean =
         if (forcado != null && agoraMs < ateMs) forcado else agendado
+
+    /** Regra pura (FiltroNoturnoTest): a película aparece só ligada, com a tela acesa e fora do modo jogo. */
+    fun mostrar(ligar: Boolean, telaAcesa: Boolean, modoJogo: Boolean): Boolean = ligar && telaAcesa && !modoJogo
 
     /**
      * Liga ou desliga a película AGORA (ação "filtro_noturno" do catálogo). Null = feito; senão o motivo. Sem o serviço de
@@ -93,9 +101,21 @@ object FiltroNoturno {
         servico = svc
         ui.removeCallbacks(relogio)
         ui.post(relogio)
+        // Tela apagada = película fora (28/11/2026, medido na Sala): a janela do tamanho da tela segura ~11 MB de GPU
+        // mesmo com a TV dormindo, sem ninguém vendo. Volta assim que a tela acende, sem esperar o relógio de 1 min.
+        if (vigiaTela == null) vigiaTela = object : BroadcastReceiver() {
+            override fun onReceive(c: Context, i: Intent) { avaliar() }
+        }.also { r ->
+            try { svc.registerReceiver(r, IntentFilter().apply { addAction(Intent.ACTION_SCREEN_ON); addAction(Intent.ACTION_SCREEN_OFF) }) }
+            catch (_: Exception) { vigiaTela = null }
+        }
     }
 
-    fun parar() { ui.removeCallbacks(relogio); tirar(); servico = null }
+    fun parar() {
+        ui.removeCallbacks(relogio); tirar()
+        vigiaTela?.let { r -> try { servico?.unregisterReceiver(r) } catch (_: Exception) {} }
+        vigiaTela = null; servico = null
+    }
 
     /** Liga ou tira a película conforme a chave e o horário. Também chamado ao mexer nos ajustes. */
     fun avaliar() {
@@ -107,7 +127,9 @@ object FiltroNoturno {
         val f = svc.getSharedPreferences(PREFS_FORCADO, Context.MODE_PRIVATE)
         val ligar = deveLigar(agendado, if (f.contains("ligado")) f.getBoolean("ligado", false) else null, f.getLong("ate", 0), System.currentTimeMillis())
         // Modo jogo (card Jogos): com um jogo na frente a película sai e volta quando ele fecha (JogosTv.janela).
-        if (ligar && !JogosTv.modoJogoAgora(svc)) por(svc, Extras.numero(svc, CHAVE_FORCA, PADRAO_FORCA)) else tirar()
+        // Tela apagada: ninguém vê a película, e ela segura um quadro inteiro na GPU (ver iniciar).
+        val telaAcesa = svc.getSystemService(PowerManager::class.java)?.isInteractive ?: true
+        if (mostrar(ligar, telaAcesa, JogosTv.modoJogoAgora(svc))) por(svc, Extras.numero(svc, CHAVE_FORCA, PADRAO_FORCA)) else tirar()
     }
 
     private fun por(svc: AccessibilityService, forca: Int) {
