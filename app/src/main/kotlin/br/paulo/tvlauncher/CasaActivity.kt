@@ -94,10 +94,15 @@ class CasaActivity : Activity() {
         rolagem = ScrollView(this).apply {
             isVerticalScrollBarEnabled = false; isFillViewport = true
             // Esmaece a borda de baixo quando há mais cartões: mostra que dá para descer.
-            isVerticalFadingEdgeEnabled = true; setFadingEdgeLength(dp(Estilo.E3))
+            // Em cima, a linha que subiu ao rolar some no esmaecido (48 dp, quase um cartão) em vez de ficar meio à mostra.
+            isVerticalFadingEdgeEnabled = true; setFadingEdgeLength(dp(Estilo.E6))
             addView(grade)
         }
-        raiz.addView(rolagem, LinearLayout.LayoutParams(-1, 0, 1f).apply { marginStart = -dp(FOLGA_DP); marginEnd = -dp(FOLGA_DP) })
+        // Folga entre o resumo e a rolagem (fotos com dados, 28/11/2026): sem ela, a linha que sobe ao rolar era cortada
+        // rente ao resumo e parecia passar por baixo dele; com a folga, ela some no esmaecido de cima, longe do texto.
+        raiz.addView(rolagem, LinearLayout.LayoutParams(-1, 0, 1f).apply {
+            marginStart = -dp(FOLGA_DP); marginEnd = -dp(FOLGA_DP); topMargin = dp(Estilo.E2)
+        })
         dicas = FrameLayout(this)
         raiz.addView(dicas, LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(Estilo.E1) })
         mostrarDicas(false)
