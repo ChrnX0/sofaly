@@ -17,6 +17,10 @@
     <string name="rt_a">A · Щільніше</string>
     <string name="rt_b">B · Рамки</string>
     <string name="rt_c">C · Просторіше</string>
+    <string name="ft_tema">Тема</string>
+    <string name="ft_tema_vidro">Скло</string>
+    <string name="ft_tema_azulejos">Плитки</string>
+    <string name="ft_tema_aconchego">Затишок</string>
     <string name="ft_foco">Фокус</string>
     <string name="ft_foco_fio">Лінія</string>
     <string name="ft_foco_veu">Вуаль</string>

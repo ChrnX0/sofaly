@@ -17,6 +17,10 @@
     <string name="rt_a">A · Πιο σφιχτά</string>
     <string name="rt_b">B · Πλαίσια</string>
     <string name="rt_c">C · Ευρύχωρα</string>
+    <string name="ft_tema">Θέμα</string>
+    <string name="ft_tema_vidro">Γυαλί</string>
+    <string name="ft_tema_azulejos">Πλακίδια</string>
+    <string name="ft_tema_aconchego">Ζεστό</string>
     <string name="ft_foco">Εστίαση</string>
     <string name="ft_foco_fio">Γραμμή</string>
     <string name="ft_foco_veu">Πέπλο</string>

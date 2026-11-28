@@ -17,6 +17,10 @@
     <string name="rt_a">A · Resserré</string>
     <string name="rt_b">B · Cadres</string>
     <string name="rt_c">C · Aéré</string>
+    <string name="ft_tema">Thème</string>
+    <string name="ft_tema_vidro">Verre</string>
+    <string name="ft_tema_azulejos">Carreaux</string>
+    <string name="ft_tema_aconchego">Cocooning</string>
     <string name="ft_foco">Focus</string>
     <string name="ft_foco_fio">Trait</string>
     <string name="ft_foco_veu">Voile</string>

@@ -17,6 +17,10 @@
     <string name="rt_a">A · Szorosabb</string>
     <string name="rt_b">B · Keretek</string>
     <string name="rt_c">C · Levegős</string>
+    <string name="ft_tema">Téma</string>
+    <string name="ft_tema_vidro">Üveg</string>
+    <string name="ft_tema_azulejos">Csempék</string>
+    <string name="ft_tema_aconchego">Otthonos</string>
     <string name="ft_foco">Fókusz</string>
     <string name="ft_foco_fio">Vonal</string>
     <string name="ft_foco_veu">Fátyol</string>

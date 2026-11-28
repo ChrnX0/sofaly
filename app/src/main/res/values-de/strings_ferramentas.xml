@@ -17,6 +17,10 @@
     <string name="rt_a">A · Enger</string>
     <string name="rt_b">B · Rahmen</string>
     <string name="rt_c">C · Luftig</string>
+    <string name="ft_tema">Design</string>
+    <string name="ft_tema_vidro">Glas</string>
+    <string name="ft_tema_azulejos">Kacheln</string>
+    <string name="ft_tema_aconchego">Gemütlich</string>
     <string name="ft_foco">Fokus</string>
     <string name="ft_foco_fio">Strich</string>
     <string name="ft_foco_veu">Schleier</string>

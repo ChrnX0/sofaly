@@ -17,6 +17,10 @@
     <string name="rt_a">A · แน่นขึ้น</string>
     <string name="rt_b">B · กรอบ</string>
     <string name="rt_c">C · โปร่ง</string>
+    <string name="ft_tema">ธีม</string>
+    <string name="ft_tema_vidro">กระจก</string>
+    <string name="ft_tema_azulejos">กระเบื้อง</string>
+    <string name="ft_tema_aconchego">อบอุ่น</string>
     <string name="ft_foco">การเลือก</string>
     <string name="ft_foco_fio">เส้น</string>
     <string name="ft_foco_veu">ม่าน</string>

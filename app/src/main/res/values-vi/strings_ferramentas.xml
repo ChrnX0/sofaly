@@ -17,6 +17,10 @@
     <string name="rt_a">A · Chặt hơn</string>
     <string name="rt_b">B · Khung</string>
     <string name="rt_c">C · Thoáng</string>
+    <string name="ft_tema">Giao diện</string>
+    <string name="ft_tema_vidro">Kính</string>
+    <string name="ft_tema_azulejos">Ô gạch</string>
+    <string name="ft_tema_aconchego">Ấm cúng</string>
     <string name="ft_foco">Tiêu điểm</string>
     <string name="ft_foco_fio">Đường kẻ</string>
     <string name="ft_foco_veu">Lớp phủ</string>

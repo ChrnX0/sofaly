@@ -17,6 +17,10 @@
     <string name="rt_a">A · Sıkı</string>
     <string name="rt_b">B · Çerçeveler</string>
     <string name="rt_c">C · Ferah</string>
+    <string name="ft_tema">Tema</string>
+    <string name="ft_tema_vidro">Cam</string>
+    <string name="ft_tema_azulejos">Fayans</string>
+    <string name="ft_tema_aconchego">Sıcacık</string>
     <string name="ft_foco">Odak</string>
     <string name="ft_foco_fio">Çizgi</string>
     <string name="ft_foco_veu">Tül</string>

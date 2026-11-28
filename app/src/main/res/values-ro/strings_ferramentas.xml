@@ -17,6 +17,10 @@
     <string name="rt_a">A · Mai strâns</string>
     <string name="rt_b">B · Rame</string>
     <string name="rt_c">C · Aerisit</string>
+    <string name="ft_tema">Temă</string>
+    <string name="ft_tema_vidro">Sticlă</string>
+    <string name="ft_tema_azulejos">Plăci</string>
+    <string name="ft_tema_aconchego">Primitor</string>
     <string name="ft_foco">Focalizare</string>
     <string name="ft_foco_fio">Linie</string>
     <string name="ft_foco_veu">Văl</string>

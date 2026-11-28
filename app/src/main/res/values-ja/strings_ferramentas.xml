@@ -17,6 +17,10 @@
     <string name="rt_a">A · 詰める</string>
     <string name="rt_b">B · フレーム</string>
     <string name="rt_c">C · ゆったり</string>
+    <string name="ft_tema">テーマ</string>
+    <string name="ft_tema_vidro">ガラス</string>
+    <string name="ft_tema_azulejos">タイル</string>
+    <string name="ft_tema_aconchego">くつろぎ</string>
     <string name="ft_foco">フォーカス</string>
     <string name="ft_foco_fio">ライン</string>
     <string name="ft_foco_veu">ベール</string>

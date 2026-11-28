@@ -17,6 +17,10 @@
     <string name="rt_a">A · Tættere</string>
     <string name="rt_b">B · Rammer</string>
     <string name="rt_c">C · Luftigt</string>
+    <string name="ft_tema">Tema</string>
+    <string name="ft_tema_vidro">Glas</string>
+    <string name="ft_tema_azulejos">Fliser</string>
+    <string name="ft_tema_aconchego">Hyggelig</string>
     <string name="ft_foco">Fokus</string>
     <string name="ft_foco_fio">Linje</string>
     <string name="ft_foco_veu">Slør</string>
