@@ -400,7 +400,9 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         fileiras.clear()
         val fonte = letra(500)
         for (c in cats) {
-            val titulo = LinearLayout(context).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL; alpha = 0f }
+            // Título meio transparente fora do foco: sem camada à parte (ícone e texto lado a lado, mesmo desenho).
+            val titulo = object : LinearLayout(context) { override fun hasOverlappingRendering() = false }
+                .apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL; alpha = 0f }
             if (o.rowIcon) titulo.addView(ImageView(context).apply { setImageDrawable(WorldGlyph(c.cat, DesignTokens.CREAM, 2.2f)) },
                 LinearLayout.LayoutParams(dpi(RowsHome.ICONE_TITULO), dpi(RowsHome.ICONE_TITULO)).apply { marginEnd = dpi(10f) })
             titulo.addView(TextView(context).apply {
@@ -418,7 +420,15 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
     }
 
     private fun criarCard(item: HomeCruz.Item, o: RowsHome.Options): Card {
-        val raiz = FrameLayout(context)
+        // Sem "sobreposição" (28/11/2026, SLOW_HOME na Sala): as fileiras fora do foco ficam meio transparentes (Dim, 0,4
+        // de fábrica) e, com o padrão (hasOverlappingRendering = true), cada card dessas fileiras virava uma camada fora
+        // da tela (saveLayer) a CADA quadro. Medido na Sala (v477422, mesma passada de 18 teclas): Fileiras 61 ms por
+        // quadro e 51% de quadros perdidos; Cruz, que já fazia isto (HomeCruz, 20/11/2026), 24 ms e 0,8%. Com a
+        // transparência aplicada em cada desenho, o fundo da placa apareceria sob o banner meio transparente: por isso,
+        // quando o banner aparece, a placa fica sem cor ([cobrirComBanner]) e o contorno continua o mesmo (canto e sombra).
+        val raiz = object : FrameLayout(context) {
+            override fun hasOverlappingRendering() = false
+        }
         val app = ehApp(item.id)
         val conteudo = item.id.startsWith("card:")
         val cor = when {
@@ -441,6 +451,14 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         val tintaFinal = tema?.tinta ?: tinta
         val fundo = Estilo.fundo(context, corFinal, o.corners.dp.toInt(), tema?.borda ?: 0)
         raiz.background = fundo
+        // O contorno (canto arredondado e sombra) vem da placa; com o banner por cima, a placa fica sem cor e o contorno
+        // continua opaco, como era quando a placa cheia ficava escondida atrás do banner.
+        raiz.outlineProvider = object : android.view.ViewOutlineProvider() {
+            override fun getOutline(v: View, out: android.graphics.Outline) {
+                fundo.getOutline(out)
+                if (v.getTag(R_TAG_BANNER) == true) out.alpha = 1f
+            }
+        }
         raiz.clipToOutline = true
         raiz.alpha = 0f
         val banner = ImageView(context).apply { scaleType = ImageView.ScaleType.CENTER_CROP; visibility = View.GONE }
@@ -454,7 +472,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         ic.tag = tintaFinal   // a cor de volta quando o card perde o foco
         ic.setTag(R_TAG_MANTER, tema?.manterNoFoco == true)
         raiz.addView(ic, LayoutParams(dpi(lado), dpi(lado), Gravity.CENTER))
-        if (conteudo) { banner.setImageDrawable(item.icone); banner.visibility = View.VISIBLE }
+        if (conteudo) { banner.setImageDrawable(item.icone); banner.visibility = View.VISIBLE; cobrirComBanner(raiz, fundo) }
         val w = o.largura(o.tvRatio)
         if (o.progress) item.progresso?.let { p ->
             // barra de progresso embaixo (filme pela metade, episódio): trilho escuro e a parte vista na cor de destaque
@@ -488,7 +506,15 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
                 return@f
             }
             k.banner.setImageDrawable(d); k.banner.visibility = View.VISIBLE; k.icone.visibility = View.INVISIBLE
+            cobrirComBanner(k.raiz, k.fundo)
         }
+    }
+
+    /** O banner cobre o card inteiro: a placa embaixo dele fica sem cor (ver criarCard: sem camada, ela vazaria). */
+    private fun cobrirComBanner(raiz: View, fundo: GradientDrawable) {
+        raiz.setTag(R_TAG_BANNER, true)
+        fundo.setColor(0)
+        raiz.invalidateOutline()
     }
 
     private fun ehApp(id0: String) = id0.removePrefix(PREFIXO_CONTINUAR).let { id ->
@@ -534,6 +560,8 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         const val PLACA_PROPRIA = 0xFF3A3A39.toInt()
         /** Chave da tag "o ícone guarda a cor dele no foco" (tema Aconchego/Azulejos). */
         val R_TAG_MANTER = br.paulo.tvlauncher.resources.R.id.tag_manter_cor
+        /** Chave da tag "o banner cobre este card" (a placa fica sem cor e o contorno segue opaco). */
+        val R_TAG_BANNER = br.paulo.tvlauncher.resources.R.id.tag_banner_cobre
     }
 }
 
