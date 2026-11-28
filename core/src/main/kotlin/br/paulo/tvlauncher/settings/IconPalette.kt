@@ -47,6 +47,9 @@ object IconPalette {
         "novos" to LIMA, "meus" to AREIA, "episodios" to INDIGO, "adicionar" to VERDE, "celular" to AZUL, "podcast" to MENTA,
         "tocando" to VERDE, "voltar" to CEU, "avancar" to TURQUESA, "velocidade" to AMARELO, "silencio" to INDIGO,
         "parar" to VERMELHO, "sair" to ACO, "controle" to VERMELHO, "turma" to VIOLETA, "pc" to AZUL, "opcoes" to ACO,
+        // coluna do player (IconePlayer.Tipo e a lupa; recentes, grade e radio já estão acima)
+        "estrela" to AMARELO, "filtros" to TURQUESA, "cadeado" to AREIA, "play" to VERDE, "visto" to AZUL, "todos" to ACO,
+        "esporte" to LIMA, "oculto" to OLIVA, "gravacoes" to VERMELHO, "novo" to LIMA, "lupa" to ACO,
     )
 
     /** Os tipos com cor fixa (para o teste e para a foto da paleta). */
