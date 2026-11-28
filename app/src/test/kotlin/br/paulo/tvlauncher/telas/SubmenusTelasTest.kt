@@ -35,19 +35,28 @@ import org.robolectric.shadows.ShadowLooper
  * Só gera fotos para um olho humano conferir (grafite sem azul, sem rosa, letra grande, foco no padrão, sem dica de
  * tecla); não reprova nada. Grava em app/build/telas/submenus/ e um índice submenus-<idioma>.md.
  * Roda com: ./gradlew :app:testReleaseUnitTest -Ptelas -Psubmenus --tests '*SubmenusTelasTest*'
+ * Com dados (-PcomDados): só as telas que o [DadosDeTeste] sabe encher, em português e inglês, em build/telas/submenus-com-dados/.
  */
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @ConscryptMode(ConscryptMode.Mode.OFF)
 @Config(sdk = [34])
 class SubmenusTelasTest {
-    private val saida = File("build/telas/submenus")
+    // -PcomDados (28/11/2026): cada abertura recebe antes os dados de teste da área ([DadosDeTeste]) e as fotos vão
+    // para outra pasta, para comparar "vazia" e "com dados".
+    private val comDados = System.getProperty("telas.comdados") == "true"
+    private val saida = File(if (comDados) "build/telas/submenus-com-dados" else "build/telas/submenus")
+    private var lingua = "pt"
 
     @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi")
     @Test fun portugues() = andar("pt")
 
+    @Config(qualifiers = "en-w960dp-h540dp-land-television-xhdpi")
+    @Test fun ingles() { assumeTrue(comDados); andar("en") }
+
     private fun andar(idioma: String) {
         assumeTrue(System.getProperty("telas.submenus") == "true")
+        lingua = idioma
         InstrumentationRegistry.getInstrumentation().setInTouchMode(false)
         saida.mkdirs()
         val app = RuntimeEnvironment.getApplication()
@@ -59,7 +68,7 @@ class SubmenusTelasTest {
         val porNome = app.packageManager.getPackageInfo(app.packageName, PackageManager.GET_ACTIVITIES).activities.orEmpty()
             .associate { it.name.substringAfterLast('.') to it.name }
         val md = StringBuilder("# Submenus ($idioma)\n\n")
-        for (curto in TELAS.filter { filtro.isEmpty() || it in filtro }) {
+        for (curto in TELAS.filter { (filtro.isEmpty() || it in filtro) && (!comDados || it in DadosDeTeste.TELAS) }) {
             val nome = porNome[curto] ?: run { md.append("## $curto\n- não está no manifesto\n\n"); null } ?: continue
             @Suppress("UNCHECKED_CAST") val cls = Class.forName(nome) as Class<out Activity>
             md.append("## $curto\n")
@@ -107,8 +116,11 @@ class SubmenusTelasTest {
     }
 
     private fun abrir(cls: Class<out Activity>): Activity {
+        // Antes de CADA abertura: um OK na passada anterior pode ter mudado as preferências.
+        if (comDados) { DadosDeTeste.limpar(); DadosDeTeste.preparar(RuntimeEnvironment.getApplication(), cls.simpleName, lingua) }
         val a = Robolectric.buildActivity(cls).setup().get()
-        if (cls == MainActivity::class.java) repeat(10) { Thread.sleep(100); idle() } else idle()
+        // Com dados, as listas chegam pelo Fundo.rodar (outra thread): 300 ms não bastava (Podcasts, Gravações vazias).
+        if (cls == MainActivity::class.java || comDados) repeat(if (comDados) 25 else 10) { Thread.sleep(100); idle() } else idle()
         return a
     }
 
