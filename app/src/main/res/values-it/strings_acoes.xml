@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">Trova e riproduci “%1$s”</string>
     <string name="acao_tocar">Riproduci %1$s</string>
     <string name="acao_continuar">Riprendi ciò che era in riproduzione</string>
+    <string name="acao_tirar_continuar">Togli %1$s da Continua a guardare</string>
     <string name="acao_proximo">Riproduci l’episodio successivo</string>
     <string name="acao_proximo_de">Episodio successivo di %1$s</string>
     <string name="acao_o_que_via">Vedi cosa era in riproduzione</string>

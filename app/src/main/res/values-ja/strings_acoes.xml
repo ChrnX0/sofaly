@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">「%1$s」を探して再生</string>
     <string name="acao_tocar">%1$s を再生</string>
     <string name="acao_continuar">再生していたものを再開</string>
+    <string name="acao_tirar_continuar">%1$s を「続きを見る」から削除</string>
     <string name="acao_proximo">次のエピソードを再生</string>
     <string name="acao_proximo_de">%1$s の次のエピソード</string>
     <string name="acao_o_que_via">再生していたものを確認</string>

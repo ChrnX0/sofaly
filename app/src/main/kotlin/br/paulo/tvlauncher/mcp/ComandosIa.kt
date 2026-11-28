@@ -66,7 +66,7 @@ object ComandosIa {
      */
     val TIPOS = listOf("abrir_app", "abrir_tela", "despertador", "volume", "midia", "modo_visita", "tocar_canal", "o_que_passa", "casa",
         "recado", "timer", "desligar_em", "filtro_noturno", "rodar_cena", "mural",
-        "tocar_titulo", "continuar", "proximo_episodio", "o_que_estava_vendo", "plugin_button")
+        "tocar_titulo", "continuar", "proximo_episodio", "o_que_estava_vendo", "plugin_button", "tirar_do_continuar")
 
     /**
      * Texto visível das ações novas (strings_acoes.xml em values e values-pt, no idioma da TV). Nos testes do computador não há
@@ -136,6 +136,12 @@ object ComandosIa {
         })
         /** Só informação: [texto] = os últimos títulos vistos, preenchido pelo VodTv.resolver (volta no ver_pedido). */
         class OQueEstavaVendo(val texto: String = "") : Acao(texto.ifEmpty { t(R.string.acao_o_que_via) })
+        /**
+         * Tira um filme ou uma série do Continuar (28/11/2026), o mesmo "Tirar do Continuar" do OK segurado no pôster, sem
+         * precisar segurar o OK. [alvo] != null = já resolvida no VodTv.resolver, só entre os títulos que estão no Continuar.
+         */
+        class TirarDoContinuar(val pedido: String, val alvo: VodBusca.NoContinuar? = null) :
+            Acao(t(R.string.acao_tirar_continuar, alvo?.titulo ?: pedido))
     }
 
     /** O resultado da conferência: as ações válidas, a resposta em texto da IA e o que foi recusado (para mostrar). */
@@ -187,7 +193,8 @@ object ComandosIa {
                 .put("lista", texto("mural: compras ou recados", listOf("compras", "recados")))
                 .put("titulo", texto("tocar_titulo e proximo_episodio: nome do filme ou da série, como a pessoa falou; " +
                     "proximo_episodio sem titulo = a última série vista. continuar retoma o último filme ou série vista; " +
-                    "o_que_estava_vendo devolve os últimos títulos em ver_pedido (campo mensagem)")))
+                    "o_que_estava_vendo devolve os últimos títulos em ver_pedido (campo mensagem); " +
+                    "tirar_do_continuar: nome do filme ou da série que sai do Continuar (só entre os que estão lá)")))
             .put("required", JSONArray(listOf("tipo")))
         return objeto()
             .put("properties", JSONObject()
@@ -308,6 +315,10 @@ object ComandosIa {
                 else if (tt.isEmpty()) "tocar_titulo: falta o titulo" else Acao.TocarTitulo(tt)
             }
             "continuar" -> Acao.Continuar()
+            "tirar_do_continuar" -> {
+                val tt = o.optString("titulo").filter { !it.isISOControl() }.trim().take(MAX_TITULO)
+                if (tt.isEmpty()) "tirar_do_continuar: falta o titulo" else Acao.TirarDoContinuar(tt)
+            }
             "o_que_estava_vendo" -> Acao.OQueEstavaVendo()
             "plugin_button" -> {
                 val p = o.optString("pacote").trim()

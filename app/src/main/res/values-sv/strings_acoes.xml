@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">Hitta och spela upp ”%1$s”</string>
     <string name="acao_tocar">Spela upp %1$s</string>
     <string name="acao_continuar">Återuppta det som spelades</string>
+    <string name="acao_tirar_continuar">Ta bort %1$s från Fortsätt titta</string>
     <string name="acao_proximo">Spela upp nästa avsnitt</string>
     <string name="acao_proximo_de">Nästa avsnitt av %1$s</string>
     <string name="acao_o_que_via">Se vad som spelades</string>

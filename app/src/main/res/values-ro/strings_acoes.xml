@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">Găsește și redă „%1$s”</string>
     <string name="acao_tocar">Redă %1$s</string>
     <string name="acao_continuar">Reia ce se reda</string>
+    <string name="acao_tirar_continuar">Elimină %1$s din Continuă vizionarea</string>
     <string name="acao_proximo">Redă episodul următor</string>
     <string name="acao_proximo_de">Episodul următor din %1$s</string>
     <string name="acao_o_que_via">Vezi ce se reda</string>

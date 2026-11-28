@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">„%1$s” keresése és lejátszása</string>
     <string name="acao_tocar">%1$s lejátszása</string>
     <string name="acao_continuar">Ami szólt, annak folytatása</string>
+    <string name="acao_tirar_continuar">%1$s eltávolítása a Folytatásból</string>
     <string name="acao_proximo">A következő epizód lejátszása</string>
     <string name="acao_proximo_de">A(z) %1$s következő epizódja</string>
     <string name="acao_o_que_via">Mi szólt</string>

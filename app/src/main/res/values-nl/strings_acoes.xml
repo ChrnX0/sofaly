@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">“%1$s” zoeken en afspelen</string>
     <string name="acao_tocar">%1$s afspelen</string>
     <string name="acao_continuar">Hervatten wat er speelde</string>
+    <string name="acao_tirar_continuar">%1$s verwijderen uit Verder kijken</string>
     <string name="acao_proximo">De volgende aflevering afspelen</string>
     <string name="acao_proximo_de">Volgende aflevering van %1$s</string>
     <string name="acao_o_que_via">Bekijken wat er speelde</string>

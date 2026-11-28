@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">查找并播放“%1$s”</string>
     <string name="acao_tocar">播放 %1$s</string>
     <string name="acao_continuar">继续播放之前的内容</string>
+    <string name="acao_tirar_continuar">将 %1$s 从“继续观看”中移除</string>
     <string name="acao_proximo">播放下一集</string>
     <string name="acao_proximo_de">%1$s 的下一集</string>
     <string name="acao_o_que_via">查看之前在播放什么</string>

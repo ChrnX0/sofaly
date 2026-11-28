@@ -20,7 +20,8 @@ object VodTv {
     /** Chamar FORA da thread da tela: lê arquivos e pode baixar a ficha de uma série. */
     fun resolver(app: Context, plano: ComandosIa.Plano): ComandosIa.Plano {
         if (plano.acoes.none { it is ComandosIa.Acao.TocarTitulo || it is ComandosIa.Acao.Continuar ||
-                it is ComandosIa.Acao.ProximoEpisodio || it is ComandosIa.Acao.OQueEstavaVendo }) return plano
+                it is ComandosIa.Acao.ProximoEpisodio || it is ComandosIa.Acao.OQueEstavaVendo ||
+                it is ComandosIa.Acao.TirarDoContinuar }) return plano
         val dados = try {
             val escondidas = PlayerArmazem.gruposEscondidos(app)
             val liberadas = PlayerArmazem.gruposLiberados(app)
@@ -40,6 +41,17 @@ object VodTv {
         return VodBusca.resolver(plano, dados) { l ->
             if (l.isEmpty()) ComandosIa.t(R.string.acao_vendo_nada) else ComandosIa.t(R.string.acao_vendo, l.joinToString(", "))
         }
+    }
+
+    /**
+     * Tira do Continuar o título já resolvido (28/11/2026): filme = apaga o ponto salvo; série = esquece o último episódio
+     * aberto. É o mesmo que o "Tirar do Continuar" das telas Filmes e Séries faz. Null = deu certo.
+     */
+    fun tirarDoContinuar(app: Context, alvo: VodBusca.NoContinuar?): String? {
+        if (alvo == null) return "título não conferido"
+        if (alvo.serie) PlayerArmazem.definirUltimosEpisodios(app, PlayerArmazem.ultimosEpisodios(app) - alvo.chave)
+        else PlayerArmazem.definirPosicao(app, alvo.chave, null)
+        return null
     }
 
     /** Abre o player no título já resolvido. Null = deu certo. */

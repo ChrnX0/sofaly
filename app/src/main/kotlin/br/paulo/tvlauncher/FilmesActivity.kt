@@ -786,6 +786,11 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
             primeiro = FichaAcoes.acao(this, getString(R.string.filmes_continuar), getString(R.string.ficha_continuar_de, ponto(pos!!.ms)), marca = "continuar") { tocar(f, doComeco = false) }
             FichaAcoes.adicionar(acoes, primeiro)
             FichaAcoes.adicionar(acoes, FichaAcoes.acao(this, getString(R.string.filmes_do_comeco), marca = "comeco") { tocar(f, doComeco = true) })
+            // 28/11/2026: o "Tirar do Continuar" também na ficha, não só no OK segurado no pôster (que pouca gente descobre).
+            FichaAcoes.adicionar(acoes, FichaAcoes.acao(this, getString(R.string.coluna_menu_tirar_continuar), marca = "tirarcontinuar") {
+                mudarPosicoes(f, { Vod.esquecer(it, f.chave) }, R.string.coluna_tirado_continuar)
+                desenharFicha(f, fichaInfo, manterFoco = false)
+            })
         } else {
             primeiro = FichaAcoes.acao(this, getString(R.string.filmes_assistir), marca = "assistir") { tocar(f, doComeco = true) }
             FichaAcoes.adicionar(acoes, primeiro)

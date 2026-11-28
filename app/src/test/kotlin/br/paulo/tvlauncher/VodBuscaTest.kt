@@ -69,6 +69,22 @@ class VodBuscaTest {
         assertTrue(resolver("""{"tipo":"continuar"}""", dados()).recusadas.single().contains("nada começado"))
     }
 
+    @Test fun tirarDoContinuarSoAchaQuemEstaLa() {
+        // Duna parado em 2 min (está no Continuar); Duna Parte Dois nunca aberto; Ruptura com episódio aberto.
+        val d = dados(posicoes = mapOf(duna.chave to Posicao(120_000, 9_000_000, 50)), ultimos = mapOf(ruptura.chave to ultimo("e1", 1, 1, 10)))
+        val f = (resolver("""{"tipo":"tirar_do_continuar","titulo":"duna"}""", d).acoes.single() as ComandosIa.Acao.TirarDoContinuar).alvo!!
+        assertEquals(duna.chave, f.chave); assertEquals(false, f.serie); assertEquals("Duna", f.titulo)
+        val s = (resolver("""{"tipo":"tirar_do_continuar","titulo":"ruptura"}""", d).acoes.single() as ComandosIa.Acao.TirarDoContinuar).alvo!!
+        assertEquals(ruptura.chave, s.chave); assertTrue(s.serie)
+        // "duna parte" é o Duna Parte Dois, que não está no Continuar: recusa em vez de tirar o outro Duna por engano.
+        assertTrue(resolver("""{"tipo":"tirar_do_continuar","titulo":"duna parte"}""", d).acoes.isEmpty())
+        // Fora do Continuar (nunca aberto, ou visto até o fim) e título que não existe: recusa, e nada de ficha baixada.
+        val fim = dados(posicoes = mapOf(duna.chave to Posicao(8_990_000, 9_000_000, 50)))
+        assertTrue(resolver("""{"tipo":"tirar_do_continuar","titulo":"duna"}""", fim).recusadas.single().contains("não está no Continuar"))
+        assertTrue(resolver("""{"tipo":"tirar_do_continuar","titulo":"matrix"}""", d).acoes.isEmpty())
+        assertEquals(0, fichasPedidas)
+    }
+
     @Test fun oQueEstavaVendoListaDoMaisNovo() {
         val d = dados(posicoes = mapOf(duna.chave to Posicao(120_000, 9_000_000, 5)), ultimos = mapOf(ruptura.chave to ultimo("e2", 1, 2, 10)))
         val a = resolver("""{"tipo":"o_que_estava_vendo"}""", d).acoes.single() as ComandosIa.Acao.OQueEstavaVendo

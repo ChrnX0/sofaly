@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">Cari dan putar “%1$s”</string>
     <string name="acao_tocar">Putar %1$s</string>
     <string name="acao_continuar">Lanjutkan yang sedang diputar</string>
+    <string name="acao_tirar_continuar">Hapus %1$s dari Lanjutkan menonton</string>
     <string name="acao_proximo">Putar episode berikutnya</string>
     <string name="acao_proximo_de">Episode berikutnya dari %1$s</string>
     <string name="acao_o_que_via">Lihat yang sedang diputar</string>
