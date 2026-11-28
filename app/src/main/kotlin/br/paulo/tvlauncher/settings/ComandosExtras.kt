@@ -198,6 +198,8 @@ object ComandosExtras {
         }
         "movimento" -> MovimentoAdaptativo.comando(ctx, i.getStringExtra("nivel"))
         // Jeito da HOME (26/11/2026): cross, bar, strip, rows (Fileiras, clone do Projectivy). Aperte HOME depois.
+        // Medição das Fileiras (28/11/2026): desliga peças do desenho para medir uma por vez (RowsDebug, só na memória).
+        "fileiras_pecas" -> br.paulo.tvlauncher.home.RowsDebug.comando(i.getStringExtra("desligar"))
         "home" -> (i.getStringExtra("nome") ?: "").let { n ->
             val M = br.paulo.tvlauncher.home.BottomBar.Mode.entries
             M.firstOrNull { it.name.equals(n, true) }?.let { br.paulo.tvlauncher.home.BottomBar.setMode(ctx, it); "home=${it.name} (aperte HOME)" }

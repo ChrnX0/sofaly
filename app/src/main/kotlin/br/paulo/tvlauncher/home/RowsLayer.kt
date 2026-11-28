@@ -86,6 +86,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
     private lateinit var topoView: LinearLayout
 
     init {
+        RowsDebug.atual = java.lang.ref.WeakReference(this)
         clipChildren = false; clipToPadding = false
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
         addView(sombraEsq, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
@@ -256,9 +257,9 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
                 // 27/11/2026: na fileira Ferramentas sobrava um pedaço de card colado à esquerda).
                 val vis = naTela && RowsHome.visivel(xs[i], k.w, fo, larg) && xs[i] + k.w * k1 > 0f && !RowsHome.passou(xs[i], fo)
                 val sobTopo = !emFoco && cy + f.linhaDe(i) * passoLinha - fo.cardH / 2f < topoFim
-                val a = if (!vis || sobTopo) 0f else if (emFoco) 1f else alfa
+                val a = if (!vis || sobTopo || (!emFoco && RowsDebug.off("outras"))) 0f else if (emFoco) 1f else alfa
                 k.raiz.pivotX = 0f; k.raiz.pivotY = dp(fo.cardH) / 2f
-                k.raiz.elevation = dp(if (escolhido) (if (o.effect == RowsHome.Effect.SHADOW) 16f else 8f) else 2f)
+                k.raiz.elevation = if (RowsDebug.off("elevacao")) 0f else dp(if (escolhido) (if (o.effect == RowsHome.Effect.SHADOW) 16f else 8f) else 2f)
                 mover(k.raiz, dp(xs[i]), dp(cy + f.linhaDe(i) * passoLinha - fo.cardH / 2f), a, k1, anima)
                 // ícone dos itens nossos: laranja no card em foco (Paulo, 26/11/2026), a tinta escolhida fora dele
                 (k.icone.drawable as? IconeCruz)?.let { d ->
@@ -310,7 +311,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
                 RowsHome.GlowColor.WHITE -> 0xF2FFFFFF.toInt()
                 RowsHome.GlowColor.ACCENT -> Estilo.ACENTO
             })
-            anel.elevation = dp(20f)
+            anel.elevation = if (RowsDebug.off("elevacao")) 0f else dp(20f)
             val ligado = focada && semMenu && o.effect == RowsHome.Effect.GLOW
             mover(anel, dp(o.focoX - b), dp(cyCard - h / 2f - b), if (ligado) 1f else 0f, 1f, anima)
             animarBrilho(if (ligado) o.glowAnim else RowsHome.GlowAnim.NONE)
@@ -552,6 +553,25 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
     }.getOrDefault(false)
 
     /** Para o teste de tela: o título da fileira em foco, o nome do foco e os cards visíveis. */
+    /** Medição (28/11/2026): aplica as peças desligadas pelo adb ([RowsDebug]) e reposiciona. Só na thread da tela. */
+    internal fun aplicarDepuracao() {
+        aplicarTopo()
+        if (RowsDebug.off("sombras")) { sombraEsq.visibility = View.GONE; sombraBaixo.visibility = View.GONE }
+        val semSombraTexto = RowsDebug.off("texto")
+        for (t in listOf(nome, hora, data)) if (semSombraTexto) t.setShadowLayer(0f, 0f, 0f, 0)
+        for (f in fileiras) {
+            if (semSombraTexto) (f.titulo.getChildAt(f.titulo.childCount - 1) as? TextView)?.setShadowLayer(0f, 0f, 0f, 0)
+            for (k in f.cards) {
+                k.raiz.clipToOutline = !RowsDebug.off("recorte")
+                if (RowsDebug.off("placa")) k.raiz.background = null
+                if (RowsDebug.off("icones")) k.icone.visibility = View.INVISIBLE
+                if (RowsDebug.off("banners")) k.banner.visibility = View.GONE
+            }
+        }
+        pilula.visibility = if (RowsDebug.off("topo")) View.GONE else pilula.visibility
+        ultimo?.invoke()
+    }
+
     internal fun nomeDoFoco(): TextView = nome
     internal fun cardsVisiveis(): List<View> = fileiras.flatMap { f -> f.cards.map { it.raiz } }.filter { it.alpha > 0.5f }
 
@@ -583,4 +603,25 @@ internal class WifiGlyph(private val cor: Int) : Drawable() {
     override fun setAlpha(a: Int) { p.alpha = a; ponto.alpha = a }
     override fun setColorFilter(f: ColorFilter?) { p.colorFilter = f; ponto.colorFilter = f }
     @Deprecated("Deprecated in Java") override fun getOpacity() = PixelFormat.TRANSLUCENT
+}
+
+/**
+ * Medição da lentidão das Fileiras na TV (28/11/2026: 61 ms por quadro contra 24 ms na Cruz). Pelo adb,
+ * `EXTRAS --es o fileiras_pecas --es desligar sombras,elevacao,recorte,texto,outras,placa,icones,banners,topo` desliga
+ * peças do desenho para medir uma por vez; `--es desligar ""` religa tudo (algumas voltam só ao reabrir a HOME).
+ * Só vale na memória: o próximo processo começa com tudo ligado. Não muda nada para quem usa a TV sem o adb.
+ */
+object RowsDebug {
+    val PECAS = listOf("sombras", "elevacao", "recorte", "texto", "outras", "placa", "icones", "banners", "topo")
+    @Volatile var desligadas: Set<String> = emptySet()
+    @Volatile var atual: java.lang.ref.WeakReference<RowsLayer>? = null
+    fun off(p: String) = p in desligadas
+
+    /** Lê a lista do adb (nomes desconhecidos ficam de fora), aplica na HOME aberta e diz o que ficou desligado. */
+    fun comando(lista: String?): String {
+        desligadas = lista.orEmpty().split(',').map { it.trim().lowercase() }.filter { it in PECAS }.toSet()
+        val v = atual?.get()
+        v?.post { v.aplicarDepuracao() }
+        return "desligadas=${desligadas.joinToString(",").ifEmpty { "nenhuma" }} (${if (v != null) "aplicado" else "sem Fileiras abertas"}); peças: ${PECAS.joinToString(",")}"
+    }
 }
