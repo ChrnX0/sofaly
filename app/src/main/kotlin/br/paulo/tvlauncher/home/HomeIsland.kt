@@ -242,10 +242,10 @@ internal fun MainActivity.pintarTrilho(t: BarraIlha.Trilho) {
     box.removeAllViews()
     for (i in t.mostrar) {
         val ic: Drawable = when (i) {
-            BarraIlha.Indicador.GRAVANDO -> IconeLinha(IconeLinha.Tipo.GRAVAR, cor = ILHA_VERMELHO)
-            BarraIlha.Indicador.NAO_PERTURBE -> IconeLinha(IconeLinha.Tipo.LUA, fracaoLua = 0.22, cor = 0xFFD9D5CF.toInt())
-            BarraIlha.Indicador.VISITA -> IconeLinha(IconeLinha.Tipo.PESSOA, cor = 0xFFD9D5CF.toInt())
-            BarraIlha.Indicador.FONE -> IconeLinha(IconeLinha.Tipo.FONE, cor = 0xFFD9D5CF.toInt())
+            BarraIlha.Indicador.GRAVANDO -> IconeLinha(IconeLinha.Tipo.GRAVAR, corDada = ILHA_VERMELHO)
+            BarraIlha.Indicador.NAO_PERTURBE -> IconeLinha(IconeLinha.Tipo.LUA, fracaoLua = 0.22, corDada = IconeLinha.corDoTema(IconeLinha.Tipo.LUA, 0xFFD9D5CF.toInt()))
+            BarraIlha.Indicador.VISITA -> IconeLinha(IconeLinha.Tipo.PESSOA, corDada = IconeLinha.corDoTema(IconeLinha.Tipo.PESSOA, 0xFFD9D5CF.toInt()))
+            BarraIlha.Indicador.FONE -> IconeLinha(IconeLinha.Tipo.FONE, corDada = IconeLinha.corDoTema(IconeLinha.Tipo.FONE, 0xFFD9D5CF.toInt()))
         }
         box.addView(ImageView(this).apply { setImageDrawable(ic) }, LinearLayout.LayoutParams(dp(15), dp(15)).apply { marginStart = dp(6) })
     }

@@ -69,12 +69,15 @@ internal class GuidedPane(ctx: Context) : LinearLayout(ctx) {
             // Ícone escuro sobre o laranja (o mesmo contraste do foco no Quadro); com alto contraste, preto.
             // [desenho] = o mesmo ícone do cartão da porta (IconeCard), para a grade e a aba aberta mostrarem o mesmo
             // símbolo (passada da Sala 27/11: a grade tinha pessoas e lua, a aba aberta um sofá e outro desenho).
+            // Tema do sistema (28/11/2026): o azulejo e o traço seguem o tema (Estilo.azulejoDoIcone); alto contraste = laranja.
+            val (fundoAz, traco) = Estilo.azulejoDoIcone(desenho ?: tipo.name)
+            (azulejo.background as? GradientDrawable)?.setColor(fundoAz)
             if (azulejo.childCount > 1) azulejo.removeViewAt(1)
             if (desenho != null) {
                 icone.background = null
-                azulejo.addView(br.paulo.tvlauncher.home.IconeCard(context, desenho).apply { definirCor(br.paulo.tvlauncher.DesignTokens.NIGHT) },
+                azulejo.addView(br.paulo.tvlauncher.home.IconeCard(context, desenho).apply { definirCor(traco) },
                     FrameLayout.LayoutParams(Estilo.dp(context, 30), Estilo.dp(context, 30), Gravity.CENTER))
-            } else icone.background = IconeCruz(tipo, IconeCruz.Estilo.LINHA).apply { corFixa = br.paulo.tvlauncher.DesignTokens.NIGHT }
+            } else icone.background = IconeCruz(tipo, IconeCruz.Estilo.LINHA).apply { corFixa = traco }
             contentDescription = "$trilha, $titulo"
         }
         if (primeira || (context as? android.app.Activity)?.let { SidePanel.semMovimento(it) } != false) { trocar(); return }

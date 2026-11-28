@@ -40,9 +40,10 @@ class FineTuneTest {
         assertEquals(br.paulo.tvlauncher.settings.FocusStyle.LINE, br.paulo.tvlauncher.settings.FocusStyle.deNumero(0))
         assertEquals(br.paulo.tvlauncher.settings.FocusStyle.BOX, br.paulo.tvlauncher.settings.FocusStyle.deNumero(2))
         assertEquals(br.paulo.tvlauncher.settings.FocusStyle.RING, br.paulo.tvlauncher.settings.FocusStyle.deNumero(3))
-        // nada gravado (-1) ou número estranho: o anel da barra (coerência das telas, 24/11/2026)
-        assertEquals(br.paulo.tvlauncher.settings.FocusStyle.RING, br.paulo.tvlauncher.settings.FocusStyle.deNumero(-1))
-        assertEquals(br.paulo.tvlauncher.settings.FocusStyle.RING, br.paulo.tvlauncher.settings.FocusStyle.deNumero(9))
+        // nada gravado (-1) ou número estranho: o foco do tema (SystemLook, 28/11/2026)
+        assertEquals(br.paulo.tvlauncher.settings.FocusStyle.LINE, br.paulo.tvlauncher.settings.FocusStyle.deNumero(-1, br.paulo.tvlauncher.settings.SystemLook.COZY))
+        assertEquals(br.paulo.tvlauncher.settings.FocusStyle.RING, br.paulo.tvlauncher.settings.FocusStyle.deNumero(9, br.paulo.tvlauncher.settings.SystemLook.TILES))
+        assertEquals(br.paulo.tvlauncher.settings.FocusStyle.BOX, br.paulo.tvlauncher.settings.FocusStyle.deNumero(-1, br.paulo.tvlauncher.settings.SystemLook.GLASS))
     }
 
     @Test fun reguaSemLetraPequenaNemMaiuscula() {

@@ -1,8 +1,8 @@
 package br.paulo.tvlauncher.family
 
+import br.paulo.tvlauncher.TvNotice
 import android.app.Activity
 import android.content.Context
-import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.Prefs
 import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.panel.PainelArmazem
@@ -69,7 +69,7 @@ object PerfilCriancaTv {
             if (t.restaurar) sair(act)
             if (t.ligar) entrar(act)
             val nome = Perfil.nome(act, para)
-            AvisoTv.rapido(act, act.getString(R.string.perfil_aviso_titulo, nome),
+            TvNotice.quick(act, act.getString(R.string.perfil_aviso_titulo, nome),
                 act.getString(if (para.let(PerfilDados::sanitizar) in criancas) R.string.perfil_aviso_crianca else R.string.perfil_aviso_texto), 5)
             aoFim(true)
         }
@@ -87,7 +87,7 @@ object PerfilCriancaTv {
         Perfil.definirAtiva(ctx, para)
         if (t.restaurar) sair(ctx)
         if (t.ligar) entrar(ctx)
-        AvisoTv.rapido(ctx, ctx.getString(R.string.perfil_aviso_titulo, Perfil.nome(ctx, para)),
+        TvNotice.quick(ctx, ctx.getString(R.string.perfil_aviso_titulo, Perfil.nome(ctx, para)),
             ctx.getString(if (PerfilDados.sanitizar(para) in criancas) R.string.perfil_aviso_crianca else R.string.perfil_aviso_texto), 5)
     }
 
@@ -98,7 +98,7 @@ object PerfilCriancaTv {
     fun alternarMarca(act: Activity, conta: String, ativa: String?, aoFim: (Boolean) -> Unit) {
         val chave = PerfilDados.sanitizar(conta)
         if (!PerfilCrianca.podeMarcar(PainelArmazem.temPin(act))) {
-            AvisoTv.rapido(act, act.getString(R.string.perfil_crianca), act.getString(R.string.perfil_crianca_sem_pin), 6)
+            TvNotice.quick(act, act.getString(R.string.perfil_crianca), act.getString(R.string.perfil_crianca_sem_pin), 6)
             aoFim(chave in criancas(act)); return
         }
         pedirPinPais(act, act.getString(R.string.perfil_pin_marcar)) { certo ->
@@ -121,14 +121,14 @@ object PerfilCriancaTv {
         fun gravar(e: TentativasPin.Estado) = p.edit().putInt("erros", e.erros).putLong("ate", e.bloqueadoAte).putLong("ultimo", e.ultimoErro).apply()
         val espera = TentativasPin.espera(ler(), System.currentTimeMillis())
         if (espera > 0) {
-            AvisoTv.rapido(act, titulo, act.getString(R.string.player_pin_espere, TentativasPin.minutos(espera)), 5)
+            TvNotice.quick(act, titulo, act.getString(R.string.player_pin_espere, TentativasPin.minutos(espera)), 5)
             resultado(false); return
         }
         PinTv.pedir(act, titulo, familia = false) { certo ->
             if (certo) gravar(TentativasPin.acertou())
             else {
                 gravar(TentativasPin.errou(ler(), System.currentTimeMillis()))
-                AvisoTv.rapido(act, titulo, act.getString(R.string.player_pin_errado), 4)
+                TvNotice.quick(act, titulo, act.getString(R.string.player_pin_errado), 4)
             }
             resultado(certo)
         }

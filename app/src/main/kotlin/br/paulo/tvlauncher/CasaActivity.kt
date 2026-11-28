@@ -559,7 +559,7 @@ class CasaActivity : Activity() {
             icone.definirCor(when {
                 ligado && foco -> Estilo.FOCO
                 ligado || foco -> Estilo.TEXTO_NO_FOCO
-                else -> Estilo.TEXTO
+                else -> Estilo.corEmRepouso(icone.tipo, Estilo.TEXTO)   // tema do sistema (28/11/2026)
             })
             estadoTv.setTextColor(when {
                 ligado && foco -> Estilo.ACENTO_NO_FOCO

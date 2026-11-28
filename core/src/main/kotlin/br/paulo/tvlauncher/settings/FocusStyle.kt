@@ -26,16 +26,23 @@ enum class FocusStyle {
     companion object {
         const val KEY = "focus_style"
 
-        /** A escolha gravada; padrão [RING] (o anel da barra). Puro sobre o número (testável): fora da faixa volta ao padrão. */
-        fun deNumero(n: Int): FocusStyle = entries.getOrElse(n) { RING }
+        /**
+         * A escolha gravada; sem escolha (ou fora da faixa), o foco do tema ([SystemLook.focoPadrao], 28/11/2026; antes
+         * era sempre [RING]). Puro sobre o número e o tema (testável).
+         */
+        fun deNumero(n: Int, tema: SystemLook = SystemLook.atual): FocusStyle = entries.getOrElse(n) { tema.focoPadrao }
 
         /**
          * A última escolha lida, para as cores "no foco" do Estilo (TEXTO_NO_FOCO...), que não recebem Context.
          * Porquê: na Sala (22/11) o painel rápido pintava o título focado de escuro sobre o Fio (fundo escuro) e ele sumia.
          */
-        @Volatile var atual: FocusStyle = RING
+        // BOX = o foco do tema de fábrica (Vidro colorido, 28/11/2026). Não ler SystemLook aqui: os dois enums se citam e o início em ciclo dá NPE.
+        @Volatile var atual: FocusStyle = BOX
 
-        fun ler(ctx: Context): FocusStyle = deNumero(Extras.numero(ctx, KEY, -1)).also { atual = it }
+        fun ler(ctx: Context): FocusStyle = deNumero(Extras.numero(ctx, KEY, -1), SystemLook.ler(ctx)).also { atual = it }
+
+        /** Esquece o foco escolhido: passa a valer o do tema (chamado quando o tema muda). */
+        fun voltarAoTema(ctx: Context) { Extras.definirNumero(ctx, KEY, -1); atual = SystemLook.atual.focoPadrao }
 
         fun gravar(ctx: Context, f: FocusStyle) { atual = f; Extras.definirNumero(ctx, KEY, f.ordinal) }
     }

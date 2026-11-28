@@ -1,9 +1,9 @@
 package br.paulo.tvlauncher.observer
 
+import br.paulo.tvlauncher.TvNotice
 import android.content.Context
 import android.media.AudioManager
 import android.util.Log
-import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.Avisos
 import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.family.Diario
@@ -35,8 +35,8 @@ object SofyTv {
             val title = texto(app, n.titleKey, n.args) ?: continue.also { Log.w(TAG, "sem frase para ${n.titleKey}") }
             val text = texto(app, n.textKey, n.args).orEmpty()
             val face = SofyDrawable(app, d.expression)
-            val r = AvisoTv.mostrar(app, title, text, SofyPolicy.secondsOnScreen("$title $text"), false, false, icone = face)
-            if (r != AvisoTv.Resultado.MOSTRADO) { Log.i(TAG, "${n.typeKey}: não mostrou ($r)"); continue }
+            val r = TvNotice.show(app, title, text, SofyPolicy.secondsOnScreen("$title $text"), false, false, icon = face)
+            if (r != TvNotice.Result.SHOWN) { Log.i(TAG, "${n.typeKey}: não mostrou ($r)"); continue }
             SofyVoice.say(app, d.voice, listOf(title, text).filter { it.isNotBlank() }.joinToString(". "), face)
             if (SofyPolicy.countsForBudget(n, d)) registrarFala(app, now.at)
             ObserverTv.markSeen(app, n.id)

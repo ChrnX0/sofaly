@@ -1,9 +1,9 @@
 package br.paulo.tvlauncher.observer
 
+import br.paulo.tvlauncher.TvNotice
 import android.app.ActivityManager
 import android.content.Context
 import android.media.AudioManager
-import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.panel.PainelSaude
@@ -30,7 +30,7 @@ object SofyAnswersTv {
             val texto = runCatching { answer(app, p) }.getOrNull() ?: return@rodar
             SofyBusTv.emit(app, SofyBus.Source.SOFY, "answered", detail = p.name.lowercase())
             ObserverTv.logShadow(app, "answered", "${p.name}: $texto")
-            AvisoTv.mostrar(app, title(app, p), texto, 20, som = false, guardarSeApagada = false, historico = false)
+            TvNotice.show(app, title(app, p), texto, 20, sound = false, keepIfScreenOff = false, history = false)
         }
     }
 
@@ -93,7 +93,7 @@ object SofyAnswersTv {
         val app = ctx.applicationContext
         Fundo.rodar("sofy-hoje") {
             val linhas = todayLines(app, today(app))
-            AvisoTv.mostrar(app, app.getString(R.string.sofy_today_title), linhas.joinToString("\n"), 20, som = false, guardarSeApagada = false, historico = false)
+            TvNotice.show(app, app.getString(R.string.sofy_today_title), linhas.joinToString("\n"), 20, sound = false, keepIfScreenOff = false, history = false)
         }
     }
 

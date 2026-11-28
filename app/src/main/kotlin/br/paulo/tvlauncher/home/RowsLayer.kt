@@ -218,7 +218,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
     fun mostrar(cats: List<HomeCruz.Categoria>, cat: Int, sel: Int, focada: Boolean, animar: Boolean) {
         ultimo = { mostrar(cats, cat, sel, focada, false) }
         val o = opcoes
-        val ids = cats.flatMap { c -> listOf("#" + c.cat.id + c.nome + "/" + WorldOptions.of(context, c.cat).let { "${it.size}x${it.lines}" }) + c.itens.map { it.id } }
+        val ids = listOf("tema:" + br.paulo.tvlauncher.settings.SystemLook.atual.name) + cats.flatMap { c -> listOf("#" + c.cat.id + c.nome + "/" + WorldOptions.of(context, c.cat).let { "${it.size}x${it.lines}" }) + c.itens.map { it.id } }
         if (ids != idsDesenhados) { refazer(cats, o); idsDesenhados = ids; nomeMostrado = null }
         val anima = animar && !semAnimacao()
         wifi.alpha = if (conectado()) 1f else 0.35f
@@ -262,7 +262,8 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
                 mover(k.raiz, dp(xs[i]), dp(cy + f.linhaDe(i) * passoLinha - fo.cardH / 2f), a, k1, anima)
                 // ícone dos itens nossos: laranja no card em foco (Paulo, 26/11/2026), a tinta escolhida fora dele
                 (k.icone.drawable as? IconeCruz)?.let { d ->
-                    val c = if (escolhido && semMenu) Estilo.corIconeNoFoco(context) else k.icone.tag as? Int
+                    val manter = k.icone.getTag(R_TAG_MANTER) == true
+                    val c = if (escolhido && semMenu && !manter) Estilo.corIconeNoFoco(context) else k.icone.tag as? Int
                     if (c != null && d.corFixa != c) d.corFixa = c
                 }
                 if (vis || (naTela && kotlin.math.abs(i - s) < 8)) pedirBanner(k)
@@ -434,7 +435,11 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
             RowsHome.IconTint.BLACK -> DesignTokens.NIGHT
             RowsHome.IconTint.ACCENT -> if (o.cardBg == RowsHome.CardBg.ACCENT) DesignTokens.NIGHT else Estilo.ACENTO
         }
-        val fundo = GradientDrawable().apply { cornerRadius = dp(o.corners.dp); setColor(cor) }
+        // tema do sistema nos itens nossos (Aconchego, Azulejos, Vidro): RowsHome.ownLook
+        val tema = (item.icone as? IconeCruz)?.takeIf { !conteudo && !app }?.let { RowsHome.ownLook(br.paulo.tvlauncher.settings.SystemLook.atual, it.tipo.name, o) }
+        val corFinal = tema?.placa ?: cor
+        val tintaFinal = tema?.tinta ?: tinta
+        val fundo = Estilo.fundo(context, corFinal, o.corners.dp.toInt(), tema?.borda ?: 0)
         raiz.background = fundo
         raiz.clipToOutline = true
         raiz.alpha = 0f
@@ -444,9 +449,10 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         val ic = ImageView(context).apply {
             scaleType = ImageView.ScaleType.FIT_CENTER
             // os itens nossos (TV, Séries, Configurações...) em traço creme sobre o grafite, como os atalhos dele
-            setImageDrawable(if (conteudo) null else (item.icone as? IconeCruz)?.let { c -> IconeCruz(c.tipo, IconeCruz.Estilo.LINHA).apply { corFixa = tinta } } ?: item.icone)
+            setImageDrawable(if (conteudo) null else (item.icone as? IconeCruz)?.let { c -> IconeCruz(c.tipo, IconeCruz.Estilo.LINHA).apply { corFixa = tintaFinal } } ?: item.icone)
         }
-        ic.tag = tinta   // a cor de volta quando o card perde o foco
+        ic.tag = tintaFinal   // a cor de volta quando o card perde o foco
+        ic.setTag(R_TAG_MANTER, tema?.manterNoFoco == true)
         raiz.addView(ic, LayoutParams(dpi(lado), dpi(lado), Gravity.CENTER))
         if (conteudo) { banner.setImageDrawable(item.icone); banner.visibility = View.VISIBLE }
         val w = o.largura(o.tvRatio)
@@ -467,7 +473,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         }
         raiz.addView(onda, LayoutParams(dpi(w), dpi(w), Gravity.CENTER))
         addView(raiz, indexOfChild(anel), LayoutParams(dpi(w), dpi(o.cardH)))
-        return Card(item, raiz, banner, ic, fundo, cor, onda, o).also { it.w = w }
+        return Card(item, raiz, banner, ic, fundo, corFinal, onda, o).also { it.w = w }
     }
 
     private fun pedirBanner(k: Card) {
@@ -526,6 +532,8 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
     private companion object {
         /** Placa dos itens nossos (atalhos): grafite neutro, nunca azulado (regra do Paulo). */
         const val PLACA_PROPRIA = 0xFF3A3A39.toInt()
+        /** Chave da tag "o ícone guarda a cor dele no foco" (tema Aconchego/Azulejos). */
+        val R_TAG_MANTER = br.paulo.tvlauncher.resources.R.id.tag_manter_cor
     }
 }
 

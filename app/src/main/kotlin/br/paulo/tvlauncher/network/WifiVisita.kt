@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher.network
 
+import br.paulo.tvlauncher.TvNotice
 import android.app.Activity
 import android.content.Context
 import android.text.InputType
@@ -7,7 +8,6 @@ import android.view.Gravity
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
-import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.CaixaTv
 import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.resources.R
@@ -50,7 +50,7 @@ object WifiVisita {
             .setView(caixa)
             .setPositiveButton("OK") { _, _ ->
                 val ok = definir(a, r.text.toString().trim(), s.text.toString())
-                if (!ok) AvisoTv.rapido(a, a.getString(R.string.l51_wifi_titulo), a.getString(R.string.l51_wifi_invalido), 5)
+                if (!ok) TvNotice.quick(a, a.getString(R.string.l51_wifi_titulo), a.getString(R.string.l51_wifi_invalido), 5)
                 fim(ok)
             }
             .setNegativeButton(a.getString(R.string.cl_cancelar), null)

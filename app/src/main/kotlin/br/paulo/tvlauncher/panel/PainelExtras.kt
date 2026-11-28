@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher.panel
 
+import br.paulo.tvlauncher.TvNotice
 import br.paulo.tvlauncher.alarm.NoiteCasa
 import android.content.Context
 import android.util.Base64
@@ -273,8 +274,11 @@ object PainelExtras {
                 val bytes = try { Base64.decode(o.optString("imagem"), Base64.DEFAULT) } catch (e: Exception) { return erro(400, "imagem inválida") }
                 val r = RecadoImagem.mostrar(app, o.optString("texto").ifBlank { null }, bytes,
                     if (o.has("segundos")) o.optInt("segundos") else null) ?: return erro(400, "imagem inválida (JPEG, PNG ou WebP até 4 MB)")
-                PainelArmazem.registrar(app, ip, "recado com foto (${bytes.size / 1024} KB)", r.name.lowercase())
-                if (r == AvisoTv.Resultado.MOSTRADO) ok() else erro(409, "a acessibilidade do launcher está desligada, ou a TV está dormindo")
+                PainelArmazem.registrar(app, ip, "recado com foto (${bytes.size / 1024} KB)", when (r) {
+                    TvNotice.Result.SHOWN -> "mostrado"; TvNotice.Result.KEPT -> "guardado"
+                    TvNotice.Result.DROPPED -> "descartado"; TvNotice.Result.NO_ACCESSIBILITY -> "sem_acessibilidade"
+                })
+                if (r == TvNotice.Result.SHOWN) ok() else erro(409, "a acessibilidade do launcher está desligada, ou a TV está dormindo")
             }
             // ---- 2ª leva (10/11/2026)
             post && rota == "caches/limpar" -> {

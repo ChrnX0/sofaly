@@ -497,10 +497,12 @@ internal fun ConfigLauncherActivity.recolherNoSimples(aba: Int, inicio: Int) {
  * Ícone dos menus (padrão do protótipo aprovado, Paulo 26/11/2026: os azulejos coloridos deixavam a tela "grosseira"):
  * o desenho da Linha em traço fino, creme apagado; acende em laranja com o foco ([acenderIcone]).
  */
-internal fun iconeDoMenu(tipo: IconeCruz.Tipo): IconeCruz = IconeCruz(tipo, IconeCruz.Estilo.LINHA).apply { corFixa = Estilo.TEXTO_2 }
+internal fun iconeDoMenu(tipo: IconeCruz.Tipo): IconeCruz = IconeCruz(tipo, IconeCruz.Estilo.LINHA).apply { corFixa = Estilo.corDoIconeSolto(tipo.name) }
 
 internal fun acenderIcone(ctx: android.content.Context, ic: IconeCruz, foco: Boolean) {
-    ic.corFixa = when { !foco -> Estilo.TEXTO_2; Estilo.focoEscurece(ctx) -> Estilo.TEXTO_NO_FOCO; else -> Estilo.ACENTO }
+    // tema do sistema: no Aconchego e nos Azulejos o ícone guarda a cor dele também no foco (como no cartão)
+    val proprio = br.paulo.tvlauncher.settings.SystemLook.atual.let { it.iconeColorido || it.iconeEmAzulejo } && !Estilo.altoContraste
+    ic.corFixa = when { !foco || (proprio && !Estilo.focoEscurece(ctx)) -> Estilo.corDoIconeSolto(ic.tipo.name); Estilo.focoEscurece(ctx) -> Estilo.TEXTO_NO_FOCO; else -> Estilo.ACENTO }
 }
 
 /** Nome de uma porta (a da casa e rede tem nome próprio; as outras usam o da 1ª aba). */

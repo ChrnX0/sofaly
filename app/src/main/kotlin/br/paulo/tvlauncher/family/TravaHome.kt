@@ -1,11 +1,11 @@
 package br.paulo.tvlauncher.family
 
+import br.paulo.tvlauncher.TvNotice
 import android.app.Activity
 import android.text.InputType
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.FrameLayout
-import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.CaixaTv
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.resources.R
@@ -36,7 +36,7 @@ object TravaHome {
         if (!precisaPin(act)) { acao(); return }
         PinTv.pedir(act, act.getString(R.string.trava_home_titulo), familia = true) { certo ->
             if (certo) { liberadoAte = System.currentTimeMillis() + LIBERADO_MS; acao() }
-            else { AvisoTv.rapido(act, act.getString(R.string.trava_home_titulo), act.getString(R.string.trava_home_errado), 4) }
+            else { TvNotice.quick(act, act.getString(R.string.trava_home_titulo), act.getString(R.string.trava_home_errado), 4) }
         }
     }
 }
