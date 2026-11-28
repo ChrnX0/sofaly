@@ -361,7 +361,15 @@ object Estilo {
 
     /** Vidro sem desfoque (o desfoque de verdade só existe em janela; ver [AvisoTv]): tinta escura + fio claro. */
     /** Vidro escuro, sem contorno (padrão único, 26/11/2026: caixa cheia, sem fio); o fio só no alto contraste. */
-    fun vidro(ctx: Context, raioDp: Int = RAIO): GradientDrawable = fundo(ctx, VIDRO_TINTA, raioDp, if (altoContraste) VIDRO_BORDA else 0)
+    fun vidro(ctx: Context, raioDp: Int = RAIO): GradientDrawable = fundo(ctx, vidroTinta(), raioDp, if (altoContraste) VIDRO_BORDA else 0)
+
+    /**
+     * Caixa sobre foto (descanso, barra da HOME) no tema do sistema (28/11/2026): Vidro = o vidro escuro de sempre;
+     * Azulejos e Aconchego = a cor da caixa do tema, com no máximo 70% de opacidade para a foto ainda aparecer.
+     */
+    fun vidroTinta(tema: br.paulo.tvlauncher.settings.SystemLook = br.paulo.tvlauncher.settings.SystemLook.atual): Int =
+        if (tema == br.paulo.tvlauncher.settings.SystemLook.GLASS) VIDRO_TINTA
+        else (minOf(tema.caixa ushr 24, 0xB3) shl 24) or (tema.caixa and 0xFFFFFF)
 
     // ------------------------------------------------------------------ foco (UMA regra no app inteiro)
 

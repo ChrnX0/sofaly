@@ -439,7 +439,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         val tema = (item.icone as? IconeCruz)?.takeIf { !conteudo && !app }?.let { RowsHome.ownLook(br.paulo.tvlauncher.settings.SystemLook.atual, it.tipo.name, o) }
         val corFinal = tema?.placa ?: cor
         val tintaFinal = tema?.tinta ?: tinta
-        val fundo = GradientDrawable().apply { cornerRadius = dp(o.corners.dp); setColor(corFinal) }
+        val fundo = Estilo.fundo(context, corFinal, o.corners.dp.toInt(), tema?.borda ?: 0)
         raiz.background = fundo
         raiz.clipToOutline = true
         raiz.alpha = 0f

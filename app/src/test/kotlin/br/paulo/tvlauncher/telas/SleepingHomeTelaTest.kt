@@ -37,6 +37,27 @@ class SleepingHomeTelaTest {
     @Config(qualifiers = "ar-ldrtl-w960dp-h540dp-land-television-xhdpi")
     @Test fun arabe() = andar("ar")
 
+    /** Tema do sistema (28/11/2026): a 1ª tela do descanso em cada tema, só a foto (descanso-tema-<tema>.png). */
+    @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi")
+    @Test fun temas() {
+        val antes = br.paulo.tvlauncher.settings.SystemLook.atual
+        try {
+            for (l in br.paulo.tvlauncher.settings.SystemLook.entries) {
+                br.paulo.tvlauncher.settings.SystemLook.atual = l
+                Forecast.dadosDeTeste = ClimaTelaTest().previsao()
+                val a = Robolectric.buildActivity(Activity::class.java).setup().get()
+                android.provider.Settings.Global.putFloat(a.contentResolver, android.provider.Settings.Global.ANIMATOR_DURATION_SCALE, 0f)
+                val s = SleepingHome(a)
+                a.setContentView(s.montar(), FrameLayout.LayoutParams(-1, -1))
+                fun linhas(): Int = (a.window.decorView as ViewGroup).findViewById<ViewGroup>(android.R.id.content)?.let { contar(it) } ?: 0
+                repeat(150) { if (linhas() < 5) { Thread.sleep(100); ShadowLooper.idleMainLooper(100, TimeUnit.MILLISECONDS) } }
+                ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
+                MedirTela.medir(a, "descanso-tema", "descanso-tema-${l.name.lowercase()}", 18f, cartao = true)
+                s.soltar(); a.finish()
+            }
+        } finally { br.paulo.tvlauncher.settings.SystemLook.atual = antes }
+    }
+
     @After fun limpar() { Forecast.dadosDeTeste = null }
 
     private fun andar(lingua: String) {
