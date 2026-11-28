@@ -2295,7 +2295,6 @@ traduzirPainelCom({T:{
 "criada no AdGuard DNS, em Configurações → Chaves de API":"AdGuard DNS'te Ayarlar → API anahtarları bölümünde oluşturuldu",
 "Ligar a TV ao AdGuard":"TV'yi AdGuard'a bağla",
 "Controle dos pais no DNS":"DNS'te ebeveyn denetimi",
-"Hora de dormir da Família também no DNS":"Ailenin uyku saati DNS'te de",
 "YouTube seguro":"Güvenli YouTube",
 "Busca segura":"Güvenli arama",
 "Bloquear sites adultos":"Yetişkin sitelerini engelle",

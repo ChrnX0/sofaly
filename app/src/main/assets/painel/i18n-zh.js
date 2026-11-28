@@ -2295,7 +2295,6 @@ traduzirPainelCom({T:{
 "criada no AdGuard DNS, em Configurações → Chaves de API":"在 AdGuard DNS 的 设置 → API 密钥 中创建",
 "Ligar a TV ao AdGuard":"将电视连接到 AdGuard",
 "Controle dos pais no DNS":"DNS 家长控制",
-"Hora de dormir da Família também no DNS":"家庭的睡觉时间也用于 DNS",
 "YouTube seguro":"安全 YouTube",
 "Busca segura":"安全搜索",
 "Bloquear sites adultos":"屏蔽成人网站",

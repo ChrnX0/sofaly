@@ -2295,7 +2295,6 @@ traduzirPainelCom({T:{
 "criada no AdGuard DNS, em Configurações → Chaves de API":"AdGuard DNS में सेटिंग्स → API कुंजियाँ में बनाई गई",
 "Ligar a TV ao AdGuard":"टीवी को AdGuard से जोड़ें",
 "Controle dos pais no DNS":"DNS में पैरेंटल कंट्रोल",
-"Hora de dormir da Família também no DNS":"परिवार का सोने का समय DNS में भी",
 "YouTube seguro":"सुरक्षित YouTube",
 "Busca segura":"सुरक्षित खोज",
 "Bloquear sites adultos":"वयस्क साइटें रोकें",

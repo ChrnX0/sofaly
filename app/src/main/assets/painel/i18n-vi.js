@@ -2295,7 +2295,6 @@ traduzirPainelCom({T:{
 "criada no AdGuard DNS, em Configurações → Chaves de API":"tạo trong AdGuard DNS, tại Cài đặt → Khóa API",
 "Ligar a TV ao AdGuard":"Kết nối TV với AdGuard",
 "Controle dos pais no DNS":"Kiểm soát của phụ huynh trong DNS",
-"Hora de dormir da Família também no DNS":"Giờ đi ngủ của Gia đình cũng áp dụng cho DNS",
 "YouTube seguro":"YouTube an toàn",
 "Busca segura":"Tìm kiếm an toàn",
 "Bloquear sites adultos":"Chặn trang web người lớn",

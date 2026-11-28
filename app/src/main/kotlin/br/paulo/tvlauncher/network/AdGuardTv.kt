@@ -3,13 +3,11 @@ package br.paulo.tvlauncher.network
 import android.content.Context
 import android.util.Log
 import br.paulo.tvlauncher.alarm.HoraDormirTv
-import br.paulo.tvlauncher.settings.Extras
 
 /**
  * A conta AdGuard DNS do dono, do lado da TV (27/11/2026). Liga as peças que já existiam:
  * - DNS privado ([Dns]) com a rede de segurança ([DnsSeguro]): se o servidor novo não resolver nomes em ~27 s, volta ao
  *   que estava antes, sozinho.
- * - Hora de dormir da Família ([HoraDormirTv]): o mesmo horário (por dia) vai para o DNS da TV.
  * - Diagnóstico: o resumo das últimas 24 h ([resumo]).
  * A lógica (pedidos, horário, a trava "só o servidor da TV") está em [AdGuardDns], testada no PC.
  * Tudo aqui faz rede: chamar FORA da thread da tela.
@@ -55,17 +53,15 @@ object AdGuardTv {
         cacheResumo = null
     }
 
-    /** As regras da Família de agora, no formato que vai para o DNS. */
-    fun regras(ctx: Context): AdGuardDns.RegrasFamilia {
-        val dormir = AdGuardStore.dormirNoDns(ctx) && Extras.ligado(ctx, Extras.Chave.HORA_DORMIR)
-        val padrao = br.paulo.tvlauncher.alarm.HoraDormir.Janela(HoraDormirTv.inicio(ctx), HoraDormirTv.fim(ctx))
-        val dias = HoraDormirTv.dias(ctx)
-        val janelas = if (!dormir) emptyList() else (0 until 7).map { d ->
-            br.paulo.tvlauncher.alarm.HoraDormir.doDia(d, dias, padrao).let { it.inicio to it.fim }
-        }
-        return AdGuardDns.RegrasFamilia(AdGuardStore.familiaLigada(ctx), janelas, AdGuardStore.servicos(ctx),
+    /**
+     * As regras da Família de agora, no formato que vai para o DNS. SEM horário (28/11/2026, teste na Sala): o
+     * screen_time_schedule do AdGuard não corta a internet, só diz QUANDO as regras dos pais valem, e é lido em UTC.
+     * Mandar a hora de dormir ali desligava o controle dos pais durante o dia. A hora de dormir fica só na TV
+     * ([HoraDormirTv]); no DNS as regras valem o dia todo.
+     */
+    fun regras(ctx: Context): AdGuardDns.RegrasFamilia =
+        AdGuardDns.RegrasFamilia(AdGuardStore.familiaLigada(ctx), emptyList(), AdGuardStore.servicos(ctx),
             AdGuardStore.youtubeSeguro(ctx), AdGuardStore.buscaSegura(ctx), AdGuardStore.bloquearAdulto(ctx))
-    }
 
     private fun assinatura(r: AdGuardDns.RegrasFamilia) =
         "${r.ligado}|${r.janelasDormir}|${r.servicosBloqueados.sorted()}|${r.youtubeSeguro}|${r.buscaSegura}|${r.bloquearAdulto}"
@@ -98,26 +94,4 @@ object AdGuardTv {
     }
 
     fun servicos(ctx: Context): List<AdGuardDns.Servico> = api(ctx).servicos()
-
-    // ---------------------------------------------------------------- vigia da hora de dormir
-
-    /** Chaves das Extras que mudam o que vai para o DNS: a chave da hora de dormir e os horários. */
-    private val CHAVES_FAMILIA = setOf(Extras.Chave.HORA_DORMIR.name, br.paulo.tvlauncher.alarm.HoraDormir.CHAVE_INICIO,
-        br.paulo.tvlauncher.alarm.HoraDormir.CHAVE_FIM, br.paulo.tvlauncher.alarm.HoraDormir.CHAVE_DIAS)
-    private val principal by lazy { android.os.Handler(android.os.Looper.getMainLooper()) }
-    @Volatile private var ouvinte: android.content.SharedPreferences.OnSharedPreferenceChangeListener? = null   // referência forte
-
-    /**
-     * Mudou a hora de dormir (no painel ou na TV)? Espera 5 s (a pessoa costuma mexer em vários campos) e grava no DNS.
-     * Também confere uma vez 1 min depois de abrir (pega mudanças feitas com a TV sem internet).
-     */
-    fun vigiarFamilia(ctx: Context) {
-        val app = ctx.applicationContext
-        if (ouvinte != null) return
-        val gravar = Runnable { br.paulo.tvlauncher.Fundo.rodar("adguard") { sincronizarFamilia(app) } }
-        ouvinte = android.content.SharedPreferences.OnSharedPreferenceChangeListener { _, chave ->
-            if (chave in CHAVES_FAMILIA && AdGuardStore.ligada(app)) { principal.removeCallbacks(gravar); principal.postDelayed(gravar, 5_000) }
-        }.also { Extras.ouvir(app, it) }
-        principal.postDelayed(gravar, 60_000)
-    }
 }

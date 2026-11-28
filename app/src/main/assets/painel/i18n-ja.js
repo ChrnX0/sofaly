@@ -2295,7 +2295,6 @@ traduzirPainelCom({T:{
 "criada no AdGuard DNS, em Configurações → Chaves de API":"AdGuard DNS の 設定 → API キー で作成したもの",
 "Ligar a TV ao AdGuard":"テレビを AdGuard につなぐ",
 "Controle dos pais no DNS":"DNS のペアレンタルコントロール",
-"Hora de dormir da Família também no DNS":"ファミリーのおやすみ時間を DNS にも",
 "YouTube seguro":"安全な YouTube",
 "Busca segura":"セーフサーチ",
 "Bloquear sites adultos":"アダルトサイトをブロック",
