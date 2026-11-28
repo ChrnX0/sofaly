@@ -28,6 +28,9 @@
         <item>Tela inicial: a fileira que sobe não parece mais passar por baixo do resumo</item>
         <item>Jogos e Ouvir no mesmo grafite das outras telas</item>
         <item>Filtro noturno: com a TV apagada a película âmbar sai e libera memória; ela volta assim que a tela acende</item>
+        <item>Temas: escolha o visual do sistema inteiro em Ajuste fino › Tema. O novo Vidro colorido é o de fábrica (caixas de vidro, cada ícone com a sua cor); também há Aconchego, Azulejos e Vidro. Vale na TV, nas Configurações, no painel web e no celular</item>
+        <item>Configurações: as abas mostram o nome inteiro, sem partir a palavra; sem espaço, ficam sem o ícone</item>
+        <item>AdGuard DNS: o controle dos pais vale o dia todo; a hora de dormir fica só na TV</item>
     </string-array>
     <string-array name="roteiro_titulos">
         <item>Câmera do celular</item>
@@ -37,6 +40,8 @@
         <item>AdGuard DNS</item>
         <item>Tirar do Continuar</item>
         <item>Filtro noturno</item>
+        <item>Tema</item>
+        <item>Abas do Sistema</item>
     </string-array>
     <string-array name="roteiro_perguntas">
         <item>No app do celular, toque em Ler o QR da TV e responda Não permitir à pergunta da câmera: o app oferece Tentar de novo, na língua do celular?</item>
@@ -46,5 +51,7 @@
         <item>No painel, abra Roteador › AdGuard DNS, cole a chave e toque em Ligar a TV ao AdGuard: Configurações › Rede › DNS particular mostra “AdGuard (pessoal)” e o Diagnóstico mostra a linha do AdGuard?</item>
         <item>Em Filmes › Continuar, abra a ficha de um filme e toque em Tirar do Continuar: ele sai da fileira Continuar e do destaque de Filmes na tela inicial?</item>
         <item>À noite, com o filtro noturno ligado, apague e acenda a TV: o âmbar volta na hora?</item>
+        <item>A tela inicial e as Configurações estão no Vidro colorido (caixas de vidro, cada ícone com uma cor diferente)? Trocar o tema em Ajuste fino › Tema muda tudo na hora?</item>
+        <item>Em Configurações › Sistema, as abas Sistema, Ajuda e Avançado aparecem com o nome inteiro, sem quebrar a palavra?</item>
     </string-array>
 </resources>

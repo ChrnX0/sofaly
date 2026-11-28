@@ -21,6 +21,9 @@ and in the [README](https://github.com/ChrnX0/sofaly#readme).
 - Home screen: the row that scrolls up no longer seems to slide under the summary
 - Games and Listen use the same graphite as the other screens
 - Night filter: while the TV is off the amber layer goes away and frees memory; it comes back as soon as the screen turns on
+- Themes: pick the look of the whole system in Fine tune › Theme. The new Colored glass is the default (glass boxes, each icon in its own colour); Cozy, Tiles and Glass are there too. It applies to the TV, Settings, the web panel and the phone
+- Settings: tabs show their whole name without splitting a word; without room they drop the icon
+- AdGuard DNS: parental controls apply all day; bedtime stays on the TV
 <!-- /auto:changes -->
 
 ### Download
