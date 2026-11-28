@@ -111,7 +111,7 @@ class ElencoActivity : Activity() {
             }, LinearLayout.LayoutParams(dp(130), -2))
             card.addView(TextView(this).apply {
                 text = p.personagem; textSize = Estilo.Leitura.CARD - 1; setTextColor(Estilo.TEXTO_3); gravity = Gravity.CENTER
-                maxLines = 1; ellipsize = TextUtils.TruncateAt.END
+                maxLines = 2; ellipsize = TextUtils.TruncateAt.END   // 2 linhas: "Samwise Gamgee" saía cortado (fotos com dados, 27/11/2026)
             }, LinearLayout.LayoutParams(dp(130), -2))
             Estilo.focoCard(card)
             val anterior = card.onFocusChangeListener

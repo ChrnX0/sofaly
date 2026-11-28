@@ -492,6 +492,36 @@ object Estilo {
     }
 
     /**
+     * Nome que não parte palavra no meio (auditoria com dados, 27/11/2026: "Caça-palavra/s", "Quebra-ca/beça", "Siste/ma").
+     * Palavra com hífen pode quebrar logo depois do hífen (um espaço de largura zero vira o ponto de quebra) e, se ainda
+     * assim a maior palavra não couber na largura do texto, a letra diminui até [minFator] do tamanho original. Vale
+     * para o texto de agora e para os que vierem depois (setText).
+     */
+    fun semPartirPalavra(tv: TextView, minFator: Float = 0.8f) {
+        val base = tv.textSize
+        var ajustando = false
+        fun ajustar() {
+            if (ajustando) return
+            val w = tv.width - tv.compoundPaddingLeft - tv.compoundPaddingRight
+            if (w <= 0) return
+            ajustando = true
+            val t = tv.text?.toString().orEmpty()
+            if (t.contains('-') && !t.contains('\u200B')) tv.text = t.replace("-", "-\u200B")
+            val p = android.text.TextPaint(tv.paint).apply { textSize = base }
+            val maior = t.split(' ', '\n', '\u200B', '-').maxOfOrNull { p.measureText(it + "-") } ?: 0f
+            val alvo = if (maior > w) (base * w / maior).coerceAtLeast(base * minFator) else base
+            if (kotlin.math.abs(tv.textSize - alvo) > 0.5f) tv.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, alvo)
+            ajustando = false
+        }
+        tv.addOnLayoutChangeListener { _, l, _, r, _, ol, _, or_, _ -> if (r - l != or_ - ol) tv.post { ajustar() } }
+        tv.addTextChangedListener(object : android.text.TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, a: Int, b: Int, c: Int) {}
+            override fun onTextChanged(s: CharSequence?, a: Int, b: Int, c: Int) {}
+            override fun afterTextChanged(s: android.text.Editable?) { if (!ajustando) tv.post { ajustar() } }
+        })
+    }
+
+    /**
      * Cartão (Paulo aprovou a prévia "Arte com véu", 26/11/2026): a peça das Fileiras fora da HOME. Uma caixa de vidro
      * com o ícone no centro e, embaixo dela, o nome; o [detalhe] aparece só no cartão em foco. Foco = caixa mais clara,
      * borda creme e ícone laranja ([fundoFocado], [corIconeNoFoco]). Use em fileiras de até 6 ([filaDeCartoes]).
@@ -505,6 +535,7 @@ object Estilo {
             addView(desenho, FrameLayout.LayoutParams(dp(ctx, 28), dp(ctx, 28), Gravity.CENTER))
         }
         val tNome = texto(ctx, Papel.CORPO, nome).apply { maxLines = 3; ellipsize = TextUtils.TruncateAt.END; setTextColor(TEXTO_2) }   // até 3 linhas (6 por fileira): "Casa e acesso remoto" não cabe em 2 (teste de telas, 27/11/2026)
+        semPartirPalavra(tNome)
         val tDet = detalhe?.let { texto(ctx, Papel.LEGENDA, it).apply { maxLines = 4; ellipsize = TextUtils.TruncateAt.END; visibility = View.INVISIBLE } }
         return LinearLayout(ctx).apply {
             orientation = LinearLayout.VERTICAL

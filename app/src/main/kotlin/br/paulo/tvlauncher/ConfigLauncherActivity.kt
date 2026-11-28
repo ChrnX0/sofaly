@@ -426,6 +426,7 @@ class ConfigLauncherActivity : Activity() {
                 .setDuration(Estilo.FOCO_MS).start()
         }
         setOnClickListener { entrarNoConteudo() }
+        Estilo.semPartirPalavra(this)   // "Siste/ma", "Avanç/ado" nas pílulas agrupadas (fotos com dados, 27/11/2026)
         itensMenu += this
     }
 

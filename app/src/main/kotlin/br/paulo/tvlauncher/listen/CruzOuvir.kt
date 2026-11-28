@@ -790,7 +790,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         barraGrupo?.text = p?.nome?.replace("\n", " · ").orEmpty()
         barraNome?.text = atual?.nome?.replace("\n", " ").orEmpty()
         barraSub?.let { t ->
-            val sub = atual?.sub?.replace("\n", " · ").orEmpty()
+            val sub = atual?.sub?.replace("\n", " ·\u00A0").orEmpty()
             t.text = sub; t.visibility = if (sub.isEmpty()) View.GONE else View.VISIBLE
         }
         barraBloco?.alpha = if (focada) 1f else HomeCruz.ALFA_ESCOLHIDO_FORA
@@ -982,6 +982,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
             addView(icone, FrameLayout.LayoutParams(dpi(40), dpi(40), Gravity.CENTER))
         }
         val nome = Estilo.texto(context, Estilo.Papel.CORPO).apply { maxLines = 3; ellipsize = TextUtils.TruncateAt.END; setTextColor(Estilo.TEXTO_2) }   // 3 linhas: nome de podcast inteiro
+        Estilo.semPartirPalavra(nome)
         val pid = prats[j].id
         val so = item.abrir === NADA && item.opcoes == null
         return LinearLayout(context).apply {
@@ -1026,7 +1027,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
 
     private fun preencherCartao(v: View, item: Item) {
         val c = v.tag as? Cartao ?: return
-        if (c.nome.text.toString() != item.nome) c.nome.text = item.nome
+        if (c.nome.text.toString().replace("\u200B", "") != item.nome) c.nome.text = item.nome
         v.contentDescription = listOf(item.nome, item.sub.replace('\n', ' ')).filter { it.isNotEmpty() }.joinToString(". ")
         // Com capa (logo, capa do podcast, ícone do jogo, iniciais/bandeira): a capa enche a caixa. Só ícone (Pausar,
         // Buscar...): o ícone de linha no meio da caixa de vidro, creme, laranja no foco (o mesmo do [Estilo.cartao]).
@@ -1056,7 +1057,8 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
     private fun atualizarInfo() {
         val i = itemAtual()
         filInfoNome?.text = i?.nome.orEmpty()
-        filInfoSub?.text = i?.sub?.replace("\n", " · ").orEmpty()
+        // "·" preso à palavra seguinte: a linha não termina mais em " · " na quebra (fotos com dados, 27/11/2026).
+        filInfoSub?.text = i?.sub?.replace("\n", " ·\u00A0").orEmpty()
     }
 
     /** Põe o foco no cartão lembrado da fileira atual (ou no 1º que pega foco). */
