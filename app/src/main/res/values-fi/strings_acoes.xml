@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">Etsi ja toista ”%1$s”</string>
     <string name="acao_tocar">Toista %1$s</string>
     <string name="acao_continuar">Jatka sitä, mikä soi</string>
+    <string name="acao_tirar_continuar">Poista %1$s Jatka katsomista -listalta</string>
     <string name="acao_proximo">Toista seuraava jakso</string>
     <string name="acao_proximo_de">Sarjan %1$s seuraava jakso</string>
     <string name="acao_o_que_via">Katso, mikä soi</string>

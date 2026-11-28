@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">Procurar e tocar “%1$s”</string>
     <string name="acao_tocar">Tocar %1$s</string>
     <string name="acao_continuar">Continuar o que estava a ver</string>
+    <string name="acao_tirar_continuar">Tirar %1$s do Continuar</string>
     <string name="acao_proximo">Tocar o próximo episódio</string>
     <string name="acao_proximo_de">Próximo episódio de %1$s</string>
     <string name="acao_o_que_via">Ver o que estava a ver</string>

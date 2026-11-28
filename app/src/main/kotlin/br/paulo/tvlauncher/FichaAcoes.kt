@@ -91,7 +91,7 @@ object FichaAcoes {
         "versao" -> IconeFicha.Tipo.VERSAO
         "colecao" -> IconeFicha.Tipo.COLECAO
         "sinopse" -> IconeFicha.Tipo.SINOPSE
-        "naoeeste" -> IconeFicha.Tipo.NAO_E_ESTE
+        "naoeeste", "tirarcontinuar" -> IconeFicha.Tipo.NAO_E_ESTE
         "onde" -> IconeFicha.Tipo.ONDE
         else -> null
     }

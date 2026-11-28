@@ -2295,7 +2295,6 @@ traduzirPainelCom({T:{
 "criada no AdGuard DNS, em Configurações → Chaves de API":"az AdGuard DNS-ben, a Beállítások → API-kulcsok alatt létrehozva",
 "Ligar a TV ao AdGuard":"A tévé összekapcsolása az AdGuarddal",
 "Controle dos pais no DNS":"Szülői felügyelet a DNS-ben",
-"Hora de dormir da Família também no DNS":"A Család lefekvési ideje a DNS-ben is",
 "YouTube seguro":"Biztonságos YouTube",
 "Busca segura":"Biztonságos keresés",
 "Bloquear sites adultos":"Felnőtt oldalak tiltása",

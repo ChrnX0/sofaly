@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">Tìm và phát “%1$s”</string>
     <string name="acao_tocar">Phát %1$s</string>
     <string name="acao_continuar">Tiếp tục nội dung đang phát</string>
+    <string name="acao_tirar_continuar">Xóa %1$s khỏi Xem tiếp</string>
     <string name="acao_proximo">Phát tập tiếp theo</string>
     <string name="acao_proximo_de">Tập tiếp theo của %1$s</string>
     <string name="acao_o_que_via">Xem nội dung đang phát</string>

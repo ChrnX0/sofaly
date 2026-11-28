@@ -22,6 +22,12 @@
         <item>Automações: cada evento mostra o valor embaixo do nome, e as abas dos ajustes esmaecem na borda</item>
         <item>App do celular: TV fora do ar mostra um aviso claro no app, em vez da página de erro do navegador</item>
         <item>Assistente: quando uma ação é bloqueada, ele aponta para Sistema › Avançado › Confirmações</item>
+        <item>Filmes: a ficha do filme ganhou “Tirar do Continuar”, e o assistente também tira um título do Continuar pelo nome; o filme tirado sai também do destaque da tela inicial</item>
+        <item>Configurações abrem direto na aba pedida; as abas, Casa e Jogos não cortam mais o texto</item>
+        <item>Nomes não quebram mais uma palavra no meio; personagem e detalhes no Elenco aparecem inteiros</item>
+        <item>Tela inicial: a fileira que sobe não parece mais passar por baixo do resumo</item>
+        <item>Jogos e Ouvir no mesmo grafite das outras telas</item>
+        <item>Filtro noturno: com a TV apagada a película âmbar sai e libera memória; ela volta assim que a tela acende</item>
     </string-array>
     <string-array name="roteiro_titulos">
         <item>Câmera do celular</item>
@@ -29,6 +35,8 @@
         <item>Microfone do painel</item>
         <item>Legenda e ajustes</item>
         <item>AdGuard DNS</item>
+        <item>Tirar do Continuar</item>
+        <item>Filtro noturno</item>
     </string-array>
     <string-array name="roteiro_perguntas">
         <item>No app do celular, toque em Ler o QR da TV e responda Não permitir à pergunta da câmera: o app oferece Tentar de novo, na língua do celular?</item>
@@ -36,5 +44,7 @@
         <item>No painel pelo celular, ligue e depois desligue o microfone: o aviso “Microfone ligado” some?</item>
         <item>Com um filme aberto, ligue a legenda, mude o atraso da legenda e, nas Configurações, um ajuste do player; reabra o filme: os dois ficaram?</item>
         <item>No painel, abra Roteador › AdGuard DNS, cole a chave e toque em Ligar a TV ao AdGuard: Configurações › Rede › DNS particular mostra “AdGuard (pessoal)” e o Diagnóstico mostra a linha do AdGuard?</item>
+        <item>Em Filmes › Continuar, abra a ficha de um filme e toque em Tirar do Continuar: ele sai da fileira Continuar e do destaque de Filmes na tela inicial?</item>
+        <item>À noite, com o filtro noturno ligado, apague e acenda a TV: o âmbar volta na hora?</item>
     </string-array>
 </resources>

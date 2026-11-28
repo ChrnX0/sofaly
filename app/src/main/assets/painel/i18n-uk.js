@@ -2295,7 +2295,6 @@ traduzirPainelCom({T:{
 "criada no AdGuard DNS, em Configurações → Chaves de API":"створений в AdGuard DNS: Налаштування → API-ключі",
 "Ligar a TV ao AdGuard":"Під'єднати телевізор до AdGuard",
 "Controle dos pais no DNS":"Батьківський контроль у DNS",
-"Hora de dormir da Família também no DNS":"Час сну з «Сім'ї» і в DNS",
 "YouTube seguro":"Безпечний YouTube",
 "Busca segura":"Безпечний пошук",
 "Bloquear sites adultos":"Блокувати сайти для дорослих",

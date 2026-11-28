@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">Trouver et lire « %1$s »</string>
     <string name="acao_tocar">Lire %1$s</string>
     <string name="acao_continuar">Reprendre ce qui passait</string>
+    <string name="acao_tirar_continuar">Retirer %1$s de Reprendre</string>
     <string name="acao_proximo">Lire l’épisode suivant</string>
     <string name="acao_proximo_de">Épisode suivant de %1$s</string>
     <string name="acao_o_que_via">Voir ce qui passait</string>

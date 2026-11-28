@@ -20,6 +20,9 @@ object VodBusca {
         val doComeco: Boolean, val serieChave: String = "", val episodio: Episodio? = null,
     )
 
+    /** Um título do Continuar a tirar: [chave] do filme (posições) ou da série (últimos episódios). */
+    class NoContinuar(val chave: String, val serie: Boolean, val titulo: String)
+
     /** O que a TV tem. [ficha] baixa a lista de episódios de uma série (rede): só é chamada quando precisa. */
     class Dados(
         val filmes: List<Filme>, val series: List<Serie>, val posicoes: Map<String, Posicao>,
@@ -76,7 +79,8 @@ object VodBusca {
             if (!ehVod(a)) { acoes += a; continue }
             val tipo = when (a) {
                 is ComandosIa.Acao.TocarTitulo -> "tocar_titulo"; is ComandosIa.Acao.Continuar -> "continuar"
-                is ComandosIa.Acao.ProximoEpisodio -> "proximo_episodio"; else -> "o_que_estava_vendo"
+                is ComandosIa.Acao.ProximoEpisodio -> "proximo_episodio"; is ComandosIa.Acao.TirarDoContinuar -> "tirar_do_continuar"
+                else -> "o_que_estava_vendo"
             }
             if (d == null || (d.filmes.isEmpty() && d.series.isEmpty())) {
                 recusadas += "$tipo: a TV ainda não tem a lista de Filmes e Séries guardada (abra Filmes ou Séries uma vez)"; continue
@@ -93,6 +97,11 @@ object VodBusca {
                     if (i == null) recusadas += "$tipo: nada começado em Filmes e Séries"
                     else continuarItem(i, d)?.let { acoes += ComandosIa.Acao.Continuar(it) } ?: run { recusadas += "$tipo: a série não abriu (sem internet?)" }
                 }
+                is ComandosIa.Acao.TirarDoContinuar -> {
+                    val n = noContinuar(a.pedido, d)
+                    if (n == null) recusadas += "$tipo: \"${a.pedido.take(40)}\" não está no Continuar"
+                    else acoes += ComandosIa.Acao.TirarDoContinuar(a.pedido, n)
+                }
                 is ComandosIa.Acao.ProximoEpisodio -> {
                     val s = if (a.pedido.isEmpty()) recentes(d, Int.MAX_VALUE).filterIsInstance<Item.DeSerie>().firstOrNull()?.serie
                         else (achar(a.pedido, d, soSeries = true) as? Item.DeSerie)?.serie
@@ -106,6 +115,20 @@ object VodBusca {
             }
         }
         return ComandosIa.Plano(acoes, plano.resposta, recusadas)
+    }
+
+    /**
+     * O título do Continuar que combina com [termo] (a mesma regra do [achar]), procurado SÓ entre os que estão lá: filmes
+     * com ponto para retomar ([Vod.deveRetomar], a regra da tela Filmes) e séries com episódio aberto (tela Séries).
+     */
+    fun noContinuar(termo: String, d: Dados): NoContinuar? {
+        val so = Dados(d.filmes.filter { Vod.deveRetomar(d.posicoes[it.chave]) }, d.series.filter { it.chave in d.ultimos },
+            d.posicoes, d.ultimos, d.ficha)
+        return when (val i = achar(termo, so)) {
+            is Item.DeFilme -> NoContinuar(i.filme.chave, serie = false, Vod.nomeLimpo(i.filme.nome))
+            is Item.DeSerie -> NoContinuar(i.serie.chave, serie = true, Vod.nomeLimpo(i.serie.nome))
+            null -> null
+        }
     }
 
     /** O episódio depois do último aberto; sem nenhum aberto, o primeiro. */
@@ -124,5 +147,5 @@ object VodBusca {
     }
 
     private fun ehVod(a: ComandosIa.Acao) = a is ComandosIa.Acao.TocarTitulo || a is ComandosIa.Acao.Continuar ||
-        a is ComandosIa.Acao.ProximoEpisodio || a is ComandosIa.Acao.OQueEstavaVendo
+        a is ComandosIa.Acao.ProximoEpisodio || a is ComandosIa.Acao.OQueEstavaVendo || a is ComandosIa.Acao.TirarDoContinuar
 }

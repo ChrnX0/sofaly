@@ -25,6 +25,12 @@
         <item>Automations: each event shows its value under the name, and the settings tabs fade at the edge</item>
         <item>Phone app: a TV that is offline shows a clear notice in the app instead of a browser error page</item>
         <item>Assistant: when an action is blocked, it points to System › Advanced › Confirmations</item>
+        <item>Movies: the movie page now has “Remove from Continue watching”, and the assistant can also remove a title from it by name; the removed movie also leaves the home screen highlight</item>
+        <item>Settings open straight on the requested tab; the tabs, Home and Games no longer cut text</item>
+        <item>Names no longer break a word in the middle; character and details in Cast show in full</item>
+        <item>Home screen: the row that scrolls up no longer seems to slide under the summary</item>
+        <item>Games and Listen use the same graphite as the other screens</item>
+        <item>Night filter: while the TV is off the amber layer goes away and frees memory; it comes back as soon as the screen turns on</item>
     </string-array>
     <string-array name="roteiro_ids" translatable="false">
         <item>celular_camera</item>
@@ -32,6 +38,8 @@
         <item>painel_aviso_mic</item>
         <item>legenda_ajustes</item>
         <item>adguard_dns</item>
+        <item>tirar_continuar</item>
+        <item>filtro_noturno_acordar</item>
     </string-array>
     <string-array name="roteiro_titulos">
         <item>Phone camera</item>
@@ -39,6 +47,8 @@
         <item>Panel microphone</item>
         <item>Subtitles and settings</item>
         <item>AdGuard DNS</item>
+        <item>Remove from Continue watching</item>
+        <item>Night filter</item>
     </string-array>
     <string-array name="roteiro_perguntas">
         <item>In the phone app, tap Read the TV\'s QR code and answer Don\'t allow to the camera question: does the app offer Try again, in the phone\'s language?</item>
@@ -46,5 +56,7 @@
         <item>In the panel on the phone, turn the microphone on and then off: does the “Microphone on” notice go away?</item>
         <item>With a film open, turn subtitles on, change the subtitle delay and, in Settings, a player setting; reopen the film: did both stick?</item>
         <item>In the panel, open Router › AdGuard DNS, paste the key and tap Connect the TV to AdGuard: does Settings › Network › Private DNS show “AdGuard (personal)” and does Diagnostics show the AdGuard line?</item>
+        <item>In Movies › Continue watching, open a movie\'s page and tap Remove from Continue watching: does it leave the Continue watching row and the Movies highlight on the home screen?</item>
+        <item>At night, with the night filter on, turn the TV off and on again: does the amber come back right away?</item>
     </string-array>
 </resources>

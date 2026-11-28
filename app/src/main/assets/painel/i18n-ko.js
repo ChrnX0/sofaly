@@ -2295,7 +2295,6 @@ traduzirPainelCom({T:{
 "criada no AdGuard DNS, em Configurações → Chaves de API":"AdGuard DNS의 설정 → API 키에서 만든 키",
 "Ligar a TV ao AdGuard":"TV를 AdGuard에 연결",
 "Controle dos pais no DNS":"DNS 자녀 보호",
-"Hora de dormir da Família também no DNS":"가족 취침 시간을 DNS에도",
 "YouTube seguro":"안전한 YouTube",
 "Busca segura":"세이프서치",
 "Bloquear sites adultos":"성인 사이트 차단",

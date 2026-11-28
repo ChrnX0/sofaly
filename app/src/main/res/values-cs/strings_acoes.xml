@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">Najít a přehrát „%1$s“</string>
     <string name="acao_tocar">Přehrát %1$s</string>
     <string name="acao_continuar">Pokračovat v tom, co hrálo</string>
+    <string name="acao_tirar_continuar">Odebrat %1$s z Pokračovat ve sledování</string>
     <string name="acao_proximo">Přehrát další díl</string>
     <string name="acao_proximo_de">Další díl seriálu %1$s</string>
     <string name="acao_o_que_via">Zobrazit, co hrálo</string>

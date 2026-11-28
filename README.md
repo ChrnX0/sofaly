@@ -120,6 +120,12 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 - Automations: each event shows its value under the name, and the settings tabs fade at the edge
 - Phone app: a TV that is offline shows a clear notice in the app instead of a browser error page
 - Assistant: when an action is blocked, it points to System › Advanced › Confirmations
+- Movies: the movie page now has “Remove from Continue watching”, and the assistant can also remove a title from it by name; the removed movie also leaves the home screen highlight
+- Settings open straight on the requested tab; the tabs, Home and Games no longer cut text
+- Names no longer break a word in the middle; character and details in Cast show in full
+- Home screen: the row that scrolls up no longer seems to slide under the summary
+- Games and Listen use the same graphite as the other screens
+- Night filter: while the TV is off the amber layer goes away and frees memory; it comes back as soon as the screen turns on
 <!-- /auto:changes -->
 
 ## Every feature

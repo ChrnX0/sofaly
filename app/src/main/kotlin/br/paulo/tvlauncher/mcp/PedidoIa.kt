@@ -312,6 +312,11 @@ object PedidoIa {
             is ComandosIa.Acao.Continuar -> return VodTv.tocar(app, a.alvo)
             is ComandosIa.Acao.ProximoEpisodio -> return VodTv.tocar(app, a.alvo)
             is ComandosIa.Acao.OQueEstavaVendo -> {}
+            // Disco fora da thread da tela (esta função roda nela); o título já foi conferido no VodTv.resolver.
+            is ComandosIa.Acao.TirarDoContinuar -> {
+                val alvo = a.alvo ?: return "título não conferido"
+                Fundo.rodar("tirar-continuar") { VodTv.tirarDoContinuar(app, alvo) }
+            }
             // Botão de outro app: só o que o dono ligou (OK + certificado) e com o plano que permite plugins. O app de
             // terceiro responde fora da thread da tela, com prazo e placar de saúde (PluginTilesTv.clicar).
             is ComandosIa.Acao.PluginButton -> {

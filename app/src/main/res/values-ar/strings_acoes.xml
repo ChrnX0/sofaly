@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">ابحث عن “%1$s” وشغّله</string>
     <string name="acao_tocar">تشغيل %1$s</string>
     <string name="acao_continuar">استئناف ما كان يُعرض</string>
+    <string name="acao_tirar_continuar">إزالة %1$s من متابعة المشاهدة</string>
     <string name="acao_proximo">تشغيل الحلقة التالية</string>
     <string name="acao_proximo_de">الحلقة التالية من %1$s</string>
     <string name="acao_o_que_via">عرض ما كان يُعرض</string>

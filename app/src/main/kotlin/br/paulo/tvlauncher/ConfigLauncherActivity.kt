@@ -1623,6 +1623,9 @@ internal class AbasQueCabem(ctx: android.content.Context) : LinearLayout(ctx) {
         // 1º a largura que as abas querem (sem limite): medindo já com o limite, a última vem espremida e a soma "cabe".
         super.onMeasure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED), alturaSpec)
         val soma = measuredWidth
+        val comIcone = (0 until childCount).count { getChildAt(it).visibility != android.view.View.GONE && iconeGuardado(getChildAt(it)) != null }
+        // Compacta mas, com o ícone de volta, ainda caberia: volta ao jeito cheio e mede de novo.
+        if (compacto && soma + comIcone * folgaDoIcone <= limite) { trocarCompacto(false); onMeasure(larguraSpec, alturaSpec); return }
         if (soma <= limite) { super.onMeasure(larguraSpec, alturaSpec); return }
         // Não cabe: cada aba fica com a fatia proporcional ao que queria. Partes iguais quebravam a aba de nome
         // longo no meio da palavra ("auto/mações"), enquanto a curta sobrava.
@@ -1634,6 +1637,10 @@ internal class AbasQueCabem(ctx: android.content.Context) : LinearLayout(ctx) {
         val minimo = IntArray(childCount) { if (visivel(it)) minimoSemPartir(getChildAt(it)).coerceAtMost(desejo[it]) else 0 }
         val margens = (0 until childCount).filter(visivel).sumOf { (getChildAt(it).layoutParams as LayoutParams).let { lp -> lp.marginStart + lp.marginEnd } }
         val cabeMinimo = minimo.sum() + margens + paddingStart + paddingEnd <= limite
+        // 28/11/2026 (Sala, porta Sistema: "Siste/ma", "Aju/da", "Avança/do"): nem o mínimo cabia, porque o ícone e as
+        // margens internas comem ~54 dp de cada aba na coluna estreita. Sem caber, as abas perdem o ícone (o nome fica
+        // inteiro, na letra de sempre) e medem de novo.
+        if (!cabeMinimo && !compacto && comIcone > 0) { trocarCompacto(true); onMeasure(larguraSpec, alturaSpec); return }
         for (i in 0 until childCount) (getChildAt(i).layoutParams as LayoutParams).apply {
             if (cabeMinimo) { width = minimo[i]; weight = (desejo[i] - minimo[i]).toFloat() } else { width = 0; weight = desejo[i].toFloat() }
         }
@@ -1643,7 +1650,31 @@ internal class AbasQueCabem(ctx: android.content.Context) : LinearLayout(ctx) {
     /** Largura em que o nome da aba cabe sem partir palavra: ícone, margens internas e a palavra mais longa. */
     private fun minimoSemPartir(v: android.view.View): Int {
         val t = v as? android.widget.TextView ?: return v.measuredWidth
-        val palavra = t.text?.toString().orEmpty().replace("\u200B", "").split(' ', '\n').maxOfOrNull { t.paint.measureText(it) } ?: 0f
+        // Mede no peso da aba escolhida/com foco (400), que é mais larga que a de repouso (300): senão a escolhida parte.
+        val tinta = android.text.TextPaint(t.paint).apply { typeface = br.paulo.tvlauncher.Estilo.fonte(400) }
+        val palavra = t.text?.toString().orEmpty().replace("\u200B", "").split(' ', '\n').maxOfOrNull { tinta.measureText(it) } ?: 0f
         return t.compoundPaddingLeft + t.compoundPaddingRight + kotlin.math.ceil(palavra).toInt() + 1
+    }
+
+    /** Sem caber, as abas ficam sem o ícone e com margem interna menor ([trocarCompacto]). */
+    private var compacto = false
+    private val icones = HashMap<android.view.View, android.graphics.drawable.Drawable>()
+    private fun dp(v: Int) = (v * resources.displayMetrics.density).toInt()
+    /** O que o ícone ocupa numa aba: 28 dp do desenho, 10 dp até o nome e 2 × 8 dp de margem interna a mais. */
+    private val folgaDoIcone get() = dp(28 + 10 + 16)
+
+    private fun iconeGuardado(v: android.view.View): android.graphics.drawable.Drawable? =
+        icones[v] ?: (v as? android.widget.TextView)?.compoundDrawablesRelative?.get(0)
+
+    private fun trocarCompacto(sim: Boolean) {
+        compacto = sim
+        for (i in 0 until childCount) {
+            val t = getChildAt(i) as? android.widget.TextView ?: continue
+            val icone = iconeGuardado(t) ?: continue
+            icones[t] = icone
+            t.setCompoundDrawablesRelative(if (sim) null else icone, null, null, null)
+            val lado = dp(if (sim) 12 else 20)
+            t.setPaddingRelative(lado, t.paddingTop, lado, t.paddingBottom)
+        }
     }
 }

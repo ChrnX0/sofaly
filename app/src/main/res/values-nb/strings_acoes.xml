@@ -17,6 +17,7 @@
     <string name="acao_tocar_titulo">Finn og spill av «%1$s»</string>
     <string name="acao_tocar">Spill av %1$s</string>
     <string name="acao_continuar">Fortsett det som spilte</string>
+    <string name="acao_tirar_continuar">Fjern %1$s fra Fortsett å se</string>
     <string name="acao_proximo">Spill av neste episode</string>
     <string name="acao_proximo_de">Neste episode av %1$s</string>
     <string name="acao_o_que_via">Se hva som spilte</string>

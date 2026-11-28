@@ -54,6 +54,8 @@ class LauncherApp : Application() {
         AppContext.app = this   // txt/txtN e os módulos de área (refatoração G)
         // Módulos de área: a assinatura do relay (cota do dia por TV) usa a chave da TV, que mora no app.
         RelaySign.headers = { m, p, b -> br.paulo.tvlauncher.relay.RelayTv.assinatura(m, p, b) }
+        // Módulos de área: o aviso na tela (TvNotice, no :core) é desenhado pelo AvisoTv, que mora no app.
+        TvNotice.display = AvisoTv.comoTvNotice
         // Módulo :weather: a fonte pelo plano mora no app.
         br.paulo.tvlauncher.weather.WeatherHost.kind = { c -> br.paulo.tvlauncher.weather.DataSources.weather(c) }
         // Módulo :media: fichas pelo TMDB conforme contrato, plano e chave (DataSources, no app).
@@ -76,8 +78,6 @@ class LauncherApp : Application() {
         VigiaAtualizacao.aoIniciar(this)
         VigiaAtualizacao.vigiarTelas(this)
         br.paulo.tvlauncher.home.GpuTrim.vigiar(this)   // etapa 4b da G: tela apagada há 30 s = GPU da HOME solta
-        // Conta AdGuard DNS (27/11/2026): hora de dormir mudou = leva para o DNS da TV. Só no processo principal.
-        if (android.os.Build.VERSION.SDK_INT < 28 || getProcessName() == packageName) br.paulo.tvlauncher.network.AdGuardTv.vigiarFamilia(this)
         br.paulo.tvlauncher.parts.PartsInstall.install(this)   // refatoração G: parte que falta é pedida quando a função precisa
         Moldura.instalar(this)   // a hora da HOME no mesmo lugar nas telas de lista (Moldura.kt)
         registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {

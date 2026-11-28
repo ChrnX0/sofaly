@@ -51,6 +51,8 @@ class CatalogoAcoesTest {
         assertEquals("", (um("""{"tipo":"proximo_episodio"}""").acoes.single() as ComandosIa.Acao.ProximoEpisodio).pedido)
         assertTrue(um("""{"tipo":"continuar"}""").acoes.single() is ComandosIa.Acao.Continuar)
         assertTrue(um("""{"tipo":"o_que_estava_vendo"}""").acoes.single() is ComandosIa.Acao.OQueEstavaVendo)
+        assertEquals("Duna", (um("""{"tipo":"tirar_do_continuar","titulo":" Duna "}""").acoes.single() as ComandosIa.Acao.TirarDoContinuar).pedido)
+        assertTrue(um("""{"tipo":"tirar_do_continuar"}""").recusadas.single().contains("falta o titulo"))
     }
 
     @Test fun botaoDeOutroAppSoComPacoteValido() {
