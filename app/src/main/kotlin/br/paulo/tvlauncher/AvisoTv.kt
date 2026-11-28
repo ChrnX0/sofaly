@@ -101,6 +101,22 @@ object AvisoTv {
      * Aviso curto de confirmação ("Claude abriu a Previsão", "Despertador salvo"): substitui os Toasts do Android, que
      * eram outro formato e outro lugar da tela. Sem o serviço de acessibilidade, cai no Toast (melhor que nada).
      */
+    /** O AvisoTv como [TvNotice.Display]: os módulos de área (que não enxergam o app) mostram avisos por ele. */
+    val comoTvNotice = object : TvNotice.Display {
+        override fun show(
+            ctx: Context, title: String, text: String, seconds: Int, sound: Boolean, keepIfScreenOff: Boolean,
+            image: android.graphics.Bitmap?, icon: android.graphics.drawable.Drawable?, stay: AvisoRegras.Fica,
+            history: Boolean, priority: NaoPerturbe.Tipo, seenId: String?,
+        ): TvNotice.Result = when (mostrar(ctx, title, text, seconds, sound, keepIfScreenOff, image, icon, stay, history, priority, seenId)) {
+            Resultado.MOSTRADO -> TvNotice.Result.SHOWN
+            Resultado.GUARDADO -> TvNotice.Result.KEPT
+            Resultado.DESCARTADO -> TvNotice.Result.DROPPED
+            Resultado.SEM_ACESSIBILIDADE -> TvNotice.Result.NO_ACCESSIBILITY
+        }
+
+        override fun quick(ctx: Context, title: String, text: String, seconds: Int) = rapido(ctx, title, text, seconds)
+    }
+
     /** Distância do aviso ao pé da tela: acima dos cards da fileira de baixo (que vão até ~155 dp do pé). */
     const val AVISO_Y_DP = 164
 
