@@ -39,4 +39,29 @@ class ConfigAbaPedidaTest {
             a.finish()
         }
     }
+
+    /**
+     * Porta Sistema (Sistema, Ajuda, Avançado) na coluna estreita: nenhuma aba parte palavra no meio. Na Sala (28/11/2026)
+     * saía "Siste/ma", "Aju/da", "Avança/do": nem o mínimo cabia com o ícone. Agora, sem caber, a aba perde o ícone.
+     */
+    @Test fun abasDoSistemaNaoPartemPalavra() {
+        InstrumentationRegistry.getInstrumentation().setInTouchMode(false)
+        val app = RuntimeEnvironment.getApplication()
+        br.paulo.tvlauncher.home.SplashOverlay.setEnabled(app, false)
+        val intent = Intent(app, ConfigLauncherActivity::class.java).putExtra(ConfigLauncherActivity.EXTRA_ABA, 6)
+        val a = Robolectric.buildActivity(ConfigLauncherActivity::class.java, intent).setup().get()
+        ShadowLooper.idleMainLooper(1500, TimeUnit.MILLISECONDS)
+        val visiveis = a.itensMenu.filter { it.visibility == android.view.View.VISIBLE && it.isShown }
+        org.junit.Assert.assertTrue("a porta Sistema tem mais de uma aba", visiveis.size > 1)
+        for (t in visiveis) {
+            val l = t.layout ?: continue
+            val texto = t.text.toString()
+            for (linha in 0 until l.lineCount - 1) {
+                val fim = l.getLineEnd(linha)
+                val partiu = fim in 1 until texto.length && !texto[fim - 1].isWhitespace() && !texto[fim].isWhitespace()
+                org.junit.Assert.assertFalse("a aba \"$texto\" partiu a palavra (linha ${linha + 1} até \"${texto.substring(0, fim)}\")", partiu)
+            }
+        }
+        a.finish()
+    }
 }
