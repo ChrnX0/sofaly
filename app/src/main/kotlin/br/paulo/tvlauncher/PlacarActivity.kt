@@ -97,7 +97,7 @@ class PlacarActivity : Activity() {
             tela.name(c, nome(l.pilar))
             if (l.numero == null) tela.caption(c, getString(R.string.elv_nao_medido))
             else {
-                tela.number(c, numero(l.numero))
+                tela.number(c, numero(l.numero!!))
                 l.alvo?.let { tela.caption(c, getString(R.string.elv_alvo, numero(it))) }
                 l.medidoEm?.let {
                     tela.caption(c, if (agora - it < DateUtils.MINUTE_IN_MILLIS) getString(R.string.elv_agora)

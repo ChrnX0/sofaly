@@ -1,7 +1,6 @@
 package br.paulo.tvlauncher.observer
 
 import br.paulo.tvlauncher.alarm.AcertoAlarme
-import br.paulo.tvlauncher.player.Serie
 import org.json.JSONArray
 import org.json.JSONObject
 

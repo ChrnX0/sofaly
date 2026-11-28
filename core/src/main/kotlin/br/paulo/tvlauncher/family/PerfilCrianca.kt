@@ -1,6 +1,5 @@
 package br.paulo.tvlauncher.family
 
-import br.paulo.tvlauncher.panel.restaurar
 
 /**
  * Perfil de criança (ideia 11, 14/11/2026): uma marca por conta. Trocar PARA um perfil de criança liga, de uma vez, o
