@@ -945,7 +945,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
             val cabeca = LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL
                 addView(ImageView(context).apply {
-                    setImageDrawable(IconeOuvir(p.icone).apply { colorFilter = android.graphics.PorterDuffColorFilter(Estilo.TEXTO_2, android.graphics.PorterDuff.Mode.SRC_IN) })
+                    setImageDrawable(IconeOuvir(p.icone).apply { colorFilter = android.graphics.PorterDuffColorFilter(IconeOuvir.corEmRepouso(p.icone, Estilo.TEXTO_2), android.graphics.PorterDuff.Mode.SRC_IN) })
                 }, LinearLayout.LayoutParams(dpi(20), dpi(20)).apply { marginEnd = dpi(10) })
                 addView(Estilo.texto(context, Estilo.Papel.CORPO, p.nome.replace("\n", " · ")).apply { setTextColor(Estilo.TEXTO_2); maxLines = 1 })
             }
@@ -1023,7 +1023,15 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
     private fun atual(pid: String, i: Int): Item? = prats.firstOrNull { it.id == pid }?.itens?.getOrNull(i)
 
     private fun pintarIcone(v: ImageView, foco: Boolean) =
-        v.setColorFilter(if (foco) Estilo.corIconeNoFoco(context) else Estilo.TEXTO_2)
+        v.setColorFilter(when {
+            foco && !manterCorNoFoco(v) -> Estilo.corIconeNoFoco(context)
+            else -> (v.drawable as? IconeOuvir)?.let { IconeOuvir.corEmRepouso(it.tipo, Estilo.TEXTO_2) } ?: Estilo.TEXTO_2
+        })
+
+    /** Nos temas de ícone colorido o ícone fica na cor dele também no foco, salvo quando o foco é uma placa clara. */
+    private fun manterCorNoFoco(v: ImageView): Boolean =
+        v.drawable is IconeOuvir && !Estilo.focoEscurece(context) &&
+            br.paulo.tvlauncher.settings.SystemLook.atual.let { it.iconeColorido || it.iconeEmAzulejo } && !Estilo.altoContraste
 
     private fun preencherCartao(v: View, item: Item) {
         val c = v.tag as? Cartao ?: return

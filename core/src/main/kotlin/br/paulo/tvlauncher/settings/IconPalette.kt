@@ -42,6 +42,11 @@ object IconPalette {
         "series" to AZUL, "filmes" to VERMELHO, "rede" to TURQUESA, "addons" to LIMA, "radio" to AMARELO,
         "podcasts" to MENTA, "jogos" to VERDE, "sofa" to AREIA, "todos_apps" to CEU, "plugin" to OLIVA, "central" to ACO,
         "ferramentas" to ACO, "clima" to CEU, "ajuste" to TURQUESA, "config" to ACO, "painel" to VIOLETA, "ajuda" to VERDE,
+        // Ouvir e Jogos (IconeOuvir.Tipo em minúsculas; buscar, dormir, pausar, continuar, radio, rede e sofa já estão acima)
+        "favoritas" to VERMELHO, "recentes" to CEU, "perto" to VERDE, "pais" to AZUL, "generos" to VIOLETA, "em_alta" to AMBAR,
+        "novos" to LIMA, "meus" to AREIA, "episodios" to INDIGO, "adicionar" to VERDE, "celular" to AZUL, "podcast" to MENTA,
+        "tocando" to VERDE, "voltar" to CEU, "avancar" to TURQUESA, "velocidade" to AMARELO, "silencio" to INDIGO,
+        "parar" to VERMELHO, "sair" to ACO, "controle" to VERMELHO, "turma" to VIOLETA, "pc" to AZUL, "opcoes" to ACO,
     )
 
     /** Os tipos com cor fixa (para o teste e para a foto da paleta). */
