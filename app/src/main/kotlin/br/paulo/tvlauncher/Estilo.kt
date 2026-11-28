@@ -557,7 +557,9 @@ object Estilo {
             if (aoClicar != null) setOnClickListener { aoClicar() }
             setOnFocusChangeListener { _, foco ->
                 focarCartao(caixaV, tNome, foco)
-                desenho.definirCor(if (foco) corIconeNoFoco(ctx) else TEXTO_2)
+                // Aconchego e Azulejos: o ícone fica sempre na cor dele (o foco é o fio ou o anel); no Vidro segue o foco.
+                val proprio = br.paulo.tvlauncher.settings.SystemLook.atual.let { it.iconeColorido || it.iconeEmAzulejo }
+                desenho.definirCor(if (foco && !proprio) corIconeNoFoco(ctx) else corDoIcone(icone))
                 tDet?.visibility = if (foco) View.VISIBLE else View.INVISIBLE
             }
         }
