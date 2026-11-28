@@ -54,6 +54,8 @@ class LauncherApp : Application() {
         AppContext.app = this   // txt/txtN e os módulos de área (refatoração G)
         // Módulos de área: a assinatura do relay (cota do dia por TV) usa a chave da TV, que mora no app.
         RelaySign.headers = { m, p, b -> br.paulo.tvlauncher.relay.RelayTv.assinatura(m, p, b) }
+        // Módulos de área: o aviso na tela (TvNotice, no :core) é desenhado pelo AvisoTv, que mora no app.
+        TvNotice.display = AvisoTv.comoTvNotice
         // Módulo :weather: a fonte pelo plano mora no app.
         br.paulo.tvlauncher.weather.WeatherHost.kind = { c -> br.paulo.tvlauncher.weather.DataSources.weather(c) }
         // Módulo :media: fichas pelo TMDB conforme contrato, plano e chave (DataSources, no app).
