@@ -171,6 +171,8 @@ which references shaped the result.
   graphics, 960x540 dp TV, en + pt) into `app/build/telas/` and fails if text shrank, got cut, overlaps other text or
   focus vanished, compared with `app/src/test/telas/referencia.json`. Changed a screen on purpose (or fixed one)? Rerun
   with `-PtelasAtualizar` and commit the new reference. Workflow `telas.yml` runs it on PRs that touch screens.
+  Screens that only open with data (dialogs, requests, cast, VOD, simple mode...): `-Ptelas -PcomDados` runs
+  `TelasComDadosTest`, which fills fake data (fixtures) and saves photos to `app/build/telas/com-dados/<lang>/` plus a report (never fails).
 - Android 14 forces the HOME app to `speed-profile`; `app/src/main/baseline-prof.txt` + `androidx.profileinstaller`
   provide the profile. Debug builds run in `verify` mode: don't measure performance with them.
 - Measuring: `dumpsys gfxinfo tv.sofaly.launcher reset`, return to HOME by component name 10×, `dumpsys gfxinfo`,

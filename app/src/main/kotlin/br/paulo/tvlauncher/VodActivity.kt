@@ -1502,9 +1502,13 @@ class VodActivity : Activity() {
         else String.format(Locale.ROOT, "%d:%02d", s / 60, s % 60)
     }
 
-    internal fun mostrarAviso(t: String) { aviso.text = t; aviso.visibility = View.VISIBLE }
+    // Com a cortina na frente o aviso vai para dentro dela, embaixo do título (no meio da tela ficava por cima dele).
+    internal fun mostrarAviso(t: String) {
+        cortina?.let { CortinaVideo.aviso(it, t); aviso.visibility = View.GONE; return }
+        aviso.text = t; aviso.visibility = View.VISIBLE
+    }
     private fun tirarCortina() { cortina?.let { CortinaVideo.tirar(it) }; cortina = null }
-    internal fun esconderAviso() { aviso.visibility = View.GONE }
+    internal fun esconderAviso() { aviso.visibility = View.GONE; cortina?.let { CortinaVideo.aviso(it, null) } }
 
     internal fun vidro(raio: Int) = GradientDrawable().apply {
         cornerRadius = dp(raio).toFloat(); setColor(0xD9121212.toInt())
