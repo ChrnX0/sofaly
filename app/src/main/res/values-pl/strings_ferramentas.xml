@@ -19,6 +19,7 @@
     <string name="rt_c">C · Przestronnie</string>
     <string name="ft_tema">Motyw</string>
     <string name="ft_tema_vidro">Szkło</string>
+    <string name="ft_tema_vidro_cor">Kolorowe szkło</string>
     <string name="ft_tema_azulejos">Kafelki</string>
     <string name="ft_tema_aconchego">Przytulny</string>
     <string name="ft_foco">Fokus</string>

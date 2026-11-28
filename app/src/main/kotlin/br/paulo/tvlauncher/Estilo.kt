@@ -368,7 +368,7 @@ object Estilo {
      * Azulejos e Aconchego = a cor da caixa do tema, com no máximo 70% de opacidade para a foto ainda aparecer.
      */
     fun vidroTinta(tema: br.paulo.tvlauncher.settings.SystemLook = br.paulo.tvlauncher.settings.SystemLook.atual): Int =
-        if (tema == br.paulo.tvlauncher.settings.SystemLook.GLASS) VIDRO_TINTA
+        if (tema.vidro) VIDRO_TINTA
         else (minOf(tema.caixa ushr 24, 0xB3) shl 24) or (tema.caixa and 0xFFFFFF)
 
     // ------------------------------------------------------------------ foco (UMA regra no app inteiro)
@@ -620,6 +620,7 @@ object Estilo {
         return when {
             altoContraste -> ACENTO to DesignTokens.NIGHT
             tema.iconeEmAzulejo -> cor to DesignTokens.NIGHT
+            tema.iconeColorido && tema.vidro -> vidroTinta(tema) to cor
             tema.iconeColorido -> (tema.caixa or (0xFF shl 24)) to cor
             else -> vidroTinta(tema) to TEXTO
         }

@@ -21,13 +21,21 @@ enum class SystemLook(
     val iconeColorido: Boolean,
     /** O ícone fica dentro de um azulejo cheio na cor dele, com o desenho escuro por cima. */
     val iconeEmAzulejo: Boolean,
+    /** Caixa de vidro (translúcida, com fio claro onde fica sobre foto). */
+    val vidro: Boolean = false,
 ) {
     /** Vidro: caixa de vidro fosco (grafite a 34%) com cantos grandes; foco = placa creme com texto escuro. */
-    GLASS(0x57282826, 22, FocusStyle.BOX, iconeColorido = false, iconeEmAzulejo = false),
+    GLASS(0x57282826, 22, FocusStyle.BOX, iconeColorido = false, iconeEmAzulejo = false, vidro = true),
     /** Azulejos: caixa quase opaca, ícone em azulejo de cor cheia; foco = anel claro e o cartão cresce. */
     TILES(0xE6282826.toInt(), 16, FocusStyle.RING, iconeColorido = false, iconeEmAzulejo = true),
     /** Aconchego: caixa grafite quente, ícone com cor própria no desenho; foco = fio laranja vertical. */
-    COZY(0xDB2C2925.toInt(), 18, FocusStyle.LINE, iconeColorido = true, iconeEmAzulejo = false);
+    COZY(0xDB2C2925.toInt(), 18, FocusStyle.LINE, iconeColorido = true, iconeEmAzulejo = false),
+    /**
+     * Vidro colorido (Paulo, 28/11/2026 11:00Z: "o vidro tenha a variação atual e uma onde os desenhos dos ícones tb
+     * sejam coloridos"): o mesmo vidro do [GLASS], com o desenho de cada ícone na cor exclusiva dele. No FIM do enum:
+     * o número já gravado nas Extras continua apontando para o mesmo tema.
+     */
+    GLASS_COLOR(0x57282826, 22, FocusStyle.BOX, iconeColorido = true, iconeEmAzulejo = false, vidro = true);
 
     companion object {
         const val KEY = "system_look"
@@ -41,6 +49,7 @@ enum class SystemLook(
             "glass", "vidro" -> GLASS
             "tiles", "azulejos" -> TILES
             "cozy", "aconchego" -> COZY
+            "glass_color", "glasscolor", "vidro_colorido", "vidrocolorido" -> GLASS_COLOR
             else -> null
         }
 

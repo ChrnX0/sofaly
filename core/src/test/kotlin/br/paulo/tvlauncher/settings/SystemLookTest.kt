@@ -19,6 +19,12 @@ class SystemLookTest {
         assertEquals(SystemLook.TILES, SystemLook.deNome(" Tiles "))
         assertEquals(SystemLook.COZY, SystemLook.deNome("aconchego"))
         assertNull(SystemLook.deNome("rosa"))
+        assertEquals(SystemLook.GLASS_COLOR, SystemLook.deNome("vidro_colorido"))
+        // o número gravado de cada tema não muda: o novo entrou no fim
+        assertEquals(listOf("GLASS", "TILES", "COZY", "GLASS_COLOR"), SystemLook.entries.map { it.name })
+        // Vidro colorido = o vidro do Vidro com o desenho colorido do Aconchego
+        assertEquals(SystemLook.GLASS.caixa, SystemLook.GLASS_COLOR.caixa)
+        assertTrue(SystemLook.GLASS_COLOR.vidro && SystemLook.GLASS_COLOR.iconeColorido && !SystemLook.GLASS.iconeColorido)
     }
 
     @Test fun cadaTemaTemSeuFoco() {

@@ -19,6 +19,7 @@
     <string name="rt_c">C · Luchtig</string>
     <string name="ft_tema">Thema</string>
     <string name="ft_tema_vidro">Glas</string>
+    <string name="ft_tema_vidro_cor">Gekleurd glas</string>
     <string name="ft_tema_azulejos">Tegels</string>
     <string name="ft_tema_aconchego">Gezellig</string>
     <string name="ft_foco">Focus</string>

@@ -175,6 +175,7 @@ object RowsHome {
         val cor = br.paulo.tvlauncher.settings.IconPalette.cor(tipo)
         return when {
             look.iconeEmAzulejo -> OwnLook(cor, br.paulo.tvlauncher.DesignTokens.NIGHT, true)
+            look.iconeColorido && look.vidro -> OwnLook(look.caixa, cor, true, VIDRO_FIO)
             look.iconeColorido -> OwnLook(null, cor, true)
             else -> OwnLook(look.caixa, null, false, VIDRO_FIO)
         }

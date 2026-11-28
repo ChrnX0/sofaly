@@ -19,6 +19,7 @@
     <string name="rt_c">C · Luftigt</string>
     <string name="ft_tema">Tema</string>
     <string name="ft_tema_vidro">Glas</string>
+    <string name="ft_tema_vidro_cor">Färgat glas</string>
     <string name="ft_tema_azulejos">Plattor</string>
     <string name="ft_tema_aconchego">Mysig</string>
     <string name="ft_foco">Fokus</string>

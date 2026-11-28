@@ -19,6 +19,7 @@
     <string name="rt_c">C · Aéré</string>
     <string name="ft_tema">Thème</string>
     <string name="ft_tema_vidro">Verre</string>
+    <string name="ft_tema_vidro_cor">Verre coloré</string>
     <string name="ft_tema_azulejos">Carreaux</string>
     <string name="ft_tema_aconchego">Cocooning</string>
     <string name="ft_foco">Focus</string>

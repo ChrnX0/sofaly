@@ -419,6 +419,7 @@ class FineTuneActivity : Activity() {
         br.paulo.tvlauncher.settings.SystemLook.GLASS -> R.string.ft_tema_vidro
         br.paulo.tvlauncher.settings.SystemLook.TILES -> R.string.ft_tema_azulejos
         br.paulo.tvlauncher.settings.SystemLook.COZY -> R.string.ft_tema_aconchego
+        br.paulo.tvlauncher.settings.SystemLook.GLASS_COLOR -> R.string.ft_tema_vidro_cor
     })
     private fun nomeFoco(k: br.paulo.tvlauncher.settings.FocusStyle) = getString(when (k) {
         br.paulo.tvlauncher.settings.FocusStyle.LINE -> R.string.ft_foco_fio

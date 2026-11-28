@@ -1479,10 +1479,13 @@ body:not([data-papel="dono"]) #cartaoApp { display: none !important; }
    Aconchego: cada ícone na cor exclusiva dele (--cor-icone, a mesma da TV). Azulejos: a cor vira o fundo do quadrado
    do ícone e o traço fica escuro. Vidro: cartões translúcidos sobre a arte, com desfoque. */
 html[data-look="cozy"] .aba .ic svg.i,
+html[data-look="glass_color"] .aba .ic svg.i,
 html[data-look="cozy"] .linha-hub .ic svg.i,
+html[data-look="glass_color"] .linha-hub .ic svg.i,
 html[data-look="cozy"] .rapido button svg.i,
-html[data-look="cozy"] h2 svg.i { color: var(--cor-icone, currentColor); }
-html[data-look="cozy"] .aba.ativa .ic svg.i { color: var(--selecao-texto); }
+html[data-look="glass_color"] .rapido button svg.i,
+html[data-look="cozy"] h2 svg.i, html[data-look="glass_color"] h2 svg.i { color: var(--cor-icone, currentColor); }
+html[data-look="cozy"] .aba.ativa .ic svg.i, html[data-look="glass_color"] .aba.ativa .ic svg.i { color: var(--selecao-texto); }
 html[data-look="tiles"] .linha-hub .ic:has(svg.i) { background: var(--cor-azulejo, var(--superficie2)); color: var(--t-night); }
 html[data-look="tiles"] .linha-hub .ic svg.i { color: var(--t-night); }
 html[data-look="tiles"] .aba:not(.ativa) .ic:has(svg.i) { background: var(--cor-azulejo, var(--superficie2)) !important; }
@@ -1491,12 +1494,13 @@ html[data-look="tiles"] .aba:not(.ativa) .ic svg.i { color: var(--t-night); }
   /* grafite com um toque quente, nunca marrom (Paulo, 27/11/2026: fundos marrons viraram grafite) */
   html[data-look="cozy"] { --superficie: #292826; --superficie2: #33322f; --superficie-hover: #3a3936; }
   html[data-look="tiles"] { --superficie: #282826; --superficie2: #323230; }
-  html[data-look="glass"] .cartao { background: rgba(40, 40, 38, .55); border-color: rgba(255, 255, 255, .10);
+  html[data-look="glass"] .cartao, html[data-look="glass_color"] .cartao { background: rgba(40, 40, 38, .55); border-color: rgba(255, 255, 255, .10);
     -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
 }
 @media (prefers-color-scheme: light) {
   html[data-look="cozy"] .aba .ic svg.i, html[data-look="cozy"] .linha-hub .ic svg.i,
-  html[data-look="cozy"] .rapido button svg.i, html[data-look="cozy"] h2 svg.i {
+  html[data-look="cozy"] .rapido button svg.i, html[data-look="cozy"] h2 svg.i,
+  html[data-look="glass_color"] .aba .ic svg.i, html[data-look="glass_color"] .linha-hub .ic svg.i, html[data-look="glass_color"] h2 svg.i {
     color: color-mix(in srgb, var(--cor-icone, currentColor) 65%, #000); }
 }
 html[data-contraste="alto"] svg.i { color: currentColor !important; }

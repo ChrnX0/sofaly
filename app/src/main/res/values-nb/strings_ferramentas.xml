@@ -19,6 +19,7 @@
     <string name="rt_c">C · Luftig</string>
     <string name="ft_tema">Tema</string>
     <string name="ft_tema_vidro">Glass</string>
+    <string name="ft_tema_vidro_cor">Farget glass</string>
     <string name="ft_tema_azulejos">Fliser</string>
     <string name="ft_tema_aconchego">Koselig</string>
     <string name="ft_foco">Fokus</string>

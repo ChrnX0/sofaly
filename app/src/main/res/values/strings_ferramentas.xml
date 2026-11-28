@@ -19,6 +19,7 @@
     <string name="rt_c">C · Airy</string>
     <string name="ft_tema">Theme</string>
     <string name="ft_tema_vidro">Glass</string>
+    <string name="ft_tema_vidro_cor">Colored glass</string>
     <string name="ft_tema_azulejos">Tiles</string>
     <string name="ft_tema_aconchego">Cozy</string>
     <string name="ft_foco">Focus</string>

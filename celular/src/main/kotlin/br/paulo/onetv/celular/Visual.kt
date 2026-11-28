@@ -30,7 +30,7 @@ object Visual {
         private set
 
     fun guardarLook(ctx: Context, nome: String?) {
-        val n = nome?.takeIf { it in setOf("cozy", "tiles", "glass") } ?: return
+        val n = nome?.takeIf { it in setOf("cozy", "tiles", "glass", "glass_color") } ?: return
         look = n
         runCatching { ctx.getSharedPreferences("visual", Context.MODE_PRIVATE).edit().putString("look", n).apply() }
     }

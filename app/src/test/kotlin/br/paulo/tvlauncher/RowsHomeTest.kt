@@ -133,6 +133,8 @@ class RowsHomeTest {
         val glass = RowsHome.ownLook(br.paulo.tvlauncher.settings.SystemLook.GLASS, "SERIES", RowsHome.DEFAULT)
         assertEquals(br.paulo.tvlauncher.settings.SystemLook.GLASS.caixa, glass.placa)
         assertEquals(null, glass.tinta); assertTrue(!glass.manterNoFoco && glass.borda != 0)
+        val vidroCor = RowsHome.ownLook(br.paulo.tvlauncher.settings.SystemLook.GLASS_COLOR, "SERIES", RowsHome.DEFAULT)
+        assertEquals(RowsHome.OwnLook(br.paulo.tvlauncher.settings.SystemLook.GLASS.caixa, br.paulo.tvlauncher.settings.IconPalette.cor("series"), true, RowsHome.VIDRO_FIO), vidroCor)
         val proprio = RowsHome.ownLook(L, "SERIES", RowsHome.DEFAULT.copy(cardBg = RowsHome.CardBg.BLACK))
         assertEquals(RowsHome.OwnLook(null, null, false), proprio)
         // itens diferentes da mesma fileira ganham cores diferentes

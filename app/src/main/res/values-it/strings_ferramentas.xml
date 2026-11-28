@@ -19,6 +19,7 @@
     <string name="rt_c">C · Ariosa</string>
     <string name="ft_tema">Tema</string>
     <string name="ft_tema_vidro">Vetro</string>
+    <string name="ft_tema_vidro_cor">Vetro colorato</string>
     <string name="ft_tema_azulejos">Piastrelle</string>
     <string name="ft_tema_aconchego">Accogliente</string>
     <string name="ft_foco">Focus</string>

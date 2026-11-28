@@ -19,6 +19,7 @@
     <string name="rt_c">C · Levegős</string>
     <string name="ft_tema">Téma</string>
     <string name="ft_tema_vidro">Üveg</string>
+    <string name="ft_tema_vidro_cor">Színes üveg</string>
     <string name="ft_tema_azulejos">Csempék</string>
     <string name="ft_tema_aconchego">Otthonos</string>
     <string name="ft_foco">Fókusz</string>

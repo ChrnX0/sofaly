@@ -19,6 +19,7 @@
     <string name="rt_c">C · Aire</string>
     <string name="ft_tema">Tema</string>
     <string name="ft_tema_vidro">Cristal</string>
+    <string name="ft_tema_vidro_cor">Cristal de color</string>
     <string name="ft_tema_azulejos">Azulejos</string>
     <string name="ft_tema_aconchego">Acogedor</string>
     <string name="ft_foco">Foco</string>

@@ -19,6 +19,7 @@
     <string name="rt_c">C · 여유롭게</string>
     <string name="ft_tema">테마</string>
     <string name="ft_tema_vidro">유리</string>
+    <string name="ft_tema_vidro_cor">컬러 유리</string>
     <string name="ft_tema_azulejos">타일</string>
     <string name="ft_tema_aconchego">아늑함</string>
     <string name="ft_foco">포커스</string>

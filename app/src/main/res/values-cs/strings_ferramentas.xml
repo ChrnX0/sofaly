@@ -19,6 +19,7 @@
     <string name="rt_c">C · Vzdušné</string>
     <string name="ft_tema">Motiv</string>
     <string name="ft_tema_vidro">Sklo</string>
+    <string name="ft_tema_vidro_cor">Barevné sklo</string>
     <string name="ft_tema_azulejos">Dlaždice</string>
     <string name="ft_tema_aconchego">Útulný</string>
     <string name="ft_foco">Fokus</string>

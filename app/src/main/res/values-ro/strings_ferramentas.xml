@@ -19,6 +19,7 @@
     <string name="rt_c">C · Aerisit</string>
     <string name="ft_tema">Temă</string>
     <string name="ft_tema_vidro">Sticlă</string>
+    <string name="ft_tema_vidro_cor">Sticlă colorată</string>
     <string name="ft_tema_azulejos">Plăci</string>
     <string name="ft_tema_aconchego">Primitor</string>
     <string name="ft_foco">Focalizare</string>

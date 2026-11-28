@@ -19,6 +19,7 @@
     <string name="rt_c">C · Просторіше</string>
     <string name="ft_tema">Тема</string>
     <string name="ft_tema_vidro">Скло</string>
+    <string name="ft_tema_vidro_cor">Кольорове скло</string>
     <string name="ft_tema_azulejos">Плитки</string>
     <string name="ft_tema_aconchego">Затишок</string>
     <string name="ft_foco">Фокус</string>
