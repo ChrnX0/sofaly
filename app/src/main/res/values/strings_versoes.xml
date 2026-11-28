@@ -31,6 +31,9 @@
         <item>Home screen: the row that scrolls up no longer seems to slide under the summary</item>
         <item>Games and Listen use the same graphite as the other screens</item>
         <item>Night filter: while the TV is off the amber layer goes away and frees memory; it comes back as soon as the screen turns on</item>
+        <item>Themes: pick the look of the whole system in Fine tune › Theme. The new Colored glass is the default (glass boxes, each icon in its own colour); Cozy, Tiles and Glass are there too. It applies to the TV, Settings, the web panel and the phone</item>
+        <item>Settings: tabs show their whole name without splitting a word; without room they drop the icon</item>
+        <item>AdGuard DNS: parental controls apply all day; bedtime stays on the TV</item>
     </string-array>
     <string-array name="roteiro_ids" translatable="false">
         <item>celular_camera</item>
@@ -40,6 +43,8 @@
         <item>adguard_dns</item>
         <item>tirar_continuar</item>
         <item>filtro_noturno_acordar</item>
+        <item>tema_sistema</item>
+        <item>abas_sistema</item>
     </string-array>
     <string-array name="roteiro_titulos">
         <item>Phone camera</item>
@@ -49,6 +54,8 @@
         <item>AdGuard DNS</item>
         <item>Remove from Continue watching</item>
         <item>Night filter</item>
+        <item>Theme</item>
+        <item>System tabs</item>
     </string-array>
     <string-array name="roteiro_perguntas">
         <item>In the phone app, tap Read the TV\'s QR code and answer Don\'t allow to the camera question: does the app offer Try again, in the phone\'s language?</item>
@@ -58,5 +65,7 @@
         <item>In the panel, open Router › AdGuard DNS, paste the key and tap Connect the TV to AdGuard: does Settings › Network › Private DNS show “AdGuard (personal)” and does Diagnostics show the AdGuard line?</item>
         <item>In Movies › Continue watching, open a movie\'s page and tap Remove from Continue watching: does it leave the Continue watching row and the Movies highlight on the home screen?</item>
         <item>At night, with the night filter on, turn the TV off and on again: does the amber come back right away?</item>
+        <item>Are the home screen and Settings in Colored glass (glass boxes, each icon a different colour)? Does changing the theme in Fine tune › Theme change everything right away?</item>
+        <item>In Settings › System, do the System, Help and Advanced tabs show their whole name without splitting the word?</item>
     </string-array>
 </resources>
