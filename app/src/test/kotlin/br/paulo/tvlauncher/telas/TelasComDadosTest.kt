@@ -9,6 +9,7 @@ import android.content.pm.PackageInfo
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.view.KeyEvent
+import android.view.View
 import androidx.test.platform.app.InstrumentationRegistry
 import br.paulo.tvlauncher.ConfirmacoesTv
 import br.paulo.tvlauncher.ConfirmarIaActivity
@@ -118,6 +119,30 @@ class TelasComDadosTest {
         caso("modo-simples", ::modoSimples)
         caso("elenco", ::elenco)
         caso("video-vod", ::vod)
+        caso("filmes") { comDados(br.paulo.tvlauncher.FilmesActivity::class.java, "filmes", listOf(
+            "-ficha" to listOf(KeyEvent.KEYCODE_DPAD_CENTER))) }
+        caso("series") { comDados(br.paulo.tvlauncher.SeriesActivity::class.java, "series", listOf(
+            "-ficha" to listOf(KeyEvent.KEYCODE_DPAD_CENTER))) }
+        caso("tv-ao-vivo") { comDados(br.paulo.tvlauncher.PlayerActivity::class.java, "tv-ao-vivo", listOf(
+            "-lista" to listOf(KeyEvent.KEYCODE_DPAD_CENTER))) }
+        val baixo = KeyEvent.KEYCODE_DPAD_DOWN
+        caso("radio") { comDados(br.paulo.tvlauncher.RadioActivity::class.java, "radio", listOf(
+            "-recentes" to listOf(baixo), "-perto" to listOf(baixo), "-paises" to listOf(baixo, baixo, baixo))) }
+        caso("podcasts") { comDados(br.paulo.tvlauncher.PodcastsActivity::class.java, "podcasts", listOf(
+            "-novos" to listOf(baixo), "-meus" to listOf(baixo), "-episodios" to listOf(KeyEvent.KEYCODE_DPAD_CENTER))) }
+        caso("clima") { comDados(br.paulo.tvlauncher.PrevisaoActivity::class.java, "clima", listOf(
+            "-dias" to listOf(baixo), "-mais" to listOf(baixo))) }
+        caso("jogos") { comDados(br.paulo.tvlauncher.JogosActivity::class.java, "jogos", listOf(
+            "-cima" to listOf(KeyEvent.KEYCODE_DPAD_UP), "-cima-lado" to listOf(KeyEvent.KEYCODE_DPAD_RIGHT))) }
+        // A aba 8 (Avançado) fica de fora: aberta direto pelo EXTRA_ABA, o teste não volta (28/11/2026; a Avançado é
+        // fotografada pelo SubmenusTelasTest, entrando pela grade).
+        for (aba in 0..7) caso("config-aba-$aba") {
+            comDados(br.paulo.tvlauncher.ConfigLauncherActivity::class.java, "config-aba-$aba") {
+                it.putExtra(br.paulo.tvlauncher.ConfigLauncherActivity.EXTRA_ABA, aba)
+            }
+        }
+        caso("casa") { comDados(br.paulo.tvlauncher.CasaActivity::class.java, "casa", listOf(
+            "-ajuste" to listOf(KeyEvent.KEYCODE_DPAD_RIGHT, KeyEvent.KEYCODE_DPAD_RIGHT, KeyEvent.KEYCODE_DPAD_RIGHT, KeyEvent.KEYCODE_DPAD_CENTER))) }
 
         relatorio.append("\n## Fora desta lista\n")
         FORA.forEach { relatorio.append("- ").append(it).append('\n') }
@@ -140,7 +165,13 @@ class TelasComDadosTest {
     }
 
     private fun tecla(a: Activity, k: Int) {
-        a.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, k)); a.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_UP, k))
+        val tratou = a.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, k)); a.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_UP, k))
+        // As setas, numa TV, andam o foco pelo ViewRootImpl, que o dispatchKeyEvent da Activity não passa: aqui, à mão.
+        val dir = when (k) {
+            KeyEvent.KEYCODE_DPAD_DOWN -> View.FOCUS_DOWN; KeyEvent.KEYCODE_DPAD_UP -> View.FOCUS_UP
+            KeyEvent.KEYCODE_DPAD_LEFT -> View.FOCUS_LEFT; KeyEvent.KEYCODE_DPAD_RIGHT -> View.FOCUS_RIGHT; else -> null
+        }
+        if (!tratou && dir != null) a.window.decorView.findFocus()?.focusSearch(dir)?.requestFocus(dir)
         ShadowLooper.idleMainLooper(500, TimeUnit.MILLISECONDS)
     }
 
@@ -197,6 +228,25 @@ class TelasComDadosTest {
             pm.addActivityIfNotPresent(c)
             pm.addIntentFilterForActivity(c, IntentFilter(Intent.ACTION_MAIN).apply { addCategory(Intent.CATEGORY_LEANBACK_LAUNCHER) })
         }
+    }
+
+    /**
+     * Abre [cls] com os dados da área ([DadosDeTeste]), fotografa e, para cada passo de [passos] (sufixo da foto e teclas),
+     * aperta as teclas e fotografa de novo.
+     */
+    private fun comDados(cls: Class<out Activity>, nome: String, passos: List<Pair<String, List<Int>>> = emptyList(),
+                         extras: (Intent) -> Unit = {}) {
+        val app = RuntimeEnvironment.getApplication()
+        DadosDeTeste.preparar(app, cls.simpleName, lingua)
+        try {
+            val a = Robolectric.buildActivity(cls, Intent(app, cls).also(extras)).setup().get()
+            esperar(3000); foto(a, nome)
+            for ((sufixo, teclas) in passos) {
+                teclas.forEach { tecla(a, it) }
+                esperar(1500); foto(a, nome, sufixo)
+            }
+            a.finish()
+        } finally { DadosDeTeste.limpar() }
     }
 
     // ================================================================ telas

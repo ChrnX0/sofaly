@@ -234,6 +234,9 @@ class PlayerActivity : Activity() {
             setPaddingRelative(dp(24), dp(16), dp(24), dp(16)); text = getString(R.string.player_carregando)
         }
         raiz.addView(aviso, FrameLayout.LayoutParams(-2, -2, Gravity.CENTER))
+        // Com a lista de canais aberta, o aviso no meio caía em cima das linhas (teste de telas com dados, 28/11/2026):
+        // vai para o pé da coluna de detalhes, à direita. Abrir e fechar a lista refaz o layout e passa por aqui.
+        raiz.viewTreeObserver.addOnGlobalLayoutListener { posicionarAviso() }
         setContentView(raiz)
         Gravacoes.ouvir(mudouGravacao)
         carregar()
@@ -1334,6 +1337,17 @@ class PlayerActivity : Activity() {
     // Um só "esconder depois" por vez: o de um aviso breve anterior (ex.: "favorito") apagava um aviso novo e importante
     // ("canal bloqueado", "sem sinal") antes da hora. Cada aviso novo cancela o esconder pendente.
     private val esconderAvisoDepois = Runnable { esconderAviso() }
+    private fun posicionarAviso() {
+        val lp = aviso.layoutParams as? FrameLayout.LayoutParams ?: return
+        val naLista = lista.aberta
+        val gravidade = if (naLista) Gravity.BOTTOM or Gravity.END else Gravity.CENTER
+        if (lp.gravity == gravidade) return
+        lp.gravity = gravidade
+        lp.width = if (naLista) dp(290) else FrameLayout.LayoutParams.WRAP_CONTENT
+        if (naLista) lp.setMargins(0, 0, dp(Estilo.MARGEM_LATERAL), dp(40)) else lp.setMargins(0, 0, 0, 0)
+        aviso.layoutParams = lp
+    }
+
     private fun mostrarAviso(t: String) { tela.removeCallbacks(esconderAvisoDepois); aviso.text = t; aviso.visibility = View.VISIBLE }
     private fun esconderAviso() { tela.removeCallbacks(avisoCarregando); tela.removeCallbacks(esconderAvisoDepois); aviso.visibility = View.GONE }
     private fun mostrarAvisoBreve(t: String, ms: Long = 2_500) { mostrarAviso(t); tela.postDelayed(esconderAvisoDepois, ms) }
