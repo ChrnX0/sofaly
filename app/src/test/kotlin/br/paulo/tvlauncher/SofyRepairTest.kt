@@ -135,6 +135,35 @@ class SofyRepairTest {
         assertEquals(Step.Done, SofyRepair.next(c, emptyMap(), env()))
         assertEquals(0, SofyRepair.prune(listOf(c), t0 + 4 * SofyRepair.DAY).size)
     }
+
+    /** Sala, 26/11/2026: 48 casos "norm:c_13"... de um teste sem marca gastavam a IA toda noite e ensinavam errado. */
+    @Test fun casosFalsosSaemEApagamOQueEnsinaram() {
+        val falso = open(Type.INCOHERENT, "norm:c_13")
+        val deVerdade = open(Type.INCOHERENT, "norm:count.player.open.fail")
+        val tela = open(Type.SCREEN_BROKEN, "screen:podcasts")
+        assertTrue(SofyRepair.phantom(falso))
+        assertFalse(SofyRepair.phantom(deVerdade)); assertFalse(SofyRepair.phantom(tela))
+        assertTrue(SofyRepair.phantomKey("INCOHERENT:norm:d_19")); assertFalse(SofyRepair.phantomKey("INCOHERENT:norm:count.x.y.ok"))
+        val aprendido: br.paulo.tvlauncher.observer.SofyLearned = mapOf(
+            "INCOHERENT:norm" to mapOf(Tool.RESTART_TUNNEL to SofyRepair.Score(ok = 33)),
+            "ACCESS_LOST:shell" to mapOf(Tool.REPAIR_SHELL to SofyRepair.Score(ok = 1, fail = 4)))
+        val (cs, l) = SofyRepair.cleanPhantoms(listOf(falso, deVerdade, tela), aprendido)
+        assertEquals(listOf(deVerdade, tela), cs)
+        assertEquals(setOf("ACCESS_LOST:shell"), l.keys)
+        // Sem caso falso, nada muda (nem o aprendizado).
+        assertEquals(listOf(deVerdade) to aprendido, SofyRepair.cleanPhantoms(listOf(deVerdade), aprendido))
+        // E a poda também tira o falso, mesmo novo.
+        assertEquals(listOf(deVerdade), SofyRepair.prune(listOf(falso, deVerdade), t0 + min))
+    }
+
+    @Test fun casoDeTesteNaoEnsinaEDuraPouco() {
+        val teste = open(Type.ERROR, "data:teste").copy(detail = SofyRepair.TEST_MARK + " pelo adb")
+        assertTrue(SofyRepair.learn(emptyMap(), teste, Tool.REFRESH_DATA, fixed = true).isEmpty())
+        val real = open(Type.ERROR, "data:teste")
+        assertEquals(1, SofyRepair.learn(emptyMap(), real, Tool.REFRESH_DATA, fixed = true).size)
+        val depois = teste.lastAt + SofyRepair.TEST_STALE_MS
+        assertEquals(listOf(real), SofyRepair.prune(listOf(teste, real), depois))
+    }
 }
 
 /** O barramento como fonte de sinais e a IA do dono (qualquer provedor, inclusive local). */
