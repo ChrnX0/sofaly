@@ -268,12 +268,17 @@ object SofyRepairTv {
         SofyBusTv.events(app).filter { it.at > lidoAte && it.at <= now }.mapNotNull { SofyRepair.fromBus(it) }.forEach { add(app, it) }
         p.edit().putLong("bus_read", now).apply()
 
-        var cases = SofyRepair.prune(loadCases(app), now)
+        var learned = loadLearned(app)
+        // Casos falsos (SofyRepair.phantom): saem antes da poda, levando o aprendizado que fizeram e os avisos de espera.
+        val (semFalsos, aprendidoLimpo) = SofyRepair.cleanPhantoms(loadCases(app), learned)
+        if (aprendidoLimpo !== learned) { learned = aprendidoLimpo; saveLearned(app, learned); Log.i(TAG, "casos falsos limpos") }
+        p.all.keys.filter { it.startsWith("wait:") && SofyRepair.phantomKey(it.removePrefix("wait:")) }
+            .takeIf { it.isNotEmpty() }?.let { ks -> p.edit().apply { ks.forEach { remove(it) } }.apply() }
+        var cases = SofyRepair.prune(semFalsos, now)
         if (p.getInt("ban_version", 0) != br.paulo.tvlauncher.BuildConfig.VERSION_CODE) {
             cases = SofyRepair.unban(cases)
             p.edit().putInt("ban_version", br.paulo.tvlauncher.BuildConfig.VERSION_CODE).apply()
         }
-        var learned = loadLearned(app)
         val ruinsAgora = ruins.map { SofyRepair.key(it.type, it.subject) }.toSet()
         val comSonda = probes.map { SofyRepair.key(it.type, it.subject) }.toSet()
 
