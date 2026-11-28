@@ -590,6 +590,35 @@ object Estilo {
      * A cor do desenho de um ícone no tema atual (28/11/2026): no Aconchego, a cor exclusiva do ícone (IconPalette);
      * nos Azulejos, grafite escuro (o desenho fica sobre o azulejo colorido); no Vidro, o creme do texto secundário.
      */
+    /**
+     * Ícone solto (sem azulejo atrás: lista de menu, linha de ajuste) no tema atual: Aconchego e Azulejos = a cor
+     * exclusiva do ícone; Vidro = o creme de sempre (TEXTO_2); alto contraste = TEXTO.
+     */
+    fun corDoIconeSolto(tipo: String): Int {
+        val tema = br.paulo.tvlauncher.settings.SystemLook.atual
+        return when {
+            altoContraste -> TEXTO
+            tema.iconeColorido || tema.iconeEmAzulejo -> br.paulo.tvlauncher.settings.IconPalette.cor(tipo)
+            else -> TEXTO_2
+        }
+    }
+
+    /**
+     * O azulejo grande de um ícone (coluna da esquerda das Configurações, telas guiadas) no tema atual: (fundo, traço).
+     * Aconchego = caixa do tema com o traço na cor do ícone; Azulejos = a cor do ícone com traço escuro; Vidro = vidro
+     * com traço creme; alto contraste = o laranja com traço escuro (o de antes).
+     */
+    fun azulejoDoIcone(tipo: String): Pair<Int, Int> {
+        val tema = br.paulo.tvlauncher.settings.SystemLook.atual
+        val cor = br.paulo.tvlauncher.settings.IconPalette.cor(tipo)
+        return when {
+            altoContraste -> ACENTO to DesignTokens.NIGHT
+            tema.iconeEmAzulejo -> cor to DesignTokens.NIGHT
+            tema.iconeColorido -> (tema.caixa or (0xFF shl 24)) to cor
+            else -> vidroTinta(tema) to TEXTO
+        }
+    }
+
     fun corDoIcone(tipo: String): Int {
         val tema = br.paulo.tvlauncher.settings.SystemLook.atual
         return when {
